@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/first_fl"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/actionbar_blue" />
+
+    <FrameLayout
+        android:id="@+id/second_fl"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/text_green"
+        android:visibility="invisible" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dp" >
+
+            <TextView
+                android:id="@+id/main_tv"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#55ddffdd"
+                android:text="main view" />
+
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="fill_parent"
+                android:layout_toRightOf="@id/main_tv"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="#5500ff00"
+                    android:text="first view" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="#5588ff00"
+                    android:text="second view" />
+            </LinearLayout>
+        </RelativeLayout>
+    </FrameLayout>
+
+    <com.basesmartframe.gesture.SlidingLeftViewLayout
+        android:id="@+id/sliding_fl"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/first_fl" >
+
+        <RelativeLayout
+            android:id="@+id/content_ll"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/first_ll"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/text_blue"
+                android:orientation="horizontal" />
+
+            <Button
+                android:id="@+id/b1"
+                android:layout_width="100dp"
+                android:layout_height="fill_parent"
+                android:background="@color/text_red"
+                android:text="button1"
+                android:layout_toRightOf="@id/first_ll"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/b2"
+                android:layout_width="100dp"
+                android:layout_height="fill_parent"
+                android:background="@color/text_red"
+                android:text="button2"
+                android:layout_toRightOf="@id/b1"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+    </com.basesmartframe.gesture.SlidingLeftViewLayout>
+
+</RelativeLayout>

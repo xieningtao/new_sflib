@@ -1,0 +1,97 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" >
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="PullRefreshProgressing">
+        <item name="frame_animation">@drawable/animation_pull_refresh_progressing</item>
+        <item name="frame_scale">WRAP_CONTENT</item>
+    </style>
+
+    <style name="circle_click_shadow">
+        <item name="android:background">@drawable/circle_click_bk</item>
+    </style>
+
+    <style name="rectangle_click_shadow">
+        <item name="android:background">@drawable/rectangle_click_bk</item>
+    </style>
+
+    <style name="video_seekbar" parent="android:Widget.SeekBar">
+        <item name="android:progressDrawable">@drawable/video_horizontal</item>
+        <item name="android:thumb">@drawable/seekbar_thumb</item>
+    </style>
+
+    <style name="Widget.ProgressBar.VideoShow" parent="android:Widget">
+        <item name="android:indeterminateOnly">true</item>
+        <item name="android:indeterminateDrawable">@drawable/animation_loading_progress</item>
+        <item name="android:indeterminateBehavior">repeat</item>
+        <item name="android:indeterminateDuration">1500</item>
+        <item name="android:minWidth">29dip</item>
+        <item name="android:maxWidth">60dip</item>
+        <item name="android:minHeight">29dip</item>
+        <item name="android:maxHeight">60dip</item>
+    </style>
+
+    <style name="MessageDiloag">
+        <item name="android:windowEnterAnimation">@anim/message_dialog_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/message_dialog_fade_out</item>
+    </style>
+
+    <style name="shareDialog">
+        <item name="android:windowEnterAnimation">@anim/message_dialog_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/message_dialog_fade_out</item>
+        <item name="android:windowBackground">@color/text_red</item>
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+
+    <style name="videoShareDialog">
+        <item name="android:windowAnimationStyle">@style/bottom_top_animation</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowFrame">@null</item>
+    </style>
+    <style name="livingShareDialog">
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowFrame">@null</item>
+    </style>
+
+    <style name="Theme.Dialog.Kiwi.ls_videoShareDialog" parent="@style/videoShareDialog">
+        <item name="android:windowAnimationStyle">@style/right_left_animation</item>
+    </style>
+
+    <style name="bottom_top_animation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_from_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_to_bottom</item>
+    </style>
+
+    <style name="right_left_animation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_from_right</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_to_right</item>
+    </style>
+
+    <style name="scale_leftRight_animation">
+        <item name="android:windowEnterAnimation">@anim/scaleup_to_right</item>
+        <item name="android:windowExitAnimation">@anim/scaledown_to_left</item>
+    </style>
+
+</resources>

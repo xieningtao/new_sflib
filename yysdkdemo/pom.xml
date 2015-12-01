@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.sf.lib</groupId>
+        <artifactId>parent</artifactId>
+        <version>${lib_version}</version>
+        <relativePath>../</relativePath>
+    </parent>
+    <artifactId>yysdkdemo</artifactId>
+    <packaging>aar</packaging>
+    <name>yysdkdemo</name>
+
+    <properties>
+        <yymediacodec-version>1.0.5</yymediacodec-version>
+        <yyprotosdk-version>2.95.12</yyprotosdk-version>
+        <goson_version>2.2.4</goson_version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yy.android.medialibrary</groupId>
+            <artifactId>mediacodec</artifactId>
+            <version>${yymediacodec-version}</version>
+            <classifier>armeabi-v7a</classifier>
+            <type>so</type>
+        </dependency>
+        <dependency>
+            <groupId>com.yy.android.yyprotosdk</groupId>
+            <artifactId>mediatrans</artifactId>
+            <version>${yyprotosdk-version}</version>
+            <classifier>armeabi-v7a</classifier>
+            <type>so</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yy.android.yyprotosdk</groupId>
+            <artifactId>yyprotosdk</artifactId>
+            <version>${yyprotosdk-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yy.android.yyprotosdk</groupId>
+            <artifactId>signalsdk</artifactId>
+            <version>${yyprotosdk-version}</version>
+            <classifier>armeabi-v7a</classifier>
+            <type>so</type>
+        </dependency>
+
+
+
+        <dependency>
+            <groupId>com.sf.lib</groupId>
+            <artifactId>http</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <type>aar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${goson_version}</version>
+        </dependency>
+    </dependencies>
+
+
+</project>

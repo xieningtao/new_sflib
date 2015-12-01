@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <com.sflib.CustomView.viewevent.view.MyLinearLayout
+        android:id="@+id/ll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff00ff00"
+        android:orientation="vertical"
+        >
+
+        <com.sflib.CustomView.viewevent.view.MyTextView
+            android:id="@+id/tv"
+            android:layout_width="fill_parent"
+            android:layout_height="200dp"
+            android:background="#44ff0000"
+            android:gravity="center"
+            android:text="Hello World, ViewEventActivity"
+            />
+    </com.sflib.CustomView.viewevent.view.MyLinearLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#ff0000ff"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffffff"
+                    android:padding="8dp"
+                    android:text="linearLayout"
+                    android:textColor="#ff000000"
+                    android:textSize="20sp"
+                    />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffff0000"
+                    android:padding="8dp"
+                    android:text="dispatch"
+                    />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    >
+
+                    <ToggleButton
+                        android:id="@+id/ll_dispatch_down_tb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:textOff="down_off"
+                        android:textOn="down_on"
+                        />
+
+                    <ToggleButton
+                        android:id="@+id/ll_dispatch_up_tb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:textOff="up_off"
+                        android:textOn="up_on"
+                        android:visibility="gone"
+                        />
+
+                    <ToggleButton
+                        android:id="@+id/ll_dispatch_move_tb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:textOff="move_off"
+                        android:textOn="move_on"
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffff0000"
+                    android:padding="8dp"
+                    android:text="ontouchevent"
+                    />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    >
+
+                    <ToggleButton
+                        android:id="@+id/ll_touch_down_tb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textOff="down_off"
+                        android:textOn="down_on"
+                        />
+
+                    <ToggleButton
+                        android:id="@+id/ll_touch_move_tb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textOff="moveoff"
+                        android:textOn="moveon"
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffff0000"
+                    android:padding="8dp"
+                    android:text="onintercepterevent"
+                    />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    >
+
+                    <ToggleButton
+                        android:id="@+id/ll_intercept_down_tb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textOff="downoff"
+                        android:textOn="downon"
+                        />
+
+                    <ToggleButton
+                        android:id="@+id/ll_intercept_move_tb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textOff="moveoff"
+                        android:textOn="moveon"
+                        />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="fill_parent"
+                android:background="#ff00ff00"
+                />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#ff0000ff"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffffff"
+                    android:padding="8dp"
+                    android:text="textview"
+                    android:textColor="#ff000000"
+                    android:textSize="20sp"
+                    />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffff0000"
+                    android:padding="8dp"
+                    android:text="dispatch"
+                    />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    >
+
+                    <ToggleButton
+                        android:id="@+id/tv_dispatch_down_tb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:textOff="down_off"
+                        android:textOn="down_on"
+                        />
+
+                    <ToggleButton
+                        android:id="@+id/tv_dispatch_up_tb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:textOff="up_off"
+                        android:textOn="up_on"
+                        android:visibility="gone"
+                        />
+
+                    <ToggleButton
+                        android:id="@+id/tv_dispatch_move_tb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:textOff="move_off"
+                        android:textOn="move_on"
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffff0000"
+                    android:padding="8dp"
+                    android:text="ontouchevent"
+                    />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    >
+
+                    <ToggleButton
+                        android:id="@+id/tv_touch_down_tb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textOff="down_off"
+                        android:textOn="down_on"
+                        />
+
+                    <ToggleButton
+                        android:id="@+id/tv_touch_move_tb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textOff="moveoff"
+                        android:textOn="moveon"
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffff0000"
+                    android:padding="8dp"
+                    android:text="ontouchlistener"
+                    />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    >
+
+                    <ToggleButton
+                        android:id="@+id/tv_touchlistener_down_tb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textOff="downoff"
+                        android:textOn="downon"
+                        />
+
+                    <ToggleButton
+                        android:id="@+id/tv_touchlistener_move_tb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textOff="moveoff"
+                        android:textOn="moveon"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

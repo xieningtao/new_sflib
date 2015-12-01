@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        >
+
+        <com.basesmartframe.basevideo.CustomVideoView
+            android:id="@+id/video_view"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:gravity="center"
+            android:keepScreenOn="true"/>
+    </FrameLayout>
+    <!--
+    android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+    -->
+
+    <View
+        android:id="@+id/black_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@android:color/black"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/video_error_ll"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:background="@android:color/black"
+        android:orientation="vertical"
+        android:paddingTop="16dp"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tip_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableTop="@drawable/videoshow_error_logo"
+            android:gravity="center"
+            android:text="哎呀~视频加载失败了…"
+            android:textColor="#666666"
+            android:textSize="14sp"/>
+
+        <Button
+            android:id="@+id/reload_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/round_white_rectangle"
+            android:padding="4dp"
+            android:text="重新加载"
+            android:textColor="@color/white"
+            android:textSize="14sp"/>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/videoshow_cover"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:contentDescription="@string/none"
+        android:scaleType="centerCrop"
+        android:src="@drawable/icon_live_default"
+        />
+
+    <ProgressBar
+        android:id="@+id/video_loading"
+        style="@style/Widget.ProgressBar.VideoShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
+
+    <ImageView
+        android:id="@+id/videoshow_pt_share"
+        style="@style/circle_click_shadow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:src="@drawable/videoshow_share_light"/>
+
+    <ImageView
+        android:id="@+id/videoshow_pt_back"
+        style="@style/circle_click_shadow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:src="@drawable/videoshow_portrait_back"/>
+
+    <ImageView
+        android:id="@+id/videoshow_ls_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="12dp"
+        android:padding="8dp"
+        android:src="@drawable/videoshow_share_dark"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/title_ll"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/videoshow_transparent"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        >
+
+
+        <!--<TextView-->
+        <!--android:id="@+id/title_back_tv"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_height="fill_parent"-->
+        <!--android:layout_gravity="left|center_vertical"-->
+        <!--android:gravity="left|center_vertical"-->
+        <!--android:singleLine="true"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:drawablePadding="8dp"-->
+        <!--android:paddingLeft="8dp"-->
+        <!--android:drawableLeft="@drawable/state_button_exit_channel"-->
+        <!--android:ellipsize="end"-->
+        <!--android:layout_marginRight="16dp" />-->
+
+
+        <!--<TextView-->
+        <!--android:id="@+id/rate_tv"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="fill_parent"-->
+        <!--android:paddingLeft="8dp"-->
+        <!--android:paddingRight="8dp"-->
+        <!--android:singleLine="true"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:layout_marginRight="8dp"-->
+        <!--style="@style/rectangle_click_shadow"-->
+        <!--android:drawableRight="@drawable/channelpage_state_background_code_rate_spinner"/>-->
+
+        <!--<CheckBox-->
+        <!--android:id="@+id/title_subscribe_iv"-->
+        <!--android:layout_width="70dp"-->
+        <!--android:layout_height="fill_parent"-->
+        <!--android:layout_gravity="center_vertical|left"-->
+        <!--android:padding="4dp"-->
+        <!--android:button="@drawable/vedioshow_subscribe" />-->
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/fast_control_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_ll"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:background="@color/videoshow_transparent"
+        android:clickable="false"
+        android:drawablePadding="8dp"
+        android:drawableTop="@drawable/videoshow_fast_foward"
+        android:padding="8dp"
+        android:text="00:00/00:00"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/control_ll"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/videoshow_transparent"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        >
+
+        <ImageView
+            android:id="@+id/pause_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:src="@drawable/videoshow_pause_normal"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <SeekBar
+                android:id="@+id/video_progress"
+                style="@style/video_seekbar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:maxHeight="3dp"
+                android:minHeight="3dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+
+            <TextView
+                android:id="@+id/cur_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="0dp"
+                android:text="00:00/"
+                android:textColor="#dedede"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/total_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="00:00"
+                android:textColor="#787875"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/zoomout_iv"
+            style="@style/rectangle_click_shadow"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:src="@drawable/videoshow_zoomout_normal"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/view_container"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        />
+
+    <ImageView
+        android:id="@+id/video_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/showvedio_play"/>
+</RelativeLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    package="com.sf.SFSample"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-sdk android:minSdkVersion="11"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <!--<instrumentation-->
+    <!--android:name="android.test.InstrumentationTestRunner"-->
+    <!--android:targetPackage="com.sf.SFSample"/>-->
+    <application
+        android:name=".SFApp"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name">
+
+        <uses-library android:name="android.test.runner"/>
+
+        <activity
+            android:name=".home.HomeLevelActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.ViewPagerTest"></activity>
+        <activity android:name=".ui.RoundDrawableActivity"></activity>
+        <activity android:name=".ui.PullListActivity"></activity>
+        <activity android:name=".ui.GestureTest"></activity>
+        <activity android:name=".ui.CircleTest"></activity>
+        <activity android:name=".home.CustomViewLevelActivity"></activity>
+        <activity android:name=".ui.SlidingActivity"></activity>
+        <activity android:name=".ui.ViewEventActivity"></activity>
+        <activity android:name=".ui.GestureListViewActiviy"></activity>
+        <activity android:name=".ui.HotwordActivity"></activity>
+        <activity android:name=".ui.SurfaceActivity"></activity>
+        <activity android:name=".ui.ReflectionActivity"></activity>
+        <activity android:name=".ui.BasicOpenGLES20Activity"
+            android:configChanges="orientation"
+            />
+        <activity
+            android:name=".ui.VideoShowTest"
+            android:configChanges="orientation"
+            android:theme="@android:style/Theme.NoTitleBar"
+            />
+        <activity android:name=".ui.TransformActivity"/>
+        <activity android:name=".home.OpenGLLevelActivity"/>
+    </application>
+</manifest>

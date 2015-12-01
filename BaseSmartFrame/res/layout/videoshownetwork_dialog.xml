@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/videoshow_network_alert"
+        android:textColor="@color/text_black"
+        android:textSize="16sp"
+        android:singleLine="false"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        />
+    
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ff383838" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/cancle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/text_black"
+            android:textSize="14sp"
+            android:text="停止播放"
+            />
+
+        <View
+            android:id="@+id/btn_divider"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#ff383838" />
+
+        <Button
+            android:id="@+id/sure"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="#ffff9900"
+            android:textSize="14sp"
+            android:text="继续播放"/>
+
+    </LinearLayout>
+
+</LinearLayout>

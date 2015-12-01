@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/left_fl"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#ffff0000"
+        />
+
+    <FrameLayout
+        android:id="@+id/right_fl"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#ff123456"
+        />
+
+    <com.sflib.CustomView.slideview.SlidingView
+        android:id="@+id/content_fl"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#ff999999"
+            />
+    </com.sflib.CustomView.slideview.SlidingView>
+
+</RelativeLayout>

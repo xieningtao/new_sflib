@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <com.basesmartframe.gesture.SlidingLeftViewLayout
+        android:id="@+id/sliding_fl"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp">
+
+        <RelativeLayout
+            android:id="@+id/content_ll"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/first_ll"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/text_blue"
+                android:orientation="horizontal" />
+
+            <Button
+                android:id="@+id/b1"
+                android:layout_width="100dp"
+                android:layout_height="fill_parent"
+                android:layout_toRightOf="@id/first_ll"
+                android:background="@color/text_red"
+                android:text="button1"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/b2"
+                android:layout_width="100dp"
+                android:layout_height="fill_parent"
+                android:layout_toRightOf="@id/b1"
+                android:background="@color/text_red"
+                android:text="button2"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+    </com.basesmartframe.gesture.SlidingLeftViewLayout>
+
+</LinearLayout>
