@@ -79,40 +79,40 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 
 
         // Set the camera position (View matrix)
-        Matrix.setLookAtM(mViewMatrix, 0, 0, 0, 4.0f, 0f, 0f, 0f, 0f, 1.0f, 0.0f);
+        Matrix.setLookAtM(mViewMatrix, 0, 0, 0, 2.0f, 0f, 0f, 0f, 0f, 1.0f, 0.0f);
 
         // Calculate the projection and view transformation
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
 
         float firsScaleMVMatrix[] = new float[4 * 4];
         Matrix.setIdentityM(firsScaleMVMatrix, 0);
-        Matrix.scaleM(firsScaleMVMatrix, 0, 1.5f, 1.5f, 1);
+//        Matrix.scaleM(firsScaleMVMatrix, 0, 1.5f, 1.5f, 1);
 
         Matrix.multiplyMM(firsScaleMVMatrix, 0, mMVPMatrix, 0, firsScaleMVMatrix, 0);
         mCubic.draw(firsScaleMVMatrix, fullMode.get());
 
-        float simpleTranslate[] = new float[4 * 4];
-        Matrix.setIdentityM(simpleTranslate, 0);
-        Matrix.translateM(simpleTranslate, 0, 2, 0, 0);
-
-        Matrix.multiplyMM(simpleTranslate, 0, mMVPMatrix, 0, simpleTranslate, 0);
-
-        mCubic.draw(simpleTranslate, fullMode.get());
-
-
-        float scaleMVMatrix[] = new float[4 * 4];
-        Matrix.setIdentityM(scaleMVMatrix, 0);
-        Matrix.scaleM(scaleMVMatrix, 0, 1.5f, 1.5f, 1);
-        float temScale[]=scaleMVMatrix.clone();
-
-        float tempTranslate[]=new float[4*4];
-        Matrix.setIdentityM(tempTranslate,0);
-        Matrix.translateM(tempTranslate, 0, 0, -3, 0);
-        Matrix.multiplyMM(scaleMVMatrix, 0, tempTranslate, 0, scaleMVMatrix, 0);
-
-        Matrix.multiplyMM(scaleMVMatrix, 0, mMVPMatrix, 0, scaleMVMatrix, 0);
-
-        mCubic.draw(scaleMVMatrix, fullMode.get());
+//        float simpleTranslate[] = new float[4 * 4];
+//        Matrix.setIdentityM(simpleTranslate, 0);
+//        Matrix.translateM(simpleTranslate, 0, 2, 0, 0);
+//
+//        Matrix.multiplyMM(simpleTranslate, 0, mMVPMatrix, 0, simpleTranslate, 0);
+//
+//        mCubic.draw(simpleTranslate, fullMode.get());
+//
+//
+//        float scaleMVMatrix[] = new float[4 * 4];
+//        Matrix.setIdentityM(scaleMVMatrix, 0);
+//        Matrix.scaleM(scaleMVMatrix, 0, 1.5f, 1.5f, 1);
+//        float temScale[]=scaleMVMatrix.clone();
+//
+//        float tempTranslate[]=new float[4*4];
+//        Matrix.setIdentityM(tempTranslate,0);
+//        Matrix.translateM(tempTranslate, 0, 0, -3, 0);
+//        Matrix.multiplyMM(scaleMVMatrix, 0, tempTranslate, 0, scaleMVMatrix, 0);
+//
+//        Matrix.multiplyMM(scaleMVMatrix, 0, mMVPMatrix, 0, scaleMVMatrix, 0);
+//
+//        mCubic.draw(scaleMVMatrix, fullMode.get());
 
 
 //        float scaleTranslate[] = new float[4 * 4];
@@ -155,10 +155,18 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         GLES20.glViewport(0, 0, width, height);
 
         float ratio = (float) width / height;
+        float near = 1.5f * ratio;
+        if (height > width) {
+            Matrix.frustumM(mProjectionMatrix, 0, -ratio, ratio, -1, 1, near, 100);
+        } else {
+            ratio = (float) height / width;
+            near = 1.5f * ratio;
+            Matrix.frustumM(mProjectionMatrix, 0, -1, 1, -ratio, ratio, near, 100);
+        }
 
         // this projection matrix is applied to object coordinates
         // in the onDrawFrame() method
-        Matrix.frustumM(mProjectionMatrix, 0, -ratio, ratio, -1, 1, 1, 4);
+
 
     }
 

@@ -23,6 +23,8 @@
         <!--<module>RichEditor</module>-->
         <!--<module>MultiDex</module>-->
         <!--<module>yysdkdemo</module>-->
+        <!--<module>SFJNILib</module>-->
+        <!--<module>SFBinderLib</module>-->
     </modules>
     <properties>
         <android_mavenplugin_version>4.2.0</android_mavenplugin_version>
@@ -134,6 +136,8 @@
                     <assetsDirectory>${project.basedir}/assets</assetsDirectory>
                     <nativeLibrariesDirectory>${project.basedir}/libs</nativeLibrariesDirectory>
                     <includeLibsJarsFromAar>true</includeLibsJarsFromAar>
+                    <aidlSourceDirectory>${project.basedir}/src</aidlSourceDirectory>
+                    <genDirectoryAidl>${project.basedir}/gen</genDirectoryAidl>
                 </configuration>
             </plugin>
         </plugins>

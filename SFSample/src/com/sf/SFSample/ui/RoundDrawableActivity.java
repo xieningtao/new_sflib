@@ -6,11 +6,10 @@ import android.widget.AdapterView;
 
 import com.basesmartframe.baseadapter.BaseAdapterHelper;
 import com.basesmartframe.basehttp.SFHttpClient;
+import com.basesmartframe.basepull.PullHttpResult;
 import com.basesmartframe.basethread.ThreadHelp;
 import com.basesmartframe.baseui.BaseActivity;
 import com.basesmartframe.baseui.BasePullListFragment;
-import com.basesmartframe.basepull.PullHttpResult;
-import com.basesmartframe.basepull.PullType;
 import com.sf.SFSample.R;
 import com.sfhttpclient.core.AjaxParams;
 
@@ -84,13 +83,12 @@ public class RoundDrawableActivity extends BaseActivity {
 			@Override
 			protected void onPullResult(
 					RoundBean t,
-					PullType type,
 					AjaxParams params) {
 				ArrayList<RoundBean> beans = new ArrayList<RoundBean>();
 				for (int i = 0; i < 10; i++) {
 					beans.add(new RoundBean(url[i % 3]));
 				}
-				finishRefreshOrLoading(beans, type, false);
+				finishRefreshOrLoading(beans, false);
 			}
 
 		}

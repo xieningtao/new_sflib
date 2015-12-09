@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
-import android.opengl.Matrix;
 import android.os.Build;
 import android.util.Log;
 
@@ -204,13 +203,14 @@ public class Cubic {
         ShaderHelper.checkGlError("glUniform4fv");
 
         float resultm[] = new float[4 * 4];
-        if (fullMode) {
-            float rm[] = new float[4 * 4];
-            Matrix.setRotateM(rm, 0, 90, 0, 0, 1);
-            Matrix.multiplyMM(resultm, 0, vmMatrix, 0, rm, 0);
-        } else {
-            resultm = vmMatrix;
-        }
+//        if (fullMode) {
+//            float rm[] = new float[4 * 4];
+//            Matrix.setRotateM(rm, 0, 90, 0, 0, 1);
+//            Matrix.multiplyMM(resultm, 0, vmMatrix, 0, rm, 0);
+//        } else {
+//            resultm = vmMatrix;
+//        }
+        resultm=vmMatrix;
         int vmMatrixHandler = GLES20.glGetUniformLocation(mProgram, "mMatrix");
         GLES20.glUniformMatrix4fv(vmMatrixHandler, 1, false, resultm, 0);
         ShaderHelper.checkGlError("glUniformMatrix4fv");

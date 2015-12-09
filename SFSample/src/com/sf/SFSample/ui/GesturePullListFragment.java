@@ -7,10 +7,9 @@ import android.widget.AdapterView;
 
 import com.basesmartframe.baseadapter.BaseAdapterHelper;
 import com.basesmartframe.basehttp.SFHttpClient;
+import com.basesmartframe.basepull.PullHttpResult;
 import com.basesmartframe.basethread.ThreadHelp;
 import com.basesmartframe.baseui.BasePullListFragment;
-import com.basesmartframe.basepull.PullHttpResult;
-import com.basesmartframe.basepull.PullType;
 import com.basesmartframe.baseutil.SystemUIWHHelp;
 import com.sf.SFSample.R;
 import com.sfhttpclient.core.AjaxParams;
@@ -76,7 +75,6 @@ public class GesturePullListFragment extends BasePullListFragment<Student> {
 
 		@Override
 		protected void onPullResult(Student t,
-				PullType type,
 				AjaxParams params) {
 			List<Student> students = new ArrayList<Student>();
 			for (int i = 0; i < 10; i++) {
@@ -84,7 +82,7 @@ public class GesturePullListFragment extends BasePullListFragment<Student> {
 
 			}
 
-			finishRefreshOrLoading(students, type, false);
+			finishRefreshOrLoading(students, false);
 		}
 
 	}
