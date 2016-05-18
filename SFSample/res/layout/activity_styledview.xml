@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:sv="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <com.sflib.CustomView.view.StyledView
+
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:background="#ff00ff00"
+        sv:circle_radio="20dp"
+        sv:rect_height="20dp"
+        sv:rect_width="200dp"
+        sv:rect_circle_padding="10dp"
+        />
+    <!--sv:rectColor="#ffff0000"-->
+    <!--sv:circleColor="#ff992233"-->
+    <!--style="@style/styledView"-->
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="testing button"
+        />
+
+</LinearLayout>

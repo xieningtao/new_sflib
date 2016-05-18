@@ -9,7 +9,7 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <!--<instrumentation-->
     <!--android:name="android.test.InstrumentationTestRunner"-->
     <!--android:targetPackage="com.sf.SFSample"/>-->
@@ -41,7 +41,9 @@
         <activity android:name=".ui.HotwordActivity"></activity>
         <activity android:name=".ui.SurfaceActivity"></activity>
         <activity android:name=".ui.ReflectionActivity"></activity>
-        <activity android:name=".ui.BasicOpenGLES20Activity"
+        <activity android:name=".ui.RoundBitmapActivity"></activity>
+        <activity
+            android:name=".ui.BasicOpenGLES20Activity"
             android:configChanges="orientation"
             />
         <activity
@@ -50,6 +52,37 @@
             android:theme="@android:style/Theme.NoTitleBar"
             />
         <activity android:name=".ui.TransformActivity"/>
+        <activity
+            android:name=".ui.TVVerticalGridViewActivity"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Black.NoTitleBar"
+            />
+        <activity
+            android:name=".ui.TVHomeActivity"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Black.NoTitleBar"
+            />
+        <activity
+            android:name=".ui.TVHorizontalGridViewActivity"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Black.NoTitleBar"
+            />
         <activity android:name=".home.OpenGLLevelActivity"/>
+        <activity android:name=".home.TVLevelActivity"/>
+        <activity android:name=".ui.AdbShellActivity"/>
+        <activity
+            android:name=".ui.StyledViewActivity"
+            android:theme="@style/styledView3"
+            />
+        <activity android:name=".ui.TVFocusActivity"/>
+        <activity android:name=".ui.XPinListViewActivity"/>
+        <activity
+            android:name=".ui.OpenGLTanActivity"
+            android:screenOrientation="landscape"
+            />
+        <activity
+            android:name=".ui.DecencoderActivity"
+            android:screenOrientation="portrait"
+            />
     </application>
 </manifest>

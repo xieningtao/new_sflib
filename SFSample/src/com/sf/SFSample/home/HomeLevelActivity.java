@@ -2,9 +2,13 @@ package com.sf.SFSample.home;
 
 import android.util.Pair;
 import android.util.SparseArray;
+import android.view.View;
+import android.widget.VideoView;
 
+import com.sf.SFSample.ui.AdbShellActivity;
 import com.sf.SFSample.ui.BaseLevelActivity;
 import com.sf.SFSample.ui.CircleTest;
+import com.sf.SFSample.ui.DecencoderActivity;
 import com.sf.SFSample.ui.GestureListViewActiviy;
 import com.sf.SFSample.ui.GestureTest;
 import com.sf.SFSample.ui.PullListActivity;
@@ -12,10 +16,13 @@ import com.sf.SFSample.ui.ReflectionActivity;
 import com.sf.SFSample.ui.RoundDrawableActivity;
 import com.sf.SFSample.ui.VideoShowTest;
 import com.sf.SFSample.ui.ViewPagerTest;
+import com.sf.SFSample.ui.XPinListViewActivity;
 
 public class HomeLevelActivity extends BaseLevelActivity {
 
+    View mView;
 
+    VideoView mVideoView;
     @Override
     protected SparseArray<Pair<String, Class>> getActivities() {
         SparseArray<Pair<String, Class>> activities = new SparseArray<>();
@@ -29,6 +36,11 @@ public class HomeLevelActivity extends BaseLevelActivity {
         activities.put(7, new Pair<String, Class>("customView", CustomViewLevelActivity.class));
         activities.put(8, new Pair<String, Class>("reflection", ReflectionActivity.class));
         activities.put(9, new Pair<String, Class>("opengl", OpenGLLevelActivity.class));
+        activities.put(10, new Pair<String, Class>("tv", TVLevelActivity.class));
+        activities.put(11, new Pair<String, Class>("adb shell", AdbShellActivity.class));
+        activities.put(12, new Pair<String, Class>("XPinListView", XPinListViewActivity.class));
+        activities.put(13, new Pair<String, Class>("DecencoderActivity", DecencoderActivity.class));
+
         return activities;
     }
 

@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.basesmartframe.basehttp.BaseAjaxCallBack;
-import com.basesmartframe.baseutil.NetWorkManagerUtil;
 import com.basesmartframe.baseview.newhttpview.HttpViewManager;
 import com.basesmartframe.log.L;
 
@@ -58,18 +57,18 @@ public class BaseActivity extends Activity {
 
     protected void showHttpLoadingView(boolean hasData) {
         if (mRootView instanceof ViewGroup) {
-            final ViewGroup viewGroup = (ViewGroup) mRootView;
-            if (mTVHttpViewManager == null) {
-                mTVHttpViewManager = new HttpViewManager(this, viewGroup);
-            }
-            if (!hasData) {
-                boolean httpResult = mTVHttpViewManager.showOnlyThisHttpView(HttpViewManager.HttpViewType.LOADING_VIEW);
-                L.info(TAG, "method->showHttpLoadingView loading_view result: " + httpResult);
-            } else {
-                //TODO use this view ,change view later
-                boolean httpResult = mTVHttpViewManager.showOnlyThisHttpView(HttpViewManager.HttpViewType.LOADING_VIEW);
-                L.info(TAG, "method->showHttpLoadingView,loading_view result: " + httpResult);
-            }
+//            final ViewGroup viewGroup = (ViewGroup) mRootView;
+//            if (mTVHttpViewManager == null) {
+//                mTVHttpViewManager = new HttpViewManager(this, viewGroup);
+//            }
+//            if (!hasData) {
+//                boolean httpResult = mTVHttpViewManager.showOnlyThisHttpView(HttpViewManager.HttpViewType.LOADING_VIEW);
+//                L.info(TAG, "method->showHttpLoadingView loading_view result: " + httpResult);
+//            } else {
+//                //TODO use this view ,change view later
+//                boolean httpResult = mTVHttpViewManager.showOnlyThisHttpView(HttpViewManager.HttpViewType.LOADING_VIEW);
+//                L.info(TAG, "method->showHttpLoadingView,loading_view result: " + httpResult);
+//            }
         } else {
             L.error(TAG, "method->showHttpLoadingView,mrootView is not viewGroup");
         }
@@ -77,19 +76,19 @@ public class BaseActivity extends Activity {
 
     protected void updateHttpView(boolean hasData) {
         if (mRootView instanceof ViewGroup) {
-            final ViewGroup viewGroup = (ViewGroup) mRootView;
-            if (mTVHttpViewManager == null) {
-                mTVHttpViewManager = new HttpViewManager(this, viewGroup);
-            }
-            if (hasData) {
-                mTVHttpViewManager.dismissAllHttpViews();
-            } else if (NetWorkManagerUtil.isNetworkAvailable(this)) {
-                boolean httpResult = mTVHttpViewManager.showOnlyThisHttpView(HttpViewManager.HttpViewType.NO_DATA_VIEW);
-                L.info(TAG, "method->updateHttpView" + " no_data_view result: " + httpResult);
-            } else {
-                boolean httpResult = mTVHttpViewManager.showOnlyThisHttpView(HttpViewManager.HttpViewType.NO_NETWORK_VIEW);
-                L.info(TAG, "method->updateHttpView,no_network_view result: " + httpResult);
-            }
+//            final ViewGroup viewGroup = (ViewGroup) mRootView;
+//            if (mTVHttpViewManager == null) {
+//                mTVHttpViewManager = new HttpViewManager(this, viewGroup);
+//            }
+//            if (hasData) {
+//                mTVHttpViewManager.dismissAllHttpViews();
+//            } else if (NetWorkManagerUtil.isNetworkAvailable(this)) {
+//                boolean httpResult = mTVHttpViewManager.showOnlyThisHttpView(HttpViewManager.HttpViewType.NO_DATA_VIEW);
+//                L.info(TAG, "method->showHttpViewNOData" + " no_data_view result: " + httpResult);
+//            } else {
+//                boolean httpResult = mTVHttpViewManager.showOnlyThisHttpView(HttpViewManager.HttpViewType.NO_NETWORK_VIEW);
+//                L.info(TAG, "method->showHttpViewNOData,no_network_view result: " + httpResult);
+//            }
         } else {
             L.error(TAG, "method->changeViewNoNetwork,mrootView is not viewGroup");
         }
@@ -97,17 +96,17 @@ public class BaseActivity extends Activity {
 
     protected void showHttpViewNoNetwork(boolean hasData) {
         if (mRootView instanceof ViewGroup) {
-            final ViewGroup viewGroup = (ViewGroup) mRootView;
-            if (mTVHttpViewManager == null) {
-                mTVHttpViewManager = new HttpViewManager(this, viewGroup);
-            }
-
-            if (hasData) {
-                mTVHttpViewManager.dismissAllHttpViews();
-            } else if (!NetWorkManagerUtil.isNetworkAvailable(this)) {
-                boolean httpResult = mTVHttpViewManager.showOnlyThisHttpView(HttpViewManager.HttpViewType.NO_NETWORK_VIEW);
-                L.info(TAG, "method->updateHttpView,no_network_view result: " + httpResult);
-            }
+//            final ViewGroup viewGroup = (ViewGroup) mRootView;
+//            if (mTVHttpViewManager == null) {
+//                mTVHttpViewManager = new HttpViewManager(this, viewGroup);
+//            }
+//
+//            if (hasData) {
+//                mTVHttpViewManager.dismissAllHttpViews();
+//            } else if (!NetWorkManagerUtil.isNetworkAvailable(this)) {
+//                boolean httpResult = mTVHttpViewManager.showOnlyThisHttpView(HttpViewManager.HttpViewType.NO_NETWORK_VIEW);
+//                L.info(TAG, "method->showHttpViewNOData,no_network_view result: " + httpResult);
+//            }
 
         } else {
             L.error(TAG, "method->changeViewNoNetwork,mrootView is not viewGroup");

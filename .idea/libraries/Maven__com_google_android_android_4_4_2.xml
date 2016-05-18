@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Maven: com.google.android:android:4.4.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../localRepository/com/google/android/android/4.4.2/android-4.4.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../../localRepository/com/google/android/android/4.4.2/android-4.4.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../localRepository/com/google/android/android/4.4.2/android-4.4.2-sources.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../../android/android-sdk-macosx/sources/android-20" />
+    </SOURCES>
+  </library>
+</component>

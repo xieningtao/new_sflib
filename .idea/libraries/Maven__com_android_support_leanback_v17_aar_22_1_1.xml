@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Maven: com.android.support:leanback-v17:aar:22.1.1">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/AndroidTV/gen-external-apklibs/com.android.support_leanback-v17_22.1.1/res" />
+      <root url="jar://$PROJECT_DIR$/AndroidTV/gen-external-apklibs/com.android.support_leanback-v17_22.1.1/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../../localRepository/com/android/support/leanback-v17/22.1.1/leanback-v17-22.1.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../localRepository/com/android/support/leanback-v17/22.1.1/leanback-v17-22.1.1-sources.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../../android/android-sdk-macosx/sources/android-20" />
+    </SOURCES>
+  </library>
+</component>

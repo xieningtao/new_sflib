@@ -26,6 +26,7 @@ public class BasicOpenGLES20Activity extends Activity {
 
     private MyGLSurfaceView mGLView;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +36,7 @@ public class BasicOpenGLES20Activity extends Activity {
 //        setContentView(mGLView);
         setContentView(R.layout.activity_opengl);
         mGLView = (MyGLSurfaceView) findViewById(R.id.gl_sf);
+
     }
 
     @Override

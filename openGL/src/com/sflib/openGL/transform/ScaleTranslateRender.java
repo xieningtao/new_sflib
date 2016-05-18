@@ -36,7 +36,7 @@ public class ScaleTranslateRender implements GLSurfaceView.Renderer {
         // Set the background frame color
         GLES20.glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 //        GLES20.glEnable(GLES20.GL_DEPTH_TEST);
-        mCubic = new Cubic(mContext);
+
     }
 
     @Override
@@ -44,7 +44,7 @@ public class ScaleTranslateRender implements GLSurfaceView.Renderer {
         GLES20.glViewport(0, 0, width, height);
 
         float ratio = (float) width / height;
-
+        mCubic = new Cubic(mContext,width,height);
         // this projection matrix is applied to object coordinates
         // in the onDrawFrame() method
         Matrix.frustumM(mProjectionMatrix, 0, -ratio, ratio, -1, 1, 1, 4);
@@ -65,7 +65,7 @@ public class ScaleTranslateRender implements GLSurfaceView.Renderer {
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
 
         //draw origin
-        mCubic.draw(mMVPMatrix, fullMode.get());
+        mCubic.draw(mMVPMatrix);
 
         //-------scale first then translate-----------
         //scale down to 0.5f
@@ -74,7 +74,7 @@ public class ScaleTranslateRender implements GLSurfaceView.Renderer {
         Matrix.scaleM(halfScaleMVMatrix, 0, 0.5f, 0.5f, 0.5f);
         float copyHalfScale[] = halfScaleMVMatrix.clone();
         Matrix.multiplyMM(halfScaleMVMatrix, 0, mMVPMatrix, 0, halfScaleMVMatrix, 0);
-        mCubic.draw(halfScaleMVMatrix, fullMode.get());
+        mCubic.draw(halfScaleMVMatrix);
 
         //scale down to 0.5f then translate to (2,0,0)
         float simpleTranslate[] = new float[4 * 4];
@@ -83,7 +83,7 @@ public class ScaleTranslateRender implements GLSurfaceView.Renderer {
         float scaleTranslate[] = new float[4 * 4];
         Matrix.multiplyMM(scaleTranslate, 0, simpleTranslate, 0, copyHalfScale, 0);
         Matrix.multiplyMM(scaleTranslate, 0, mMVPMatrix, 0, scaleTranslate, 0);
-        mCubic.draw(scaleTranslate, fullMode.get());
+        mCubic.draw(scaleTranslate);
         //----------end---------------
 
         //------------translate then scale-----------
@@ -92,12 +92,12 @@ public class ScaleTranslateRender implements GLSurfaceView.Renderer {
         Matrix.setIdentityM(originTanslate, 0);
         Matrix.translateM(originTanslate, 0, 0, -2, 0);
         Matrix.multiplyMM(originTanslate, 0, mMVPMatrix, 0, originTanslate, 0);
-        mCubic.draw(originTanslate, fullMode.get());
+        mCubic.draw(originTanslate);
 
-        //basic translate (2,-2,0)
+        //basic translate (2,0,0)
         float basicTranslate[] = new float[4 * 4];
         Matrix.setIdentityM(basicTranslate, 0);
-        Matrix.translateM(basicTranslate, 0, 2, -2, 0);
+        Matrix.translateM(basicTranslate, 0, 2, 0, 0);
         float copyBasicTranslate[] = basicTranslate.clone();
         Matrix.multiplyMM(basicTranslate, 0, mMVPMatrix, 0, basicTranslate, 0);
 //        mCubic.draw(basicTranslate, fullMode.get());
@@ -109,6 +109,6 @@ public class ScaleTranslateRender implements GLSurfaceView.Renderer {
         float translateScale[] = new float[4 * 4];
         Matrix.multiplyMM(translateScale, 0, basiHalfScale, 0, copyBasicTranslate, 0);
         Matrix.multiplyMM(translateScale, 0, mMVPMatrix, 0, translateScale, 0);
-        mCubic.draw(translateScale, fullMode.get());
+        mCubic.draw(translateScale);
     }
 }

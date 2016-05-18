@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <ImageView
+            android:id="@+id/center_iv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:background="@color/text_red"
+            android:scaleType="center"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/center_iv"
+            android:layout_toRightOf="@id/center_iv"
+            android:text="center"
+
+            />
+
+        <ImageView
+            android:id="@+id/fitxy_iv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/center_iv"
+            android:layout_margin="10dp"
+            android:background="@color/text_red"
+            android:scaleType="fitXY"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/fitxy_iv"
+            android:layout_toRightOf="@id/fitxy_iv"
+            android:text="fitxy"
+            />
+
+        <ImageView
+            android:id="@+id/fitstart_iv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/fitxy_iv"
+            android:layout_margin="10dp"
+            android:background="@color/text_red"
+            android:scaleType="fitStart"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/fitstart_iv"
+            android:layout_toRightOf="@id/fitstart_iv"
+            android:text="fitstart"
+            />
+
+        <ImageView
+            android:id="@+id/fitend_iv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/fitstart_iv"
+            android:layout_margin="10dp"
+            android:background="@color/text_red"
+            android:scaleType="fitStart"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/fitend_iv"
+            android:layout_toRightOf="@id/fitend_iv"
+            android:text="fitend"
+            />
+
+        <ImageView
+            android:id="@+id/fitcenter_iv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/fitend_iv"
+            android:layout_margin="10dp"
+            android:background="@color/text_red"
+            android:scaleType="fitCenter"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/fitcenter_iv"
+            android:layout_toRightOf="@id/fitcenter_iv"
+            android:text="fitcenter"
+            />
+
+        <ImageView
+            android:id="@+id/centercrop_iv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/fitcenter_iv"
+            android:layout_margin="10dp"
+            android:background="@color/text_red"
+            android:scaleType="centerCrop"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/centercrop_iv"
+            android:layout_toRightOf="@id/centercrop_iv"
+            android:text="centercrop"
+
+            />
+
+        <ImageView
+            android:id="@+id/centerinside_iv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/centercrop_iv"
+            android:layout_margin="10dp"
+            android:background="@color/text_red"
+            android:scaleType="center"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/centerinside_iv"
+            android:layout_toRightOf="@id/centerinside_iv"
+            android:text="centerinside"
+
+            />
+    </RelativeLayout>
+</ScrollView>

@@ -15,7 +15,6 @@
     <properties>
         <goson_version>2.2.4</goson_version>
         <imageLoad_version>1.9.4</imageLoad_version>
-        <android_suppport_version>22.0.0</android_suppport_version>
     </properties>
     <dependencies>
         <dependency>

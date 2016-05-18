@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Maven: org.robolectric:robolectric:aar:2.4">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/AndroidTestSample/gen-external-apklibs/org.robolectric_robolectric_2.4/res" />
+      <root url="jar://$PROJECT_DIR$/AndroidTestSample/gen-external-apklibs/org.robolectric_robolectric_2.4/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../../localRepository/org/robolectric/robolectric/2.4/robolectric-2.4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../localRepository/org/robolectric/robolectric/2.4/robolectric-2.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

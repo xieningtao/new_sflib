@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="StyledView">
+
+        <attr name="rectColor" format="reference|color"></attr>
+
+        <attr name="circleColor" format="reference|color"></attr>
+
+        <attr name="rect_circle_padding" format="reference|dimension"></attr>
+
+        <attr name="circle_radio" format="reference|dimension"></attr>
+
+        <attr name="rect_width" format="reference|dimension"></attr>
+
+        <attr name="rect_height" format="reference|dimension"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="BaseStyledView">
+
+        <attr name="styleViewColor" format="reference"></attr>
+    </declare-styleable>
+</resources>

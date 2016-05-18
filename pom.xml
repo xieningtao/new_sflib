@@ -15,23 +15,34 @@
         <module>SFHttpClient</module>
         <module>Android-PullToRefresh</module>
         <module>BaseSmartFrame</module>
-        <module>Robolec</module>
-        <module>Robotium</module>
+
+        <!--<module>Robolec</module>-->
+        <!--&lt;!&ndash;<module>Robotium</module>&ndash;&gt;-->
+        <module>reflection</module>
         <module>CustomView</module>
         <module>openGL</module>
+
+        <module>AndroidTV</module>
         <module>SFSample</module>
+
+        <!--<module>Launcher2</module>-->
+
+
         <!--<module>RichEditor</module>-->
         <!--<module>MultiDex</module>-->
         <!--<module>yysdkdemo</module>-->
         <!--<module>SFJNILib</module>-->
         <!--<module>SFBinderLib</module>-->
+        <!--<module>AndroidTestProject</module>-->
+        <!--<module>AndroidTestSample</module>-->
     </modules>
     <properties>
         <android_mavenplugin_version>4.2.0</android_mavenplugin_version>
         <android_sdk_version>5.0.1</android_sdk_version>
-        <android_platform>21</android_platform>
+        <android_platform>22</android_platform>
         <lib_version>1.0.0-SNAPSHOT</lib_version>
-        <support_v4_version>21.0.0</support_v4_version>
+        <support_v4_version>22.1.1</support_v4_version>
+        <android_suppport_version>22.1.1</android_suppport_version>
     </properties>
 
     <dependencyManagement>
@@ -55,14 +66,6 @@
         </dependencies>
     </dependencyManagement>
 
-    <!--<dependencies>-->
-    <!--<dependency>-->
-    <!--<groupId>com.sf.lib</groupId>-->
-    <!--<artifactId>eventbus_core</artifactId>-->
-    <!--<version>1.0.0-SNAPSHOT</version>-->
-    <!--<type>aar</type>-->
-    <!--</dependency>-->
-    <!--</dependencies>-->
 
     <profiles>
         <profile>
@@ -88,6 +91,12 @@
 
                     <artifactId>android-maven-plugin</artifactId>
                     <version>${android_mavenplugin_version}</version>
+
+                    <configuration>
+                        <sdk>
+                            <platform>${android_platform}</platform>
+                        </sdk>
+                    </configuration>
                     <extensions>true</extensions>
                 </plugin>
 
@@ -137,7 +146,7 @@
                     <nativeLibrariesDirectory>${project.basedir}/libs</nativeLibrariesDirectory>
                     <includeLibsJarsFromAar>true</includeLibsJarsFromAar>
                     <aidlSourceDirectory>${project.basedir}/src</aidlSourceDirectory>
-                    <genDirectoryAidl>${project.basedir}/gen</genDirectoryAidl>
+                    <!--<genDirectoryAidl>${project.basedir}/gen</genDirectoryAidl>-->
                 </configuration>
             </plugin>
         </plugins>

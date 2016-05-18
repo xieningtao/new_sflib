@@ -10,6 +10,7 @@ import com.basesmartframe.R;
 
 /**
  * Created by xieningtao on 15-9-16.
+ * TODO refine this
  */
 public class HttpNoNetworkView extends BaseHttpView {
     public HttpNoNetworkView(Context context, ViewGroup rootView) {
@@ -17,7 +18,7 @@ public class HttpNoNetworkView extends BaseHttpView {
     }
 
     @Override
-    protected View onCreateView(LayoutInflater layoutInflater) {
-        return layoutInflater.inflate(R.layout.nonetwork_view,null);
+    protected View createContentView(LayoutInflater layoutInflater) {
+        return layoutInflater.inflate(R.layout.nonetwork_view, null);
     }
 }

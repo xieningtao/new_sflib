@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="styledView">
+
+        <item name="rectColor">#ffff0000</item>
+        <item name="circleColor">#ff009999</item>
+    </style>
+
+    <style name="styledView2">
+        <item name="rectColor">#ffff0000</item>
+        <item name="circleColor">#ff990000</item>
+    </style>
+
+    <style name="styledColor">
+        <item name="rectColor">#ffff0000</item>
+        <item name="circleColor">#ff990000</item>
+    </style>
+
+    <style name="styledView3">
+        <item name="styleViewColor">@style/styledColor</item>
+    </style>
+
+</resources>

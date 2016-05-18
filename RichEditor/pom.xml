@@ -30,7 +30,7 @@
                 <artifactId>android-maven-plugin</artifactId>
                 <configuration>
                     <sdk>
-                        <platform>19</platform>
+                        <platform>${android_platform}</platform>
                     </sdk>
 
                     <!--<dexMainDexList>./multidexlist.txt</dexMainDexList>-->

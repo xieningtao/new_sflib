@@ -5,9 +5,12 @@ import android.os.Build;
 import android.os.SystemClock;
 
 import com.duowan.mobile.mediaproxy.RenderFrameBuffer;
+import com.duowan.mobile.mediaproxy.glutils.utils.CatchError;
 import com.sf.yysdkdemo.videoplayer.glutil.Camera;
 import com.sf.yysdkdemo.videoplayer.util.Image;
 import com.yy.hiidostatis.inner.util.L;
+
+import java.nio.ByteBuffer;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -77,61 +80,47 @@ public abstract class GLVideoRender extends VideoRenderBase implements RenderLis
 
     @Override
     public void onDrawFrame(GL10 gl) {
-//        super.onDrawFrame(gl);
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        super.onDrawFrame(gl);
+
+        GLES20.glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+        GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
+
+        boolean frameChanged = mFrameBuffer.render();
+        ByteBuffer frame = mFrameBuffer.getFrame();
+        if (null != frame && (frameChanged || mNeedRepaint)) {
+            mNeedRepaint = false;
+
+            mCamera.pressShutter(mVideoShader.mMatrixHandle);
+
+            int frameFormat = mFrameBuffer.getFrameFormat();
+
+            mMonitor.setRenderFormat(mVideoShader.mFormat, frameFormat);
+
+            mMonitor.updateRenderSizeIfNeed(mFrameBuffer.getWidth(), mFrameBuffer.getHeight(), mFrameBuffer.getPixWidth());
+
+            if (RenderFrameBuffer.FORMAT_RGB == frameFormat) {
+                mMonitor.updateAsRGB(mFrameBuffer.getWidthY(), mFrameBuffer.getHeightY(), GLES20.GL_UNSIGNED_BYTE, frame);
+            } else if (RenderFrameBuffer.FORMAT_RGB565 == frameFormat) {
+                mMonitor.updateAsRGB(mFrameBuffer.getWidth(), mFrameBuffer.getHeight(), GLES20.GL_UNSIGNED_SHORT_5_6_5, frame);
+            } else if (RenderFrameBuffer.FORMAT_UNKNOWN != frameFormat) {
+                mMonitor.updateAsYUV(mFrameBuffer);
+            } else {
+                L.error("GLVideoRender", "UNKNOWN FRAME FORMAT");
+            }
         }
-        return;
-//        Ln.notifyVideoStatus(MediaVideoMsg.VideoFrameStatus.kVideoRendered);
-//        if (null != mRenderSlowStatistics) {
-//            mRenderSlowStatistics.start();
-//        }
 
-//        GLES20.glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
-//        GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
-//
-//        boolean frameChanged = mFrameBuffer.render();
-//        ByteBuffer frame = mFrameBuffer.getFrame();
-//        if (null != frame && (frameChanged || mNeedRepaint)) {
-//            mNeedRepaint = false;
-//
-//            mCamera.pressShutter(mVideoShader.mMatrixHandle);
-//
-//            int frameFormat = mFrameBuffer.getFrameFormat();
-//
-//            mMonitor.setRenderFormat(mVideoShader.mFormat, frameFormat);
-//
-//            mMonitor.updateRenderSizeIfNeed(mFrameBuffer.getWidth(), mFrameBuffer.getHeight(), mFrameBuffer.getPixWidth());
-//
-//            if (RenderFrameBuffer.FORMAT_RGB == frameFormat) {
-//                mMonitor.updateAsRGB(mFrameBuffer.getWidthY(), mFrameBuffer.getHeightY(), GLES20.GL_UNSIGNED_BYTE, frame);
-//            } else if (RenderFrameBuffer.FORMAT_RGB565 == frameFormat) {
-//                mMonitor.updateAsRGB(mFrameBuffer.getWidth(), mFrameBuffer.getHeight(), GLES20.GL_UNSIGNED_SHORT_5_6_5, frame);
-//            } else if (RenderFrameBuffer.FORMAT_UNKNOWN != frameFormat) {
-//                mMonitor.updateAsYUV(mFrameBuffer);
-//            } else {
-//                L.error("GLVideoRender", "UNKNOWN FRAME FORMAT");
-//            }
-//        }
-//
-//        if(mMonitor == null || mVideoShader == null){
-//            L.error("GLVideoRender", "Monitor is null:%b ; VideoShader is null:%b",
-//                    mMonitor == null, mVideoShader == null);
-//            return;
-//        }
-//        mMonitor.refresh(mVideoShader.mPositionHandle, mVideoShader.mTextureHandle,
-//                mVideoShader.mSampleY, mVideoShader.mSampleU, mVideoShader.mSampleV);
-//        CatchError.catchError("onDrawFrame");
+        if(mMonitor == null || mVideoShader == null){
+            L.error("GLVideoRender", "Monitor is null:%b ; VideoShader is null:%b",
+                    mMonitor == null, mVideoShader == null);
+            return;
+        }
+        mMonitor.refresh(mVideoShader.mPositionHandle, mVideoShader.mTextureHandle,
+                mVideoShader.mSampleY, mVideoShader.mSampleU, mVideoShader.mSampleV);
+        CatchError.catchError("onDrawFrame");
 
-//        if (null != mRenderSlowStatistics) {
-//            mRenderSlowStatistics.statistics();
-//        }
+        super.onDrawFrame(gl);
 
-//        super.onDrawFrame(gl);
-//
-//        notifyRenderStatusIfNeed(frameChanged);
+        notifyRenderStatusIfNeed(frameChanged);
     }
 
     @Override

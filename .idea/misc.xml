@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+  </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="android" url="file://$PROJECT_DIR$/Android-PullToRefresh/extras/PullToRefreshListFragment" />
+    <file type="android" url="file://$PROJECT_DIR$/Android-PullToRefresh/extras/PullToRefreshViewPager" />
+    <file type="android" url="file://$PROJECT_DIR$/Android-PullToRefresh/PullRefreshLib" />
+    <file type="android" url="file://$PROJECT_DIR$/Android-PullToRefresh/sample" />
+    <file type="android" url="file://$PROJECT_DIR$/AndroidTestProject" />
+    <file type="android" url="file://$PROJECT_DIR$/AndroidTestSample" />
+    <file type="android" url="file://$PROJECT_DIR$/AndroidTV" />
+    <file type="android" url="file://$PROJECT_DIR$/BaseSmartFrame" />
+    <file type="android" url="file://$PROJECT_DIR$/CustomView" />
+    <file type="android" url="file://$PROJECT_DIR$/EventBus" />
+    <file type="android" url="file://$PROJECT_DIR$/Launcher2" />
+    <file type="android" url="file://$PROJECT_DIR$/MultiDex" />
+    <file type="android" url="file://$PROJECT_DIR$/mvntest/mvntest" />
+    <file type="android" url="file://$PROJECT_DIR$/mvntest/mvntest-it" />
+    <file type="android" url="file://$PROJECT_DIR$/openGL" />
+    <file type="android" url="file://$PROJECT_DIR$/reflection" />
+    <file type="android" url="file://$PROJECT_DIR$/ReflectionTest" />
+    <file type="android" url="file://$PROJECT_DIR$/RichEditor" />
+    <file type="android" url="file://$PROJECT_DIR$/Robolec" />
+    <file type="android" url="file://$PROJECT_DIR$/Robotium" />
+    <file type="android" url="file://$PROJECT_DIR$/SFBinderLib" />
+    <file type="android" url="file://$PROJECT_DIR$/SFHttpClient" />
+    <file type="android" url="file://$PROJECT_DIR$/SFJNILib" />
+    <file type="android" url="file://$PROJECT_DIR$/SFLoader" />
+    <file type="android" url="file://$PROJECT_DIR$/SFSample" />
+    <file type="android" url="file://$PROJECT_DIR$/test/test" />
+    <file type="android" url="file://$PROJECT_DIR$/test/test-it" />
+    <file type="android" url="file://$PROJECT_DIR$/tooltest" />
+    <file type="android" url="file://$PROJECT_DIR$/ViewEvent" />
+    <file type="android" url="file://$PROJECT_DIR$/yysdkdemo" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/SFHttpClient/pom.xml" />
+        <option value="$PROJECT_DIR$/EventBus/pom.xml" />
+        <option value="$PROJECT_DIR$/EventBus/EventBus/pom.xml" />
+        <option value="$PROJECT_DIR$/RichEditor/pom.xml" />
+        <option value="$PROJECT_DIR$/BaseSmartFrame/pom.xml" />
+        <option value="$PROJECT_DIR$/SFSample/pom.xml" />
+        <option value="$PROJECT_DIR$/Android-PullToRefresh/pom.xml" />
+        <option value="$PROJECT_DIR$/Android-PullToRefresh/library/pom.xml" />
+        <option value="$PROJECT_DIR$/Android-PullToRefresh/sample/pom.xml" />
+        <option value="$PROJECT_DIR$/Android-PullToRefresh/extras/pom.xml" />
+        <option value="$PROJECT_DIR$/Roboletic/pom.xml" />
+        <option value="$PROJECT_DIR$/Robotium/pom.xml" />
+        <option value="$PROJECT_DIR$/openGL/pom.xml" />
+        <option value="$PROJECT_DIR$/reflection/pom.xml" />
+        <option value="$PROJECT_DIR$/yysdkdemo/pom.xml" />
+        <option value="$PROJECT_DIR$/CustomView/pom.xml" />
+        <option value="$PROJECT_DIR$/AndroidTV/pom.xml" />
+        <option value="$PROJECT_DIR$/AndroidTestProject/pom.xml" />
+        <option value="$PROJECT_DIR$/SFJNILib/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="NullableNotNullManager">
+    <option name="myDefaultNullable" value="android.support.annotation.Nullable" />
+    <option name="myDefaultNotNull" value="android.support.annotation.NonNull" />
+    <option name="myNullables">
+      <value>
+        <list size="4">
+          <item index="0" class="java.lang.String" itemvalue="org.jetbrains.annotations.Nullable" />
+          <item index="1" class="java.lang.String" itemvalue="javax.annotation.Nullable" />
+          <item index="2" class="java.lang.String" itemvalue="edu.umd.cs.findbugs.annotations.Nullable" />
+          <item index="3" class="java.lang.String" itemvalue="android.support.annotation.Nullable" />
+        </list>
+      </value>
+    </option>
+    <option name="myNotNulls">
+      <value>
+        <list size="4">
+          <item index="0" class="java.lang.String" itemvalue="org.jetbrains.annotations.NotNull" />
+          <item index="1" class="java.lang.String" itemvalue="javax.annotation.Nonnull" />
+          <item index="2" class="java.lang.String" itemvalue="edu.umd.cs.findbugs.annotations.NonNull" />
+          <item index="3" class="java.lang.String" itemvalue="android.support.annotation.NonNull" />
+        </list>
+      </value>
+    </option>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

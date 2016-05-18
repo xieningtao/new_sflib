@@ -10,6 +10,7 @@ import com.basesmartframe.R;
 
 /**
  * Created by xieningtao on 15-9-15.
+ * TODO refine this
  */
 public class HttpLoadingView extends BaseHttpView {
 
@@ -18,7 +19,7 @@ public class HttpLoadingView extends BaseHttpView {
     }
 
     @Override
-    protected View onCreateView(LayoutInflater layoutInflater) {
+    protected View createContentView(LayoutInflater layoutInflater) {
         return layoutInflater.inflate(R.layout.pulltorefresh_loading, null);
     }
 

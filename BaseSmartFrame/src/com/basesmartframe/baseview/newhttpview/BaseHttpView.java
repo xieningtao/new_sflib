@@ -10,21 +10,23 @@ import android.view.ViewParent;
  * Created by xieningtao on 15-9-15.
  */
 abstract public class BaseHttpView {
-    private final ViewGroup mRootView;
-    private final Context mContext;
-    private View mContentView;
+    protected final ViewGroup mRootView;
+    protected final Context mContext;
+    private final View mContentView;
 
     public BaseHttpView(Context context, ViewGroup rootView) {
         this.mContext = context;
         this.mRootView = rootView;
-        LayoutInflater layoutInflater = LayoutInflater.from(context);
-        mContentView = onCreateView(layoutInflater);
+        final LayoutInflater layoutInflater = LayoutInflater.from(context);
+        this.mContentView = createContentView(layoutInflater);
+
     }
 
-    protected abstract View onCreateView(LayoutInflater layoutInflater);
+    protected abstract View createContentView(LayoutInflater layoutInflater);
 
     boolean showView() {
         if (mContentView.getParent() == null) {
+//            mRootView.removeView(mContentView);
             mRootView.addView(mContentView);
         }
         mRootView.setVisibility(View.VISIBLE);

@@ -21,7 +21,6 @@ JNIEXPORT jint JNICALL Java_com_example_SFJNILib_HelloActivity_getHello
 
     jmethodID getStr_id=(*jni)->GetMethodID(jni,activity_class,"getStr","()Ljava/lang/String;");
 
-
     jobject value=(*jni)->CallObjectMethod(jni,object,getStr_id);
 
     jsize length=(*jni)->GetStringLength(jni,value);

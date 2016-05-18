@@ -1,141 +1,62 @@
 package com.basesmartframe.baseview.newhttpview;
 
 import android.content.Context;
-import android.util.SparseArray;
 import android.view.ViewGroup;
 
-import com.basesmartframe.log.L;
-
+import com.basesmartframe.baseutil.NetWorkManagerUtil;
 
 /**
  * Created by xieningtao on 15-9-15.
  */
-public class HttpViewManager {
+public class HttpViewManager implements HttpViewAction {
 
-    public static enum HttpViewType {
-        LOADING_VIEW, NO_DATA_VIEW, NO_NETWORK_VIEW
+    public static enum TVHttpViewType {
+        NONE, LOADING_VIEW, NO_DATA_VIEW, NO_NETWORK_VIEW
     }
 
-    private final String TAG = getClass().getName();
+    private HttpViewHelper mActionHelper;
 
-    private SparseArray<BaseHttpView> mHttpViews = new SparseArray<>();
-
-    private final ViewGroup mRootView;
-    private final Context mContext;
-
-    private HttpViewFactory mHttpViewFactory;
-
-    private final HttpViewFactory mDefaultHttpViewFactory = new DefaultHttpViewFactory();
-    ;
-
-    public HttpViewManager(Context context, ViewGroup rootView) {
-        this.mRootView = rootView;
-        this.mContext = context;
+    private HttpViewManager(HttpViewFactory factory) {
+        mActionHelper = new HttpViewHelper(factory);
     }
 
-    public void setHttpViewFactory(HttpViewFactory factory) {
-        this.mHttpViewFactory = factory;
+    public static HttpViewManager createManagerByDefault(Context context, ViewGroup rootView) {
+        HttpViewFactory factory = new SimpleHttpViewFactory(context, rootView);
+        return new HttpViewManager(factory);
     }
 
-    public boolean isViewShowing(HttpViewType viewType) {
-        if (viewType == null) return false;
-        BaseHttpView httpView = mHttpViews.get(viewType.ordinal());
-        if (httpView == null) return false;
-        return httpView.isShowing();
+    public static HttpViewManager createManagerBy(HttpViewFactory tvHttpViewFactory) {
+        return new HttpViewManager(tvHttpViewFactory);
     }
 
-    public boolean showHttpView(HttpViewType viewType) {
-        if (isViewShowing(viewType)) return true;
-        if (viewType == null) return false;
-        BaseHttpView httpView = mHttpViews.get(viewType.ordinal());
-        if (httpView == null) {
-            httpView = createHttpView(viewType);
-            mHttpViews.put(viewType.ordinal(), httpView);
-        }
-        L.info(TAG, "httpView object addr: " + httpView);
-        return httpView.showView();
-    }
-
-    public boolean showOnlyThisHttpView(HttpViewType viewType) {
-        if (isViewShowing(viewType)) return true;
-        mRootView.removeAllViews();
-        return showHttpView(viewType);
-    }
-
-    //refactor dismissHttpView function and dismissAllHttpViews
-    public boolean dismissHttpView(HttpViewType viewType) {
-        if (!isViewShowing(viewType)) return true;
-        if (viewType == null) return false;
-        BaseHttpView httpView = mHttpViews.get(viewType.ordinal());
-        if (httpView.isShowing()) {
-            return httpView.dismissView();
+    @Override
+    public void showHttpLoadingView(boolean hasData) {
+        if (!hasData) {
+            boolean httpResult = mActionHelper.showOnlyThisHttpView(HttpViewManager.TVHttpViewType.LOADING_VIEW);
         } else {
-            return false;
-        }
-
-    }
-
-    private boolean dismissHtppViewHelper(HttpViewType viewType) {
-        BaseHttpView httpView = mHttpViews.get(viewType.ordinal());
-        if (httpView == null) {
-            return true;
-        }
-        return httpView.dismissView();
-    }
-
-    public void dismissAllHttpViews() {
-        for (HttpViewType viewType : HttpViewType.values()) {
-            if (isViewShowing(viewType)) {
-                dismissHtppViewHelper(viewType);
-            }
+            mActionHelper.dismissAllHttpViews();
         }
     }
 
-    public boolean removeHttpView(HttpViewType viewType) {
-        if (viewType == null) return false;
-        BaseHttpView httpView = mHttpViews.get(viewType.ordinal());
-        if (httpView == null) return true;
-        return httpView.removeView();
-    }
-
-    public void removeAllHttpViews() {
-        for (HttpViewType viewType : HttpViewType.values()) {
-            removeHttpView(viewType);
+    @Override
+    public void showHttpViewNOData(boolean hasData) {
+        if (hasData) {
+            mActionHelper.dismissAllHttpViews();
+        } else if (NetWorkManagerUtil.isNetworkAvailable()) {
+            boolean httpResult = mActionHelper.showOnlyThisHttpView(HttpViewManager.TVHttpViewType.NO_DATA_VIEW);
+        } else {
+            boolean httpResult = mActionHelper.showOnlyThisHttpView(HttpViewManager.TVHttpViewType.NO_NETWORK_VIEW);
         }
     }
 
-    private BaseHttpView createHttpView(HttpViewType viewType) {
-        if (mHttpViewFactory == null) {
-            mHttpViewFactory = mDefaultHttpViewFactory;
-        }
-        switch (viewType) {
-            case LOADING_VIEW:
-                return mHttpViewFactory.createLoadingHttpView(mContext, mRootView);
-            case NO_DATA_VIEW:
-                return mHttpViewFactory.createNoDataView(mContext, mRootView);
-            case NO_NETWORK_VIEW:
-                return mHttpViewFactory.createNoNetworkView(mContext, mRootView);
-            default:
-                //never run this
-                return null;
-        }
-    }
+    @Override
+    public void showHttpViewNoNetwork(boolean hasData) {
 
-    public static class DefaultHttpViewFactory extends HttpViewFactory {
-
-        @Override
-        public BaseHttpView createLoadingHttpView(Context context, ViewGroup rootView) {
-            return new HttpLoadingView(context, rootView);
+        if (hasData) {
+            mActionHelper.dismissAllHttpViews();
+        } else if (!NetWorkManagerUtil.isNetworkAvailable()) {
+            boolean httpResult = mActionHelper.showOnlyThisHttpView(HttpViewManager.TVHttpViewType.NO_NETWORK_VIEW);
         }
 
-        @Override
-        public BaseHttpView createNoNetworkView(Context context, ViewGroup rootView) {
-            return new HttpNoNetworkView(context, rootView);
-        }
-
-        @Override
-        public BaseHttpView createNoDataView(Context context, ViewGroup rootView) {
-            return new HttpNoDataView(context, rootView);
-        }
     }
 }

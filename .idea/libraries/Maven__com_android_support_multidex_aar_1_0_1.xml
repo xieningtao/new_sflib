@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Maven: com.android.support:multidex:aar:1.0.1">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/MultiDex/gen-external-apklibs/com.android.support_multidex_1.0.1/res" />
+      <root url="jar://$PROJECT_DIR$/MultiDex/gen-external-apklibs/com.android.support_multidex_1.0.1/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../../localRepository/com/android/support/multidex/1.0.1/multidex-1.0.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../localRepository/com/android/support/multidex/1.0.1/multidex-1.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

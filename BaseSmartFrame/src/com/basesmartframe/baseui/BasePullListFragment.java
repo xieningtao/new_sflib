@@ -14,7 +14,6 @@ import com.basesmartframe.R;
 import com.basesmartframe.baseadapter.BaseAdapterHelper;
 import com.basesmartframe.baseevent.GlobalEvent;
 import com.basesmartframe.basepull.PullType;
-import com.basesmartframe.baseutil.FDToastUtil;
 import com.basesmartframe.baseutil.NetWorkManagerUtil;
 import com.basesmartframe.baseview.newhttpview.HttpViewManager;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -54,7 +53,7 @@ public abstract class BasePullListFragment<T> extends BaseFragment implements
 
     private void initView(View view, Bundle savedInstanceState) {
         mHttpContainer = (FrameLayout) view.findViewById(R.id.http_container);
-        mHttpViewManager = new HttpViewManager(getActivity(), mHttpContainer);
+        mHttpViewManager = HttpViewManager.createManagerByDefault(getActivity(), mHttpContainer);
         data.clear();
         mPullToRefreshListView = (PullToRefreshListView) view
                 .findViewById(R.id.pull_refresh_lv);
@@ -123,32 +122,17 @@ public abstract class BasePullListFragment<T> extends BaseFragment implements
 
     private void showHttpLoadingView() {
         final boolean hasData = isListViewHasData();
-        if (hasData) {
-            mHttpViewManager.dismissAllHttpViews();
-        }
-        if (NetWorkManagerUtil.isNetworkAvailable()) {
-            if (!hasData) {
-                mHttpViewManager.showHttpView(HttpViewManager.HttpViewType.LOADING_VIEW);
-            }
-        } else {
-            if (!hasData) {
-                mHttpViewManager.showOnlyThisHttpView(HttpViewManager.HttpViewType.NO_NETWORK_VIEW);
-            } else {
-                FDToastUtil.show(getActivity(), R.string.no_network);
-            }
-        }
+
+        mHttpViewManager.showHttpLoadingView(hasData);
 
     }
 
     private void showHttpResultView() {
         final boolean hasData = isListViewHasData();
-        if (hasData) {
-            mHttpViewManager.dismissAllHttpViews();
-            if (!NetWorkManagerUtil.isNetworkAvailable()) {
-                FDToastUtil.show(getActivity(), R.string.no_network);
-            }
+        if (NetWorkManagerUtil.isNetworkAvailable()) {
+            mHttpViewManager.showHttpViewNOData(hasData);
         } else {
-            mHttpViewManager.showOnlyThisHttpView(HttpViewManager.HttpViewType.NO_DATA_VIEW);
+            mHttpViewManager.showHttpViewNoNetwork(hasData);
         }
 
     }
@@ -272,6 +256,7 @@ public abstract class BasePullListFragment<T> extends BaseFragment implements
 
     /**
      * subclass will implements this function
+     *
      * @return
      */
 

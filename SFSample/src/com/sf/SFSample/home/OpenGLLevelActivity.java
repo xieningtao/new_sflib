@@ -5,6 +5,7 @@ import android.util.SparseArray;
 
 import com.sf.SFSample.ui.BaseLevelActivity;
 import com.sf.SFSample.ui.BasicOpenGLES20Activity;
+import com.sf.SFSample.ui.OpenGLTanActivity;
 import com.sf.SFSample.ui.TransformActivity;
 
 /**
@@ -16,6 +17,7 @@ public class OpenGLLevelActivity extends BaseLevelActivity {
         SparseArray<Pair<String, Class>> activities = new SparseArray<>();
         activities.put(0, new Pair<String, Class>("basic open gl", BasicOpenGLES20Activity.class));
         activities.put(1, new Pair<String, Class>("transform open gl", TransformActivity.class));
+        activities.put(2, new Pair<String, Class>("tan open gl", OpenGLTanActivity.class));
         return activities;
     }
 }

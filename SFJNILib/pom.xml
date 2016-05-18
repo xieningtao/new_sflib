@@ -21,4 +21,30 @@
     </dependencies>
 
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.simpligility.maven.plugins</groupId>
+
+                <artifactId>android-maven-plugin</artifactId>
+
+
+                <configuration>
+                    <sdk>
+                        <platform>${android_platform}</platform>
+                    </sdk>
+
+
+                    <androidManifestFile>${project.basedir}/AndroidManifest.xml
+                    </androidManifestFile>
+                    <resourceDirectory>${project.basedir}/res</resourceDirectory>
+                    <assetsDirectory>${project.basedir}/assets</assetsDirectory>
+                    <nativeLibrariesDirectory>${project.basedir}/libs</nativeLibrariesDirectory>
+                    <includeLibsJarsFromAar>true</includeLibsJarsFromAar>
+                    <aidlSourceDirectory>${project.basedir}/src</aidlSourceDirectory>
+                    <!--<genDirectoryAidl>${project.basedir}/gen</genDirectoryAidl>-->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

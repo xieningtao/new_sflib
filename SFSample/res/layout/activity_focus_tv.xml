@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/left_rl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@id/left_bt"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="left in"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/right_rl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        >
+
+        <Button
+            android:id="@id/right_bt"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:nextFocusUp="@id/left_bt"
+            android:text="right"
+            />
+    </RelativeLayout>
+
+    <com.sf.SFSample.focusview.FocusListView
+        android:id="@+id/focus_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/left_rl"/>
+
+</RelativeLayout>

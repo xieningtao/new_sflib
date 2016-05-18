@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <RadioGroup
+        android:id="@+id/ciper_rg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        >
+
+        <RadioButton
+            android:id="@+id/standar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="标准密钥"
+            />
+
+        <RadioButton
+            android:id="@+id/custom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="当前密钥"
+            />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/encoder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="加密"
+            />
+
+        <Button
+            android:id="@+id/decoder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="解密"
+            />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/input_et"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="加密以后的内容："
+            />
+
+        <TextView
+            android:id="@+id/after_encoder"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/lb_grey"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="解密以后的内容："
+            />
+
+        <TextView
+            android:id="@+id/after_decoder"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/lb_grey"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

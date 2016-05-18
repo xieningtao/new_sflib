@@ -19,7 +19,12 @@
             <artifactId>android</artifactId>
         </dependency>
 
-
+        <dependency>
+            <groupId>com.sf.lib</groupId>
+            <artifactId>basesf</artifactId>
+            <version>${lib_version}</version>
+            <type>aar</type>
+        </dependency>
     </dependencies>
 
 

@@ -10,6 +10,7 @@ import com.basesmartframe.R;
 
 /**
  * Created by xieningtao on 15-9-16.
+ * TODO refine this
  */
 public class HttpNoDataView extends BaseHttpView {
 
@@ -18,8 +19,8 @@ public class HttpNoDataView extends BaseHttpView {
     }
 
     @Override
-    protected View onCreateView(LayoutInflater layoutInflater) {
-        return layoutInflater.inflate(R.layout.nodata_view,null);
+    protected View createContentView(LayoutInflater layoutInflater) {
+        return layoutInflater.inflate(R.layout.nodata_view, null);
     }
 
 }

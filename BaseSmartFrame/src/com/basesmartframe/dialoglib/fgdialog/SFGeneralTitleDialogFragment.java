@@ -1,21 +1,22 @@
 package com.basesmartframe.dialoglib.fgdialog;
 
-import com.basesmartframe.R;
-
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.FrameLayout;
+
+import com.basesmartframe.R;
 
 public class SFGeneralTitleDialogFragment extends BaseTitleDialogFragment {
 
-	@Override
-	void onTitleViewCreated(View title_view) {
-		// TODO Auto-generated method stub
 
-	}
+    @Override
+    View onTitleViewContainerCreated(LayoutInflater inflater, FrameLayout titleContainer) {
+        View rootView = inflater.inflate(R.layout.three_items_title, null);
+        return rootView;
+    }
 
-	@Override
-	View getTitleView(View parentView, LayoutInflater inflater) {
-		return inflater.inflate(R.layout.three_items_title, null);
-	}
-
+    @Override
+    View onContentViewContainerCreated(LayoutInflater inflater, FrameLayout contentContainer) {
+        return null;
+    }
 }
