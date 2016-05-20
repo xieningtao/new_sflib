@@ -1,5 +1,6 @@
 package com.sf.SFSample.home;
 
+import android.os.Bundle;
 import android.util.Pair;
 import android.util.SparseArray;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.sf.SFSample.ui.RoundDrawableActivity;
 import com.sf.SFSample.ui.VideoShowTest;
 import com.sf.SFSample.ui.ViewPagerTest;
 import com.sf.SFSample.ui.XPinListViewActivity;
+import com.umeng.analytics.MobclickAgent;
 
 public class HomeLevelActivity extends BaseLevelActivity {
 
@@ -47,4 +49,11 @@ public class HomeLevelActivity extends BaseLevelActivity {
     public void onEvent(String str) {
 
     }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+
 }

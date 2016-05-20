@@ -61,6 +61,13 @@
             <type>aar</type>
             <version>${project.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.sf.umeng</groupId>
+            <artifactId>analytics</artifactId>
+            <version>6.0.0</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 
 </project>

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import com.basesmartframe.basehttp.BaseAjaxCallBack;
 import com.basesmartframe.baseview.newhttpview.HttpViewManager;
 import com.basesmartframe.log.L;
+import com.umeng.analytics.MobclickAgent;
 
 import de.greenrobot.event.EventBus;
 
@@ -29,6 +30,7 @@ public class BaseActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
+        MobclickAgent.onResume(this);
         EventBus.getDefault().register(this);
         L.info(this, getClass().getName() + " register evenBus onResume");
     }
@@ -36,6 +38,7 @@ public class BaseActivity extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
+        MobclickAgent.onPause(this);
         EventBus.getDefault().unregister(this);
         L.info(this, getClass().getName() + " unregister evenBus onPause");
     }

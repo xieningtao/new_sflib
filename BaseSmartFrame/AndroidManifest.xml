@@ -12,10 +12,7 @@
     <application>
 
 
-        <!-- Caution! Do not change this app key. It is only for demo usage. -->
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="557ae6fe67e58e40930039a3" />
+
     </application>
 
 </manifest>

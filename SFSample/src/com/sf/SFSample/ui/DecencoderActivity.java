@@ -27,8 +27,8 @@ public class DecencoderActivity extends BaseActivity implements View.OnClickList
 
     private RadioGroup mCiper;
 
-    private String mPublicKey = RsaUtil.PUBLIC_KEY1;
-    private String mPrivateKey = RsaUtil.PRIVATE_KEY1;
+    private String mPublicKey = RsaUtil.PUBLIC_STANDARD_KEY;
+    private String mPrivateKey = RsaUtil.PRIVATE_STANDARD_KEY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +58,8 @@ public class DecencoderActivity extends BaseActivity implements View.OnClickList
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == R.id.standar) {
-                    mPrivateKey = RsaUtil.PRIVATE_KEY1;
-                    mPublicKey = RsaUtil.PUBLIC_KEY1;
+                    mPrivateKey = RsaUtil.PRIVATE_STANDARD_KEY;
+                    mPublicKey = RsaUtil.PUBLIC_STANDARD_KEY;
                 } else if (checkedId == R.id.custom) {
                     mPrivateKey = RsaUtil.PRIVATE_KEY;
                     mPublicKey = RsaUtil.PUBLIC_KEY;

@@ -29,28 +29,12 @@ public class RsaUtil {
             + "npn6mnV8PN4UXJ6MbWwUb/23zNWJtqxiyQeYnaCLA3bu0R9po5S7axT1jO5kFZuSwUiV2faSt4Ymk"
             + "q/I3kZsxtwIDAQAB";
 
-    public static final String PUBLIC_KEY = "MIIDojCCAwugAwIBAgIJAMToyy+vlxoPMA0GCSqGSIb3DQEBBQUAMIGTMQswCQYD" +
-            "VQQGEwJDTjEQMA4GA1UECBMHQmVpamluZzEQMA4GA1UEBxMHQmVpamluZzEQMA4G" +
-            "A1UEChMHTmV0RWFzZTEQMA4GA1UECxMHSHVhVGlhbjEQMA4GA1UEAxMHSHVhVGlh" +
-            "bjEqMCgGCSqGSIb3DQEJARYbaHVhdGlhbkBzZXJ2aWNlLm5ldGVhc2UuY29tMB4X" +
-            "DTE0MDMwNDA1NDI1NloXDTI0MDMwMTA1NDI1NlowgZMxCzAJBgNVBAYTAkNOMRAw" +
-            "DgYDVQQIEwdCZWlqaW5nMRAwDgYDVQQHEwdCZWlqaW5nMRAwDgYDVQQKEwdOZXRF" +
-            "YXNlMRAwDgYDVQQLEwdIdWFUaWFuMRAwDgYDVQQDEwdIdWFUaWFuMSowKAYJKoZI" +
-            "hvcNAQkBFhtodWF0aWFuQHNlcnZpY2UubmV0ZWFzZS5jb20wgZ8wDQYJKoZIhvcN" +
-            "AQEBBQADgY0AMIGJAoGBAKcQoHjEjFUggbqWP2LlGTSDGnmYe+cbrpnitdTQ7r44" +
-            "PK7tFd8mJu0cGG6zGq6TjPjd8DI8BMrgnBrO7h6oAX16ejrWmoZ0PFTpow6hrNoa" +
-            "r4w7Wn+NMBaKVgHw0B2M9IGKoWTeKnL2PRg91rAJWk6Q7HrGj+q7k8DTXROiqsQd" +
-            "AgMBAAGjgfswgfgwHQYDVR0OBBYEFGNUAHDLz5bHE8Q+Bu3uqJ/tKhzxMIHIBgNV" +
-            "HSMEgcAwgb2AFGNUAHDLz5bHE8Q+Bu3uqJ/tKhzxoYGZpIGWMIGTMQswCQYDVQQG" +
-            "EwJDTjEQMA4GA1UECBMHQmVpamluZzEQMA4GA1UEBxMHQmVpamluZzEQMA4GA1UE" +
-            "ChMHTmV0RWFzZTEQMA4GA1UECxMHSHVhVGlhbjEQMA4GA1UEAxMHSHVhVGlhbjEq" +
-            "MCgGCSqGSIb3DQEJARYbaHVhdGlhbkBzZXJ2aWNlLm5ldGVhc2UuY29tggkAxOjL" +
-            "L6+XGg8wDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQA1SZi48HxmyRiY" +
-            "fxUJFPuMeywp0LmIspI7lU2q0yZTq9Y7Bo5UZSSF/kR+FlwP6jF32ZOkOvxJJDxA" +
-            "WfW+AtIGSC22DxhWAvDL9mg/gRX0qmRFZzLb/pgR6YHf0WNmmyrKjAE5W+XBybl9" +
-            "/DKIE5XBwJ/fwI3TO38Y/tthJSozVQ==";
+    public static final String PUBLIC_KEY = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCnEKB4xIxVIIG6lj9i5Rk0gxp5" +
+            "mHvnG66Z4rXU0O6+ODyu7RXfJibtHBhusxquk4z43fAyPATK4Jwazu4eqAF9eno6" +
+            "1pqGdDxU6aMOoazaGq+MO1p/jTAWilYB8NAdjPSBiqFk3ipy9j0YPdawCVpOkOx6" +
+            "xo/qu5PA010ToqrEHQIDAQAB";
 
-    public static final String PUBLIC_KEY1 = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCfRTdcPIH10gT9f31rQuIInLwe" +
+    public static final String PUBLIC_STANDARD_KEY = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCfRTdcPIH10gT9f31rQuIInLwe" +
             "7fl2dtEJ93gTmjE9c2H+kLVENWgECiJVQ5sonQNfwToMKdO0b3Olf4pgBKeLThra" +
             "z/L3nYJYlbqjHC3jTjUnZc0luumpXGsox62+PuSGBlfb8zJO6hix4GV/vhyQVCpG" +
             "9aYqgE7zyTRZYX9byQIDAQAB";
@@ -70,7 +54,7 @@ public class RsaUtil {
             + "4eP9ScAxWoOES/tuzK7QWWt+MPs6B6vAAL9cP7xdUsOz32m1eXfvbRzfHfmJDwoU"
             + "bOqaU1T+92eR6Q=="; // 私钥
 
-    public static final String PRIVATE_KEY1 =
+    public static final String PRIVATE_STANDARD_KEY =
             "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAJ9FN1w8gfXSBP1/" +
                     "fWtC4gicvB7t+XZ20Qn3eBOaMT1zYf6QtUQ1aAQKIlVDmyidA1/BOgwp07Rvc6V/" +
                     "imAEp4tOGtrP8vedgliVuqMcLeNONSdlzSW66alcayjHrb4+5IYGV9vzMk7qGLHg" +

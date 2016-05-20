@@ -6,10 +6,10 @@
       <root url="file://$PROJECT_DIR$/BaseSmartFrame/gen-external-apklibs/com.android.support_support-v13_22.1.1/res" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/../../../localRepository/com/android/support/support-v13/22.1.1/support-v13-22.1.1-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/android/support/support-v13/22.1.1/support-v13-22.1.1-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../../localRepository/com/android/support/support-v13/22.1.1/support-v13-22.1.1-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/android/support/support-v13/22.1.1/support-v13-22.1.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

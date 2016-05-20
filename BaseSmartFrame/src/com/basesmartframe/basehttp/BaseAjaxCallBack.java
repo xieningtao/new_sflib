@@ -27,7 +27,6 @@ public abstract class BaseAjaxCallBack<T> extends AjaxCallBack<String> {
 			this.params = params;
 			this.mCallBack = mCallBack;
 		}
-
 	}
 
 	/**
