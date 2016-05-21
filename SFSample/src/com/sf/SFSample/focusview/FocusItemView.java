@@ -23,12 +23,14 @@ public class FocusItemView extends LinearLayout {
 
     public FocusItemView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
     }
 
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
         boolean handle = super.dispatchKeyEvent(event);
         L.info(TAG, "method->dispatchKeyEvent,FocusItemView handle: " + handle);
+
         return handle;
     }
 
@@ -36,6 +38,8 @@ public class FocusItemView extends LinearLayout {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         boolean handle = super.onKeyDown(keyCode, event);
         L.info(TAG, "method->onKeyDown,FocusItemView handle: " + handle);
+
+        
         return handle;
     }
 }
