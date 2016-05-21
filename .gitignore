@@ -2,3 +2,4 @@ target/
 *.iml
 gen-external-apklibs/
 gen/
+.idea/
