@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_container_ll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#9a000000"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/real_photo_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/message_setting_item_height"
+        android:orientation="horizontal"
+        >
+        <TextView
+            style="@style/item_tv"
+            android:id="@+id/real_photo_tv"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/real_photo_message"
+            android:layout_height="match_parent" />
+
+        <CheckBox
+            android:id="@+id/real_photo_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/higher_credit_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/message_setting_item_height"
+        android:orientation="horizontal"
+        >
+
+
+        <TextView
+            style="@style/item_tv"
+            android:id="@+id/higher_credit_tv"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/higher_credit_message"
+            android:layout_height="match_parent" />
+
+        <CheckBox
+            android:id="@+id/higher_credit_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/friends_condition_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/message_setting_item_height"
+        android:orientation="horizontal"
+        >
+
+
+        <TextView
+            style="@style/item_tv"
+            android:id="@+id/friends_condition_tv"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/friends_condition_message"
+            android:layout_height="match_parent" />
+
+        <CheckBox
+            android:id="@+id/friends_condition_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

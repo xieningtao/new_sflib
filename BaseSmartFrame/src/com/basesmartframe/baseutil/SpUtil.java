@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.preference.PreferenceManager;
+import android.text.TextUtils;
+
+import com.basesmartframe.baseapp.BaseApp;
 
 /**
  * 只是用一个preference
@@ -12,7 +16,23 @@ import android.content.SharedPreferences.Editor;
  */
 public class SpUtil {
 
-	
+	/**
+	 * 根据名字得到SharePreference
+	 *
+	 * @param context
+	 * @param prefName
+	 * @return
+	 */
+	public static SharedPreferences getSharedPreferences(Context context, String prefName) {
+		if (context == null) {
+			context = BaseApp.gContext;
+		}
+		if (TextUtils.isEmpty(prefName)) {
+			return PreferenceManager.getDefaultSharedPreferences(context);
+		} else {
+			return context.getSharedPreferences(prefName, Context.MODE_PRIVATE);
+		}
+	}
 	private static Editor getSp(Activity context){
 		SharedPreferences sp=context.getSharedPreferences(BaseUtilConfig.SharePreferenceName,context.MODE_PRIVATE);
 		return sp.edit();

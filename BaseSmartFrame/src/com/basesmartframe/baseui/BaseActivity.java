@@ -22,6 +22,12 @@ public class BaseActivity extends Activity {
 
     protected View mRootView;
 
+    private OnBackPressListener mOnBackPressListener;
+
+    public void setmOnBackPressListener(OnBackPressListener mOnBackPressListener) {
+        this.mOnBackPressListener = mOnBackPressListener;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +60,17 @@ public class BaseActivity extends Activity {
 
     public void onEvent(BaseAjaxCallBack.HttpResult result) {
         result.mCallBack.onResult(result.bean, result.params);
+    }
+
+    @Override
+    public void onBackPressed() {
+        boolean handle=false;
+        if(mOnBackPressListener!=null){
+            handle= mOnBackPressListener.onBackPressListener();
+        }
+        if(!handle) {
+            super.onBackPressed();
+        }
     }
 
     //---http view doRefresh

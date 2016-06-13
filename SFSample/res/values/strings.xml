@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SFSample</string>
+
+    <!--消息设置-->
+    <string name="real_photo_message">只接受真实头像的消息</string>
+    <string name="higher_credit_message">只接受信用较高的用户消息</string>
+    <string name="friends_condition_message">只接受符合交友条件消息</string>
 </resources>
