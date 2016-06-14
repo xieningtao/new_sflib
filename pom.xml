@@ -1,155 +1,155 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<project xmlns="http://maven.apache.org/POM/4.0.0"-->
+         <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+         <!--xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">-->
+    <!--<modelVersion>4.0.0</modelVersion>-->
 
-    <groupId>com.sf.lib</groupId>
-    <artifactId>parent</artifactId>
-    <version>${lib_version}</version>
-    <packaging>pom</packaging>
-    <name>parent</name>
+    <!--<groupId>com.sf.lib</groupId>-->
+    <!--<artifactId>parent</artifactId>-->
+    <!--<version>${lib_version}</version>-->
+    <!--<packaging>pom</packaging>-->
+    <!--<name>parent</name>-->
 
-    <modules>
-        <module>EventBus</module>
-        <module>SFHttpClient</module>
-        <module>Android-PullToRefresh</module>
-        <module>BaseSmartFrame</module>
+    <!--<modules>-->
+        <!--<module>EventBus</module>-->
+        <!--<module>SFHttpClient</module>-->
+        <!--<module>Android-PullToRefresh</module>-->
+        <!--<module>BaseSmartFrame</module>-->
 
-        <!--<module>Robolec</module>-->
-        <!--&lt;!&ndash;<module>Robotium</module>&ndash;&gt;-->
-        <module>reflection</module>
-        <module>CustomView</module>
-        <module>openGL</module>
+        <!--&lt;!&ndash;<module>Robolec</module>&ndash;&gt;-->
+        <!--&lt;!&ndash;&lt;!&ndash;<module>Robotium</module>&ndash;&gt;&ndash;&gt;-->
+        <!--<module>reflection</module>-->
+        <!--<module>CustomView</module>-->
+        <!--<module>openGL</module>-->
 
-        <module>AndroidTV</module>
-        <module>SFSample</module>
+        <!--<module>AndroidTV</module>-->
+        <!--<module>SFSample</module>-->
 
-        <!--<module>Launcher2</module>-->
-
-
-        <!--<module>RichEditor</module>-->
-        <!--<module>MultiDex</module>-->
-        <!--<module>yysdkdemo</module>-->
-        <!--<module>SFJNILib</module>-->
-        <!--<module>SFBinderLib</module>-->
-        <!--<module>AndroidTestProject</module>-->
-        <!--<module>AndroidTestSample</module>-->
-    </modules>
-    <properties>
-        <android_mavenplugin_version>4.2.0</android_mavenplugin_version>
-        <android_sdk_version>5.0.1</android_sdk_version>
-        <android_platform>22</android_platform>
-        <lib_version>1.0.0-SNAPSHOT</lib_version>
-        <support_v4_version>22.1.1</support_v4_version>
-        <android_suppport_version>22.1.1</android_suppport_version>
-    </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.google.android</groupId>
-                <artifactId>android</artifactId>
-                <version>${android_sdk_version}</version>
-                <type>jar</type>
-                <scope>provided</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>com.android.support</groupId>
-                <artifactId>support-v4</artifactId>
-                <version>${support_v4_version}</version>
-                <type>aar</type>
-            </dependency>
+        <!--&lt;!&ndash;<module>Launcher2</module>&ndash;&gt;-->
 
 
-        </dependencies>
-    </dependencyManagement>
+        <!--&lt;!&ndash;<module>RichEditor</module>&ndash;&gt;-->
+        <!--&lt;!&ndash;<module>MultiDex</module>&ndash;&gt;-->
+        <!--&lt;!&ndash;<module>yysdkdemo</module>&ndash;&gt;-->
+        <!--&lt;!&ndash;<module>SFJNILib</module>&ndash;&gt;-->
+        <!--&lt;!&ndash;<module>SFBinderLib</module>&ndash;&gt;-->
+        <!--&lt;!&ndash;<module>AndroidTestProject</module>&ndash;&gt;-->
+        <!--&lt;!&ndash;<module>AndroidTestSample</module>&ndash;&gt;-->
+    <!--</modules>-->
+    <!--<properties>-->
+        <!--<android_mavenplugin_version>4.2.0</android_mavenplugin_version>-->
+        <!--<android_sdk_version>5.0.1</android_sdk_version>-->
+        <!--<android_platform>22</android_platform>-->
+        <!--<lib_version>1.0.0-SNAPSHOT</lib_version>-->
+        <!--<support_v4_version>22.1.1</support_v4_version>-->
+        <!--<android_suppport_version>22.1.1</android_suppport_version>-->
+    <!--</properties>-->
+
+    <!--<dependencyManagement>-->
+        <!--<dependencies>-->
+            <!--<dependency>-->
+                <!--<groupId>com.google.android</groupId>-->
+                <!--<artifactId>android</artifactId>-->
+                <!--<version>${android_sdk_version}</version>-->
+                <!--<type>jar</type>-->
+                <!--<scope>provided</scope>-->
+            <!--</dependency>-->
+
+            <!--<dependency>-->
+                <!--<groupId>com.android.support</groupId>-->
+                <!--<artifactId>support-v4</artifactId>-->
+                <!--<version>${support_v4_version}</version>-->
+                <!--<type>aar</type>-->
+            <!--</dependency>-->
 
 
-    <profiles>
-        <profile>
-            <id>xnt_deploy</id>
-            <distributionManagement>
-                <repository>
-                    <id>local_repository</id>
-                    <url>
-                        file:/Users/xieningtao/Downloads/maven/github_localRepository/m2Repository
-                    </url>
-                </repository>
-            </distributionManagement>
-        </profile>
-    </profiles>
-
-    <build>
-        <sourceDirectory>${project.basedir}/src</sourceDirectory>
-        <!--<testSourceDirectory>${project.basedir}/test</testSourceDirectory>-->
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>com.simpligility.maven.plugins</groupId>
-
-                    <artifactId>android-maven-plugin</artifactId>
-                    <version>${android_mavenplugin_version}</version>
-
-                    <configuration>
-                        <sdk>
-                            <platform>${android_platform}</platform>
-                        </sdk>
-                    </configuration>
-                    <extensions>true</extensions>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>2.0.2</version>
-                    <configuration>
-                        <source>1.7</source>
-                        <target>1.7</target>
-                        <encoding>UTF-8</encoding>
-                    </configuration>
-                    <extensions>true</extensions>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-        <plugins>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.0.2</version>
-                <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-                <extensions>true</extensions>
-            </plugin>
-
-            <plugin>
-                <groupId>com.simpligility.maven.plugins</groupId>
-
-                <artifactId>android-maven-plugin</artifactId>
+        <!--</dependencies>-->
+    <!--</dependencyManagement>-->
 
 
-                <configuration>
-                    <sdk>
-                        <platform>${android_platform}</platform>
-                    </sdk>
+    <!--<profiles>-->
+        <!--<profile>-->
+            <!--<id>xnt_deploy</id>-->
+            <!--<distributionManagement>-->
+                <!--<repository>-->
+                    <!--<id>local_repository</id>-->
+                    <!--<url>-->
+                        <!--file:/Users/xieningtao/Downloads/maven/github_localRepository/m2Repository-->
+                    <!--</url>-->
+                <!--</repository>-->
+            <!--</distributionManagement>-->
+        <!--</profile>-->
+    <!--</profiles>-->
+
+    <!--<build>-->
+        <!--<sourceDirectory>${project.basedir}/src</sourceDirectory>-->
+        <!--&lt;!&ndash;<testSourceDirectory>${project.basedir}/test</testSourceDirectory>&ndash;&gt;-->
+        <!--<pluginManagement>-->
+            <!--<plugins>-->
+                <!--<plugin>-->
+                    <!--<groupId>com.simpligility.maven.plugins</groupId>-->
+
+                    <!--<artifactId>android-maven-plugin</artifactId>-->
+                    <!--<version>${android_mavenplugin_version}</version>-->
+
+                    <!--<configuration>-->
+                        <!--<sdk>-->
+                            <!--<platform>${android_platform}</platform>-->
+                        <!--</sdk>-->
+                    <!--</configuration>-->
+                    <!--<extensions>true</extensions>-->
+                <!--</plugin>-->
+
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-compiler-plugin</artifactId>-->
+                    <!--<version>2.0.2</version>-->
+                    <!--<configuration>-->
+                        <!--<source>1.7</source>-->
+                        <!--<target>1.7</target>-->
+                        <!--<encoding>UTF-8</encoding>-->
+                    <!--</configuration>-->
+                    <!--<extensions>true</extensions>-->
+                <!--</plugin>-->
+            <!--</plugins>-->
+        <!--</pluginManagement>-->
+        <!--<plugins>-->
+
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-compiler-plugin</artifactId>-->
+                <!--<version>2.0.2</version>-->
+                <!--<configuration>-->
+                    <!--<source>1.7</source>-->
+                    <!--<target>1.7</target>-->
+                    <!--<encoding>UTF-8</encoding>-->
+                <!--</configuration>-->
+                <!--<extensions>true</extensions>-->
+            <!--</plugin>-->
+
+            <!--<plugin>-->
+                <!--<groupId>com.simpligility.maven.plugins</groupId>-->
+
+                <!--<artifactId>android-maven-plugin</artifactId>-->
 
 
-                    <androidManifestFile>${project.basedir}/AndroidManifest.xml
-                    </androidManifestFile>
-                    <resourceDirectory>${project.basedir}/res</resourceDirectory>
-                    <assetsDirectory>${project.basedir}/assets</assetsDirectory>
-                    <nativeLibrariesDirectory>${project.basedir}/libs</nativeLibrariesDirectory>
-                    <includeLibsJarsFromAar>true</includeLibsJarsFromAar>
-                    <aidlSourceDirectory>${project.basedir}/src</aidlSourceDirectory>
-                    <!--<genDirectoryAidl>${project.basedir}/gen</genDirectoryAidl>-->
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+                <!--<configuration>-->
+                    <!--<sdk>-->
+                        <!--<platform>${android_platform}</platform>-->
+                    <!--</sdk>-->
 
-</project>
+
+                    <!--<androidManifestFile>${project.basedir}/AndroidManifest.xml-->
+                    <!--</androidManifestFile>-->
+                    <!--<resourceDirectory>${project.basedir}/res</resourceDirectory>-->
+                    <!--<assetsDirectory>${project.basedir}/assets</assetsDirectory>-->
+                    <!--<nativeLibrariesDirectory>${project.basedir}/libs</nativeLibrariesDirectory>-->
+                    <!--<includeLibsJarsFromAar>true</includeLibsJarsFromAar>-->
+                    <!--<aidlSourceDirectory>${project.basedir}/src</aidlSourceDirectory>-->
+                    <!--&lt;!&ndash;<genDirectoryAidl>${project.basedir}/gen</genDirectoryAidl>&ndash;&gt;-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
+
+<!--</project>-->

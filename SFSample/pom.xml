@@ -1,93 +1,93 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<project xmlns="http://maven.apache.org/POM/4.0.0"-->
+         <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+         <!--xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">-->
+    <!--<modelVersion>4.0.0</modelVersion>-->
 
-    <parent>
-        <groupId>com.sf.lib</groupId>
-        <artifactId>parent</artifactId>
-        <version>${lib_version}</version>
-        <relativePath>../</relativePath>
-    </parent>
-    <artifactId>sfsample</artifactId>
-    <packaging>apk</packaging>
-    <name>sfsample</name>
-    <dependencies>
-        <dependency>
-            <groupId>com.google.android</groupId>
-            <artifactId>android</artifactId>
-        </dependency>
-
-
-        <dependency>
-            <groupId>com.sf.lib</groupId>
-            <artifactId>basesf</artifactId>
-            <version>${project.version}</version>
-            <type>aar</type>
-        </dependency>
+    <!--<parent>-->
+        <!--<groupId>com.sf.lib</groupId>-->
+        <!--<artifactId>parent</artifactId>-->
+        <!--<version>${lib_version}</version>-->
+        <!--<relativePath>../</relativePath>-->
+    <!--</parent>-->
+    <!--<artifactId>sfsample</artifactId>-->
+    <!--<packaging>apk</packaging>-->
+    <!--<name>sfsample</name>-->
+    <!--<dependencies>-->
+        <!--<dependency>-->
+            <!--<groupId>com.google.android</groupId>-->
+            <!--<artifactId>android</artifactId>-->
+        <!--</dependency>-->
 
 
         <!--<dependency>-->
             <!--<groupId>com.sf.lib</groupId>-->
-            <!--<artifactId>robolec</artifactId>-->
+            <!--<artifactId>basesf</artifactId>-->
             <!--<version>${project.version}</version>-->
             <!--<type>aar</type>-->
-            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+
+
+        <!--&lt;!&ndash;<dependency>&ndash;&gt;-->
+            <!--&lt;!&ndash;<groupId>com.sf.lib</groupId>&ndash;&gt;-->
+            <!--&lt;!&ndash;<artifactId>robolec</artifactId>&ndash;&gt;-->
+            <!--&lt;!&ndash;<version>${project.version}</version>&ndash;&gt;-->
+            <!--&lt;!&ndash;<type>aar</type>&ndash;&gt;-->
+            <!--&lt;!&ndash;<scope>test</scope>&ndash;&gt;-->
+        <!--&lt;!&ndash;</dependency>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<dependency>&ndash;&gt;-->
+            <!--&lt;!&ndash;<groupId>com.sf.lib</groupId>&ndash;&gt;-->
+            <!--&lt;!&ndash;<artifactId>robotium</artifactId>&ndash;&gt;-->
+            <!--&lt;!&ndash;<version>${project.version}</version>&ndash;&gt;-->
+            <!--&lt;!&ndash;<type>aar</type>&ndash;&gt;-->
+        <!--&lt;!&ndash;</dependency>&ndash;&gt;-->
+
+        <!--<dependency>-->
+            <!--<groupId>com.sf.lib</groupId>-->
+            <!--<artifactId>customviewlib</artifactId>-->
+            <!--<version>${project.version}</version>-->
+            <!--<type>aar</type>-->
         <!--</dependency>-->
 
         <!--<dependency>-->
             <!--<groupId>com.sf.lib</groupId>-->
-            <!--<artifactId>robotium</artifactId>-->
+            <!--<artifactId>reflectionlib</artifactId>-->
             <!--<version>${project.version}</version>-->
             <!--<type>aar</type>-->
         <!--</dependency>-->
 
-        <dependency>
-            <groupId>com.sf.lib</groupId>
-            <artifactId>customviewlib</artifactId>
-            <version>${project.version}</version>
-            <type>aar</type>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.sf.lib</groupId>-->
+            <!--<artifactId>sfopengllib</artifactId>-->
+            <!--<version>${project.version}</version>-->
+            <!--<type>aar</type>-->
+        <!--</dependency>-->
 
-        <dependency>
-            <groupId>com.sf.lib</groupId>
-            <artifactId>reflectionlib</artifactId>
-            <version>${project.version}</version>
-            <type>aar</type>
-        </dependency>
-
-        <dependency>
-            <groupId>com.sf.lib</groupId>
-            <artifactId>sfopengllib</artifactId>
-            <version>${project.version}</version>
-            <type>aar</type>
-        </dependency>
-
-        <dependency>
-            <groupId>com.sf.lib</groupId>
-            <artifactId>androidtv</artifactId>
-            <version>${project.version}</version>
-            <type>aar</type>
-        </dependency>
-    </dependencies>
+        <!--<dependency>-->
+            <!--<groupId>com.sf.lib</groupId>-->
+            <!--<artifactId>androidtv</artifactId>-->
+            <!--<version>${project.version}</version>-->
+            <!--<type>aar</type>-->
+        <!--</dependency>-->
+    <!--</dependencies>-->
 
 
-    <build>
-        <testSourceDirectory>${project.basedir}/robolectest</testSourceDirectory>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.6</version>
-                <configuration>
-                    <excludes>
-                        <exclude>RoboleticTest.java</exclude>
-                    </excludes>
-                    <argLine>-Xmx1024m</argLine>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <!--<build>-->
+        <!--<testSourceDirectory>${project.basedir}/robolectest</testSourceDirectory>-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-surefire-plugin</artifactId>-->
+                <!--<version>2.6</version>-->
+                <!--<configuration>-->
+                    <!--<excludes>-->
+                        <!--<exclude>RoboleticTest.java</exclude>-->
+                    <!--</excludes>-->
+                    <!--<argLine>-Xmx1024m</argLine>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
 
-</project>
+<!--</project>-->
