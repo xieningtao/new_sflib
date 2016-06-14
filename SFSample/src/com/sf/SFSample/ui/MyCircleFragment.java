@@ -9,7 +9,7 @@ import com.basesmartframe.basehttp.SFHttpClient;
 import com.basesmartframe.basepull.PullHttpResult;
 import com.basesmartframe.basethread.ThreadHelp;
 import com.sf.SFSample.R;
-import com.sfhttpclient.core.AjaxParams;
+import com.httpclient.core.AjaxParams;
 
 import java.util.ArrayList;
 import java.util.List;

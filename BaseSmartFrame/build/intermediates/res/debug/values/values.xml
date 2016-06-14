@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/vpi_attrs.xml -->
+    <eat-comment/>
+    <attr format="boolean" name="centered"/>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/mca__attrs.xml -->
+    <eat-comment/>
+    <attr format="reference" name="checkableImageViewStyle"/>
+    <attr format="reference" name="multiChoiceAdapterStyle"/>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/vpi_attrs.xml -->
+    <eat-comment/>
+    <attr format="color" name="selectedColor"/>
+    <attr format="dimension" name="strokeWidth"/>
+    <attr format="color" name="unselectedColor"/>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/vpi__defaults.xml -->
+    <eat-comment/>
+    <bool name="default_circle_indicator_centered">true</bool>
+    <bool name="default_circle_indicator_snap">false</bool>
+    <bool name="default_line_indicator_centered">true</bool>
+    <bool name="default_title_indicator_selected_bold">true</bool>
+    <bool name="default_underline_indicator_fades">true</bool>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/color.xml -->
+    <eat-comment/>
+    <color name="actionbar_blue">#ff32d2f3</color>
+    <color name="background_tab">#6633B5E5</color>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/vpi__defaults.xml -->
+    <eat-comment/>
+    <color name="default_circle_indicator_fill_color">#FFFFFFFF</color>
+    <color name="default_circle_indicator_page_color">#00000000</color>
+    <color name="default_circle_indicator_stroke_color">#FFDDDDDD</color>
+    <color name="default_line_indicator_selected_color">#FF33B5E5</color>
+    <color name="default_line_indicator_unselected_color">#FFBBBBBB</color>
+    <color name="default_title_indicator_footer_color">#FF33B5E5</color>
+    <color name="default_title_indicator_selected_color">#FFFFFFFF</color>
+    <color name="default_title_indicator_text_color">#BBFFFFFF</color>
+    <color name="default_underline_indicator_selected_color">#FF33B5E5</color>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/color.xml -->
+    <eat-comment/>
+    <color name="dialog_blue">#ff008aff</color>
+    <color name="divider">#ffdddddd</color>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/mca__colors.xml -->
+    <eat-comment/>
+    <color name="mca__holo_blue_light">#ff33b5e5</color>
+    <color name="mca__holo_blue_light_transparent">#7f33b5e5</color>
+    <color name="mca__list_item_bg_checked">@color/mca__holo_blue_light</color>
+    <color name="mca__list_item_bg_normal">@android:color/transparent</color>
+    <color name="mca__list_item_bg_pressed">@color/mca__holo_blue_light</color>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/color.xml -->
+    <eat-comment/>
+    <color name="preview_black">#ff000000</color>
+    <color name="test">#3ff33333</color>
+    <color name="text_black">#ff333333</color>
+    <color name="text_black_for_name">#ff1a1a1a</color>
+    <color name="text_blue">#ff3ba7f3</color>
+    <color name="text_green">#6635c041</color>
+    <color name="text_light_black">#ff666666</color>
+    <color name="text_light_white">#ffececec</color>
+    <color name="text_lighter_black">#ff999999</color>
+    <color name="text_lighter_white">#ffd7d7d7</color>
+    <color name="text_red">#ffff0000</color>
+    <color name="text_white">@android:color/white</color>
+    <color name="transparent">#00000000</color>
+    <color name="transparent_black">#70000000</color>
+    <color name="transparent_half">#30000000</color>
+    <color name="videoshow_transparent">#aa000000</color>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/vpi__colors.xml -->
+    <eat-comment/>
+    <color name="vpi__background_holo_dark">#ff000000</color>
+    <color name="vpi__background_holo_light">#fff3f3f3</color>
+    <color name="vpi__bright_foreground_disabled_holo_dark">#ff4c4c4c</color>
+    <color name="vpi__bright_foreground_disabled_holo_light">#ffb2b2b2</color>
+    <color name="vpi__bright_foreground_holo_dark">@color/vpi__background_holo_light</color>
+    <color name="vpi__bright_foreground_holo_light">@color/vpi__background_holo_dark</color>
+    <color name="vpi__bright_foreground_inverse_holo_dark">@color/vpi__bright_foreground_holo_light</color>
+    <color name="vpi__bright_foreground_inverse_holo_light">@color/vpi__bright_foreground_holo_dark</color>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/color.xml -->
+    <eat-comment/>
+    <color name="white">#ffffff</color>
+    <declare-styleable name="CheckableImageView"><attr name="android:foreground"/></declare-styleable>
+    <declare-styleable name="CirclePageIndicator"><attr name="centered"/><attr format="color" name="fillColor"/><attr format="color" name="pageColor"/><attr name="android:orientation"/><attr format="dimension" name="radius"/><attr format="boolean" name="snap"/><attr format="color" name="strokeColor"/><attr name="strokeWidth"/><attr name="android:background"/></declare-styleable>
+    <declare-styleable name="ErrorView"><attr format="boolean|reference" name="error_bt_visible"/><attr format="reference|string" name="error_bt_text"/><attr format="reference|color" name="error_bt_bk"/><attr format="reference|color" name="error_bt_txt_color"/><attr format="reference|string" name="error_text"/><attr format="reference|color" name="error_text_color"/><attr format="reference" name="error_icon"/></declare-styleable>
+    <declare-styleable name="FrameAnimationView"><attr format="reference" name="frame_animation"/><attr format="enum" name="frame_scale"><enum name="FIT_XY" value="0"/><enum name="WRAP_CONTENT" value="1"/></attr></declare-styleable>
+    <declare-styleable name="LinePageIndicator"><attr name="centered"/><attr name="unselectedColor"/><attr name="selectedColor"/><attr format="dimension" name="lineWidth"/><attr name="strokeWidth"/><attr format="dimension" name="gapWidth"/><attr name="android:background"/></declare-styleable>
+    <declare-styleable name="LoaddingView"><attr format="boolean|reference" name="loading_text_visible"/><attr format="reference|string" name="loading_text"/><attr format="reference|color" name="loading_txt_color"/><attr format="reference" name="loading_icon"/></declare-styleable>
+    <declare-styleable name="MultiChoiceAdapter"><attr name="itemClickInActionMode"><enum name="selectItem" value="0"/><enum name="openItem" value="1"/></attr></declare-styleable>
+    <declare-styleable name="PullToRefresh"><attr format="reference|color" name="ptrRefreshableViewBackground"/><attr format="reference|color" name="ptrHeaderBackground"/><attr format="reference|color" name="ptrHeaderTextColor"/><attr format="reference|color" name="ptrHeaderSubTextColor"/><attr name="ptrMode"><flag name="disabled" value="0x0"/><flag name="pullFromStart" value="0x1"/><flag name="pullFromEnd" value="0x2"/><flag name="both" value="0x3"/><flag name="manualOnly" value="0x4"/><flag name="pullDownFromTop" value="0x1"/><flag name="pullUpFromBottom" value="0x2"/></attr><attr format="reference|boolean" name="ptrShowIndicator"/><attr format="reference" name="ptrDrawable"/><attr format="reference" name="ptrDrawableStart"/><attr format="reference" name="ptrDrawableEnd"/><attr format="reference|boolean" name="ptrOverScroll"/><attr format="reference" name="ptrHeaderTextAppearance"/><attr format="reference" name="ptrSubHeaderTextAppearance"/><attr name="ptrAnimationStyle"><flag name="rotate" value="0x0"/><flag name="flip" value="0x1"/></attr><attr format="reference|boolean" name="ptrScrollingWhileRefreshingEnabled"/><attr format="reference|boolean" name="ptrListViewExtrasEnabled"/><attr format="reference|boolean" name="ptrRotateDrawableWhilePulling"/><attr format="reference|color" name="ptrAdapterViewBackground"/><attr format="reference" name="ptrDrawableTop"/><attr format="reference" name="ptrDrawableBottom"/></declare-styleable>
+    <declare-styleable name="RoundRecPagerSlidingTabStrip"><attr format="color" name="cpstsIndicatorColor"/><attr format="color" name="cpstsUnderlineColor"/><attr format="color" name="cpstsDividerColor"/><attr format="dimension" name="cpstsIndicatorHeight"/><attr format="dimension" name="cpstsUnderlineHeight"/><attr format="dimension" name="cpstsDividerPadding"/><attr format="dimension" name="cpstsTabPaddingLeftRight"/><attr format="dimension" name="cpstsScrollOffset"/><attr format="reference" name="cpstsTabBackground"/><attr format="boolean" name="cpstsShouldExpand"/><attr format="boolean" name="cpstsTextAllCaps"/><attr format="dimension" name="cpstsIndicatorLeftRightPadding"/><attr format="dimension" name="cpstsIndicatorTopBottomPadding"/><attr format="dimension|float" name="cpstsIndicatorStrokeWidth"/><attr format="dimension|float" name="cpstsIndicatorRectCorner"/></declare-styleable>
+    <declare-styleable name="RoundedImageView"><attr format="dimension" name="riv_corner_radius"/><attr format="dimension" name="riv_corner_radius_top_left"/><attr format="dimension" name="riv_corner_radius_top_right"/><attr format="dimension" name="riv_corner_radius_bottom_left"/><attr format="dimension" name="riv_corner_radius_bottom_right"/><attr format="dimension" name="riv_border_width"/><attr format="color" name="riv_border_color"/><attr format="boolean" name="riv_mutate_background"/><attr format="boolean" name="riv_oval"/><attr name="android:scaleType"/><attr name="riv_tile_mode"><enum name="clamp" value="0"/><enum name="repeat" value="1"/><enum name="mirror" value="2"/></attr><attr name="riv_tile_mode_x"><enum name="clamp" value="0"/><enum name="repeat" value="1"/><enum name="mirror" value="2"/></attr><attr name="riv_tile_mode_y"><enum name="clamp" value="0"/><enum name="repeat" value="1"/><enum name="mirror" value="2"/></attr></declare-styleable>
+    <declare-styleable name="TitlePageIndicator"><attr format="dimension" name="clipPadding"/><attr format="color" name="footerColor"/><attr format="dimension" name="footerLineHeight"/><attr name="footerIndicatorStyle"><enum name="none" value="0"/><enum name="triangle" value="1"/><enum name="underline" value="2"/></attr><attr format="dimension" name="footerIndicatorHeight"/><attr format="dimension" name="footerIndicatorUnderlinePadding"/><attr format="dimension" name="footerPadding"/><attr name="linePosition"><enum name="bottom" value="0"/><enum name="top" value="1"/></attr><attr name="selectedColor"/><attr format="boolean" name="selectedBold"/><attr name="android:textColor"/><attr name="android:textSize"/><attr format="dimension" name="titlePadding"/><attr format="dimension" name="topPadding"/><attr name="android:background"/></declare-styleable>
+    <declare-styleable name="UnderlinePageIndicator"><attr format="boolean" name="fades"/><attr format="integer" name="fadeDelay"/><attr format="integer" name="fadeLength"/><attr name="selectedColor"/><attr name="android:background"/></declare-styleable>
+    <declare-styleable name="ViewPagerIndicator"><attr format="reference" name="vpiCirclePageIndicatorStyle"/><attr format="reference" name="vpiIconPageIndicatorStyle"/><attr format="reference" name="vpiLinePageIndicatorStyle"/><attr format="reference" name="vpiTitlePageIndicatorStyle"/><attr format="reference" name="vpiTabPageIndicatorStyle"/><attr format="reference" name="vpiUnderlinePageIndicatorStyle"/></declare-styleable>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/vpi__defaults.xml -->
+    <eat-comment/>
+    <dimen name="default_circle_indicator_radius">3dp</dimen>
+    <dimen name="default_circle_indicator_stroke_width">1dp</dimen>
+    <dimen name="default_line_indicator_gap_width">4dp</dimen>
+    <dimen name="default_line_indicator_line_width">12dp</dimen>
+    <dimen name="default_line_indicator_stroke_width">1dp</dimen>
+    <dimen name="default_title_indicator_clip_padding">4dp</dimen>
+    <dimen name="default_title_indicator_footer_indicator_height">4dp</dimen>
+    <dimen name="default_title_indicator_footer_indicator_underline_padding">20dp</dimen>
+    <dimen name="default_title_indicator_footer_line_height">2dp</dimen>
+    <dimen name="default_title_indicator_footer_padding">7dp</dimen>
+    <dimen name="default_title_indicator_text_size">15dp</dimen>
+    <dimen name="default_title_indicator_title_padding">5dp</dimen>
+    <dimen name="default_title_indicator_top_padding">7dp</dimen>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/build/intermediates/exploded-aar/sflib.Android-PullToRefresh/PullRefreshLib/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <dimen name="header_footer_left_right_padding">24dp</dimen>
+    <dimen name="header_footer_top_bottom_padding">12dp</dimen>
+    <dimen name="indicator_corner_radius">12dp</dimen>
+    <dimen name="indicator_internal_padding">4dp</dimen>
+    <dimen name="indicator_right_padding">10dp</dimen>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/mca__dimens.xml -->
+    <eat-comment/>
+    <dimen name="mca__listPreferredItemPaddingLeft">6dip</dimen>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/build/intermediates/exploded-aar/sflib.Android-PullToRefresh/PullRefreshLib/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <item name="gridview" type="id"/>
+    <item name="scrollview" type="id"/>
+    <item name="webview" type="id"/>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/vpi__defaults.xml -->
+    <eat-comment/>
+    <integer name="default_circle_indicator_orientation">0</integer>
+    <integer name="default_title_indicator_footer_indicator_style">2</integer>
+    <integer name="default_title_indicator_line_position">0</integer>
+    <integer name="default_underline_indicator_fade_delay">300</integer>
+    <integer name="default_underline_indicator_fade_length">400</integer>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/mca__plurals.xml -->
+    <eat-comment/>
+    <plurals name="selected_items">
+        <item quantity="one">1 item selected</item>
+        <item quantity="other">%d items selected</item>
+    </plurals>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="action_settings">Settings</string>
+    <string name="app_name">BaseSmartFrame</string>
+    <string name="cancel">取消</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="living_copy_share">复制链接</string>
+    <string name="net_unavailable">网络异常…</string>
+    <string name="no_data">数据加载失败</string>
+    <string name="no_network">网络异常</string>
+    <string name="none">图片无备注</string>
+    <string name="onloading_data">数据加载中...</string>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/build/intermediates/exploded-aar/sflib.Android-PullToRefresh/PullRefreshLib/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="pull_to_refresh_from_bottom_pull_label">@string/pull_to_refresh_pull_label</string>
+    <string name="pull_to_refresh_from_bottom_refreshing_label">@string/pull_to_refresh_refreshing_label</string>
+    <string name="pull_to_refresh_from_bottom_release_label">@string/pull_to_refresh_release_label</string>
+    <string name="pull_to_refresh_pull_label">Pull to refresh…</string>
+    <string name="pull_to_refresh_refreshing_label">Loading…</string>
+    <string name="pull_to_refresh_release_label">Release to refresh…</string>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="share_pengyouquan">朋友圈</string>
+    <string name="share_qq">QQ</string>
+    <string name="share_qqkongjian">QQ空间</string>
+    <string name="share_weixin">微信</string>
+    <string name="share_weixinfriend">微信好友</string>
+    <string name="share_xinlangweibo">新浪微博</string>
+    <string name="videoshow_network_alert">你现在使用的是运营商网络，继\n续观看可能产生超额流量费。</string>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="AppBaseTheme">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <style name="MessageDiloag">
+        <item name="android:windowEnterAnimation">@anim/message_dialog_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/message_dialog_fade_out</item>
+    </style>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/mca__styles.xml -->
+    <eat-comment/>
+    <style name="MultiChoiceAdapter_DefaultCheckableImageViewStyle">
+        <item name="android:foreground">@drawable/mca__gallery_selector</item>
+    </style>
+    <style name="MultiChoiceAdapter_DefaultSelectedItemStyle">
+        <item name="itemClickInActionMode">selectItem</item>
+    </style>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="PullRefreshProgressing">
+        <item name="frame_animation">@drawable/animation_pull_refresh_progressing</item>
+        <item name="frame_scale">WRAP_CONTENT</item>
+    </style>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/vpi_styles.xml -->
+    <eat-comment/>
+    <style name="TextAppearance.TabPageIndicator" parent="Widget">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/vpi__dark_theme</item>
+    </style>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="Theme.Dialog.Kiwi.ls_videoShareDialog" parent="@style/videoShareDialog">
+        <item name="android:windowAnimationStyle">@style/right_left_animation</item>
+    </style>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/vpi_styles.xml -->
+    <eat-comment/>
+    <style name="Theme.PageIndicatorDefaults" parent="android:Theme">
+        <item name="vpiIconPageIndicatorStyle">@style/Widget.IconPageIndicator</item>
+        <item name="vpiTabPageIndicatorStyle">@style/Widget.TabPageIndicator</item>
+    </style>
+    <style name="Widget">
+    </style>
+    <style name="Widget.IconPageIndicator" parent="Widget">
+        <item name="android:layout_marginLeft">6dp</item>
+        <item name="android:layout_marginRight">6dp</item>
+    </style>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="Widget.ProgressBar.VideoShow" parent="android:Widget">
+        <item name="android:indeterminateOnly">true</item>
+        <item name="android:indeterminateDrawable">@drawable/animation_loading_progress</item>
+        <item name="android:indeterminateBehavior">repeat</item>
+        <item name="android:indeterminateDuration">1500</item>
+        <item name="android:minWidth">29dip</item>
+        <item name="android:maxWidth">60dip</item>
+        <item name="android:minHeight">29dip</item>
+        <item name="android:maxHeight">60dip</item>
+    </style>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/vpi_styles.xml -->
+    <eat-comment/>
+    <style name="Widget.TabPageIndicator" parent="Widget">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/vpi__tab_indicator</item>
+        <item name="android:paddingLeft">22dip</item>
+        <item name="android:paddingRight">22dip</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.TabPageIndicator</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:maxLines">1</item>
+    </style>
+    <!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="bottom_top_animation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_from_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_to_bottom</item>
+    </style>
+    <style name="circle_click_shadow">
+        <item name="android:background">@drawable/circle_click_bk</item>
+    </style>
+    <style name="livingShareDialog">
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowFrame">@null</item>
+    </style>
+    <style name="rectangle_click_shadow">
+        <item name="android:background">@drawable/rectangle_click_bk</item>
+    </style>
+    <style name="right_left_animation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_from_right</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_to_right</item>
+    </style>
+    <style name="scale_leftRight_animation">
+        <item name="android:windowEnterAnimation">@anim/scaleup_to_right</item>
+        <item name="android:windowExitAnimation">@anim/scaledown_to_left</item>
+    </style>
+    <style name="shareDialog">
+        <item name="android:windowEnterAnimation">@anim/message_dialog_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/message_dialog_fade_out</item>
+        <item name="android:windowBackground">@color/text_red</item>
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+    <style name="videoShareDialog">
+        <item name="android:windowAnimationStyle">@style/bottom_top_animation</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowFrame">@null</item>
+    </style>
+    <style name="video_seekbar" parent="android:Widget.SeekBar">
+        <item name="android:progressDrawable">@drawable/video_horizontal</item>
+        <item name="android:thumb">@drawable/seekbar_thumb</item>
+    </style>
+</resources>

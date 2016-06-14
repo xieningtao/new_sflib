@@ -1,10 +1,10 @@
 apply plugin: 'com.android.library'
+
 android {
     compileSdkVersion 22
     buildToolsVersion '22.0.1'
-
     defaultConfig {
-        minSdkVersion 9
+        minSdkVersion 15
         targetSdkVersion 22
         versionCode 1
         versionName "1.0.0"
@@ -15,7 +15,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
@@ -26,9 +25,10 @@ android {
             assets.srcDirs = ['assets']
         }
     }
-
     dexOptions {
         jumboMode = true
+    }
+    productFlavors {
     }
 }
 

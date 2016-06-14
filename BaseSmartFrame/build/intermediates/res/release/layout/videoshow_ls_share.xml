@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/share_bk"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:gravity="bottom"
+    >
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
+        android:background="#121111"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:textColor="#bcbcbc"
+            android:textSize="16sp"
+            />
+
+        <com.basesmartframe.share.XSocialShareView
+            android:id="@+id/videoshow_share"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="12dp"
+            android:numColumns="3"
+            />
+    </LinearLayout>
+
+</RelativeLayout><!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/layout/videoshow_ls_share.xml -->

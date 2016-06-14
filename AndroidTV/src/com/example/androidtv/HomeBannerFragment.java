@@ -1,22 +1,18 @@
 package com.example.androidtv;
 
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 import com.basesmartframe.basethread.ThreadHelp;
 import com.basesmartframe.baseui.BannerHeaderFragment;
 import com.basesmartframe.baseview.indicator.PageIndicator;
 import com.nostra13.universalimageloader.core.ImageLoader;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import de.greenrobot.event.EventBus;
-
+import android.support.v13.*;
 /**
  * Created by xieningtao on 15-12-28.
  */
@@ -62,7 +58,7 @@ public class HomeBannerFragment extends BannerHeaderFragment<HomeBannerFragment.
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(com.basesmartframe.R.layout.banner_viewpager_layout, null);
+        return inflater.inflate(R.layout.banner_viewpager_layout, null);
     }
 
     @Override

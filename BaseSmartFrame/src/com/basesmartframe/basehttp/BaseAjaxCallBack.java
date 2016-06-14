@@ -1,14 +1,11 @@
 package com.basesmartframe.basehttp;
 
-import android.os.Debug;
-import android.telephony.gsm.GsmCellLocation;
 import android.text.TextUtils;
 
-import com.basesmartframe.BuildConfig;
 import com.basesmartframe.log.L;
-import com.sfhttpclient.core.AjaxCallBack;
-import com.sfhttpclient.core.AjaxParams;
 import com.google.gson.*;
+import com.sf.httpclient.core.AjaxCallBack;
+import com.sf.httpclient.core.AjaxParams;
 
 import de.greenrobot.event.EventBus;
 
@@ -29,10 +26,7 @@ public abstract class BaseAjaxCallBack<T> extends AjaxCallBack<String> {
 		}
 	}
 
-	/**
-	 * 
-	 * @param if t==null request is fail
-	 */
+
 	public abstract void onResult(Object t, AjaxParams params);
 
 	private final Class<T> mClassType;
@@ -57,10 +51,10 @@ public abstract class BaseAjaxCallBack<T> extends AjaxCallBack<String> {
 	public void onSuccess(String t) {
 		super.onSuccess(t);
 		L.info(TAG, "onSuccess");
-		if (BuildConfig.DEBUG) {
-			String tempResult = t == null ? "" : t;
-			L.info(TAG, "result: " + tempResult);
-		}
+//		if (BuildConfig.DEBUG) {
+//			String tempResult = t == null ? "" : t;
+//			L.info(TAG, "result: " + tempResult);
+//		}
 		T bean = null;
 		if (!TextUtils.isEmpty(t)) {
 			try {

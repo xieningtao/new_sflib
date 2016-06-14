@@ -1,8 +1,9 @@
 package com.basesmartframe.filecache.cache;
 
-import com.sfhttpclient.FinalHttp;
-import com.sfhttpclient.core.AjaxCallBack;
-import com.sfhttpclient.core.AjaxParams;
+
+import com.sf.httpclient.FinalHttp;
+import com.sf.httpclient.core.AjaxCallBack;
+import com.sf.httpclient.core.AjaxParams;
 
 /**
  * Created by xieningtao on 15-11-13.

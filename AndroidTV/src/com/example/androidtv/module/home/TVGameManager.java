@@ -6,7 +6,7 @@ import com.basesmartframe.basethread.ThreadHelp;
 import com.basesmartframe.baseutil.SFBus;
 import com.basesmartframe.log.L;
 import com.example.androidtv.module.bean.TVHomeDataModel;
-import com.sfhttpclient.core.AjaxParams;
+import com.sf.httpclient.core.AjaxParams;
 
 import java.util.ArrayList;
 import java.util.List;

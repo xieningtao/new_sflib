@@ -1,6 +1,7 @@
 package com.example.androidtv.module.home;
 
-import com.sfhttpclient.core.AjaxParams;
+
+import com.sf.httpclient.core.AjaxParams;
 
 /**
  * Created by xieningtao on 15-9-15.

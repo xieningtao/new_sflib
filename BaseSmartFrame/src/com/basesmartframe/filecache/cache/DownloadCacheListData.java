@@ -7,7 +7,7 @@ import com.basesmartframe.filecache.BaseFileCacheListMessage;
 import com.basesmartframe.filecache.BaseFileCacheMessage;
 import com.basesmartframe.filecache.cacheentry.FileCacheManager;
 import com.basesmartframe.log.L;
-import com.sfhttpclient.core.AjaxParams;
+import com.sf.httpclient.core.AjaxParams;
 
 import de.greenrobot.event.EventBus;
 
@@ -43,7 +43,6 @@ public class DownloadCacheListData extends DownloadListItems {
         }
     }
 
-    @Override
     public void onResponse(boolean success, AjaxParams params, String response) {
         Object sendResult = null;
         Boolean isIncrement = Boolean.FALSE;

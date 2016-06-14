@@ -11,7 +11,7 @@ import com.basesmartframe.basethread.ThreadHelp;
 import com.basesmartframe.baseui.BaseActivity;
 import com.basesmartframe.baseui.BasePullListFragment;
 import com.sf.SFSample.R;
-import com.sfhttpclient.core.AjaxParams;
+import com.httpclient.core.AjaxParams;
 
 import java.util.ArrayList;
 

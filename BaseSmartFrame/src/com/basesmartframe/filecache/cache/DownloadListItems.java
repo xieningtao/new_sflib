@@ -4,7 +4,7 @@ import com.basesmartframe.baseutil.SFBus;
 import com.basesmartframe.filecache.BaseFileCacheMessage;
 import com.basesmartframe.log.L;
 import com.google.gson.Gson;
-import com.sfhttpclient.core.AjaxParams;
+import com.sf.httpclient.core.AjaxParams;
 
 /**
  * Created by xieningtao on 15-5-21.

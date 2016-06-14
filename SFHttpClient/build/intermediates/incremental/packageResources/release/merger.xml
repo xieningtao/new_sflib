@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="E:\gitRepository\android\sflib\SFHttpClient\res"><file name="ic_launcher" path="E:\gitRepository\android\sflib\SFHttpClient\res\drawable-hdpi\ic_launcher.png" qualifiers="hdpi" type="drawable"/><file name="ic_launcher" path="E:\gitRepository\android\sflib\SFHttpClient\res\drawable-mdpi\ic_launcher.png" qualifiers="mdpi" type="drawable"/><file name="ic_launcher" path="E:\gitRepository\android\sflib\SFHttpClient\res\drawable-xhdpi\ic_launcher.png" qualifiers="xhdpi" type="drawable"/><file name="ic_launcher" path="E:\gitRepository\android\sflib\SFHttpClient\res\drawable-xxhdpi\ic_launcher.png" qualifiers="xxhdpi" type="drawable"/><file name="main_activity" path="E:\gitRepository\android\sflib\SFHttpClient\res\layout\main_activity.xml" qualifiers="" type="layout"/><file path="E:\gitRepository\android\sflib\SFHttpClient\res\values\dimens.xml" qualifiers=""><dimen name="activity_vertical_margin">16dp</dimen><dimen name="activity_horizontal_margin">16dp</dimen></file><file path="E:\gitRepository\android\sflib\SFHttpClient\res\values\strings.xml" qualifiers=""><string name="hello_world">Hello world!</string><string name="action_settings">Settings</string><string name="app_name">SFHttpClient</string></file><file path="E:\gitRepository\android\sflib\SFHttpClient\res\values\styles.xml" qualifiers=""><style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style><style name="AppBaseTheme">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style></file><file path="E:\gitRepository\android\sflib\SFHttpClient\res\values-v11\styles.xml" qualifiers="v11"><style name="AppBaseTheme">
+        <!-- API 11 theme customizations can go here. -->
+    </style></file><file path="E:\gitRepository\android\sflib\SFHttpClient\res\values-v14\styles.xml" qualifiers="v14"><style name="AppBaseTheme">
+        <!-- API 14 theme customizations can go here. -->
+    </style></file><file path="E:\gitRepository\android\sflib\SFHttpClient\res\values-w820dp\dimens.xml" qualifiers="w820dp"><dimen name="activity_horizontal_margin">64dp</dimen></file></source><source path="E:\gitRepository\android\sflib\SFHttpClient\build\generated\res\rs\release"/><source path="E:\gitRepository\android\sflib\SFHttpClient\build\generated\res\generated\release"/></dataSet><dataSet config="release"><source path="E:\gitRepository\android\sflib\SFHttpClient\src\release\res"/></dataSet><mergedItems/></merger>

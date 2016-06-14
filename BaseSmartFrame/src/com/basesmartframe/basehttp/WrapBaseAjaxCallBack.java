@@ -1,9 +1,10 @@
 package com.basesmartframe.basehttp;
 
-import com.sfhttpclient.core.AjaxCallBack;
-import com.sfhttpclient.core.AjaxParams;
 
-public class WrapBaseAjaxCallBack<T> extends AjaxCallBack<String>{
+import com.sf.httpclient.core.AjaxCallBack;
+import com.sf.httpclient.core.AjaxParams;
+
+public class WrapBaseAjaxCallBack<T> extends AjaxCallBack<String> {
 
 	private final BaseAjaxCallBack<T> mCallBack;
 	

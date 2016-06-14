@@ -1,7 +1,7 @@
 package com.basesmartframe.basepull;
 
 import com.basesmartframe.basehttp.BaseAjaxCallBack;
-import com.sfhttpclient.core.AjaxParams;
+import com.sf.httpclient.core.AjaxParams;
 
 /**
  * Created by xieningtao on 15-11-27.

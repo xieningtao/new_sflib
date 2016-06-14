@@ -14,7 +14,7 @@ import com.basesmartframe.baseui.BasePullListFragment;
 import com.basesmartframe.basepull.PullHttpResult;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.sf.SFSample.R;
-import com.sfhttpclient.core.AjaxParams;
+import com.httpclient.core.AjaxParams;
 
 import java.util.ArrayList;
 import java.util.List;

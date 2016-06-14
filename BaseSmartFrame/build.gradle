@@ -4,7 +4,7 @@ android {
     buildToolsVersion '22.0.1'
 
     defaultConfig {
-        minSdkVersion 9
+        minSdkVersion 15
         targetSdkVersion 22
         versionCode 1
         versionName "1.0.0"
@@ -37,8 +37,9 @@ dependencies {
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4@jar'
     compile 'com.google.code.gson:gson:2.2.4@jar'
     compile 'com.android.support:support-v13:22.1.1@aar'
-    compile project(':EventBus/EventBusCore')
+
+    compile project(':EventBus:EventBusCore')
     compile project(':SFHttpClient')
     compile project(':UMengLib')
-    compile project(':PullRefreshLib')
+    compile project(':Android-PullToRefresh:PullRefreshLib')
 }

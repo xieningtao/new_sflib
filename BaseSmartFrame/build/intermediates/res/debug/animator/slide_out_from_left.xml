@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:interpolator/linear">
+
+    <objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
+        android:propertyName="fractionX"
+        android:duration="200"
+        android:valueTo="1.0"
+        android:valueFrom="0"
+        android:valueType="floatType" />
+</set>
+<!-- From: file:/E:/gitRepository/android/sflib/BaseSmartFrame/res/animator/slide_out_from_left.xml -->

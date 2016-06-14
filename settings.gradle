@@ -1,1 +1,1 @@
-include ':SFSample', ':BaseSmartFrame',':openGL',':CustomView',':EventBus/EventBusCore',':reflection',':Android-PullToRefresh', ':UMengLib','AndroidTV',':SFHttpClient'
+include ':SFSample', ':BaseSmartFrame',':openGL',':CustomView',':EventBus:EventBusCore',':reflection',':Android-PullToRefresh:PullRefreshLib', ':UMengLib',':AndroidTV',':SFHttpClient'

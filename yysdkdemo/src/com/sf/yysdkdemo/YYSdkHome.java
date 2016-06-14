@@ -11,9 +11,9 @@ import android.widget.ListView;
 
 import com.google.gson.Gson;
 import com.sf.yysdkdemo.bean.Detail;
-import com.sfhttpclient.FinalHttp;
-import com.sfhttpclient.core.AjaxCallBack;
-import com.sfhttpclient.core.AjaxParams;
+import com.httpclient.FinalHttp;
+import com.httpclient.core.AjaxCallBack;
+import com.httpclient.core.AjaxParams;
 
 import java.io.Serializable;
 import java.util.ArrayList;

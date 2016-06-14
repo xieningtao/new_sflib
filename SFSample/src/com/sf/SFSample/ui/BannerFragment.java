@@ -1,7 +1,6 @@
 package com.sf.SFSample.ui;
 
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,12 +39,12 @@ public class BannerFragment extends
 
     @Override
     public ViewPager createViewpager(View rootView) {
-        return (ViewPager) rootView.findViewById(com.example.androidtv.R.id.scroll_pager);
+        return (ViewPager) rootView.findViewById(R.id.scroll_pager);
     }
 
     @Override
     public PageIndicator createPageIndicatory(View rootView) {
-        return (PageIndicator) rootView.findViewById(com.example.androidtv.R.id.circle_indicator);
+        return (PageIndicator) rootView.findViewById(R.id.circle_indicator);
     }
 
     @Override
