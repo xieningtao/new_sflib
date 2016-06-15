@@ -5,8 +5,4 @@
 
     <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="17" />
 
-    <application android:label="EventBus">
-
-    </application>
-
 </manifest>

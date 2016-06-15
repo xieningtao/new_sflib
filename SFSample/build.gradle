@@ -1,9 +1,11 @@
 apply plugin: 'com.android.application'
 android {
+
     compileSdkVersion 22
     buildToolsVersion '22.0.1'
 
     defaultConfig {
+        minSdkVersion 17
         multiDexEnabled true
 
         ndk {
@@ -15,7 +17,7 @@ android {
         release {
             minifyEnabled true
             ext.enableCrashlytics = true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg', 'proguard-bobo.cfg'
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg', 'proguard-bobo.cfg'
         }
     }
 

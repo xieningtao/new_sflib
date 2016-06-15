@@ -2,6 +2,8 @@ package com.basesmartframe.baseui;
 
 import android.os.Bundle;
 
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
@@ -16,7 +18,7 @@ import java.util.List;
 
 
 public abstract class BannerHeaderFragment<T extends BannerHeaderFragment.BannerUrlAction>
-        extends BaseFragment implements OnPageChangeListener {
+        extends BaseFragment implements ViewPager.OnPageChangeListener {
     public static interface BannerUrlAction {
         String getBannerUrl();
     }

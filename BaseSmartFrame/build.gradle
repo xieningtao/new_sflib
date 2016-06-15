@@ -32,12 +32,18 @@ android {
     }
 }
 
+repositories{
+    maven {
+        url "file://E:/anddroid/sdk/extras/android/m2repository/"
+    }
+}
+
 dependencies {
     compile 'com.google.android:android:4.1.1.4@jar'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4@jar'
     compile 'com.google.code.gson:gson:2.2.4@jar'
-    compile 'com.android.support:support-v13:22.1.1@aar'
-
+    compile 'com.android.support:support-v13:22+@aar'
+    compile 'com.android.support:support-v4:22+'
     compile project(':EventBus:EventBusCore')
     compile project(':SFHttpClient')
     compile project(':UMengLib')
