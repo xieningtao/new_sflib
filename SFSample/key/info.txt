@@ -1,0 +1,2 @@
+alia="smartframe"
+pwd=gorky1112
