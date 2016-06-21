@@ -8,5 +8,5 @@ import com.basesmartframe.share.shareitem.XBaseShareItem;
  */
 public interface XShareAction {
 
-    void doShareAction(XBaseShareItem shareItem);
+    void doShareAction(XBaseShareItem shareItem,OnXShareListener onXShareListener);
 }

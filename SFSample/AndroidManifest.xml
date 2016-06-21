@@ -28,9 +28,7 @@
         <!--<uses-library android:name="android.test.runner"/>-->
 
         <!-- Caution! Do not change this app key. It is only for demo usage. -->
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="557ae6fe67e58e40930039a3" />
+
 
         <activity
             android:name=".home.HomeLevelActivity"
@@ -41,6 +39,40 @@
             </intent-filter>
         </activity>
 
+        <!--友盟分享-->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="557ae6fe67e58e40930039a3" />
+
+        <!--qq和空间-->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tencent100424468" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!--微信-->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.umeng.socialize.editorpage.ShareActivity"
+            android:excludeFromRecents="true"/>
+        <!---->
 
 
         <activity android:name=".ui.ViewPagerTest"></activity>
@@ -96,6 +128,10 @@
             />
         <activity
             android:name=".ui.DecencoderActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".ui.UMengShareActivity"
             android:screenOrientation="portrait"
             />
     </application>

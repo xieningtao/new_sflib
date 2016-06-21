@@ -15,6 +15,7 @@ import com.sf.SFSample.ui.GestureTest;
 import com.sf.SFSample.ui.PullListActivity;
 import com.sf.SFSample.ui.ReflectionActivity;
 import com.sf.SFSample.ui.RoundDrawableActivity;
+import com.sf.SFSample.ui.UMengShareActivity;
 import com.sf.SFSample.ui.VideoShowTest;
 import com.sf.SFSample.ui.ViewPagerTest;
 import com.sf.SFSample.ui.XPinListViewActivity;
@@ -42,6 +43,7 @@ public class HomeLevelActivity extends BaseLevelActivity {
         activities.put(11, new Pair<String, Class>("adb shell", AdbShellActivity.class));
         activities.put(12, new Pair<String, Class>("XPinListView", XPinListViewActivity.class));
         activities.put(13, new Pair<String, Class>("DecencoderActivity", DecencoderActivity.class));
+        activities.put(14, new Pair<String, Class>("UMengShareActivity", UMengShareActivity.class));
 
         return activities;
     }

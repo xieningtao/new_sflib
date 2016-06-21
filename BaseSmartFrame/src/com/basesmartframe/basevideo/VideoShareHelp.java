@@ -14,7 +14,7 @@ import com.basesmartframe.dialoglib.DialogFactory;
 import com.basesmartframe.share.DefaultShareAdapter;
 import com.basesmartframe.share.ShareContent;
 import com.basesmartframe.share.XSocialShareView;
-import com.basesmartframe.share.sharecore.XBaseShareView;
+import com.basesmartframe.share.sharecore.OnXBaseShareViewItemClickListener;
 import com.basesmartframe.share.shareitem.XBaseShareItem;
 
 /**
@@ -58,7 +58,7 @@ class VideoShareHelp {
             });
             XSocialShareView shareGridView = (XSocialShareView) share_view.findViewById(R.id.videoshow_share);
             initShareGridView(shareGridView);
-            shareGridView.setOnXBaseShareViewItemClickListener(new XBaseShareView.OnXBaseShareViewItemClickListener() {
+            shareGridView.setOnXBaseShareViewItemClickListener(new OnXBaseShareViewItemClickListener() {
                 @Override
                 public void onXBaseShareViewItemClickListener(XBaseShareItem shareItem, AdapterView<?> parent, View view, int position, long id) {
                     if (null != mDialog && mDialog.isShowing()) {
@@ -94,7 +94,7 @@ class VideoShareHelp {
 
         XSocialShareView shareGridView = (XSocialShareView) share_view.findViewById(R.id.videoshow_share);
         initShareGridView(shareGridView);
-        shareGridView.setOnXBaseShareViewItemClickListener(new XBaseShareView.OnXBaseShareViewItemClickListener() {
+        shareGridView.setOnXBaseShareViewItemClickListener(new OnXBaseShareViewItemClickListener() {
             @Override
             public void onXBaseShareViewItemClickListener(XBaseShareItem shareItem, AdapterView<?> parent, View view, int position, long id) {
                 dimissShareView();

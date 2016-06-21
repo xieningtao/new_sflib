@@ -23,10 +23,6 @@ public abstract class XBaseShareView extends GridView {
     private String TAG = XBaseShareView.class.getName();
 
 
-    public static interface OnXBaseShareViewItemClickListener {
-        void onXBaseShareViewItemClickListener(XBaseShareItem shareItem, AdapterView<?> parent, View view, int position, long id);
-    }
-
     public XBaseShareView(Context context) {
         super(context);
     }
@@ -54,10 +50,15 @@ public abstract class XBaseShareView extends GridView {
         this.mOnXBaseShareViewItemClickListener = listener;
     }
 
+    public void setOnXShareListener(OnXShareListener mOnXShareListener) {
+        this.mOnXShareListener = mOnXShareListener;
+    }
+
     abstract public ArrayList<XBaseShareItem> getShareItems();
 
     private OnXBaseShareViewItemClickListener mOnXBaseShareViewItemClickListener;
     private OnItemClickListener mCustomItemClickLister;
+    private OnXShareListener mOnXShareListener;
 
     private OnItemClickListener mOnItemClickListener = new OnItemClickListener() {
 
@@ -77,7 +78,7 @@ public abstract class XBaseShareView extends GridView {
                     }
                     XShareAction xShareAction = xShareItem.createShareAction();
                     if (xShareAction != null) {
-                        xShareAction.doShareAction(xShareItem);
+                        xShareAction.doShareAction(xShareItem,mOnXShareListener);
                     } else {
                         L.error(TAG, "xShareAction is null");
                     }

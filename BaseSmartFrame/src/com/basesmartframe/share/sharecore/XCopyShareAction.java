@@ -29,12 +29,15 @@ public class XCopyShareAction implements XShareAction {
     }
 
     @Override
-    public void doShareAction(XBaseShareItem shareItem) {
+    public void doShareAction(XBaseShareItem shareItem,OnXShareListener listener) {
         if (null == shareItem) {
             L.error(this, "share item is null");
             return;
         }
         shareToClipBoard();
+        if(listener!=null){
+            listener.onResult(shareItem.getShareType());
+        }
     }
 
     /**
