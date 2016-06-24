@@ -2,9 +2,8 @@ package com.sf.pay;
 
 
 import android.app.Activity;
-import android.content.Context;
 
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 import com.tencent.mm.sdk.constants.Build;
 import com.tencent.mm.sdk.modelpay.PayReq;
 import com.tencent.mm.sdk.openapi.IWXAPI;

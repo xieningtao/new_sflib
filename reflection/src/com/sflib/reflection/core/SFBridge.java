@@ -4,8 +4,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 
-import com.basesmartframe.basethread.ThreadHelp;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

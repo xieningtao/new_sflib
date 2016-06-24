@@ -15,7 +15,7 @@ import com.basesmartframe.R;
 import com.basesmartframe.baseutil.SystemUIWHHelp;
 import com.basesmartframe.basevideo.util.GuestureControl;
 import com.basesmartframe.basevideo.util.TimeUtil;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 /**
  * Created by xieningtao on 15-11-16.

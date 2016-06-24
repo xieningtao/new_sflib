@@ -1,6 +1,6 @@
 package com.basesmartframe.baseutil;
 
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 import com.google.gson.Gson;
 
 /**

@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.basesmartframe.baseui.BaseFragment;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 import com.example.androidtv.focus.FocusHelper;
 
 import java.util.ArrayList;

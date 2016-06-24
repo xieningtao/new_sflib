@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.basesmartframe.baseui.BaseActivity;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 /**
  * Created by xieningtao on 15-9-11.

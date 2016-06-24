@@ -4,7 +4,7 @@ import android.app.Fragment;
 
 import com.basesmartframe.basehttp.BaseAjaxCallBack;
 import com.basesmartframe.baseutil.SFBus;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 public class BaseFragment extends Fragment{
 	protected final String TAG=getClass().getName();

@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.widget.LinearLayout;
 
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 /**
  * Created by xieningtao on 16-3-17.

@@ -1,4 +1,4 @@
-package com.basesmartframe.log;
+package com.sf.loglib;
 
 import android.util.Log;
 

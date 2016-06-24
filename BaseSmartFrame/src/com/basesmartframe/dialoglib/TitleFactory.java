@@ -1,7 +1,7 @@
 package com.basesmartframe.dialoglib;
 
 import com.basesmartframe.R;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 import android.content.Context;
 import android.graphics.Typeface;

@@ -1,7 +1,7 @@
-include ':SFSample', ':BaseSmartFrame', ':openGL',
+include ':SFSample', ':BaseSmartFrame', ':openGL', ':SFLog',
         ':CustomView', ':EventBus:EventBusCore',
         ':reflection', ':Android-PullToRefresh:PullRefreshLib',
         ':UMengLib', ':AndroidTV', ':SFHttpClient',
-        ':SFPay'
+        ':SFPay', ":SFLog"
 //':Robolec' ,
 //':Robotium',

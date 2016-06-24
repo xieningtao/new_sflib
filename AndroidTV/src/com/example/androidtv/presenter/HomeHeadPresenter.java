@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.basesmartframe.baseutil.SystemUIWHHelp;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 import com.example.androidtv.R;
 import com.example.androidtv.focus.FocusHelper;
 

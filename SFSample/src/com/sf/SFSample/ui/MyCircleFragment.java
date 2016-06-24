@@ -7,7 +7,7 @@ import com.basesmartframe.baseadapter.BaseAdapterHelper;
 import com.basesmartframe.basecircle.BaseCircleFragment;
 import com.basesmartframe.basehttp.SFHttpClient;
 import com.basesmartframe.basepull.PullHttpResult;
-import com.basesmartframe.basethread.ThreadHelp;
+import com.sflib.reflection.core.ThreadHelp;
 import com.sf.SFSample.R;
 import com.sf.httpclient.core.AjaxParams;
 

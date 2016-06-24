@@ -20,7 +20,7 @@ import com.basesmartframe.basevideo.util.ActionTimeGapHelp;
 import com.basesmartframe.basevideo.util.GuestureControl;
 import com.basesmartframe.basevideo.util.TimeUtil;
 import com.basesmartframe.basevideo.util.ToggelSystemUIHelp;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 /**
  * Created by xieningtao on 15-4-28.

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.text.TextUtils;
 
 import com.alipay.sdk.app.PayTask;
-import com.basesmartframe.basethread.ThreadHelp;
+import com.sflib.reflection.core.ThreadHelp;
 import com.nostra13.universalimageloader.utils.L;
 import com.sf.pay.ali.PayResult;
 

@@ -9,12 +9,13 @@ import com.basesmartframe.baseutil.FP;
 import com.basesmartframe.baseutil.NetWorkManagerUtil;
 import com.basesmartframe.baseutil.SFBus;
 import com.basesmartframe.baseutil.UnitHelp;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 import com.example.androidtv.TVBaseGridViewFragment;
 import com.example.androidtv.module.bean.TVHomeDataModel;
 import com.example.androidtv.module.home.TVGameDataProvider;
 import com.example.androidtv.module.home.TVGameInterface;
 import com.example.androidtv.presenter.WrapContentPresenter;
+import com.sflib.reflection.core.SFMsgId;
 
 import java.util.List;
 
@@ -88,7 +89,7 @@ public abstract class TVLogicGidViewFragment extends TVBaseGridViewFragment {
         int pageIndex = getPageIndex();
         TVGameInterface.CategoryRequest request = TVGameInterface.createCategoryRequest(pageIndex, 12);
         request.setTaskItem(createTaskId());
-        SFBus.post(request);
+        SFBus.send(SFMsgId.TVMessage.CATEGORY_REQUEST_ID,request);
         showHttpLoadingView(hasData);
     }
 

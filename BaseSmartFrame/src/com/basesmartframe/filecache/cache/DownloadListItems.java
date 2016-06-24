@@ -2,9 +2,10 @@ package com.basesmartframe.filecache.cache;
 
 import com.basesmartframe.baseutil.SFBus;
 import com.basesmartframe.filecache.BaseFileCacheMessage;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 import com.google.gson.Gson;
 import com.sf.httpclient.core.AjaxParams;
+import com.sflib.reflection.core.SFMsgId;
 
 /**
  * Created by xieningtao on 15-5-21.
@@ -70,7 +71,7 @@ public class DownloadListItems extends DownloadTask {
                 BaseFileCacheMessage message_instance = (BaseFileCacheMessage) message_class.newInstance();
                 message_instance.setResponsePullListEntity(responsePullListEntity);
                 message_instance.setResult(result);
-                SFBus.post(message_instance);
+                SFBus.send(SFMsgId.CacheMessage.CACHE_MESSAGE_ID,message_instance);
             } catch (InstantiationException e) {
                 e.printStackTrace();
                 //TODO

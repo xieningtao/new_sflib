@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.basesmartframe.baseui.BaseActivity;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 import com.basesmartframe.share.ShareConstant;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;

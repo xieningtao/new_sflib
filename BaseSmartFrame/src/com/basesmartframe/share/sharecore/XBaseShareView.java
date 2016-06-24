@@ -10,7 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ListAdapter;
 
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 import com.basesmartframe.share.shareitem.XBaseShareItem;
 
 import java.util.ArrayList;

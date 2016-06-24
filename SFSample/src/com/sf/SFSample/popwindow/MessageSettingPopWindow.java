@@ -10,7 +10,7 @@ import android.widget.PopupWindow;
 
 import com.basesmartframe.baseutil.SpUtil;
 import com.basesmartframe.dialoglib.pop.BaseCornerPopWindow;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 import com.sf.SFSample.R;
 
 /**

@@ -4,7 +4,7 @@ import android.test.ActivityInstrumentationTestCase2;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 import com.robotium.solo.Solo;
 
 import junit.framework.Assert;

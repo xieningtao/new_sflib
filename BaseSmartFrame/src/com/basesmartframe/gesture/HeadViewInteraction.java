@@ -1,7 +1,7 @@
 package com.basesmartframe.gesture;
 
 import com.basesmartframe.gesture.HeadViewGesture.MovingMode;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;

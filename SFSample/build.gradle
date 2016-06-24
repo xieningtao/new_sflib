@@ -44,7 +44,6 @@ tasks.withType(JavaCompile) {
 dependencies {
     compile project(':BaseSmartFrame')
     compile project(':CustomView')
-    compile project(':reflection')
     compile project(':openGL')
     compile project(':AndroidTV')
 }

@@ -2,7 +2,7 @@ package com.basesmartframe.filecache.cache;
 
 import com.basesmartframe.basepull.PullUI;
 import com.basesmartframe.filecache.BaseFileCacheMessage;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 import com.sf.httpclient.core.AjaxParams;
 
 import org.json.JSONException;

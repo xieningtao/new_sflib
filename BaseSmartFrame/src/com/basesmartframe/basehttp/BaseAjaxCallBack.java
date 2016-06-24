@@ -2,7 +2,7 @@ package com.basesmartframe.basehttp;
 
 import android.text.TextUtils;
 
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 import com.google.gson.*;
 import com.sf.httpclient.core.AjaxCallBack;
 import com.sf.httpclient.core.AjaxParams;

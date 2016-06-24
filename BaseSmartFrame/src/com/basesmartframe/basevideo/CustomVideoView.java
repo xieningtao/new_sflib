@@ -12,7 +12,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import com.basesmartframe.baseutil.SystemUIWHHelp;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 import java.io.IOException;
 import java.util.Map;

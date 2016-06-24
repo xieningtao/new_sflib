@@ -2,7 +2,7 @@ package com.basesmartframe.baseutil;
 
 import android.text.TextUtils;
 
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

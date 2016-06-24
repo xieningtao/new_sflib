@@ -46,6 +46,9 @@ public class CounterDown {
     public void start() {
         if (timer != null) {
             timer.start();
+            if(mOnTickListener!=null){
+                mOnTickListener.onStart();
+            }
         } else {
             throw new NullPointerException("can't call stop function then call doRefresh ");
         }
@@ -66,6 +69,8 @@ public class CounterDown {
         void onTick(long millisUntilFinished);
 
         void onFinish();
+
+        void onStart();
     }
 
 }

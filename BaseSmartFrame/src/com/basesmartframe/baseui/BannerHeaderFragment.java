@@ -11,7 +11,7 @@ import android.view.ViewParent;
 
 import com.basesmartframe.baseview.autoviewpager.AutoScrollViewPager;
 import com.basesmartframe.baseview.indicator.PageIndicator;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 import java.util.ArrayList;
 import java.util.List;

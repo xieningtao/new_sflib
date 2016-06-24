@@ -5,7 +5,7 @@ import android.graphics.BitmapFactory;
 import android.text.TextUtils;
 import android.util.Base64;
 
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

@@ -12,7 +12,7 @@ import android.view.ViewParent;
 import android.widget.FrameLayout;
 import android.widget.Scroller;
 
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 public class SlidingLeftViewLayout extends FrameLayout {
 	private final String TAG = "SlidingLeftViewLayout";

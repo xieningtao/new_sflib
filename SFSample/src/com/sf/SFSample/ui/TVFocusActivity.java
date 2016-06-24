@@ -10,7 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.basesmartframe.baseui.BaseActivity;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 import com.sf.SFSample.R;
 
 import java.util.ArrayList;

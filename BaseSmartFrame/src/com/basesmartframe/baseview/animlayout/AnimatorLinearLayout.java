@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
 
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 public class AnimatorLinearLayout extends LinearLayout {
 

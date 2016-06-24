@@ -8,7 +8,7 @@ import android.view.View;
 import com.basesmartframe.R;
 import com.basesmartframe.basevideo.CustomVideoView;
 import com.basesmartframe.basevideo.VideoViewHolder;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 /**
  * Created by xieningtao on 15-11-15.

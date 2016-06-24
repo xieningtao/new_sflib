@@ -2,7 +2,7 @@ package com.basesmartframe.dialoglib.fgdialog;
 
 import android.app.Fragment;
 
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 public interface SFFragmentAction {
 

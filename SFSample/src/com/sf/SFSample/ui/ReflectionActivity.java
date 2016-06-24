@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 import com.sf.SFSample.R;
 import com.sflib.reflection.core.SFBridgeManager;
 import com.sflib.reflection.core.SFIntegerMessage;

@@ -7,7 +7,7 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.widget.VideoView;
 
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 import java.lang.ref.WeakReference;
 

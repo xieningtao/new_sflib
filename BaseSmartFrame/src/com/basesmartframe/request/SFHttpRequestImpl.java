@@ -3,7 +3,7 @@ package com.basesmartframe.request;
 import android.text.TextUtils;
 
 import com.basesmartframe.basehttp.SFHttpClient;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 import com.sf.httpclient.core.AjaxCallBack;
 import com.sf.httpclient.core.AjaxParams;
 

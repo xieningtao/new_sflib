@@ -14,6 +14,7 @@ import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+import com.sflib.reflection.core.ThreadHelp;
 import com.umeng.socialize.PlatformConfig;
 
 import de.greenrobot.event.EventBus;
@@ -30,6 +31,7 @@ public class BaseApp extends Application {
     }
 
     private void init() {
+        ThreadHelp.initThread(this);
         registerNetworkReceiver();
         initImageLoader(this);
         initUMengShare();

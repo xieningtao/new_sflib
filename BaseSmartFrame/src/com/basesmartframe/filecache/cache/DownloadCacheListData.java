@@ -6,7 +6,7 @@ import com.basesmartframe.baseutil.GsonUtil;
 import com.basesmartframe.filecache.BaseFileCacheListMessage;
 import com.basesmartframe.filecache.BaseFileCacheMessage;
 import com.basesmartframe.filecache.cacheentry.FileCacheManager;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 import com.sf.httpclient.core.AjaxParams;
 
 import de.greenrobot.event.EventBus;

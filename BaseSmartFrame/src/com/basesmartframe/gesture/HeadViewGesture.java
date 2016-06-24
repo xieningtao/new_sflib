@@ -1,6 +1,6 @@
 package com.basesmartframe.gesture;
 
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;

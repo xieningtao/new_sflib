@@ -1,16 +1,12 @@
 package com.basesmartframe.dialoglib.fgdialog;
 
-import android.app.Activity;
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.text.TextUtils;
 
 import com.basesmartframe.R;
 import com.basesmartframe.baseui.BaseActivity;
 import com.basesmartframe.dialoglib.fgdialog.SFFragmentOperator.SFFragmentAnimatorFactory;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 /**
  * Created by xieningtao on 15-4-16.

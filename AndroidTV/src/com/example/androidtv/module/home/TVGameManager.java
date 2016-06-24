@@ -2,9 +2,9 @@ package com.example.androidtv.module.home;
 
 import android.text.TextUtils;
 
-import com.basesmartframe.basethread.ThreadHelp;
+import com.sflib.reflection.core.ThreadHelp;
 import com.basesmartframe.baseutil.SFBus;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 import com.example.androidtv.module.bean.TVHomeDataModel;
 import com.sf.httpclient.core.AjaxParams;
 
@@ -60,13 +60,15 @@ class TVGameManager implements TVGameInterface.TVCategoryHttpRequest {
 
                 if (isFirstPage(requestParams)) {
                     TVGameInterface.CategoryCountEvent countEvent = new TVGameInterface.CategoryCountEvent(100);
-                    SFBus.post(countEvent);
+                    //TODO add post method
+//                    SFBus.post(countEvent);
                 }
                 int pageIndex = getPageIndex(requestParams);
                 mCategoryMap.put(pageIndex + "", categoryData);
 
                 TVGameInterface.CategoryResponse categoryResponse = new TVGameInterface.CategoryResponse(requestParams);
-                SFBus.post(categoryResponse);
+                //TODO add post method
+//                SFBus.post(categoryResponse);
 
                 L.info(TAG, "categoryResponse: " + categoryResponse);
             }

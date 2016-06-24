@@ -8,7 +8,7 @@ import android.widget.FrameLayout;
 import com.basesmartframe.baseui.BaseActivity;
 import com.basesmartframe.baseutil.SystemUIWHHelp;
 import com.basesmartframe.basevideo.VideoViewUI;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 import com.sf.SFSample.R;
 
 /**

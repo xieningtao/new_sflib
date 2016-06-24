@@ -2,7 +2,7 @@ package com.basesmartframe.baseutil;
 
 import android.util.Base64;
 
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 import java.security.InvalidKeyException;
 import java.security.KeyFactory;

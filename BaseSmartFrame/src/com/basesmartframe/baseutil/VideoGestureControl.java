@@ -1,7 +1,7 @@
 package com.basesmartframe.baseutil;
 
 
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 import android.os.Handler;
 import android.view.GestureDetector;

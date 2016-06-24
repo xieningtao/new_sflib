@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import com.basesmartframe.R;
 import com.basesmartframe.baseutil.SystemUIWHHelp;
 import com.basesmartframe.basevideo.util.ToggelSystemUIHelp;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 /**
  * Created by xieningtao on 15-11-16.

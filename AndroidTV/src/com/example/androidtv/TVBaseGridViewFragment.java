@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.basesmartframe.baseview.newhttpview.HttpViewManager;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 import com.example.androidtv.module.home.TVGameModule;
 import com.sf.httpclient.core.AjaxParams;
 

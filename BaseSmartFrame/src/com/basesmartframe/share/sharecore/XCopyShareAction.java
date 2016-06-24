@@ -4,7 +4,7 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 import com.basesmartframe.share.shareitem.XBaseShareItem;
 
 

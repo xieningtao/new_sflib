@@ -4,7 +4,7 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
 
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 import java.io.BufferedReader;
 import java.io.File;

@@ -14,7 +14,7 @@ import android.view.KeyEvent;
 import android.view.ViewConfiguration;
 import android.view.WindowManager;
 
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 import java.lang.reflect.Method;
 

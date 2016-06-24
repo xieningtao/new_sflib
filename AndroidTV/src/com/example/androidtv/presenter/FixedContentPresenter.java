@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.basesmartframe.baseutil.UnitHelp;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 import com.example.androidtv.cardview.CategoryCardView;
 import com.example.androidtv.module.bean.TVHomeDataModel;
 import com.nostra13.universalimageloader.core.ImageLoader;

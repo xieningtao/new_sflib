@@ -1,8 +1,8 @@
 apply plugin: 'com.android.library'
+
 android {
     compileSdkVersion 22
     buildToolsVersion '23.0.3'
-
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 22
@@ -12,10 +12,9 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
@@ -26,28 +25,13 @@ android {
             assets.srcDirs = ['assets']
         }
     }
-
     dexOptions {
         jumboMode = true
     }
-}
-
-repositories {
-    maven {
-        url "file://E:/anddroid/sdk/extras/android/m2repository/"
+    productFlavors {
     }
 }
 
 dependencies {
     compile 'com.google.android:android:4.1.1.4@jar'
-    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4@jar'
-    compile 'com.google.code.gson:gson:2.2.4@jar'
-    compile 'com.android.support:support-v13:22+@aar'
-    compile 'com.android.support:support-v4:22+'
-    compile project(':reflection')
-    compile project(':SFLog')
-    compile project(':EventBus:EventBusCore')
-    compile project(':SFHttpClient')
-    compile project(':UMengLib')
-    compile project(':Android-PullToRefresh:PullRefreshLib')
 }

@@ -3,7 +3,7 @@ package com.basesmartframe.basevideo.util;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 
 /**

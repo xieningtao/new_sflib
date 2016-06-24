@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.ViewTreeObserver;
 import android.widget.RelativeLayout;
 
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 public class AnimatorRelativeLayout extends RelativeLayout {
 

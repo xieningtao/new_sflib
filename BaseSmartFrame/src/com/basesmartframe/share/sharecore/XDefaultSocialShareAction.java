@@ -4,7 +4,7 @@ package com.basesmartframe.share.sharecore;
 import android.app.Activity;
 import android.content.Context;
 
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 import com.basesmartframe.share.ShareContent;
 import com.basesmartframe.share.shareitem.XBaseShareItem;
 import com.umeng.socialize.ShareAction;

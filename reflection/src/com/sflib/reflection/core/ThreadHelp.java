@@ -1,10 +1,10 @@
-package com.basesmartframe.basethread;
+package com.sflib.reflection.core;
 
+import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 
-import com.basesmartframe.baseapp.BaseApp;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -14,7 +14,7 @@ public class ThreadHelp {
 	private static ExecutorService excutors = Executors
 			.newFixedThreadPool(nThreads);
 	private static DelayThread delayThread = new DelayThread("delay_thread");
-
+	private static Context context;
 	public static void runInBackThreadPool(Runnable runnable) {
 		excutors.execute(runnable);
 	}
@@ -23,14 +23,18 @@ public class ThreadHelp {
 		delayThread.excute(runnable, delay);
 	}
 
+	public static void initThread(Context _context){
+		context=_context;
+	}
+
 	public static void runInMain(Runnable runnable) {
-		Looper looper = BaseApp.gContext.getMainLooper();
+		Looper looper = context.getMainLooper();
 		Handler handler = new Handler(looper);
 		handler.post(runnable);
 	}
 
 	public static void runInMain(Runnable runnable, int delay) {
-		Looper looper = BaseApp.gContext.getMainLooper();
+		Looper looper = context.getMainLooper();
 		Handler handler = new Handler(looper);
 		handler.postDelayed(runnable, delay);
 	}

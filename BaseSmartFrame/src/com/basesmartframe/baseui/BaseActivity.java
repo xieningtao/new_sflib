@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import com.basesmartframe.basehttp.BaseAjaxCallBack;
 import com.basesmartframe.baseview.newhttpview.HttpViewManager;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 import com.umeng.analytics.MobclickAgent;
 
 import de.greenrobot.event.EventBus;

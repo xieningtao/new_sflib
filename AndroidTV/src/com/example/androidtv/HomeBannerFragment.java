@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import com.basesmartframe.basethread.ThreadHelp;
+import com.sflib.reflection.core.ThreadHelp;
 import com.basesmartframe.baseui.BannerHeaderFragment;
 import com.basesmartframe.baseview.indicator.PageIndicator;
 import com.nostra13.universalimageloader.core.ImageLoader;

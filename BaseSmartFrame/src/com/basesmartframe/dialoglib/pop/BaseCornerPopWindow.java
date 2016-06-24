@@ -3,11 +3,9 @@ package com.basesmartframe.dialoglib.pop;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.PopupWindow;
 
-import com.basesmartframe.baseutil.SpUtil;
-import com.basesmartframe.log.L;
+import com.sf.loglib.L;
 
 public abstract class BaseCornerPopWindow {
     protected final String TAG=getClass().getName();
