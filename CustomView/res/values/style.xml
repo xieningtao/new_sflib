@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="PullRefreshProgressing">
+        <item name="frame_animation">@drawable/animation_pull_refresh_progressing</item>
+        <item name="frame_scale">WRAP_CONTENT</item>
+    </style>
+</resources>

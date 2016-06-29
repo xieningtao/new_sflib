@@ -9,7 +9,7 @@ import java.util.List;
  * Created by xieningtao on 15-10-31.
  */
 public class EventHandlerManager {
-    private List<Integer> mHandleEvents = new ArrayList<>();
+    private List<Integer> mHandleEvents = new ArrayList<Integer>();
 
     public EventHandlerManager() {
 

@@ -2,14 +2,13 @@ package com.basesmartframe.filecache.cache;
 
 import android.text.TextUtils;
 
-import com.basesmartframe.baseutil.GsonUtil;
+import com.sf.utils.baseutil.GsonUtil;
 import com.basesmartframe.filecache.BaseFileCacheListMessage;
 import com.basesmartframe.filecache.BaseFileCacheMessage;
 import com.basesmartframe.filecache.cacheentry.FileCacheManager;
 import com.sf.loglib.L;
 import com.sf.httpclient.core.AjaxParams;
 
-import de.greenrobot.event.EventBus;
 
 /**
  * Created by xieningtao on 15-5-21.
@@ -100,7 +99,8 @@ public class DownloadCacheListData extends DownloadListItems {
                 listMessage_instance.setResult(result);
                 listMessage_instance.setNewCount(newCountNum);
                 listMessage_instance.setSucces(true);
-                EventBus.getDefault().post(listMessage_instance);
+                //TODO change eventBug to SFBus
+//                EventBus.getDefault().post(listMessage_instance);
             } else {
                 throw new IllegalAccessException("message_instance is not instanceof BaseFileCacheListMessage");
             }

@@ -13,7 +13,4 @@ public class CircleTest extends BaseActivity{
 		setContentView(R.layout.circle_test_activity);
 	}
 	
-	public void onEvent(String str) {
-
-	}
 }

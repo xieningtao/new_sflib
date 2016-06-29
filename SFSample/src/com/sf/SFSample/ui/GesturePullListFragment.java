@@ -10,7 +10,7 @@ import com.basesmartframe.basehttp.SFHttpClient;
 import com.basesmartframe.basepull.PullHttpResult;
 import com.sflib.reflection.core.ThreadHelp;
 import com.basesmartframe.baseui.BasePullListFragment;
-import com.basesmartframe.baseutil.SystemUIWHHelp;
+import com.sf.utils.baseutil.SystemUIWHHelp;
 import com.sf.SFSample.R;
 import com.sf.httpclient.core.AjaxParams;
 

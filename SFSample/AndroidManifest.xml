@@ -134,5 +134,9 @@
             android:name=".ui.UMengShareActivity"
             android:screenOrientation="portrait"
             />
+        <activity
+            android:name=".ui.FragmentTabActivity"
+            android:screenOrientation="portrait"
+            />
     </application>
 </manifest>

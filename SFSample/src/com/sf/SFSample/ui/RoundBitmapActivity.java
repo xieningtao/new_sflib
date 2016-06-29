@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.basesmartframe.baseui.BaseActivity;
-import com.basesmartframe.baseutil.UnitHelp;
+import com.sf.utils.baseutil.UnitHelp;
 import com.sf.SFSample.R;
 import com.sflib.CustomView.canvas.RoundBitmap;
 

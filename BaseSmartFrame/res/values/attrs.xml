@@ -35,12 +35,5 @@
         <attr name="cpstsIndicatorRectCorner" format="dimension|float" />
     </declare-styleable>
 
-    <declare-styleable name="FrameAnimationView">
-        <attr name="frame_animation" format="reference" />
-        <attr name="frame_scale" format="enum">
-            <enum name="FIT_XY" value="0" />
-            <enum name="WRAP_CONTENT" value="1" />
-        </attr>
-    </declare-styleable>
-    
+
 </resources>

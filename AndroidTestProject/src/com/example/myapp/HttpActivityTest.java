@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.sflib.reflection.core.ThreadHelp;
 import com.basesmartframe.baseui.BaseActivity;
-import com.basesmartframe.baseutil.SFBus;
+import com.sf.utils.baseutil.SFBus;
 
 /**
  * Created by xieningtao on 16-2-22.

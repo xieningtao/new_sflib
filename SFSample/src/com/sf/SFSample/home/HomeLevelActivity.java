@@ -10,6 +10,7 @@ import com.sf.SFSample.ui.AdbShellActivity;
 import com.sf.SFSample.ui.BaseLevelActivity;
 import com.sf.SFSample.ui.CircleTest;
 import com.sf.SFSample.ui.DecencoderActivity;
+import com.sf.SFSample.ui.FragmentTabActivity;
 import com.sf.SFSample.ui.GestureListViewActiviy;
 import com.sf.SFSample.ui.GestureTest;
 import com.sf.SFSample.ui.PullListActivity;
@@ -44,13 +45,11 @@ public class HomeLevelActivity extends BaseLevelActivity {
         activities.put(12, new Pair<String, Class>("XPinListView", XPinListViewActivity.class));
         activities.put(13, new Pair<String, Class>("DecencoderActivity", DecencoderActivity.class));
         activities.put(14, new Pair<String, Class>("UMengShareActivity", UMengShareActivity.class));
+        activities.put(15, new Pair<String, Class>("FragmentTabActivity", FragmentTabActivity.class));
 
         return activities;
     }
 
-    public void onEvent(String str) {
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

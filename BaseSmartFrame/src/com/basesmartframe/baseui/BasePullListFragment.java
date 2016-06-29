@@ -14,13 +14,15 @@ import com.basesmartframe.R;
 import com.basesmartframe.baseadapter.BaseAdapterHelper;
 import com.basesmartframe.baseevent.GlobalEvent;
 import com.basesmartframe.basepull.PullType;
-import com.basesmartframe.baseutil.NetWorkManagerUtil;
-import com.basesmartframe.baseview.newhttpview.HttpViewManager;
+import com.sf.utils.baseutil.NetWorkManagerUtil;
+import com.sflib.CustomView.newhttpview.HttpViewManager;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnLastItemVisibleListener;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.sflib.reflection.core.SFIntegerMessage;
+import com.sflib.reflection.core.SFMsgId;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -170,7 +172,8 @@ public abstract class BasePullListFragment<T> extends BaseFragment implements
         simpleFinishRefreshOrLoading();
     }
 
-    public void onEvent(GlobalEvent.NetworkEvent event) {
+    @SFIntegerMessage(messageId = SFMsgId.NetworkMessage.NETWORK_AVAILABLE)
+    public void onNetwokChange(GlobalEvent.NetworkEvent event) {
         if (event.hasNetwork) {
             if (!isListViewHasData()) {
                 doRefresh();

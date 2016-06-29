@@ -17,10 +17,7 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
-    <style name="PullRefreshProgressing">
-        <item name="frame_animation">@drawable/animation_pull_refresh_progressing</item>
-        <item name="frame_scale">WRAP_CONTENT</item>
-    </style>
+
 
     <style name="circle_click_shadow">
         <item name="android:background">@drawable/circle_click_bk</item>

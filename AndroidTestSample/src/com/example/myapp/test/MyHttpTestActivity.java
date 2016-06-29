@@ -4,7 +4,7 @@ import android.app.Instrumentation;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.LargeTest;
 
-import com.basesmartframe.baseutil.SFBus;
+import com.sf.utils.baseutil.SFBus;
 import com.example.myapp.HttpActivityTest;
 
 import java.util.concurrent.CountDownLatch;

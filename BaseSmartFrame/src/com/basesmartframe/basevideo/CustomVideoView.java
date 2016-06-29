@@ -11,7 +11,7 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-import com.basesmartframe.baseutil.SystemUIWHHelp;
+import com.sf.utils.baseutil.SystemUIWHHelp;
 import com.sf.loglib.L;
 
 import java.io.IOException;

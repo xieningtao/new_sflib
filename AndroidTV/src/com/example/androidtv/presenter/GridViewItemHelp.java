@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.res.Resources;
 import android.text.TextUtils;
 
-import com.basesmartframe.baseutil.SystemUIWHHelp;
+import com.sf.utils.baseutil.SystemUIWHHelp;
 import com.example.androidtv.R;
 
 /**

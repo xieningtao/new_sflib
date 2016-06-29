@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CustomView</string>
+    <string name="onloading_data">数据加载中...</string>
+    <string name="no_data">数据加载失败</string>
+    <string name="no_network">网络异常</string>
 </resources>

@@ -7,7 +7,6 @@ import com.google.gson.*;
 import com.sf.httpclient.core.AjaxCallBack;
 import com.sf.httpclient.core.AjaxParams;
 
-import de.greenrobot.event.EventBus;
 
 public abstract class BaseAjaxCallBack<T> extends AjaxCallBack<String> {
 	private final String TAG = "http";
@@ -64,8 +63,9 @@ public abstract class BaseAjaxCallBack<T> extends AjaxCallBack<String> {
 				L.error(TAG, "fail to parse json : " + t);
 				bean = null;
 			}
+			//TODO change eventbus to sfbus
 			// onResult(bean, mParams);
-			EventBus.getDefault().post(new HttpResult(bean, mParams, this));
+//			EventBus.getDefault().post(new HttpResult(bean, mParams, this));
 		}
 	}
 
@@ -81,7 +81,8 @@ public abstract class BaseAjaxCallBack<T> extends AjaxCallBack<String> {
 		L.info(TAG, "onFailure: exception: " + t + " errorNO: " + errorNo
 				+ " strMsg: " + strMsg);
 		// onResult(null, mParams);
-		EventBus.getDefault().post(new HttpResult(null, mParams, this));
+//		EventBus.getDefault().post(new HttpResult(null, mParams, this));
+		//TODO change eventbus to sfbug
 	}
 
 }

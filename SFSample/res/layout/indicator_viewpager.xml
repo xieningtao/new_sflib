@@ -18,7 +18,7 @@
             android:background="@color/white"
             android:layout_weight="1" />
 
-        <com.basesmartframe.baseview.indicator.TabPageIndicator
+        <com.sflib.CustomView.indicator.TabPageIndicator
             android:id="@+id/tabs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

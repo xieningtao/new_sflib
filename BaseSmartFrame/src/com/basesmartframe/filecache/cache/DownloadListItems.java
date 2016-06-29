@@ -1,6 +1,6 @@
 package com.basesmartframe.filecache.cache;
 
-import com.basesmartframe.baseutil.SFBus;
+import com.sf.utils.baseutil.SFBus;
 import com.basesmartframe.filecache.BaseFileCacheMessage;
 import com.sf.loglib.L;
 import com.google.gson.Gson;

@@ -12,7 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.basesmartframe.R;
-import com.basesmartframe.baseutil.SystemUIWHHelp;
+import com.sf.utils.baseutil.SystemUIWHHelp;
 import com.basesmartframe.basevideo.util.GuestureControl;
 import com.basesmartframe.basevideo.util.TimeUtil;
 import com.sf.loglib.L;

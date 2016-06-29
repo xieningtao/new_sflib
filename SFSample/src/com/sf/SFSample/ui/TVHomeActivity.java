@@ -6,8 +6,8 @@ import android.support.v4.view.ViewPager;
 
 import com.basesmartframe.baseui.BaseViewPager;
 import com.basesmartframe.baseui.NewBaseViewPager;
-import com.basesmartframe.baseview.indicator.PageIndicator;
-import com.basesmartframe.baseview.indicator.TabPageIndicator;
+import com.sflib.CustomView.indicator.PageIndicator;
+import com.sflib.CustomView.indicator.TabPageIndicator;
 import com.sf.SFSample.R;
 
 import java.util.ArrayList;

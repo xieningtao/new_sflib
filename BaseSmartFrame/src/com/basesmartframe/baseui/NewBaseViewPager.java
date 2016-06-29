@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
-import com.basesmartframe.baseview.indicator.PageIndicator;
+import com.sflib.CustomView.indicator.PageIndicator;
 
 import java.util.ArrayList;
 import java.util.List;

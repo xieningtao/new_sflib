@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.widget.FrameLayout;
 
 import com.basesmartframe.baseui.BaseActivity;
-import com.basesmartframe.baseutil.SystemUIWHHelp;
+import com.sf.utils.baseutil.SystemUIWHHelp;
 import com.basesmartframe.basevideo.VideoViewUI;
 import com.sf.loglib.L;
 import com.sf.SFSample.R;

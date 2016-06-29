@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.PopupWindow;
 
-import com.basesmartframe.baseutil.SpUtil;
+import com.sf.utils.baseutil.SpUtil;
 import com.basesmartframe.dialoglib.pop.BaseCornerPopWindow;
 import com.sf.loglib.L;
 import com.sf.SFSample.R;

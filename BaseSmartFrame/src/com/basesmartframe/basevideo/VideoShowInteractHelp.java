@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Handler;
-import android.support.v4.view.GestureDetectorCompat;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,8 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.basesmartframe.R;
-import com.basesmartframe.baseutil.NetWorkManagerUtil;
-import com.basesmartframe.baseutil.SFBus;
+import com.sf.utils.baseutil.NetWorkManagerUtil;
+import com.sf.utils.baseutil.SFBus;
 import com.basesmartframe.basevideo.core.VideoShowManager;
 import com.basesmartframe.basevideo.util.ActionTimeGapHelp;
 import com.basesmartframe.basevideo.util.GuestureControl;
@@ -49,7 +49,7 @@ public class VideoShowInteractHelp implements VideoShowLifeCycle {
     private boolean isFullMode = false;
 
     //gesture
-    private GestureDetectorCompat detector;
+    private GestureDetector detector;
 
     private Runnable preRunnable = null;
 
@@ -409,9 +409,6 @@ public class VideoShowInteractHelp implements VideoShowLifeCycle {
         SFBus.unregister(this);
     }
 
-    public void onEvent(Integer a) {
-
-    }
 
     class TitleBottomViewToggleWithPause implements GuestureControl.GestureControlEvent {
 

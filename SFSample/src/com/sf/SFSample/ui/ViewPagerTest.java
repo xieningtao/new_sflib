@@ -42,7 +42,4 @@ public class ViewPagerTest extends BaseViewPager<ViewPagerTest.MyViewPagerTitle>
 		return Fragment.instantiate(this, PullListFragment.class.getName());
 	}
 
-	public void onEvent(String str) {
-
-	}
 }

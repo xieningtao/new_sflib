@@ -35,6 +35,7 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+
 }
 
 tasks.withType(JavaCompile) {

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="test">#3ff33333</color>
+    <color name="background_tab">#6633B5E5</color>
+    
+    
+    
+    <color name="transparent">#00000000</color>
+    <color name="transparent_black">#70000000</color>
+    <color name="transparent_half">#30000000</color>
+    <color name="white">#ffffff</color>
+    <color name="videoshow_transparent">#aa000000</color>
+    <color name="text_white">@android:color/white</color>
+    <color name="text_light_white">#ffececec</color>
+    <color name="text_lighter_white">#ffd7d7d7</color>
+    <color name="preview_black">#ff000000</color>
+    <color name="text_black">#ff333333</color>
+    <color name="text_black_for_name">#ff1a1a1a</color>
+    <color name="text_light_black">#ff666666</color>
+    <color name="text_lighter_black">#ff999999</color>
+    <color name="text_red">#ffff0000</color>
+    <color name="text_blue">#ff3ba7f3</color>
+    <color name="dialog_blue">#ff008aff</color>
+    <color name="actionbar_blue">#ff32d2f3</color>
+    <color name="text_green">#6635c041</color>
+
+
+    <color name="divider">#ffdddddd</color>
+</resources>

@@ -9,7 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.basesmartframe.baseview.newhttpview.HttpViewManager;
+import com.sflib.CustomView.newhttpview.HttpViewManager;
 import com.sf.loglib.L;
 import com.example.androidtv.module.home.TVGameModule;
 import com.sf.httpclient.core.AjaxParams;

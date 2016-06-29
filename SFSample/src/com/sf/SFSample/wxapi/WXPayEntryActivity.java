@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.basesmartframe.baseui.BaseActivity;
 import com.sf.loglib.L;
-import com.basesmartframe.share.ShareConstant;
+import com.sflib.umenglib.share.ShareConstant;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
 import com.tencent.mm.sdk.openapi.IWXAPI;

@@ -2,8 +2,9 @@ package com.example.androidtv.module.home;
 
 import android.text.TextUtils;
 
+import com.sflib.reflection.core.SFMsgId;
 import com.sflib.reflection.core.ThreadHelp;
-import com.basesmartframe.baseutil.SFBus;
+import com.sf.utils.baseutil.SFBus;
 import com.sf.loglib.L;
 import com.example.androidtv.module.bean.TVHomeDataModel;
 import com.sf.httpclient.core.AjaxParams;
@@ -68,7 +69,7 @@ class TVGameManager implements TVGameInterface.TVCategoryHttpRequest {
 
                 TVGameInterface.CategoryResponse categoryResponse = new TVGameInterface.CategoryResponse(requestParams);
                 //TODO add post method
-//                SFBus.post(categoryResponse);
+                SFBus.send(SFMsgId.TVMessage.CATEGORY_RESPONSE_ID,categoryResponse);
 
                 L.info(TAG, "categoryResponse: " + categoryResponse);
             }

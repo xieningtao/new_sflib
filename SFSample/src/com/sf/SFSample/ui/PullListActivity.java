@@ -13,8 +13,5 @@ public class PullListActivity extends BaseActivity {
 		setContentView(R.layout.pull_list_activity);
 	}
 
-	public void onEvent(String str) {
-
-	}
 
 }

@@ -6,14 +6,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import com.sf.utils.baseutil.SFBus;
+import com.sflib.reflection.core.SFBridgeManager;
+import com.sflib.reflection.core.SFMsgId;
 import com.sflib.reflection.core.ThreadHelp;
 import com.basesmartframe.baseui.BannerHeaderFragment;
-import com.basesmartframe.baseview.indicator.PageIndicator;
+import com.sflib.CustomView.indicator.PageIndicator;
 import com.nostra13.universalimageloader.core.ImageLoader;
+
 import java.util.ArrayList;
 import java.util.List;
-import de.greenrobot.event.EventBus;
+
 import android.support.v13.*;
+
 /**
  * Created by xieningtao on 15-12-28.
  */
@@ -103,7 +109,8 @@ public class HomeBannerFragment extends BannerHeaderFragment<HomeBannerFragment.
                 for (int i = 0; i < 3; i++) {
                     banners.add(new HomeBannerFragment.BannerBean(url[i]));
                 }
-                EventBus.getDefault().post(banners);
+                //TODO change eventbus to sfbug
+                SFBus.send(SFMsgId.BannerMessage.BANNER_LIST_ID,banners);
             }
         }, 2000);
 

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.basesmartframe.share.XSocialShareView
+    <com.sflib.umenglib.share.XSocialShareView
         android:id="@+id/share"
         android:numColumns="4"
         android:layout_width="match_parent"

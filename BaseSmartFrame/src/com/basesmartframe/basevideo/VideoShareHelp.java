@@ -11,11 +11,11 @@ import android.widget.AdapterView;
 
 import com.basesmartframe.R;
 import com.basesmartframe.dialoglib.DialogFactory;
-import com.basesmartframe.share.DefaultShareAdapter;
-import com.basesmartframe.share.ShareContent;
-import com.basesmartframe.share.XSocialShareView;
-import com.basesmartframe.share.sharecore.OnXBaseShareViewItemClickListener;
-import com.basesmartframe.share.shareitem.XBaseShareItem;
+import com.sflib.umenglib.share.DefaultShareAdapter;
+import com.sflib.umenglib.share.ShareContent;
+import com.sflib.umenglib.share.XSocialShareView;
+import com.sflib.umenglib.share.sharecore.OnXBaseShareViewItemClickListener;
+import com.sflib.umenglib.share.shareitem.XBaseShareItem;
 
 /**
  * Created by xieningtao on 15-11-16.

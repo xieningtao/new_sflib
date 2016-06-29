@@ -12,5 +12,14 @@ public class SFMsgId {
     public interface TVMessage{
         int CATEGORY_REQUEST_ID=102;
         int DETAIL_REQUEST_ID=103;
+        int CATEGORY_RESPONSE_ID=106;
+    }
+
+    public interface BannerMessage{
+        int BANNER_LIST_ID=104;
+    }
+
+    public interface NetworkMessage{
+        int NETWORK_AVAILABLE=105;
     }
 }

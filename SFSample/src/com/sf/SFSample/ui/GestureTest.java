@@ -6,7 +6,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.ScrollView;
 
 import com.basesmartframe.baseui.BaseActivity;
-import com.basesmartframe.baseutil.SystemUIWHHelp;
+import com.sf.utils.baseutil.SystemUIWHHelp;
 import com.basesmartframe.gesture.HeadViewInteraction;
 import com.sf.SFSample.R;
 

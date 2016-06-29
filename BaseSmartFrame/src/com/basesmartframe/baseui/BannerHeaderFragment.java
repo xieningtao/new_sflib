@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.view.ViewParent;
 
-import com.basesmartframe.baseview.autoviewpager.AutoScrollViewPager;
-import com.basesmartframe.baseview.indicator.PageIndicator;
+import com.sflib.CustomView.autoviewpager.AutoScrollViewPager;
+import com.sflib.CustomView.indicator.PageIndicator;
 import com.sf.loglib.L;
 
 import java.util.ArrayList;

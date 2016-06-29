@@ -2,7 +2,7 @@ package com.basesmartframe.filecache.cacheentry;
 
 import android.text.TextUtils;
 
-import com.basesmartframe.baseutil.SFFileHelp;
+import com.sf.utils.baseutil.SFFileHelp;
 
 import java.io.File;
 

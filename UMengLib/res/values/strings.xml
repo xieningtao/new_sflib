@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- share-->
+    <string name="share_weixinfriend">微信好友</string>
+    <string name="share_weixin">微信</string>
+    <string name="share_pengyouquan">朋友圈</string>
+    <string name="share_xinlangweibo">新浪微博</string>
+    <string name="share_qq">QQ</string>
+    <string name="share_qqkongjian">QQ空间</string>
+    <string name="living_copy_share">复制链接</string>
+</resources>

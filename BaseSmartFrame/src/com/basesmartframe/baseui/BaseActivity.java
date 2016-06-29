@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.basesmartframe.basehttp.BaseAjaxCallBack;
-import com.basesmartframe.baseview.newhttpview.HttpViewManager;
 import com.sf.loglib.L;
+import com.sf.utils.baseutil.SFBus;
+import com.sflib.CustomView.newhttpview.HttpViewManager;
 import com.umeng.analytics.MobclickAgent;
 
-import de.greenrobot.event.EventBus;
 
 public class BaseActivity extends Activity {
     protected final String TAG = getClass().getName();
@@ -37,7 +37,7 @@ public class BaseActivity extends Activity {
     protected void onResume() {
         super.onResume();
         MobclickAgent.onResume(this);
-        EventBus.getDefault().register(this);
+        SFBus.register(this);
         L.info(this, getClass().getName() + " register evenBus onResume");
     }
 
@@ -45,7 +45,7 @@ public class BaseActivity extends Activity {
     protected void onPause() {
         super.onPause();
         MobclickAgent.onPause(this);
-        EventBus.getDefault().unregister(this);
+        SFBus.unregister(this);
         L.info(this, getClass().getName() + " unregister evenBus onPause");
     }
 
@@ -54,21 +54,14 @@ public class BaseActivity extends Activity {
         super.onDestroy();
     }
 
-    public void onEvent(Integer a) {
-
-    }
-
-    public void onEvent(BaseAjaxCallBack.HttpResult result) {
-        result.mCallBack.onResult(result.bean, result.params);
-    }
 
     @Override
     public void onBackPressed() {
-        boolean handle=false;
-        if(mOnBackPressListener!=null){
-            handle= mOnBackPressListener.onBackPressListener();
+        boolean handle = false;
+        if (mOnBackPressListener != null) {
+            handle = mOnBackPressListener.onBackPressListener();
         }
-        if(!handle) {
+        if (!handle) {
             super.onBackPressed();
         }
     }

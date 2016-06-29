@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.basesmartframe.baseapp.BaseApp;
-import com.basesmartframe.baseutil.UnitHelp;
+import com.sf.utils.baseutil.UnitHelp;
 
 /**
  * Created by xieningtao on 16-3-27.

@@ -6,9 +6,9 @@ import android.view.View;
 
 import com.basesmartframe.baseui.BaseActivity;
 import com.basesmartframe.dialoglib.DialogFactory;
-import com.basesmartframe.share.DefaultShareAdapter;
-import com.basesmartframe.share.ShareContent;
-import com.basesmartframe.share.XSocialShareView;
+import com.sflib.umenglib.share.DefaultShareAdapter;
+import com.sflib.umenglib.share.ShareContent;
+import com.sflib.umenglib.share.XSocialShareView;
 import com.sf.SFSample.R;
 
 /**

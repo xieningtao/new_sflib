@@ -1,11 +1,11 @@
 apply plugin: 'com.android.library'
 android {
-    compileSdkVersion 22
-    buildToolsVersion '23.0.3'
+    compileSdkVersion 17
+    buildToolsVersion '22.0.1'
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 22
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0.0"
     }
@@ -30,8 +30,28 @@ android {
     dexOptions {
         jumboMode = true
     }
+
 }
+//repositories {
+//   maven{
+//       url "E:\\android\\sdk\\extras\\android\\m2repository"
+//   }
+//}
+
+//task showRepository {
+//    repositories.each {
+//        println(it.properties)
+//    }
+//}
 
 dependencies {
     compile 'com.google.android:android:4.1.1.4@jar'
+    compile project(':SFUtils')
+    //    compile 'com.android.support:support-v13:22.1.1@aar'
+//    compile 'com.google.android:support-v4:r7'
+    //    compile files('libs/support-v13-23.0.0-sources.jar')
+    //    compile files('libs/support-v4-23.0.0-sources.jar')
+    compile 'com.android.support:support-v4:24.0.0'
+    compile 'com.android.support:support-v13:24.0.0'
 }
+

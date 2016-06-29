@@ -9,7 +9,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import com.basesmartframe.baseevent.GlobalEvent;
-import com.basesmartframe.share.ShareConstant;
+import com.sf.utils.baseutil.NetWorkManagerUtil;
+import com.sf.utils.baseutil.SFBus;
+import com.sflib.reflection.core.SFMsgId;
+import com.sflib.umenglib.share.ShareConstant;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -17,7 +20,6 @@ import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.sflib.reflection.core.ThreadHelp;
 import com.umeng.socialize.PlatformConfig;
 
-import de.greenrobot.event.EventBus;
 
 public class BaseApp extends Application {
 
@@ -35,12 +37,13 @@ public class BaseApp extends Application {
         registerNetworkReceiver();
         initImageLoader(this);
         initUMengShare();
+        NetWorkManagerUtil.init(this);
     }
 
     private void initUMengShare() {
-        PlatformConfig.setWeixin(ShareConstant.WEIXIN_APPID,ShareConstant.WEIXIN_SECRET_KEY);
-        PlatformConfig.setQQZone(ShareConstant.QQ_APPID,ShareConstant.QQ_SECRET_KEY);
-        PlatformConfig.setSinaWeibo(ShareConstant.SINA_APPID,ShareConstant.SINA_SECRET_KEY);
+        PlatformConfig.setWeixin(ShareConstant.WEIXIN_APPID, ShareConstant.WEIXIN_SECRET_KEY);
+        PlatformConfig.setQQZone(ShareConstant.QQ_APPID, ShareConstant.QQ_SECRET_KEY);
+        PlatformConfig.setSinaWeibo(ShareConstant.SINA_APPID, ShareConstant.SINA_SECRET_KEY);
     }
 
     private void initGlobal() {
@@ -83,11 +86,9 @@ public class BaseApp extends Application {
                             .getActiveNetworkInfo();
                     if (info != null && info.isAvailable()) {
                         String name = info.getTypeName();
-                        EventBus.getDefault().post(
-                                new GlobalEvent.NetworkEvent(true, name));
+                        SFBus.send(SFMsgId.NetworkMessage.NETWORK_AVAILABLE,new GlobalEvent.NetworkEvent(true, name));
                     } else {
-                        EventBus.getDefault().post(
-                                new GlobalEvent.NetworkEvent(false, ""));
+                        SFBus.send(SFMsgId.NetworkMessage.NETWORK_AVAILABLE,new GlobalEvent.NetworkEvent(false, ""));
                     }
                 }
             }

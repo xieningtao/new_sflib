@@ -1,5 +1,5 @@
-include ':SFSample', ':BaseSmartFrame', ':openGL', ':SFLog',
-        ':CustomView', ':EventBus:EventBusCore',
+include ':CustomView',':SFSample', ':BaseSmartFrame', ':openGL',
+        ':SFLog', ':SFUtils', ':EventBus:EventBusCore',
         ':reflection', ':Android-PullToRefresh:PullRefreshLib',
         ':UMengLib', ':AndroidTV', ':SFHttpClient',
         ':SFPay', ":SFLog"

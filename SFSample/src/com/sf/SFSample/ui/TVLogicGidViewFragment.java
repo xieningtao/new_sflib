@@ -5,16 +5,17 @@ import android.support.v17.leanback.widget.Presenter;
 import android.support.v17.leanback.widget.PresenterSelector;
 import android.view.View;
 
-import com.basesmartframe.baseutil.FP;
-import com.basesmartframe.baseutil.NetWorkManagerUtil;
-import com.basesmartframe.baseutil.SFBus;
-import com.basesmartframe.baseutil.UnitHelp;
+import com.sf.utils.baseutil.FP;
+import com.sf.utils.baseutil.NetWorkManagerUtil;
+import com.sf.utils.baseutil.SFBus;
+import com.sf.utils.baseutil.UnitHelp;
 import com.sf.loglib.L;
 import com.example.androidtv.TVBaseGridViewFragment;
 import com.example.androidtv.module.bean.TVHomeDataModel;
 import com.example.androidtv.module.home.TVGameDataProvider;
 import com.example.androidtv.module.home.TVGameInterface;
 import com.example.androidtv.presenter.WrapContentPresenter;
+import com.sflib.reflection.core.SFIntegerMessage;
 import com.sflib.reflection.core.SFMsgId;
 
 import java.util.List;
@@ -89,7 +90,7 @@ public abstract class TVLogicGidViewFragment extends TVBaseGridViewFragment {
         int pageIndex = getPageIndex();
         TVGameInterface.CategoryRequest request = TVGameInterface.createCategoryRequest(pageIndex, 12);
         request.setTaskItem(createTaskId());
-        SFBus.send(SFMsgId.TVMessage.CATEGORY_REQUEST_ID,request);
+        SFBus.send(SFMsgId.TVMessage.CATEGORY_REQUEST_ID, request);
         showHttpLoadingView(hasData);
     }
 
@@ -109,7 +110,8 @@ public abstract class TVLogicGidViewFragment extends TVBaseGridViewFragment {
         super.onResume();
     }
 
-    public void onEvent(TVGameInterface.CategoryResponse response) {
+    @SFIntegerMessage(messageId =SFMsgId.TVMessage.CATEGORY_RESPONSE_ID)
+    public void onCategoryReponse(TVGameInterface.CategoryResponse response) {
         L.info(TAG, "method->updateData CategoryResponse,response: " + response);
         if (response == null) return;
         if (!isTheCurrentPageResponse(response.mParams)) return;
@@ -123,7 +125,7 @@ public abstract class TVLogicGidViewFragment extends TVBaseGridViewFragment {
         boolean hasData = !FP.empty(categoryBeans);
         updateHttpView(hasData);
         mArrayObjectAdapter.clear();
-        mArrayObjectAdapter.add(0,new TVHomeDataModel.TVDetailListBean());
+        mArrayObjectAdapter.add(0, new TVHomeDataModel.TVDetailListBean());
         mArrayObjectAdapter.addAll(1, categoryBeans);
         notifyDatasetChange();
     }

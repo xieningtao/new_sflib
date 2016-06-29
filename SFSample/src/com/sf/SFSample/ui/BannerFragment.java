@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 
 import com.basesmartframe.baseui.BannerHeaderFragment;
-import com.basesmartframe.baseview.indicator.PageIndicator;
+import com.sflib.CustomView.indicator.PageIndicator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.sf.SFSample.R;
 

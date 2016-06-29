@@ -19,7 +19,6 @@ import com.sf.httpclient.core.AjaxParams;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.greenrobot.event.EventBus;
 
 public class PullListFragment extends BasePullListFragment<Student> {
 
@@ -112,7 +111,8 @@ public class PullListFragment extends BasePullListFragment<Student> {
             for (int i = 0; i < 3; i++) {
                 banners.add(new BannerFragment.BannerBean(url[i]));
             }
-            EventBus.getDefault().post(banners);
+            //TODO change eventbus to sfbus
+//            EventBus.getDefault().post(banners);
 
             finishRefreshOrLoading(students, false);
         }
@@ -124,9 +124,6 @@ public class PullListFragment extends BasePullListFragment<Student> {
         public List<Student> students;
     }
 
-    public void onEvent(String str) {
-
-    }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position,

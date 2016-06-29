@@ -7,7 +7,7 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
 import com.basesmartframe.R;
-import com.basesmartframe.baseutil.SystemUIWHHelp;
+import com.sf.utils.baseutil.SystemUIWHHelp;
 import com.basesmartframe.basevideo.util.ToggelSystemUIHelp;
 import com.sf.loglib.L;
 
