@@ -13,6 +13,14 @@ android {
         }
     }
 
+    signingConfigs {
+        release_debug {
+            keyPassword "gorky1112"
+            keyAlias "smartframe"
+            storeFile file('E:/gitRepository/android/sflib/SFSample/key/sfkey.jks')
+            storePassword "gorky1112"
+        }
+    }
     buildTypes {
         release {
             minifyEnabled true
@@ -21,6 +29,12 @@ android {
         }
         debug {
             proguardFile 'E:/gitRepository/android/sflib/SFSample/proguard-project.txt'
+        }
+
+        new_debug{
+            debuggable true
+            signingConfig signingConfigs.release_debug
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
         }
     }
 

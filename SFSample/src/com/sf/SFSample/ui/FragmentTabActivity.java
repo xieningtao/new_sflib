@@ -6,17 +6,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TabHost;
 
+import com.basesmartframe.baseui.BaseSFTabActivity;
 import com.basesmartframe.baseui.BaseTabActivity;
 import com.sf.SFSample.R;
 
 /**
  * Created by NetEase on 2016/6/28 0028.
  */
-public class FragmentTabActivity extends BaseTabActivity {
+public class FragmentTabActivity extends BaseSFTabActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getTabWidget().setDividerDrawable(null);
         setTabAdapter(new FragmentTabAdpaper());
     }
 
@@ -25,7 +27,7 @@ public class FragmentTabActivity extends BaseTabActivity {
 
     }
 
-    public class FragmentTabAdpaper implements BaseTabActivity.BaseTabSpecAdapter{
+    public class FragmentTabAdpaper implements BaseSFTabActivity.BaseTabSpecAdapter{
 
         @Override
         public int getCount() {

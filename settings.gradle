@@ -1,7 +1,8 @@
 include ':CustomView',':SFSample', ':BaseSmartFrame', ':openGL',
-        ':SFLog', ':SFUtils', ':EventBus:EventBusCore',
+        ':SFLog', ':SFUtils',
         ':reflection', ':Android-PullToRefresh:PullRefreshLib',
         ':UMengLib', ':AndroidTV', ':SFHttpClient',
         ':SFPay', ":SFLog"
 //':Robolec' ,
 //':Robotium',
+//':EventBus:EventBusCore',

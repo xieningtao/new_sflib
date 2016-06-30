@@ -1,39 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="ErrorView"> 
-        <attr name="error_bt_visible" format="boolean|reference"/> 
-        <attr name="error_bt_text" format="reference|string"/>
-        <attr name="error_bt_bk" format="reference|color"/>  
-        <attr name="error_bt_txt_color" format="reference|color"/> 
-        <attr name="error_text" format="reference|string"/> 
-        <attr name="error_text_color" format="reference|color"/> 
-        <attr name="error_icon" format="reference"/> 
-    </declare-styleable> 
-    
-    <declare-styleable name="LoaddingView"> 
-        <attr name="loading_text_visible" format="boolean|reference"/> 
-        <attr name="loading_text" format="reference|string"/>
-        <attr name="loading_txt_color" format="reference|color"/> 
-        <attr name="loading_icon" format="reference"/> 
-    </declare-styleable> 
-    
-    <declare-styleable name="RoundRecPagerSlidingTabStrip">
-        <attr name="cpstsIndicatorColor" format="color" />
-        <attr name="cpstsUnderlineColor" format="color" />
-        <attr name="cpstsDividerColor" format="color" />
-        <attr name="cpstsIndicatorHeight" format="dimension" />
-        <attr name="cpstsUnderlineHeight" format="dimension" />
-        <attr name="cpstsDividerPadding" format="dimension" />
-        <attr name="cpstsTabPaddingLeftRight" format="dimension" />
-        <attr name="cpstsScrollOffset" format="dimension" />
-        <attr name="cpstsTabBackground" format="reference" />
-        <attr name="cpstsShouldExpand" format="boolean" />
-        <attr name="cpstsTextAllCaps" format="boolean" />
-        <attr name="cpstsIndicatorLeftRightPadding" format="dimension" />
-        <attr name="cpstsIndicatorTopBottomPadding" format="dimension" />
-        <attr name="cpstsIndicatorStrokeWidth" format="dimension|float" />
-        <attr name="cpstsIndicatorRectCorner" format="dimension|float" />
-    </declare-styleable>
 
+    
 
 </resources>

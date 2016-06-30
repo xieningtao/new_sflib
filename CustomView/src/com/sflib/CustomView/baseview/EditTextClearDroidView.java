@@ -1,6 +1,6 @@
-package com.basesmartframe.baseview;
+package com.sflib.CustomView.baseview;
 
-import com.basesmartframe.R;
+import com.sflib.CustomView.R;
 
 import android.content.Context;
 import android.text.Editable;

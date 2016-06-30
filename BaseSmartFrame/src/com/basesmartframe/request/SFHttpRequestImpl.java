@@ -3,6 +3,7 @@ package com.basesmartframe.request;
 import android.text.TextUtils;
 
 import com.basesmartframe.basehttp.SFHttpClient;
+import com.google.gson.Gson;
 import com.sf.loglib.L;
 import com.sf.httpclient.core.AjaxCallBack;
 import com.sf.httpclient.core.AjaxParams;
@@ -39,18 +40,18 @@ public class SFHttpRequestImpl implements SFRequestAction {
             L.info(TAG, "onSuccess");
             String tempResult = t == null ? "" : t;
             L.debug(TAG, "result: " + tempResult);
-//            T bean = null;
-//            if (!TextUtils.isEmpty(t)) {
-//                try {
-//                    Gson gson = new Gson();
-//                    bean = (T) gson.fromJson(t, mRequest.getClassType());
-//                } catch (Exception e) {
-//                    L.error(TAG, "fail to parse json : " + t);
-//                    bean = null;
-//                }
-//            }
+            Object bean = null;
+            if (!TextUtils.isEmpty(t)) {
+                try {
+                    Gson gson = new Gson();
+                    bean = gson.fromJson(t, mRequest.getClassType());
+                } catch (Exception e) {
+                    L.error(TAG, "fail to parse json : " + t);
+                    bean = null;
+                }
+            }
             if (mCallback != null) {
-                mCallback.onResult(true, t);
+                mCallback.onResult(true, bean);
             }
         }
 

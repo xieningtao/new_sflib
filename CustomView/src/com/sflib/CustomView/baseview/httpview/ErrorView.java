@@ -1,6 +1,6 @@
-package com.basesmartframe.baseview.httpview;
+package com.sflib.CustomView.baseview.httpview;
 
-import com.basesmartframe.R;
+import com.sflib.CustomView.R;
 
 import android.content.Context;
 import android.content.res.TypedArray;

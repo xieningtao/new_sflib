@@ -4,12 +4,6 @@
     <string name="app_name">BaseSmartFrame</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="none">图片无备注</string>
-
-
-    <string name="cancel">取消</string>
-
-    <string name="net_unavailable">网络异常…</string>
 
     <string name="videoshow_network_alert">你现在使用的是运营商网络，继\n续观看可能产生超额流量费。</string>
 </resources>

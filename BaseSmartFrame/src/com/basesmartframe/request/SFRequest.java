@@ -34,5 +34,5 @@ public abstract class SFRequest extends BaseHttpReqRes {
         return mMethodType;
     }
 
-    public abstract <T> Class<T> getClassType();
+    public abstract  Class getClassType();
 }

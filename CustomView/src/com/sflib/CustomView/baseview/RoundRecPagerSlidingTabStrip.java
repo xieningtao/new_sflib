@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.basesmartframe.baseview;
+package com.sflib.CustomView.baseview;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -44,7 +44,7 @@ import android.widget.TextView;
 
 import java.util.Locale;
 
-import com.basesmartframe.R;
+import com.sflib.CustomView.R;
 
 public class RoundRecPagerSlidingTabStrip extends HorizontalScrollView {
 

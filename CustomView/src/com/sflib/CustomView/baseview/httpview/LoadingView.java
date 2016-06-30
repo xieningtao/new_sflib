@@ -1,4 +1,4 @@
-package com.basesmartframe.baseview.httpview;
+package com.sflib.CustomView.baseview.httpview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -13,7 +13,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.basesmartframe.R;
+import com.sflib.CustomView.R;
 
 public class LoadingView extends FrameLayout{
 

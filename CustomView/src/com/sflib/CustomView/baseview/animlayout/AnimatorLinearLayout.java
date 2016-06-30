@@ -1,4 +1,4 @@
-package com.basesmartframe.baseview.animlayout;
+package com.sflib.CustomView.baseview.animlayout;
 
 import android.content.Context;
 import android.util.AttributeSet;

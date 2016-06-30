@@ -1,4 +1,4 @@
-package com.basesmartframe.baseview;
+package com.sflib.CustomView.baseview;
 
 import android.content.Context;
 import android.text.Editable;
@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.basesmartframe.R;
+import com.sflib.CustomView.R;
 
 public class AutoCompleteTextClearDroidView extends LinearLayout {
 	public static interface EditTextClearDroidEvent {

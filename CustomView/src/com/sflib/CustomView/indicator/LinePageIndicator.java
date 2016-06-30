@@ -87,7 +87,7 @@ public class LinePageIndicator extends View implements PageIndicator {
         mCentered = a.getBoolean(R.styleable.LinePageIndicator_centered, defaultCentered);
         mLineWidth = a.getDimension(R.styleable.LinePageIndicator_lineWidth, defaultLineWidth);
         //TODO do it
-//        mGapWidth = a.getDimension(com.basesmartframe.R.styleable.LinePageIndicator_gapWidth, defaultGapWidth);
+//        mGapWidth = a.getDimension(com.sflib.CustomView.R.styleable.LinePageIndicator_gapWidth, defaultGapWidth);
         mGapWidth=defaultGapWidth;
         setStrokeWidth(a.getDimension(R.styleable.LinePageIndicator_strokeWidth, defaultStrokeWidth));
         mPaintUnselected.setColor(a.getColor(R.styleable.LinePageIndicator_unselectedColor, defaultUnselectedColor));

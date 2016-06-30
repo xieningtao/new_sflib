@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <com.basesmartframe.baseview.EditTextClearDroidView
+    <com.sflib.CustomView.baseview.EditTextClearDroidView
         android:id="@+id/etcd"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -13,7 +13,7 @@
         android:padding="4dp"
         android:textColor="@color/text_blue" />
 
-    <com.basesmartframe.baseview.AutoCompleteTextClearDroidView
+    <com.sflib.CustomView.baseview.AutoCompleteTextClearDroidView
         android:id="@+id/ac_etcd"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

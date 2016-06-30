@@ -41,6 +41,9 @@
     public void set*(...);
 }
 
+-keep class com.sflib.reflection.core**{
+*;
+}
 #--------------友盟的混淆----------------
  -dontshrink
  -dontoptimize

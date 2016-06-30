@@ -51,6 +51,7 @@ public abstract class BasePullListFragment<T> extends BaseFragment implements
         super.onViewCreated(view, savedInstanceState);
         initView(view, savedInstanceState);
         initLitener();
+        doRefresh();
     }
 
     private void initView(View view, Bundle savedInstanceState) {
@@ -85,7 +86,9 @@ public abstract class BasePullListFragment<T> extends BaseFragment implements
         if (mPullToRefreshListView.getRefreshableView() == null) return false;
         ListAdapter adapter = mPullToRefreshListView.getRefreshableView().getAdapter();
         if (adapter == null) return false;
-        int count = adapter.getCount();
+        int headViewsCount = mPullToRefreshListView.getRefreshableView().getHeaderViewsCount();
+        int footViewsCouont = mPullToRefreshListView.getRefreshableView().getFooterViewsCount();
+        int count = adapter.getCount()-headViewsCount-footViewsCouont;
         return count > 0 ? true : false;
     }
 
@@ -140,8 +143,8 @@ public abstract class BasePullListFragment<T> extends BaseFragment implements
     }
 
     public void doRefresh() {
-        showHttpLoadingView();
         if (NetWorkManagerUtil.isNetworkAvailable()) {
+            showHttpLoadingView();
             onRefresh();
             mPullType = PullType.REFRESH;
         } else {

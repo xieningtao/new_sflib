@@ -8,8 +8,10 @@ import android.widget.BaseAdapter;
 
 import com.basesmartframe.baseadapter.BaseAdapterHelper;
 import com.basesmartframe.baseadapter.checkableadapter.CheckableAdapter;
-import com.basesmartframe.basehttp.SFHttpClient;
-import com.sflib.reflection.core.ThreadHelp;
+import com.basesmartframe.request.MethodType;
+import com.basesmartframe.request.SFHttpRequestImpl;
+import com.basesmartframe.request.SFRequest;
+import com.basesmartframe.request.SFResponseCallback;
 import com.basesmartframe.baseui.BasePullListFragment;
 import com.basesmartframe.basepull.PullHttpResult;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
@@ -24,31 +26,67 @@ public class PullListFragment extends BasePullListFragment<Student> {
 
     @Override
     protected boolean onRefresh() {
-        ThreadHelp.runInSingleBackThread(new Runnable() {
+        String httpUrl = "http://news.baidu.com/";
+
+        SFHttpRequestImpl request = new SFHttpRequestImpl();
+        SFRequest _request = new SFRequest(httpUrl, MethodType.GET) {
             @Override
-            public void run() {
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                SFHttpClient.get("http://news.baidu.com/", new AjaxParams(),
-                        new PullStudentsResult(Students.class));
+            public Class getClassType() {
+                return Student.class;
             }
-        }, 100);
+        };
+        request.getData(_request,new ImageResponse());
         return true;
     }
 
+    class ImageResponse implements SFResponseCallback<Students> {
+
+        private String url[] = {
+                "http://g.hiphotos.baidu.com/image/w%3D310/sign=40484034b71c8701d6b6b4e7177e9e6e/21a4462309f79052f619b9ee08f3d7ca7acbd5d8.jpg",
+                "http://a.hiphotos.baidu.com/image/w%3D310/sign=b0fccc9b8518367aad8979dc1e728b68/3c6d55fbb2fb43166d8f7bc823a4462308f7d3eb.jpg",
+                "http://d.hiphotos.baidu.com/image/w%3D310/sign=af0348abeff81a4c2632eac8e72b6029/caef76094b36acaf8ded6c2378d98d1000e99ce4.jpg"};
+
+        @Override
+        public void onResult(boolean success, Students bean) {
+            List<Student> students = new ArrayList<Student>();
+            List<BannerFragment.BannerBean> banners = new ArrayList<BannerFragment.BannerBean>();
+            for (int i = 0; i < 10; i++) {
+                students.add(new Student("students" + i, 100 * i));
+
+            }
+            for (int i = 0; i < 3; i++) {
+                banners.add(new BannerFragment.BannerBean(url[i]));
+            }
+            mBannerFt.updateData(banners);
+
+            finishRefreshOrLoading(students, false);
+        }
+
+        @Override
+        public void onStart(AjaxParams params) {
+
+        }
+
+        @Override
+        public void onLoading(long count, long current) {
+
+        }
+    }
+
     @Override
+
     protected boolean onLoadMore() {
         return false;
     }
 
+    private BannerFragment mBannerFt;
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         View headView = LayoutInflater.from(getActivity()).inflate(
                 R.layout.banner_test_fragment, null);
+        mBannerFt=new BannerFragment();
+        getFragmentManager().beginTransaction().replace(R.id.banner_containner,mBannerFt).commit();
         addHeaderView(headView);
         doRefresh();
     }
@@ -85,42 +123,8 @@ public class PullListFragment extends BasePullListFragment<Student> {
         }
     }
 
-    class PullStudentsResult extends PullHttpResult<Students> {
 
-        private String url[] = {
-                "http://g.hiphotos.baidu.com/image/w%3D310/sign=40484034b71c8701d6b6b4e7177e9e6e/21a4462309f79052f619b9ee08f3d7ca7acbd5d8.jpg",
-                "http://a.hiphotos.baidu.com/image/w%3D310/sign=b0fccc9b8518367aad8979dc1e728b68/3c6d55fbb2fb43166d8f7bc823a4462308f7d3eb.jpg",
-                "http://d.hiphotos.baidu.com/image/w%3D310/sign=af0348abeff81a4c2632eac8e72b6029/caef76094b36acaf8ded6c2378d98d1000e99ce4.jpg"};
-
-        public PullStudentsResult(Class<Students> classType) {
-            super(classType);
-        }
-
-        @Override
-        protected void onPullResult(Students t,
-                                    AjaxParams params) {
-            List<Student> students = new ArrayList<Student>();
-            List<BannerFragment.BannerBean> banners = new ArrayList<BannerFragment.BannerBean>();
-            // if(null!=t){
-            // students.addAll(t.students);
-            // }
-            for (int i = 0; i < 10; i++) {
-                students.add(new Student("students" + i, 100 * i));
-
-            }
-            for (int i = 0; i < 3; i++) {
-                banners.add(new BannerFragment.BannerBean(url[i]));
-            }
-            //TODO change eventbus to sfbus
-//            EventBus.getDefault().post(banners);
-
-            finishRefreshOrLoading(students, false);
-        }
-
-    }
-
-
-    class Students {
+    public static class Students {
         public List<Student> students;
     }
 
