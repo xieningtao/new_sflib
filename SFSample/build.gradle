@@ -61,4 +61,5 @@ dependencies {
     compile project(':CustomView')
     compile project(':openGL')
     compile project(':AndroidTV')
+    compile project(':Emoji')
 }

@@ -30,16 +30,22 @@ android {
     dexOptions {
         jumboMode = true
     }
+
+}
+//repositories {
+//   maven{
+//       url "E:\\android\\sdk\\extras\\android\\m2repository"
+//   }
+//}
+
+//task showRepository {
+//    repositories.each {
+//        println(it.properties)
+//    }
+//}
+
+dependencies {
+    compile 'com.google.android:android:4.1.1.4@jar'
+    compile project(':BaseSmartFrame')
 }
 
-repositories{
-    maven {
-        url "https://raw.githubusercontent.com/umeng/mvn-repo-umeng/master/repository"
-    }
-}
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-//    compile 'com.umeng:fb:5.4.0'
-    compile 'com.android.support:support-v4:24.0.0@aar'
-    compile project(':SFLog')
-}

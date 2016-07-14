@@ -94,7 +94,7 @@ public abstract class XBaseShareView extends GridView {
 
 
     class ShareAdapter extends BaseAdapter {
-        private ArrayList<XBaseShareItem> mXShareItems = new ArrayList<>();
+        private ArrayList<XBaseShareItem> mXShareItems = new ArrayList<XBaseShareItem>();
         private BaseShareAdapter mBaseShareAdapter;
 
         public ShareAdapter(BaseShareAdapter shareAdapter) {

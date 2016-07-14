@@ -6,8 +6,10 @@ import android.util.SparseArray;
 import android.view.View;
 import android.widget.VideoView;
 
+import com.sf.SFSample.emoji.EmojiActivity;
 import com.sf.SFSample.ui.AdbShellActivity;
 import com.sf.SFSample.ui.BaseLevelActivity;
+import com.sf.SFSample.ui.BitMapSizeActivity;
 import com.sf.SFSample.ui.CircleTest;
 import com.sf.SFSample.ui.DecencoderActivity;
 import com.sf.SFSample.ui.FragmentTabActivity;
@@ -46,6 +48,8 @@ public class HomeLevelActivity extends BaseLevelActivity {
         activities.put(13, new Pair<String, Class>("DecencoderActivity", DecencoderActivity.class));
         activities.put(14, new Pair<String, Class>("UMengShareActivity", UMengShareActivity.class));
         activities.put(15, new Pair<String, Class>("FragmentTabActivity", FragmentTabActivity.class));
+        activities.put(16, new Pair<String, Class>("EmojiActivity", EmojiActivity.class));
+        activities.put(17, new Pair<String, Class>("BitMapSizeActivity", BitMapSizeActivity.class));
 
         return activities;
     }

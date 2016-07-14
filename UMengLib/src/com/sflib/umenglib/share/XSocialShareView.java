@@ -32,7 +32,7 @@ public class XSocialShareView extends XBaseShareView {
     }
 
     private ArrayList<XBaseShareItem> creatShareItems() {
-        ArrayList<XBaseShareItem> shareItems = new ArrayList<>();
+        ArrayList<XBaseShareItem> shareItems = new ArrayList<XBaseShareItem>();
 
         WeiXinBaseShareItem weiXinShareItem = new WeiXinBaseShareItem(getContext(), mShareContent);
         shareItems.add(weiXinShareItem);

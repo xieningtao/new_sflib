@@ -36,6 +36,12 @@ public class BaseFragment extends Fragment {
 	}
 
 	@Override
+	public void onHiddenChanged(boolean hidden) {
+		super.onHiddenChanged(hidden);
+		L.info(TAG,getClass().getName()+" method->onHiddenChanged,hidden: "+hidden);
+	}
+
+	@Override
 	public void onDestroyView() {
 		super.onDestroyView();
 		L.info(TAG,getClass().getName()+ " onDestroyView");

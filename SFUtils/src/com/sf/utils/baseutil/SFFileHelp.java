@@ -180,6 +180,41 @@ public class SFFileHelp {
         }
         return content;
     }
+    public static String getTxtFileContentWithAbsPath(String absPath) {
+        String content = "";
+        if (isSDCardMounted()) {
+            if (StringUtils.isNullOrEmpty(absPath)) {
+                return content;
+            }
+            File file = new File(absPath);
+            if (file.isFile()) {
+                InputStream instream = null;
+                try {
+                    instream = new FileInputStream(file);
+                    if (instream != null) {
+                        InputStreamReader inputreader = new InputStreamReader(
+                                instream);
+                        BufferedReader buffreader = new BufferedReader(inputreader);
+                        String line;
+                        while ((line = buffreader.readLine()) != null) {
+                            content += line + "\n";
+                        }
+                    }
+                } catch (Exception e) {
+                    L.error(TAG, "read fail, e = " + e);
+                } finally {
+                    if (instream != null) {
+                        try {
+                            instream.close();
+                        } catch (Exception e) {
+                            L.error(TAG, "read fail, e = " + e);
+                        }
+                    }
+                }
+            }
+        }
+        return content;
+    }
 
     public static boolean writeTo(String content, String filePath) {
         if (isSDCardMounted()) {

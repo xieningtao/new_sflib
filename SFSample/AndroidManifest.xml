@@ -138,5 +138,14 @@
             android:name=".ui.FragmentTabActivity"
             android:screenOrientation="portrait"
             />
+        <activity
+            android:name=".emoji.EmojiActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".ui.BitMapSizeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"
+            />
     </application>
 </manifest>

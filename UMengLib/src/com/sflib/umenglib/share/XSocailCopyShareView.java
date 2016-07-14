@@ -31,7 +31,7 @@ public class XSocailCopyShareView extends XSocialShareView {
     public ArrayList<XBaseShareItem> getShareItems() {
         ArrayList<XBaseShareItem> shareItems = super.getShareItems();
         if (null == shareItems) {
-            shareItems = new ArrayList<>();
+            shareItems = new ArrayList<XBaseShareItem>();
         }
         CopyBaseShareItem copyShareItem = new CopyBaseShareItem(mCopyContent, getContext());
         shareItems.add(copyShareItem);
