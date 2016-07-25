@@ -1,9 +1,9 @@
-include ':CustomView',':SFSample', ':BaseSmartFrame', ':openGL', ':Emoji',
+include ':CustomView', ':SFSample', ':BaseSmartFrame', ':openGL', ':Emoji', ':SFChat',
         ':SFLog', ':SFUtils',
         ':reflection', ':Android-PullToRefresh:PullRefreshLib',
         ':UMengLib', ':AndroidTV', ':SFHttpClient',
-        ':SFPay', ":SFLog",":Emoji"
+        ':SFPay', ":SFLog", ":Emoji",':Robolec'
 //,':Robotium'
-//':Robolec' ,
+
 
 //':EventBus:EventBusCore',

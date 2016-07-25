@@ -50,6 +50,7 @@ public class HomeLevelActivity extends BaseLevelActivity {
         activities.put(15, new Pair<String, Class>("FragmentTabActivity", FragmentTabActivity.class));
         activities.put(16, new Pair<String, Class>("EmojiActivity", EmojiActivity.class));
         activities.put(17, new Pair<String, Class>("BitMapSizeActivity", BitMapSizeActivity.class));
+        activities.put(18, new Pair<String, Class>("ActivitySelected", ActivitySelected.class));
 
         return activities;
     }

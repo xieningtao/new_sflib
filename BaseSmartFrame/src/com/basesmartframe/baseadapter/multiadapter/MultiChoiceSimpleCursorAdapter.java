@@ -30,7 +30,7 @@ import android.widget.SimpleCursorAdapter;
 
 /**
  */
-public abstract class MultiChoiceSimpleCursorAdapter extends SimpleCursorAdapter implements ActionMode.Callback,
+public abstract class MultiChoiceSimpleCursorAdapter extends SimpleCursorAdapter implements
         MultiChoiceAdapter {
 
     private MultiChoiceAdapterHelper helper = new MultiChoiceAdapterHelper(this) {
@@ -86,17 +86,9 @@ public abstract class MultiChoiceSimpleCursorAdapter extends SimpleCursorAdapter
         return helper.getItemClickInActionModePolicy();
     }
 
-    protected void finishActionMode() {
-        helper.finishActionMode();
-    }
 
     protected Context getContext() {
         return helper.getContext();
-    }
-
-    @Override
-    public void onDestroyActionMode(ActionMode mode) {
-        helper.onDestroyActionMode();
     }
 
     @Override

@@ -138,10 +138,6 @@ public abstract class CheckableAdapterHelpBase implements
 			return;
 		}
 		checkedItems.remove(handle);
-		// if (getCheckedItemCount() == 0) {
-		// finishActionMode();
-		// return;
-		// }
 		owner.notifyDataSetChanged();
 		onItemSelectedStateChanged();
 	}
@@ -162,15 +158,6 @@ public abstract class CheckableAdapterHelpBase implements
 	public Context getContext() {
 		return adapterView.getContext();
 	}
-
-	// public void setItemClickInActionModePolicy(ItemClickInActionModePolicy
-	// policy) {
-	// itemClickInActionModePolicy = policy;
-	// }
-	//
-	// public ItemClickInActionModePolicy getItemClickInActionModePolicy() {
-	// return itemClickInActionModePolicy;
-	// }
 
 	public String getActionModeTitle(int count) {
 		Resources res = getContext().getResources();
@@ -203,21 +190,8 @@ public abstract class CheckableAdapterHelpBase implements
 		int defStyle = R.style.MultiChoiceAdapter_DefaultSelectedItemStyle;
 		TypedArray ta = ctx.obtainStyledAttributes(null,
 				R.styleable.MultiChoiceAdapter, styleAttr, defStyle);
-		// If it's not null it means that it has been set programmatically,
-		// which has precedence over the theme attribute
-		// if (itemClickInActionModePolicy == null) {
-		// int ordinal =
-		// ta.getInt(R.styleable.MultiChoiceAdapter_itemClickInActionMode,
-		// ItemClickInActionModePolicy.SELECT.ordinal());
-		// itemClickInActionModePolicy =
-		// ItemClickInActionModePolicy.values()[ordinal];
-		// }
 		ta.recycle();
 	}
-
-	//
-	// OnItemLongClickListener implementation
-	//
 
 	@Override
 	public boolean onItemLongClick(AdapterView<?> adapterView, View view,
@@ -250,9 +224,6 @@ public abstract class CheckableAdapterHelpBase implements
 		return position;
 	}
 
-	//
-	// ActionMode.Callback related methods
-	//
 
 	public void onDestroyActionMode() {
 		checkedItems.clear();
@@ -263,20 +234,6 @@ public abstract class CheckableAdapterHelpBase implements
 	@Override
 	public void onItemClick(AdapterView<?> adapterView, View view,
 			int position, long id) {
-		// if (isActionModeStarted()) {
-		// switch (itemClickInActionModePolicy) {
-		// case SELECT:
-		// onItemLongClick(adapterView, view, position, id);
-		// return;
-		// case OPEN:
-		// finishActionMode();
-		// break;
-		// default:
-		// throw new
-		// RuntimeException("Invalid \"itemClickInActionMode\" value: " +
-		// itemClickInActionModePolicy);
-		// }
-		// }
 		onItemLongClick(adapterView, view, position, id);
 		if (itemClickListener != null) {
 			itemClickListener.onItemClick(adapterView, view, position, id);

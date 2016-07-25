@@ -2,12 +2,28 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    >
+
+    <EditText
+        android:id="@+id/username_et"
+        android:hint="please input username"
+        android:layout_width="match_parent"
+        android:layout_height="48dp" />
+
+    <EditText
+        android:id="@+id/password_et"
+        android:hint="please input password"
+        android:layout_width="match_parent"
+        android:layout_height="48dp" />
 
     <Button
         android:id="@+id/login"
-        android:text="Login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:text="login"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"/>
 
 </LinearLayout>

@@ -75,7 +75,7 @@ import android.widget.BaseAdapter;
  * See the accompanying sample project for a full working application that implements this class
  * </p>
  */
-public abstract class MultiChoiceBaseAdapter extends BaseAdapter implements ActionMode.Callback, MultiChoiceAdapter {
+public abstract class MultiChoiceBaseAdapter extends BaseAdapter implements MultiChoiceAdapter {
 
     private MultiChoiceAdapterHelper helper = new MultiChoiceAdapterHelper(this);
 
@@ -196,19 +196,6 @@ public abstract class MultiChoiceBaseAdapter extends BaseAdapter implements Acti
         return helper.getContext();
     }
 
-    //
-    // ActionMode.Callback implementation
-    //
-
-    @Override
-    public void onDestroyActionMode(ActionMode mode) {
-        helper.onDestroyActionMode();
-    }
-
-    //
-    // MultiChoiceAdapter implementation
-    //
-    
     @Override
     public boolean isItemCheckable(int position) {
         return true;
@@ -218,10 +205,6 @@ public abstract class MultiChoiceBaseAdapter extends BaseAdapter implements Acti
     public String getActionModeTitle(int count) {
     	return helper.getActionModeTitle(count);
     }
-
-    //
-    // BaseAdapter implementation
-    //
 
     @Override
     public final View getView(int position, View convertView, ViewGroup parent) {
