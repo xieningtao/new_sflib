@@ -90,8 +90,6 @@ public class  HttpHandler  <T> extends  AsyncTask<Object, Object, Object> implem
 				cause = e;
 				retry = retryHandler.retryRequest(cause, ++executionCount,context);
 			} catch (NullPointerException e) {
-				// HttpClient 4.0.x 之前的一个bug
-				// http://code.google.com/p/android/issues/detail?id=5255
 				cause = new IOException("NPE in HttpClient" + e.getMessage());
 				retry = retryHandler.retryRequest(cause, ++executionCount,context);
 			}catch (Exception e) {

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/edit_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/expression_edit_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/middle_item_normal"
+        android:paddingBottom="6dp"
+        android:paddingTop="6dp"
+        >
+        <ImageView
+            android:id="@+id/guider"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:background="@drawable/module_msgsender_guide_close_selector"
+            />
+
+        <ImageView
+            android:id="@+id/edit_smile"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:layout_toRightOf="@+id/guider"
+            android:background="@drawable/emoji_selector"
+            />
+
+        <ImageButton
+            android:id="@+id/edit_voice"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/voice_selector"
+            android:layout_marginRight="8dp"
+            />
+
+        <EditText
+            android:id="@+id/input_et"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/edit_voice"
+            android:layout_toRightOf="@id/edit_smile"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:textColor="@color/text_black"
+            android:textCursorDrawable="@null"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:singleLine="true"
+            android:background="@drawable/module_sender_edittext_view_bg"
+            />
+
+
+        </RelativeLayout>
+    <FrameLayout
+        android:id="@+id/expression_container"
+        android:layout_width="fill_parent"
+        android:layout_height="250dp"
+        android:layout_below="@id/expression_edit_layout"
+        android:background="@color/text_red"
+        >
+    </FrameLayout>
+
+</RelativeLayout>

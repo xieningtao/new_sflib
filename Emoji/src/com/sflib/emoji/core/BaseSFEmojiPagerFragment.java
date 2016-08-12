@@ -46,6 +46,10 @@ abstract public class BaseSFEmojiPagerFragment extends BaseFragment implements V
         mPageIndicator.setViewPager(mViewPage);
     }
 
+    public ViewPager getViewPage(){
+        return mViewPage;
+    }
+
 
     protected abstract int getFragmentCount();
 

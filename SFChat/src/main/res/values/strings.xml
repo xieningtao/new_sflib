@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SFChat</string>
+    <string name="album">相册</string>
+    <string name="location">地图</string>
+    <string name="camera">拍照</string>
+    <string name="no_gallery_installed">未安装相册程序</string>
+    <string name="no_camera_installed">不支持拍照</string>
 </resources>

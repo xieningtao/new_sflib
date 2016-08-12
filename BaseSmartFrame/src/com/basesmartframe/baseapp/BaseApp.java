@@ -37,7 +37,12 @@ public class BaseApp extends Application {
         registerNetworkReceiver();
         initImageLoader(this);
         initUMengShare();
+        initBaidu();
         NetWorkManagerUtil.init(this);
+    }
+
+    private void initBaidu(){
+
     }
 
     private void initUMengShare() {

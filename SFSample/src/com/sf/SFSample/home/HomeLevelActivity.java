@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.VideoView;
 
 import com.sf.SFSample.emoji.EmojiActivity;
+import com.sf.SFSample.chat.ActivitySFChat;
+import com.sf.SFSample.ui.ActivitySpecialEmoji;
+import com.sf.SFSample.ui.ActivityUpgrade;
 import com.sf.SFSample.ui.AdbShellActivity;
 import com.sf.SFSample.ui.BaseLevelActivity;
 import com.sf.SFSample.ui.BitMapSizeActivity;
@@ -22,13 +25,13 @@ import com.sf.SFSample.ui.UMengShareActivity;
 import com.sf.SFSample.ui.VideoShowTest;
 import com.sf.SFSample.ui.ViewPagerTest;
 import com.sf.SFSample.ui.XPinListViewActivity;
-import com.umeng.analytics.MobclickAgent;
 
 public class HomeLevelActivity extends BaseLevelActivity {
 
     View mView;
 
     VideoView mVideoView;
+
     @Override
     protected SparseArray<Pair<String, Class>> getActivities() {
         SparseArray<Pair<String, Class>> activities = new SparseArray<>();
@@ -51,6 +54,10 @@ public class HomeLevelActivity extends BaseLevelActivity {
         activities.put(16, new Pair<String, Class>("EmojiActivity", EmojiActivity.class));
         activities.put(17, new Pair<String, Class>("BitMapSizeActivity", BitMapSizeActivity.class));
         activities.put(18, new Pair<String, Class>("ActivitySelected", ActivitySelected.class));
+        activities.put(19, new Pair<String, Class>("ActivityUpgrade", ActivityUpgrade.class));
+        activities.put(20, new Pair<String, Class>("ActivitySpecialEmoji", ActivitySpecialEmoji.class));
+        activities.put(21, new Pair<String, Class>("ActivityChat", ActivitySFChat.class));
+        activities.put(22, new Pair<String, Class>("ActivityBaiduFamily", ActivityBaiduFamily.class));
 
         return activities;
     }

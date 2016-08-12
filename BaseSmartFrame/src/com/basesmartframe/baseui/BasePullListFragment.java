@@ -94,32 +94,24 @@ public abstract class BasePullListFragment<T> extends BaseFragment implements
 
     private void initLitener() {
         mPullToRefreshListView
-                .setOnRefreshListener(new OnRefreshListener<ListView>() {
+                .setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
                     @Override
-                    public void onRefresh(
-                            PullToRefreshBase<ListView> refreshView) {
+                    public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
                         doRefresh();
                     }
-                });
 
-        mPullToRefreshListView
-                .setOnLastItemVisibleListener(new OnLastItemVisibleListener() {
                     @Override
-                    public void onLastItemVisible() {
-                        if (mPullToRefreshListView.getMode() == Mode.PULL_FROM_START) {
-                            return;
-                        }
+                    public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
                         doLoadMore();
                     }
                 });
-
     }
 
     public void doLoadMore() {
         showHttpLoadingView();
         if (NetWorkManagerUtil.isNetworkAvailable()) {
-            onLoadMore();
             mPullType = PullType.LOADMORE;
+            onLoadMore();
         } else {
             simpleFinishRefreshOrLoading();
         }
@@ -145,8 +137,8 @@ public abstract class BasePullListFragment<T> extends BaseFragment implements
     public void doRefresh() {
         if (NetWorkManagerUtil.isNetworkAvailable()) {
             showHttpLoadingView();
-            onRefresh();
             mPullType = PullType.REFRESH;
+            onRefresh();
         } else {
             simpleFinishRefreshOrLoading();
         }

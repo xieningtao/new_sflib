@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 android {
 
     compileSdkVersion 22
-    buildToolsVersion '23.0.3'
+    buildToolsVersion '21.1.2'
 
     defaultConfig {
         minSdkVersion 17
@@ -62,4 +62,7 @@ dependencies {
     compile project(':openGL')
     compile project(':AndroidTV')
     compile project(':Emoji')
+    compile project(':SFChat')
+    compile project(':BaiduLib')
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/emoji_et"
+        android:layout_width="match_parent"
+        android:layout_height="48dp" />
+    <TextView
+        android:id="@+id/emoji_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fjsfjk"
+        />
+
+    <Button
+        android:id="@+id/emoji_convert"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="unicode convert str"
+        />
+
+    <Button
+        android:id="@+id/emoji_convert_res"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="str convert unicode"
+        />
+</LinearLayout>

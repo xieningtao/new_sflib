@@ -1,19 +1,13 @@
 apply plugin: 'com.android.library'
 android {
     compileSdkVersion 17
-    buildToolsVersion '22.0.1'
+    buildToolsVersion '21.1.2'
 
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 21
         versionCode 1
         versionName "1.0.0"
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
     }
 
     sourceSets {
@@ -51,7 +45,7 @@ dependencies {
 //    compile 'com.google.android:support-v4:r7'
     //    compile files('libs/support-v13-23.0.0-sources.jar')
     //    compile files('libs/support-v4-23.0.0-sources.jar')
-    compile 'com.android.support:support-v4:24.0.0@aar'
-    compile 'com.android.support:support-v13:24.0.0@aar'
+    compile 'com.android.support:support-v4:23.0.0@aar'
+    compile 'com.android.support:support-v13:23.0.0@aar'
 }
 

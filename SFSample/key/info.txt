@@ -2,3 +2,5 @@ alia="smartframe"
 pwd=gorky1112
 
 签名工具的签名="cdc9f1c98ec1175444095d5955983651"
+
+sha1:84:EC:CB:5A:CB:A8:B1:BC:07:86:D3:88:E8:11:75:C6:25:28:9A:65

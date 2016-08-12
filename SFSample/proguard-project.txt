@@ -112,3 +112,9 @@
  -keep class com.linkedin.** { *; }
  -keepattributes Signature
  #---------友盟混淆------------
+
+ #-------百度地图--------------
+ -keep class com.baidu.** {*;}
+ -keep class vi.com.** {*;}
+ -dontwarn com.baidu.**
+ #-------百度地图--------------

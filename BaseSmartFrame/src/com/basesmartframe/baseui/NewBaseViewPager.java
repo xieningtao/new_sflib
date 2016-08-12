@@ -35,6 +35,7 @@ public abstract class NewBaseViewPager<T extends BaseViewPager.ViewPagerTitle>
 
     protected void setUpIndicatorViewPager(PageIndicator indicator, ViewPager viewPager) {
         mPageIndicator = indicator;
+
         mViewPager = viewPager;
         mAdapter = new VideoShowListAdapter(getFragmentManager());
         mViewPager.setAdapter(mAdapter);

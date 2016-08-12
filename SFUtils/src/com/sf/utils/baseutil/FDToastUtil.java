@@ -19,7 +19,7 @@ public class FDToastUtil {
      * @param obj 可传字符串或字符串资源id
      * @return
      */
-    public static String parseString(Context context, Object obj) {
+    private static String parseString(Context context, Object obj) {
         if (obj != null) {
             if (obj instanceof String) {
                 return obj.toString();
