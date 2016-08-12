@@ -15,6 +15,7 @@
  */
 package com.sf.httpclient.core;
 
+import com.sf.httpclient.entity.ByteEntityHandler;
 import com.sf.httpclient.entity.StringEntityHandler;
 
 import java.io.IOException;
@@ -28,22 +29,20 @@ import org.apache.http.protocol.HttpContext;
 
 
 
-public class SyncRequestHandler {
+public class SFHttpClientManager {
 
 	private final AbstractHttpClient client;
 	private final HttpContext context;
-	private final StringEntityHandler entityHandler = new StringEntityHandler();
+	private final ByteEntityHandler entityHandler = new ByteEntityHandler();
 
 	private int executionCount = 0;
-	private String charset;
 
-	public SyncRequestHandler(AbstractHttpClient client, HttpContext context,String charset) {
+	public SFHttpClientManager(AbstractHttpClient client, HttpContext context) {
 		this.client = client;
 		this.context = context;
-		this.charset = charset;
 	}
 
-	private Object makeRequestWithRetries(HttpUriRequest request) throws IOException {
+	private byte[] makeRequestWithRetries(HttpUriRequest request) throws IOException {
 		
 		boolean retry = true;
 		IOException cause = null;
@@ -51,7 +50,7 @@ public class SyncRequestHandler {
 		while (retry) {
 			try {
 				HttpResponse response = client.execute(request, context);
-				return entityHandler.handleEntity(response.getEntity(),null,charset);
+				return entityHandler.handleEntity(response.getEntity(),null);
 			} catch (UnknownHostException e) {
 				cause = e;
 				retry = retryHandler.retryRequest(cause, ++executionCount,context);
@@ -72,16 +71,10 @@ public class SyncRequestHandler {
 			throw cause;
 		else
 			throw new IOException("未知网络错误");
-		
 	}
 
-	public Object sendRequest (HttpUriRequest... params) {
-		try {
-			return makeRequestWithRetries(params[0]);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return null;
+	public byte[] sendRequest (HttpUriRequest params) throws Exception {
+			return makeRequestWithRetries(params);
 	}
 
 	
