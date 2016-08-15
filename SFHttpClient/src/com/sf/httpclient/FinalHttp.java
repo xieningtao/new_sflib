@@ -19,7 +19,6 @@ import com.sf.httpclient.core.AjaxCallBack;
 import com.sf.httpclient.core.AjaxParams;
 import com.sf.httpclient.core.HttpHandler;
 import com.sf.httpclient.core.RetryHandler;
-import com.sf.httpclient.core.SFHttpClient;
 
 import java.io.File;
 import java.io.IOException;
@@ -401,7 +400,7 @@ public class FinalHttp {
         if(contentType != null) {
             uriRequest.addHeader("Content-Type", contentType);
         }
-        return new SFHttpClient(client, httpContext,charset).sendRequest(uriRequest);
+        return null;
     }
 
     public static String getUrlWithQueryString(String url, AjaxParams params) {

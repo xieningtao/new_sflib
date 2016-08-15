@@ -22,13 +22,6 @@ public class LoginPresenter implements LoginTask.LoginImpl {
     }
 
 
-    public int aa(){
-        return 1;
-    }
-
-    private int bb(){
-        return 2;
-    }
     public int login(String userName, String password) {
 
         if(TextUtils.isEmpty(userName))return -1;
@@ -46,19 +39,6 @@ public class LoginPresenter implements LoginTask.LoginImpl {
         };
        return request.getData(_request, new TestResponse());
 
-    }
-
-
-    public int login(String userName, String password,SFHttpRequestImpl request) {
-        String httpUrl = "http://news.baidu.com/";
-
-        SFRequest _request = new SFRequest(httpUrl, MethodType.GET) {
-            @Override
-            public Class getClassType() {
-                return LoginTask.TestBean.class;
-            }
-        };
-       return request.getData(_request, new TestResponse());
     }
 
       public static class TestResponse implements SFResponseCallback<LoginTask.TestBean> {

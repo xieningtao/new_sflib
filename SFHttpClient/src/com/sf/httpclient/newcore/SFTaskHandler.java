@@ -1,34 +1,29 @@
-package com.sf.httpclient.core;
+package com.sf.httpclient.newcore;
 
-import android.os.AsyncTask;
-
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.impl.client.AbstractHttpClient;
-import org.apache.http.protocol.HttpContext;
+import com.sf.loglib.L;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 
 /**
  * Created by NetEase on 2016/8/12 0012.
  */
 abstract public class SFTaskHandler<T> implements SFTask<T> {
-
+    protected final String TAG=getClass().getName();
     private static Executor executor = Executors.newFixedThreadPool(5);
-    private final SFHttpCallable mSFHttpCallable;
     private final SFFutureTask mSFFutureTask;
 
     public SFTaskHandler() {
-        mSFHttpCallable = new SFHttpCallable();
-        mSFFutureTask = new SFFutureTask(mSFHttpCallable);
+        SFHttpCallable   sFHttpCallable = new SFHttpCallable();
+        mSFFutureTask = new SFFutureTask(sFHttpCallable);
     }
 
-    public void start() {
+   public void start() {
         executor.execute(mSFFutureTask);
+        taskStart();
     }
 
     private class SFFutureTask extends FutureTask<T> {
@@ -41,10 +36,13 @@ abstract public class SFTaskHandler<T> implements SFTask<T> {
         protected void done() {
             try {
                 taskDone(get());
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
+                return;
+            } catch (InterruptedException|ExecutionException e) {
+                taskException(e);
+                L.error(TAG,TAG+".done exception: "+e);
+            } catch (Exception e){
+                taskException(e);
+                L.error(TAG,TAG+".done exception: "+e);
             }
             taskDone(null);
         }
@@ -57,5 +55,13 @@ abstract public class SFTaskHandler<T> implements SFTask<T> {
         public T call() throws Exception {
             return doInBackground();
         }
+    }
+
+    protected void taskException(Exception e){
+
+    }
+
+    protected void taskStart(){
+
     }
 }

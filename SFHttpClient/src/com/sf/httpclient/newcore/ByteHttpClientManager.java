@@ -1,17 +1,25 @@
-package com.sf.httpclient.entity;
+package com.sf.httpclient.newcore;
+
+import com.sf.httpclient.entity.EntityCallBack;
 
 import org.apache.http.HttpEntity;
+import org.apache.http.impl.client.AbstractHttpClient;
+import org.apache.http.protocol.HttpContext;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Created by NetEase on 2016/8/12 0012.
+ * Created by NetEase on 2016/8/15 0015.
  */
-public class ByteEntityHandler {
+public class ByteHttpClientManager extends BaseHttpClientManager<byte[]> {
+    public ByteHttpClientManager(AbstractHttpClient client, HttpContext context) {
+        super(client, context);
+    }
 
-    public byte[] handleEntity(HttpEntity entity, EntityCallBack callback)throws IOException {
+    @Override
+    public byte[] handleEntity(HttpEntity entity, EntityCallBack callback) throws IOException {
         if (entity == null)
             return null;
 

@@ -10,56 +10,56 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class ThreadHelp {
-	private static final int nThreads = 5;
-	private static ExecutorService excutors = Executors
-			.newFixedThreadPool(nThreads);
-	private static DelayThread delayThread = new DelayThread("delay_thread");
-	private static Context context;
-	public static void runInBackThreadPool(Runnable runnable) {
-		excutors.execute(runnable);
-	}
+    private static final int nThreads = 5;
+    private static ExecutorService excutors = Executors
+            .newFixedThreadPool(nThreads);
+    private static DelayThread delayThread = new DelayThread("delay_thread");
+    private static Context context;
+    private static Handler mHandler;
 
-	public static void runInSingleBackThread(Runnable runnable, int delay) {
-		delayThread.excute(runnable, delay);
-	}
+    public static void runInBackThreadPool(Runnable runnable) {
+        excutors.execute(runnable);
+    }
 
-	public static void initThread(Context _context){
-		context=_context;
-	}
+    public static void runInSingleBackThread(Runnable runnable, int delay) {
+        delayThread.excute(runnable, delay);
+    }
 
-	public static void runInMain(Runnable runnable) {
-		Looper looper = context.getMainLooper();
-		Handler handler = new Handler(looper);
-		handler.post(runnable);
-	}
+    public static void initThread(Context _context) {
+        context = _context;
+        Looper looper = context.getMainLooper();
+        mHandler = new Handler(looper);
+    }
 
-	public static void runInMain(Runnable runnable, int delay) {
-		Looper looper = context.getMainLooper();
-		Handler handler = new Handler(looper);
-		handler.postDelayed(runnable, delay);
-	}
+    public static void runInMain(Runnable runnable) {
+        mHandler.post(runnable);
+    }
 
-	static class DelayThread extends HandlerThread {
-		private Handler mHandler;
+    public static void runInMain(Runnable runnable, int delay) {
+        mHandler.postDelayed(runnable, delay);
+    }
 
-		public DelayThread(String name) {
-			super(name);
-			init();
-		}
+    static class DelayThread extends HandlerThread {
+        private Handler mHandler;
 
-		public DelayThread(String name, int priority) {
-			super(name, priority);
-			init();
-		}
+        public DelayThread(String name) {
+            super(name);
+            init();
+        }
 
-		private void init() {
-			start();
-			mHandler = new Handler(getLooper());
-		}
+        public DelayThread(String name, int priority) {
+            super(name, priority);
+            init();
+        }
 
-		public void excute(Runnable runnable, int delay) {
-			mHandler.postDelayed(runnable, delay);
-		}
+        private void init() {
+            start();
+            mHandler = new Handler(getLooper());
+        }
 
-	}
+        public void excute(Runnable runnable, int delay) {
+            mHandler.postDelayed(runnable, delay);
+        }
+
+    }
 }
