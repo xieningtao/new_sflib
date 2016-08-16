@@ -7,23 +7,35 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Created by NetEase on 2016/8/12 0012.
  */
 abstract public class SFTaskHandler<T> implements SFTask<T> {
-    protected final String TAG=getClass().getName();
+    protected final String TAG = getClass().getName();
     private static Executor executor = Executors.newFixedThreadPool(5);
     private final SFFutureTask mSFFutureTask;
 
+    private AtomicBoolean isCanceled = new AtomicBoolean(false);
+
     public SFTaskHandler() {
-        SFHttpCallable   sFHttpCallable = new SFHttpCallable();
+        SFHttpCallable sFHttpCallable = new SFHttpCallable();
         mSFFutureTask = new SFFutureTask(sFHttpCallable);
     }
 
-   public void start() {
+    public void start() {
         executor.execute(mSFFutureTask);
         taskStart();
+    }
+
+    public void cancel(boolean mayInterruptIfRunning) {
+        isCanceled.set(mayInterruptIfRunning);
+        mSFFutureTask.cancel(mayInterruptIfRunning);
+    }
+
+    public boolean isTaskCanceled() {
+        return isCanceled.get();
     }
 
     private class SFFutureTask extends FutureTask<T> {
@@ -35,14 +47,18 @@ abstract public class SFTaskHandler<T> implements SFTask<T> {
         @Override
         protected void done() {
             try {
-                taskDone(get());
+                if(isTaskCanceled()){
+                    onCanceled();
+                }else {
+                    taskDone(get());
+                }
                 return;
-            } catch (InterruptedException|ExecutionException e) {
+            } catch (InterruptedException | ExecutionException e) {
                 taskException(e);
-                L.error(TAG,TAG+".done exception: "+e);
-            } catch (Exception e){
+                L.error(TAG, TAG + ".done exception: " + e);
+            } catch (Exception e) {
                 taskException(e);
-                L.error(TAG,TAG+".done exception: "+e);
+                L.error(TAG, TAG + ".done exception: " + e);
             }
             taskDone(null);
         }
@@ -57,11 +73,12 @@ abstract public class SFTaskHandler<T> implements SFTask<T> {
         }
     }
 
-    protected void taskException(Exception e){
+    protected void taskException(Exception e) {
 
     }
 
-    protected void taskStart(){
+    protected void taskStart() {
 
     }
+
 }

@@ -10,14 +10,9 @@ public class ActionTimeGapHelp {
 
     private long mLastActionTime=0;
 
-    private static ActionTimeGapHelp instance=new ActionTimeGapHelp();
 
-    private ActionTimeGapHelp(){
+    public ActionTimeGapHelp(){
 
-    }
-
-    public static ActionTimeGapHelp getInstance(){
-        return instance;
     }
 
     public boolean isInActionGap(int duration){

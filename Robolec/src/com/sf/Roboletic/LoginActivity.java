@@ -1,16 +1,10 @@
 package com.sf.Roboletic;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
 import com.basesmartframe.baseui.BaseActivity;
-import com.basesmartframe.request.MethodType;
-import com.basesmartframe.request.SFHttpRequestImpl;
-import com.basesmartframe.request.SFRequest;
-import com.basesmartframe.request.SFResponseCallback;
-import com.sf.httpclient.core.AjaxParams;
 
 /**
  * Created by NetEase on 2016/6/17 0017.

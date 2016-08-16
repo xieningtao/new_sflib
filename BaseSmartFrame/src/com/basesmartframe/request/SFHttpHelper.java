@@ -1,6 +1,8 @@
 package com.basesmartframe.request;
 
 import com.sf.httpclient.core.AjaxParams;
+import com.sf.httpclient.newcore.MethodType;
+import com.sf.httpclient.newcore.SFRequest;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.HttpGet;

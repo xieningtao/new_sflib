@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.provider.MediaStore;
 
-import com.sf.utils.baseutil.FDToastUtil;
+import com.sf.utils.baseutil.SFToast;
 
 /**
  * Created by NetEase on 2016/8/11 0011.
@@ -35,7 +35,7 @@ public class SFCameraCommand implements SFBaseChatCommand {
         try {
             mFragment.startActivityForResult(intent, CAMERA_REQUEST);
         } catch (Exception e) {
-            FDToastUtil.show(mFragment.getActivity(),R.string.no_camera_installed);
+            SFToast.showToast(R.string.no_camera_installed);
         }
     }
 }

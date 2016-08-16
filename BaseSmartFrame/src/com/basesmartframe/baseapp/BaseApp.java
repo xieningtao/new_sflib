@@ -11,6 +11,7 @@ import android.net.NetworkInfo;
 import com.basesmartframe.baseevent.GlobalEvent;
 import com.sf.utils.baseutil.NetWorkManagerUtil;
 import com.sf.utils.baseutil.SFBus;
+import com.sf.utils.baseutil.SFToast;
 import com.sflib.reflection.core.SFMsgId;
 import com.sflib.umenglib.share.ShareConstant;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
@@ -38,11 +39,16 @@ public class BaseApp extends Application {
         initImageLoader(this);
         initUMengShare();
         initBaidu();
+        initToast();
         NetWorkManagerUtil.init(this);
     }
 
     private void initBaidu(){
 
+    }
+
+    private void initToast(){
+        SFToast.configDefaultToast(this);
     }
 
     private void initUMengShare() {

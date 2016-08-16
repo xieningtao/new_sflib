@@ -2,13 +2,11 @@ package com.sf.Roboletic;
 
 import android.text.TextUtils;
 
-import com.basesmartframe.request.MethodType;
+import com.sf.httpclient.newcore.MethodType;
 import com.basesmartframe.request.SFHttpRequestImpl;
-import com.basesmartframe.request.SFRequest;
+import com.sf.httpclient.newcore.SFRequest;
 import com.basesmartframe.request.SFResponseCallback;
 import com.sf.httpclient.core.AjaxParams;
-
-import static com.sf.Roboletic.LoginActivity.*;
 
 /**
  * Created by NetEase on 2016/7/18 0018.

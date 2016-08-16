@@ -64,11 +64,11 @@ public class RegExpressCheck {
 							+ " minlength: +" + minLength);
 		}
 		if (TextUtils.isEmpty(pw)) {
-			FDToastUtil.show(context, "请输入密码");
+			SFToast.showToast( "请输入密码");
 			return false;
 		}
 		if (pw.length() <= minLength|| pw.length() > maxLength) {
-			FDToastUtil.show(context, "密码不符合要求");
+			SFToast.showToast( "密码不符合要求");
 			return false;
 		}
 		return true;
@@ -82,7 +82,7 @@ public class RegExpressCheck {
 	 */
 	public static boolean checkPhone(Context context, String phone) {
 		if (phone == null || TextUtils.isEmpty(phone)) {
-			FDToastUtil.show(context, "请输入手机号码");
+			SFToast.showToast("请输入手机号码");
 			return false;
 		}
 		Pattern pattern = Pattern.compile("^13/d{9}||15[8,9]/d{8}$");
@@ -91,7 +91,7 @@ public class RegExpressCheck {
 		if (matcher.matches()) {
 			return true;
 		}
-		FDToastUtil.show(context, "手机号码格式不对");
+		SFToast.showToast("手机号码格式不对");
 		return false;
 	}
 
@@ -104,7 +104,7 @@ public class RegExpressCheck {
 
 	public static boolean checkEmail(Context context, String email) {
 		if (email == null || TextUtils.isEmpty(email)) {
-			FDToastUtil.show(context, "请输入邮件地址");
+			SFToast.showToast("请输入邮件地址");
 			return false;
 		}
 		Pattern pattern = Pattern.compile("\\w+@(\\w+.)+[a-z]{2,3}");
@@ -112,7 +112,7 @@ public class RegExpressCheck {
 		if (matcher.matches()) {
 			return true;
 		}
-		FDToastUtil.show(context, "邮件地址格式不对");
+		SFToast.showToast("邮件地址格式不对");
 		return false;
 	}
 

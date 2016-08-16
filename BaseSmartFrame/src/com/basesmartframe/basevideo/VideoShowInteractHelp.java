@@ -74,6 +74,8 @@ public class VideoShowInteractHelp implements VideoShowLifeCycle {
 
     private final TitleBottomViewToggle mToggle;
 
+    private final ActionTimeGapHelp mActionTimeGapHelp=new ActionTimeGapHelp();
+
 
     public VideoShowInteractHelp(View rootView) {
         this.mRootView = rootView;
@@ -366,7 +368,7 @@ public class VideoShowInteractHelp implements VideoShowLifeCycle {
 
 
     private boolean doubleAction() {
-        if (ActionTimeGapHelp.getInstance().isInActionGap(ActionTimeGapHelp.ACTION_1000)) {
+        if (mActionTimeGapHelp.isInActionGap(ActionTimeGapHelp.ACTION_1000)) {
             L.info(TAG, "double action is in gap");
             return true;
         }

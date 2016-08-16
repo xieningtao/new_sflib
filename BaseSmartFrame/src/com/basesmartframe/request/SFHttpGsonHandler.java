@@ -1,17 +1,13 @@
 package com.basesmartframe.request;
 
 import com.google.gson.Gson;
-import com.sf.httpclient.newcore.SFHttpRequest;
 import com.sf.httpclient.newcore.SFHttpStringCallback;
 import com.sf.httpclient.newcore.SFHttpStringHandler;
+import com.sf.httpclient.newcore.SFRequest;
 import com.sf.loglib.L;
 import com.sflib.reflection.core.ThreadHelp;
 
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.impl.client.AbstractHttpClient;
-import org.apache.http.protocol.HttpContext;
 
 /**
  * Created by NetEase on 2016/8/15 0015.
@@ -38,14 +34,14 @@ public class SFHttpGsonHandler extends SFHttpStringHandler {
                 ThreadHelp.runInMain(new Runnable() {
                     @Override
                     public void run() {
-                        mSFHttpStringCallback.onSuccess(object);
+                        mSFHttpStringCallback.onSuccess(mSFRequest,object);
                     }
                 });
             } catch (final Exception e) {
                 ThreadHelp.runInMain(new Runnable() {
                     @Override
                     public void run() {
-                        mSFHttpStringCallback.onFailed(e);
+                        mSFHttpStringCallback.onFailed(mSFRequest,e);
                     }
                 });
                 L.error(TAG, TAG + ".onHandlerResult exception: " + e);
@@ -59,10 +55,21 @@ public class SFHttpGsonHandler extends SFHttpStringHandler {
             @Override
             public void run() {
                 if (mSFHttpStringCallback != null) {
-                    mSFHttpStringCallback.onFailed(e);
+                    mSFHttpStringCallback.onFailed(mSFRequest,e);
                 }
             }
         });
     }
 
+    @Override
+    public void onCanceled() {
+        ThreadHelp.runInMain(new Runnable() {
+            @Override
+            public void run() {
+                if (mSFHttpStringCallback != null) {
+                    mSFHttpStringCallback.onCanceled(mSFRequest);
+                }
+            }
+        });
+    }
 }

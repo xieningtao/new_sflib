@@ -31,7 +31,7 @@ import org.apache.http.protocol.SyncBasicHttpContext;
 /**
  * Created by NetEase on 2016/8/12 0012.
  */
-public class SFHttpHandler<T> extends SFTaskHandler<T> implements EntityCallBack{
+abstract public class SFHttpHandler<T> extends SFTaskHandler<T> implements EntityCallBack {
 
     private final AbstractHttpClient httpClient;
     private final HttpContext httpContext;
@@ -89,18 +89,20 @@ public class SFHttpHandler<T> extends SFTaskHandler<T> implements EntityCallBack
         });
 
         httpClient.setHttpRequestRetryHandler(new RetryHandler(sfHttpConfig.maxRetries));
-        clientManager = createHttpClientManager(httpClient,httpContext);
+        clientManager = createHttpClientManager(httpClient, httpContext);
         clientManager.setEntityCallBack(this);
         onClientManagerCreated(clientManager);
     }
 
-    protected void onClientManagerCreated(BaseHttpClientManager clientManager){
+    protected void onClientManagerCreated(BaseHttpClientManager clientManager) {
 
     }
 
-    protected BaseHttpClientManager createHttpClientManager(AbstractHttpClient client, HttpContext context){
-        return null;
+    public BaseHttpClientManager getHttpClientManager() {
+        return clientManager;
     }
+
+    abstract protected BaseHttpClientManager createHttpClientManager(AbstractHttpClient client, HttpContext context);
 
     protected void setUriRequest(HttpUriRequest uriRequest) {
         mUriRequest = uriRequest;
@@ -125,4 +127,5 @@ public class SFHttpHandler<T> extends SFTaskHandler<T> implements EntityCallBack
     public void callBack(long count, long current, boolean mustNoticeUI) {
 
     }
+
 }

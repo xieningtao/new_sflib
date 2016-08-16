@@ -17,7 +17,7 @@ public class StorageStateCheckUtil {
 	public static void sdCardCheck(Context context){
 		boolean isExtenalOk=isExternalStorageReadable()||isExternalStorageWritable();
 		if(!isExtenalOk){
-			FDToastUtil.show(context, "检测不到SD卡，无法使用拍照功能");
+			SFToast.showToast( "检测不到SD卡，无法使用拍照功能");
 		}
 	}
 	

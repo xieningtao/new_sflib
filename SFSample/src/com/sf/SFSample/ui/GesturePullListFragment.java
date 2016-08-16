@@ -6,13 +6,10 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 
 import com.basesmartframe.baseadapter.BaseAdapterHelper;
-import com.basesmartframe.basehttp.SFHttpClient;
-import com.basesmartframe.basepull.PullHttpResult;
-import com.basesmartframe.request.MethodType;
+import com.sf.httpclient.newcore.MethodType;
 import com.basesmartframe.request.SFHttpRequestImpl;
-import com.basesmartframe.request.SFRequest;
+import com.sf.httpclient.newcore.SFRequest;
 import com.basesmartframe.request.SFResponseCallback;
-import com.sflib.reflection.core.ThreadHelp;
 import com.basesmartframe.baseui.BasePullListFragment;
 import com.sf.utils.baseutil.SystemUIWHHelp;
 import com.sf.SFSample.R;

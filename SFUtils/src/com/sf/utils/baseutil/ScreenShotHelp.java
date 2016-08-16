@@ -36,7 +36,7 @@ public class ScreenShotHelp {
 				- statusBarHeight);
 		view.destroyDrawingCache();
 		BitmapHelp.saveBitmap(b, SFFileCreationUtil.createFile(CommanDateFormat.YYMMSS_FORMAT, ".png").getAbsolutePath());
-		FDToastUtil.show(activity, "截屏成功");
+		SFToast.showToast( "截屏成功");
 	}
 
 	public static void screenScrollViewShot(Activity activity, View view,
@@ -45,7 +45,7 @@ public class ScreenShotHelp {
 		Canvas canvas = new Canvas(bitmap);
 		view.draw(canvas);
 		BitmapHelp.saveBitmap(bitmap, SFFileCreationUtil.createFile(CommanDateFormat.YYMMSS_FORMAT, ".png").getAbsolutePath());
-		FDToastUtil.show(activity, "截屏成功");
+		SFToast.showToast("截屏成功");
 	}
 
 	public static String screenScrollViewShot(Activity activity, View view) {
@@ -55,10 +55,10 @@ public class ScreenShotHelp {
 		view.draw(canvas);
 		String path = BitmapHelp.saveBitmap(bitmap, SFFileCreationUtil.createFile(CommanDateFormat.YYMMSS_FORMAT, ".png").getAbsolutePath());
 		if (TextUtils.isEmpty(path)) {
-			FDToastUtil.show(activity, "截屏失败");
+			SFToast.showToast( "截屏失败");
 			return "";
 		} else {
-			FDToastUtil.show(activity, "截屏成功");
+			SFToast.showToast( "截屏成功");
 		}
 		return path;
 	}

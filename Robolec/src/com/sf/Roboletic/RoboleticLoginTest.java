@@ -1,17 +1,12 @@
 package com.sf.Roboletic;
 
 import com.basesmartframe.request.SFHttpRequestImpl;
-import com.basesmartframe.request.SFRequest;
-import com.basesmartframe.request.SFResponse;
+import com.sf.httpclient.newcore.SFRequest;
 import com.basesmartframe.request.SFResponseCallback;
-import com.nostra13.universalimageloader.utils.L;
 
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Matchers;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.invocation.InvocationOnMock;
@@ -19,14 +14,8 @@ import org.mockito.stubbing.Answer;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
-import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
-
-import java.util.regex.Matcher;
-
-import static org.mockito.Mockito.*;
 
 /**
  * Created by NetEase on 2016/7/18 0018.

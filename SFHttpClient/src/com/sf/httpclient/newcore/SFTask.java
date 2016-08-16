@@ -6,5 +6,5 @@ package com.sf.httpclient.newcore;
 public interface SFTask<T> {
     T doInBackground();
     void taskDone(T t);
-
+    void onCanceled();
 }

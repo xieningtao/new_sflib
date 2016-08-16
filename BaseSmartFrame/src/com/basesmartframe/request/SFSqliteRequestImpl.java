@@ -1,5 +1,7 @@
 package com.basesmartframe.request;
 
+import com.sf.httpclient.newcore.SFRequest;
+
 /**
  * Created by xieningtao on 16-5-20.
  */

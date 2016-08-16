@@ -4,6 +4,8 @@ import android.text.TextUtils;
 
 import com.basesmartframe.basehttp.SFHttpClient;
 import com.google.gson.Gson;
+import com.sf.httpclient.newcore.MethodType;
+import com.sf.httpclient.newcore.SFRequest;
 import com.sf.loglib.L;
 import com.sf.httpclient.core.AjaxCallBack;
 import com.sf.httpclient.core.AjaxParams;

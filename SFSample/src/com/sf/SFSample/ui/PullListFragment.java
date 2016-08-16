@@ -8,13 +8,11 @@ import android.widget.BaseAdapter;
 
 import com.basesmartframe.baseadapter.BaseAdapterHelper;
 import com.basesmartframe.baseadapter.checkableadapter.CheckableAdapter;
-import com.basesmartframe.request.MethodType;
+import com.sf.httpclient.newcore.MethodType;
 import com.basesmartframe.request.SFHttpGsonHandler;
-import com.basesmartframe.request.SFHttpRequestImpl;
-import com.basesmartframe.request.SFRequest;
+import com.sf.httpclient.newcore.SFRequest;
 import com.basesmartframe.request.SFResponseCallback;
 import com.basesmartframe.baseui.BasePullListFragment;
-import com.basesmartframe.basepull.PullHttpResult;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.sf.SFSample.R;
 import com.sf.httpclient.core.AjaxParams;
@@ -47,7 +45,7 @@ public class PullListFragment extends BasePullListFragment<Student> {
                     "http://d.hiphotos.baidu.com/image/w%3D310/sign=af0348abeff81a4c2632eac8e72b6029/caef76094b36acaf8ded6c2378d98d1000e99ce4.jpg"};
 
             @Override
-            public void onSuccess(Student g) {
+            public void onSuccess(SFRequest request,Student g) {
                 List<Student> students = new ArrayList<Student>();
                 List<BannerFragment.BannerBean> banners = new ArrayList<BannerFragment.BannerBean>();
                 for (int i = 0; i < 10; i++) {
@@ -63,7 +61,7 @@ public class PullListFragment extends BasePullListFragment<Student> {
             }
 
             @Override
-            public void onFailed(Exception e) {
+            public void onFailed(SFRequest request,Exception e) {
                 List<Student> students = new ArrayList<Student>();
                 List<BannerFragment.BannerBean> banners = new ArrayList<BannerFragment.BannerBean>();
                 for (int i = 0; i < 10; i++) {

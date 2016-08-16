@@ -39,6 +39,11 @@ public class SFHttpStringHandler extends SFHttpHandler<byte[]> {
         }
     }
 
+    @Override
+    public void onCanceled() {
+
+    }
+
     protected void onHandlerResult(String result){
 
     }

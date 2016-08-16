@@ -1,4 +1,4 @@
-package com.basesmartframe.request;
+package com.sf.httpclient.newcore;
 
 
 import com.sf.httpclient.core.AjaxParams;

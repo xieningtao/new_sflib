@@ -5,7 +5,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.provider.MediaStore;
 
-import com.sf.utils.baseutil.FDToastUtil;
+import com.sf.utils.baseutil.SFToast;
 
 /**
  * Created by NetEase on 2016/8/11 0011.
@@ -24,7 +24,7 @@ public class SFAlbumCommand implements SFBaseChatCommand {
         try {
             mFragment.startActivityForResult(intent, SFBaseChatCommand.ALBUM_REQUEST);
         } catch (ActivityNotFoundException e) {
-            FDToastUtil.show(mFragment.getActivity(), R.string.no_gallery_installed);
+            SFToast.showToast( R.string.no_gallery_installed);
         }
     }
 }
