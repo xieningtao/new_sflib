@@ -24,6 +24,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpRequestRetryHandler;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.AbstractHttpClient;
+import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.protocol.HttpContext;
 
 

@@ -24,6 +24,9 @@ android {
     dexOptions {
         jumboMode = true
     }
+//    testOptions {
+//        unitTests.returnDefaultValues = true
+//    }
 }
 
 dependencies {
@@ -42,4 +45,5 @@ dependencies {
     compile "org.powermock:powermock-module-junit4-rule:1.6.4"
     compile "org.powermock:powermock-api-mockito:1.6.4"
     compile "org.powermock:powermock-classloading-xstream:1.6.4"
+    compile "org.robolectric:shadows-httpclient:3.0"
 }

@@ -60,7 +60,22 @@
             android:singleLine="true"
             android:background="@drawable/module_sender_edittext_view_bg"
             />
-
+        <Button
+            android:id="@+id/input_voice_bt"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/edit_voice"
+            android:layout_toRightOf="@id/edit_smile"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:textColor="@color/text_black"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:singleLine="true"
+            android:text="按住请说话"
+            android:visibility="gone"
+            android:background="@drawable/module_sender_edittext_view_bg"/>
 
         </RelativeLayout>
     <FrameLayout

@@ -7,4 +7,9 @@
 
     <string name="update_notify_title">花田新版本升级</string>
     <string name="videoshow_network_alert">你现在使用的是运营商网络，继\n续观看可能产生超额流量费。</string>
+    <string name="pic_error">图片地址错误</string>
+    <string name="four_pics_most">您最多只能选择%d张照片</string>
+    <string name="photo_donot_exist">照片不存在，请重新选择</string>
+    <string name="all_pictures">所有照片</string>
+    <string name="complete_pick">完成%1$d/%2$d</string>
 </resources>

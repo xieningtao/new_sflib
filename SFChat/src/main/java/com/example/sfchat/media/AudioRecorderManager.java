@@ -1,4 +1,4 @@
-//package com.example.sfchat.core;
+//package com.example.sfchat.media;
 //
 //import android.content.Context;
 //import android.media.AudioFormat;
@@ -24,15 +24,13 @@
 ///**
 // * Created by NetEase on 2016/8/12 0012.
 // */
-//public class AudioManager {
+//public class AudioRecorderManager {
 //
 //    public static final String TAG = "AudioRecoder";
 //
 //    public enum State {
 //        INITIALIZING, READY, RECORDING, ERROR, STOPPED
-//    }
-//
-//    ;
+//    };
 //
 //    protected String mOutputFormat;
 //
@@ -51,7 +49,7 @@
 //
 //    private Context mContext;
 //
-//    private AudioRecorder thiz = null;
+//    private AudioRecorderManager thiz = null;
 //
 //    private OnRecordListener mListener = null;
 //
@@ -207,7 +205,7 @@
 //     *                      Current not call the method,please call
 //     *                      AudioRecorder(Context).
 //     */
-//    public AudioManager(Context context, int audioSource, short channelConfig, int sampleRates, int audioFormat) {
+//    public AudioRecorderManager(Context context, int audioSource, short channelConfig, int sampleRates, int audioFormat) {
 //        super();
 //        this.mContext = context;
 //        this.mAudioSource = audioSource;
@@ -232,7 +230,7 @@
 //    /**
 //     * @param context Important: construct AudioRecorder can only call this method.
 //     */
-//    public AudioManager(Context context, String filePath) {
+//    public AudioRecorderManager(Context context, String filePath) {
 //        super();
 //        this.mContext = context;
 //        this.mOutputFilePath = filePath;
@@ -256,7 +254,7 @@
 //            if (mBufferSizeInBytes < minBufferSize) {
 //                mBufferSizeInBytes = minBufferSize;
 //                mFramePeriod = mBufferSizeInBytes / (2 * mSamples * mChannel / 8);
-//                Log.e(TAG, "Increasing buffer size to " + Integer.toString(mBufferSizeInBytes));
+//                L.error(TAG, "Increasing buffer size to " + Integer.toString(mBufferSizeInBytes));
 //            }
 //
 //            mAudioRecord = new AudioRecord(mAudioSource, mSampleRates, mChannelConfig, mAudioFormat, mBufferSizeInBytes);
@@ -273,24 +271,24 @@
 //            }
 //            if (TextUtils.isEmpty(mOutputFilePath)) {
 //                mState = State.ERROR;
-//                Log.e(TAG, "initializing recording state : ERROR");
+//                L.error(TAG, "initializing recording state : ERROR");
 //            } else {
 //                mState = State.INITIALIZING;
 //                Log.i(TAG, "initializing recording state : INITIALIZING");
 //            }
 //        } catch (Exception e) {
 //            if (e != null) {
-//                Log.e(TAG, "initializing recording error : " + e);
+//                L.error(TAG, "initializing recording error : " + e);
 //            } else {
-//                Log.e(TAG, "Unknown error occured while initializing recording");
+//                L.error(TAG, "Unknown error occured while initializing recording");
 //            }
 //            mState = State.ERROR;
-//            Log.e(TAG, "initializing recording state : ERROR");
+//            L.error(TAG, "initializing recording state : ERROR");
 //        }
 //    }
 //
 //    private void prepare() {
-//        L.e(this, "audio recore start 444");
+//        L.error(this, "audio recore start 444");
 //        Log.i(TAG, "prepare() called");
 //        if (mState == State.INITIALIZING) {
 //            if (mAudioRecord.getState() == AudioRecord.STATE_INITIALIZED && !TextUtils.isEmpty(mOutputFilePath)) {
@@ -300,15 +298,15 @@
 //                    mState = State.READY;
 //                    Log.i(TAG, "prepare state : READY");
 //                } else {
-//                    Log.e(TAG, "mSpeechBlockingQueue.initSpeechQueue error");
+//                    L.error(TAG, "mSpeechBlockingQueue.initSpeechQueue error");
 //                    mState = State.ERROR;
 //                }
 //            } else {
-//                Log.e(TAG, "prepare() method called on uninitialized recorder");
+//                L.error(TAG, "prepare() method called on uninitialized recorder");
 //                mState = State.ERROR;
 //            }
 //        } else {
-//            Log.e(TAG, "prepare() method called on illegal state");
+//            L.error(TAG, "prepare() method called on illegal state");
 //            release();
 //            mState = State.ERROR;
 //        }
@@ -342,15 +340,15 @@
 //            }
 //
 //        } else {
-//            L.e(this, "start() called on illegal state");
+//            L.error(this, "start() called on illegal state");
 //            mState = State.ERROR;
 //        }
 //    }
 //
 //    public void startRecord() {
-//        L.e(this, "audio recore start");
+//        L.error(this, "audio recore start");
 //        if (mStartAsyncTask != null && mStartAsyncTask.getStatus() == AsyncTask.Status.RUNNING && !mStartAsyncTask.isCancelled()) {
-//            L.e(this, "audio recore start 111");
+//            L.error(this, "audio recore start 111");
 //            if (mListener != null)
 //                mListener.onError(null);
 //            return;
@@ -360,7 +358,7 @@
 //                || (mSpeechBlockingQueue != null && mSpeechBlockingQueue.getTask() != null
 //                && AsyncTask.Status.RUNNING == mSpeechBlockingQueue.getTask().getStatus() && !mSpeechBlockingQueue.getTask()
 //                .isCancelled())) {
-//            L.e(this, "audio recore start 222");
+//            L.error(this, "audio recore start 222");
 //            if (mListener != null)
 //                mListener.onError(null);
 //            return;
@@ -370,11 +368,11 @@
 //
 //            @Override
 //            protected Boolean doInBackground(Void... params) {
-//                L.e(this, "asynctask doinbackground");
+//                L.error(this, "asynctask doinbackground");
 //                try {
 //                    start();
 //                } catch (Throwable e) {
-//                    L.e(this, "start recording error:" + e);
+//                    L.error(this, "start recording error:" + e);
 //                    release();
 //                    return false;
 //                }
@@ -383,7 +381,7 @@
 //
 //            @Override
 //            protected void onPreExecute() {
-//                L.e(this, "async task on pre excute");
+//                L.error(this, "async task on pre excute");
 //            }
 //
 //            @Override
@@ -402,7 +400,7 @@
 //
 //            @Override
 //            protected void onCancelled() {
-//                L.e(this, "start audiorecorder : cancelled");
+//                L.error(this, "start audiorecorder : cancelled");
 //            }
 //        };
 //
@@ -440,28 +438,28 @@
 //        }
 //
 //        if (mState == State.ERROR) {
-//            L.e(this, "audio recore start 333");
+//            L.error(this, "audio recore start 333");
 //            mListener.onError(null);
 //            release();
 //            return;
 //        }
 //        prepare();
 //        if (mState == State.ERROR) {
-//            L.e(this, "audio recore start 555");
+//            L.error(this, "audio recore start 555");
 //            mListener.onError(null);
 //            release();
 //            return;
 //        }
-//        L.e(this, "audio recore start 666");
+//        L.error(this, "audio recore start 666");
 //        VersionCompat.getAsyncTaskCompat().executeOnExecutor(mStartAsyncTask,
 //                null);
 //        // mStartAsyncTask.execute();
-//        L.e(this, "audio recore start 777");
+//        L.error(this, "audio recore start 777");
 //    }
 //
 //    public void stopRecord() {
 //        if (mStartAsyncTask != null && AsyncTask.Status.RUNNING == mStartAsyncTask.getStatus() && !mStartAsyncTask.isCancelled()) {
-//            L.e(this, "audio stop async task");
+//            L.error(this, "audio stop async task");
 //            mStartAsyncTask.cancel(true);
 //
 //            if (mAudioRecord == null) {
@@ -472,7 +470,7 @@
 //            }
 //
 //            if (mRecorderHandler != null) {
-//                L.e(this, "end record 11");
+//                L.error(this, "end record 11");
 //                Message endMsg = new Message();
 //                endMsg.what = WHAT_END_RECORD;
 //                endMsg.setTarget(mRecorderHandler);
@@ -484,7 +482,7 @@
 //                mAudioRecord.setRecordPositionUpdateListener(null);
 //                mState = State.STOPPED;
 //            } catch (Throwable e) {
-//                L.e(TAG, "method->stopRecord,exception: " + e);
+//                L.error(TAG, "method->stopRecord,exception: " + e);
 //            } finally {
 //                release();
 //            }
@@ -497,7 +495,7 @@
 //            }
 //        } else {
 //            if (mRecorderHandler != null) {
-//                L.e(this, "end record 22");
+//                L.error(this, "end record 22");
 //                Message endMsg = new Message();
 //                endMsg.what = WHAT_END_RECORD;
 //                endMsg.setTarget(mRecorderHandler);
@@ -530,21 +528,21 @@
 //                        if (mSpeechBlockingQueue != null) {
 //                            if (mSpeechBlockingQueue.getTask() != null)
 //                                if (AsyncTask.Status.FINISHED != mSpeechBlockingQueue.getTask().getStatus())
-//                                    L.e(this, "wait for mSpeechBlockingQueue task ");
+//                                    L.error(this, "wait for mSpeechBlockingQueue task ");
 //                            try {
 //                                mSpeechBlockingQueue.getTask().get(6, TimeUnit.SECONDS);
 //                            } catch (TimeoutException e) {
 //
-//                                L.e(this, "wait for mSpeechBlockingQueue task time out");
+//                                L.error(this, "wait for mSpeechBlockingQueue task time out");
 //                                mSpeechBlockingQueue.getTask().cancel(true);
 //                                result = false;
 //                            }
 //                        }
 //                    } catch (InterruptedException e) {
-//                        L.e(TAG, "method->stop,exception: " + e);
+//                        L.error(TAG, "method->stop,exception: " + e);
 //                        result = false;
 //                    } catch (ExecutionException e) {
-//                        L.e(TAG, "method->stop,exception: " + e);
+//                        L.error(TAG, "method->stop,exception: " + e);
 //                        result = false;
 //                    } catch (Exception e) {
 //                        result = false;
@@ -593,7 +591,7 @@
 //            VersionCompat.getAsyncTaskCompat().executeOnExecutor(mWaitEndAsyncTask, null);
 //            // mWaitEndAsyncTask.execute();
 //        } else {
-//            Log.e(TAG, "stop() called on illegal state");
+//            L.error(TAG, "stop() called on illegal state");
 //            mState = State.ERROR;
 //        }
 //    }
@@ -639,7 +637,7 @@
 //
 //        @Override
 //        public void onMarkerReached(AudioRecord recorder) {
-//            L.e(this, "audoi record up time stop");
+//            L.error(this, "audoi record up time stop");
 //            Log.d(TAG, "MEDIA_RECORDER_INFO_MAX_DURATION_REACHED");
 //            if (mListener != null) {
 //                mListener.updateTime(mMaxRecordTime, mMaxRecordTime);

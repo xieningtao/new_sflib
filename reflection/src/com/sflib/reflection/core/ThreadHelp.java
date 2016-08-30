@@ -31,6 +31,16 @@ public class ThreadHelp {
         mHandler = new Handler(looper);
     }
 
+    public static void runLatestInMain(Runnable runnable) {
+        mHandler.removeCallbacks(runnable);
+        runInMain(runnable);
+    }
+
+    public static void runLatestInMain(Runnable runnable, int delay) {
+        mHandler.removeCallbacks(runnable);
+        runInMain(runnable, delay);
+    }
+
     public static void runInMain(Runnable runnable) {
         mHandler.post(runnable);
     }

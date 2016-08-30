@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
     <fragment
         android:id="@+id/chat_speak"
         class="com.sf.SFSample.chat.SFChatFragment"
@@ -10,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         />
+
     <fragment
         android:id="@+id/chat_fg"
         class="com.sf.SFSample.ui.MessagePullListFragment"
@@ -17,4 +19,9 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/chat_speak"
         />
+
+    <FrameLayout
+        android:id="@+id/chat_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </RelativeLayout>

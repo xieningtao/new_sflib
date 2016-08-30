@@ -23,6 +23,7 @@ public class LoginTask {
                     '}';
         }
     }
+
     public  interface LoginImpl{
         int login(String userName,String passWord);
     }

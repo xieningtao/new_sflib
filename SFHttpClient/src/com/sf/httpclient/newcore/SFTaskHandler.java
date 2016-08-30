@@ -78,7 +78,7 @@ abstract public class SFTaskHandler<T> implements SFTask<T> {
     }
 
     protected void taskStart() {
-
+        System.out.println("task start");
     }
 
 }

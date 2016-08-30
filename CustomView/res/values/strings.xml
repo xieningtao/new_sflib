@@ -6,4 +6,5 @@
     <string name="none">图片无备注</string>
     <string name="cancel">取消</string>
     <string name="net_unavailable">网络异常…</string>
+    <string name="count_of_pictures">%d张</string>
 </resources>

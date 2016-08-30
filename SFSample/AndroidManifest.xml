@@ -50,6 +50,8 @@
     <!--<instrumentation-->
     <!--android:name="android.test.InstrumentationTestRunner"-->
     <!--android:targetPackage="com.sf.SFSample"/>-->
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <application
         android:name=".SFApp"
         android:icon="@drawable/app_icon"

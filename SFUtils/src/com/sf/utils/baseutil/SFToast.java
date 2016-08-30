@@ -1,6 +1,7 @@
 package com.sf.utils.baseutil;
 
 import android.content.Context;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -68,6 +69,7 @@ public class SFToast {
                 Toast toast = new Toast(mContext);
                 mTextView.setText(text);
                 toast.setView(mRootView);
+                toast.setGravity(Gravity.CENTER_VERTICAL,0,0);
                 toast.setDuration(Toast.LENGTH_SHORT);
                 toast.show();
                 return true;

@@ -13,6 +13,7 @@ public class LoginActivity extends BaseActivity implements LoginTask.UpdateLogin
 
 
     private LoginTask.LoginImpl mLoginImpl;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +31,14 @@ public class LoginActivity extends BaseActivity implements LoginTask.UpdateLogin
             }
 
         });
+    }
+
+    public LoginTask.LoginImpl getLoginImpl() {
+        return mLoginImpl;
+    }
+
+    public void setLoginImpl(LoginTask.LoginImpl loginImpl) {
+        mLoginImpl = loginImpl;
     }
 
     @Override

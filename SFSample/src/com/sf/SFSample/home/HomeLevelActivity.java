@@ -6,6 +6,9 @@ import android.util.SparseArray;
 import android.view.View;
 import android.widget.VideoView;
 
+import com.example.sfchat.media.MediaPlayManager;
+import com.example.sfchat.media.MediaRecordManager;
+import com.example.sfchat.media.NewAudioRecorderManager;
 import com.sf.SFSample.emoji.EmojiActivity;
 import com.sf.SFSample.chat.ActivitySFChat;
 import com.sf.SFSample.ui.ActivitySpecialEmoji;
@@ -69,4 +72,8 @@ public class HomeLevelActivity extends BaseLevelActivity {
     }
 
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

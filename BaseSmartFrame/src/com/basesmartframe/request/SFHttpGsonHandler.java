@@ -45,6 +45,7 @@ public class SFHttpGsonHandler extends SFHttpStringHandler {
                     }
                 });
                 L.error(TAG, TAG + ".onHandlerResult exception: " + e);
+
             }
         }
     }

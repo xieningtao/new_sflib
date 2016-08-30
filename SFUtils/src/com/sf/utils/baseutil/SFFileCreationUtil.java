@@ -49,10 +49,12 @@ public class SFFileCreationUtil {
         }
         // 创建文件
         File image = new File(fullPath);
+        if (image.exists()) {
+            image.delete();
+        }
         try {
             file.createNewFile();
         } catch (IOException e) {
-            e.printStackTrace();
             Log.e(TAG, "创建文件失败，reason: " + e.getMessage());
             return null;
         }
