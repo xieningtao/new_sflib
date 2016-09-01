@@ -25,23 +25,16 @@ android {
         jumboMode = true
     }
 
-}
-//repositories {
-//   maven{
-//       url "E:\\android\\sdk\\extras\\android\\m2repository"
-//   }
-//}
+    lintOptions{
+        abortOnError false
+    }
 
-//task showRepository {
-//    repositories.each {
-//        println(it.properties)
-//    }
-//}
+}
 
 dependencies {
     compile 'com.google.android:android:4.1.1.4@jar'
     compile project(':SFUtils')
-    compile 'com.android.support:support-v4:23.0.0@aar'
-    compile 'com.android.support:support-v13:23.0.0@aar'
+    compile 'com.android.support:support-v4:22.0.0@aar'
+    compile 'com.android.support:support-v13:22.0.0@aar'
 }
 
