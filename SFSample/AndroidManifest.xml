@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sf.SFSample"
-    android:versionCode="1"
-    android:versionName="1.0">
+          package="com.sf.SFSample"
+          android:versionCode="1"
+          android:versionName="1.0">
 
     <uses-sdk
         android:minSdkVersion="17"
-        android:targetSdkVersion="22" />
+        android:targetSdkVersion="22"/>
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
     <uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
 
     <!--百度地图-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
 
     <!--百度定位-->
     <!-- 这个权限用于进行网络定位-->
@@ -44,7 +44,7 @@
     <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据-->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
     <!-- 访问网络，网络定位需要上网-->
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
     <!-- SD卡读取权限，用户写入离线定位数据-->
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
     <!--<instrumentation-->
@@ -66,15 +66,15 @@
             android:name=".home.HomeLevelActivity"
             android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
         <!--友盟分享-->
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="557ae6fe67e58e40930039a3" />
+            android:value="557ae6fe67e58e40930039a3"/>
 
         <!--qq和空间-->
         <activity
@@ -82,18 +82,18 @@
             android:launchMode="singleTask"
             android:noHistory="true">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.VIEW"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
 
-                <data android:scheme="tencent100424468" />
+                <data android:scheme="tencent100424468"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 
         <!--微信-->
         <activity
@@ -101,11 +101,11 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 
         <activity
             android:name="com.umeng.socialize.editorpage.ShareActivity"
-            android:excludeFromRecents="true" />
+            android:excludeFromRecents="true"/>
         <!---->
 
 
@@ -124,82 +124,89 @@
         <activity android:name=".ui.RoundBitmapActivity"></activity>
         <activity
             android:name=".ui.BasicOpenGLES20Activity"
-            android:configChanges="orientation" />
+            android:configChanges="orientation"/>
         <activity
             android:name=".ui.VideoShowTest"
             android:configChanges="orientation"
-            android:theme="@android:style/Theme.NoTitleBar" />
-        <activity android:name=".ui.TransformActivity" />
+            android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".ui.TransformActivity"/>
         <activity
             android:name=".ui.TVVerticalGridViewActivity"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Black.NoTitleBar" />
+            android:theme="@android:style/Theme.Black.NoTitleBar"/>
         <activity
             android:name=".ui.TVHomeActivity"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Black.NoTitleBar" />
+            android:theme="@android:style/Theme.Black.NoTitleBar"/>
         <activity
             android:name=".ui.TVHorizontalGridViewActivity"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Black.NoTitleBar" />
-        <activity android:name=".home.OpenGLLevelActivity" />
-        <activity android:name=".home.TVLevelActivity" />
-        <activity android:name=".ui.AdbShellActivity" />
+            android:theme="@android:style/Theme.Black.NoTitleBar"/>
+        <activity android:name=".home.OpenGLLevelActivity"/>
+        <activity android:name=".home.TVLevelActivity"/>
+        <activity android:name=".ui.AdbShellActivity"/>
         <activity
             android:name=".home.ActivitySelected"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.StyledViewActivity"
-            android:theme="@style/styledView3" />
-        <activity android:name=".ui.TVFocusActivity" />
-        <activity android:name=".ui.XPinListViewActivity" />
+            android:theme="@style/styledView3"/>
+        <activity android:name=".ui.TVFocusActivity"/>
+        <activity android:name=".ui.XPinListViewActivity"/>
         <activity
             android:name=".ui.OpenGLTanActivity"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".ui.DecencoderActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.UMengShareActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.FragmentTabActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".emoji.EmojiActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.ActivityMultiChoice"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.ActivitySingleChoice"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.ActivityUpgrade"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.ActivitySpecialEmoji"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.ActivityBaiduLocation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".home.ActivityBaiduFamily"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".chat.ActivitySFChat"
-            android:screenOrientation="portrait"
             android:configChanges="keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            />
+
+        <activity
+            android:name="com.basesmartframe.pickphoto.ActivityFragmentContainer"
+            android:configChanges="keyboardHidden"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"
             />
         <activity
             android:name=".ui.BitMapSizeActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" /><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"/><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
 
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="hmq8yUzqaGtjZbEcwFUmPV2wO8jgVixR" />
+            android:value="hmq8yUzqaGtjZbEcwFUmPV2wO8jgVixR"/>
     </application>
 </manifest>

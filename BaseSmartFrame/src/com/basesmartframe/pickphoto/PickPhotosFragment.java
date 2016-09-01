@@ -28,6 +28,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.TranslateAnimation;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
@@ -47,6 +48,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.sf.loglib.L;
 import com.sf.utils.baseutil.DateFormatHelp;
 import com.sf.utils.baseutil.SFFileCreationUtil;
+import com.sf.utils.baseutil.SFFileHelp;
 import com.sf.utils.baseutil.SFToast;
 import com.sf.utils.baseutil.SystemUIHelp;
 import com.sf.utils.baseutil.SystemUIWHHelp;
@@ -136,18 +138,41 @@ public class PickPhotosFragment extends BaseFragment implements LoaderManager.Lo
         Bundle bundle = getArguments();
         if (bundle != null) {
             ArrayList<ImageBean> photos = (ArrayList<ImageBean>) bundle.getSerializable(PickPhotosPreviewFragment.CHOOSE_DATA_LIST);
-            if (photos != null)
+            if (photos != null) {
                 mChoosedData = photos;
+            }
             mMaxImageNum = bundle.getInt(MAX_IMAGE_NUM, 4);
         }
         mGridView = (GridView) view.findViewById(R.id.grid_view);
         mImageAdapter = new GridAdapter(getActivity());
         mGridView.setAdapter(mImageAdapter);
+        mGridView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+                if (scrollState == SCROLL_STATE_IDLE) {
+                    ImageLoader.getInstance().resume();
+                } else {
+                    ImageLoader.getInstance().pause();
+                }
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+            }
+        });
         mImageGroupList = (ListView) view.findViewById(R.id.image_group_list);
         mAlbums = view.findViewById(R.id.albums_layout);
         mPreview = (TextView) view.findViewById(R.id.preview);
         mImageGroupBackground = view.findViewById(R.id.image_group_background);
         mImageGroupLayout = view.findViewById(R.id.image_group_layout);
+        mComplete = (Button) view.findViewById(R.id.pick_complete);
+        view.findViewById(R.id.pick_back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
+            }
+        });
         mAlbums.setEnabled(false);
         mPreview.setEnabled(false);
         updatePreviewState();
@@ -182,7 +207,7 @@ public class PickPhotosFragment extends BaseFragment implements LoaderManager.Lo
                 bundle.putInt(MAX_IMAGE_NUM, mMaxImageNum);
                 bundle.putSerializable(PickPhotosPreviewFragment.CHOOSE_DATA_LIST, mChoosedData);
                 PickPhotosPreviewFragment.setImageListData(mChoosedData);
-                Intent intent = SingleFragmentHelper.getStartIntent(mContext, PickPhotosPreviewFragment.class.getName(), "PickPhotosPreviewFragment", bundle, null, BaseFragmentActivity.class);
+                Intent intent = getIntent(bundle);
                 startActivityForResult(intent, REQUEST_FOR_PREVIEW);
             }
         });
@@ -201,6 +226,13 @@ public class PickPhotosFragment extends BaseFragment implements LoaderManager.Lo
         });
         Loader<Cursor> loader = getLoaderManager().initLoader(CURSOR_LOADER, null, this);
         loader.forceLoad();
+    }
+
+    private Intent getIntent(Bundle bundle) {
+        Intent intent = new Intent(getActivity(), ActivityFragmentContainer.class);
+        intent.putExtra(ActivityFragmentContainer.BUNDLE_CONTAINER, bundle);
+        intent.putExtra(ActivityFragmentContainer.FRAGMENT_CLASS_NAME, PickPhotosPreviewFragment.class.getName());
+        return intent;
     }
 
 
@@ -291,7 +323,7 @@ public class PickPhotosFragment extends BaseFragment implements LoaderManager.Lo
             bundle.putInt(MAX_IMAGE_NUM, mMaxImageNum);
             bundle.putSerializable(PickPhotosPreviewFragment.CHOOSE_DATA_LIST, mChoosedData);
             PickPhotosPreviewFragment.setImageListData(mChoosedData);
-            Intent intent = SingleFragmentHelper.getStartIntent(mContext, PickPhotosPreviewFragment.class.getName(), "PickPhotosPreviewFragment", bundle, null, BaseFragmentActivity.class);
+            Intent intent = getIntent(bundle);
             startActivityForResult(intent, REQUEST_FOR_PREVIEW);
         }
     }
@@ -556,17 +588,17 @@ public class PickPhotosFragment extends BaseFragment implements LoaderManager.Lo
                 }
                 holder.image.setLayoutParams(new RelativeLayout.LayoutParams(getPhotoSize(), getPhotoSize()));
                 holder.image.setBackgroundResource(R.drawable.pickphotos_to_camera_bg);
-                holder.image.setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View v) {
-                        if (mChoosedData.size() >= mMaxImageNum) {
-                            SFToast.showToast(getString(R.string.four_pics_most, mMaxImageNum));
-                            return;
-                        }
-                        mPhotoUri = PhotoHelper.startCamera(PickPhotosFragment.this, REQUEST_ADD_IMAGE);
-                    }
-                });
+//                holder.image.setOnClickListener(new View.OnClickListener() {
+//
+//                    @Override
+//                    public void onClick(View v) {
+//                        if (mChoosedData.size() >= mMaxImageNum) {
+//                            SFToast.showToast(getString(R.string.four_pics_most, mMaxImageNum));
+//                            return;
+//                        }
+//                        mPhotoUri = PhotoHelper.startCamera(PickPhotosFragment.this, REQUEST_ADD_IMAGE);
+//                    }
+//                });
                 holder.checkBox.setVisibility(View.GONE);
                 return convertView;
             }
@@ -635,11 +667,11 @@ public class PickPhotosFragment extends BaseFragment implements LoaderManager.Lo
                     bundle.putInt(MAX_IMAGE_NUM, mMaxImageNum);
                     bundle.putSerializable(PickPhotosPreviewFragment.CHOOSE_DATA_LIST, mChoosedData);
                     PickPhotosPreviewFragment.setImageListData(mCurrentGroup.getImages());
-                    Intent intent = SingleFragmentHelper.getStartIntent(mContext, PickPhotosPreviewFragment.class.getName(), "ViewPickPhotosFragment", bundle, null, BaseFragmentActivity.class);
+                    Intent intent = getIntent(bundle);
                     startActivityForResult(intent, REQUEST_FOR_PREVIEW);
                 }
             });
-            ImageLoader.getInstance().displayImage(path, holder.image);
+            ImageLoader.getInstance().displayImage(SFFileHelp.pathToFilePath(path), holder.image);
             return convertView;
         }
 

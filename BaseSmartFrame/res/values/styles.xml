@@ -91,4 +91,13 @@
         <item name="android:windowExitAnimation">@anim/scaledown_to_left</item>
     </style>
 
+    <style name="PickPhotosCheckbox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/pickphotos_checkbox_bg</item>
+        <item name="android:minWidth">29dp</item>
+        <item name="android:minHeight">29dp</item>
+        <item name="android:paddingLeft">1dp</item>
+        <item name="android:paddingRight">1dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>

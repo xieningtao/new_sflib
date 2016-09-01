@@ -15,7 +15,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.sflib.CustomView.R;
+import com.basesmartframe.R;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.sf.utils.baseutil.SFFileHelp;
 
 import java.util.ArrayList;
 
@@ -30,18 +32,12 @@ public class ImageGroupAdapter extends BaseAdapter {
     
     private ArrayList<ImageGroup> mData;
     
-    private NetworkImageFetcher mFetcher;
-    
+
     private ImageGroup mCurrentGroup;
 
     public ImageGroupAdapter(Context context,ArrayList<ImageGroup> data){
         mContext = context;
         mData = data;
-        Bitmap bmp = ImgUtils.decodeResource(mContext.getResources(), R.drawable.default_profile_photo);
-        bmp = ImgUtils.zoomBitmap(bmp, Utils.dipToPx(mContext, 80), Utils.dipToPx(mContext, 80));
-        mFetcher = new NetworkImageFetcher(mContext, bmp);
-        mFetcher.setCenterCrop(true);
-        mFetcher.setIsZoom(true);
     }
     
     public void setCurrentGroup(ImageGroup group){
@@ -69,7 +65,7 @@ public class ImageGroupAdapter extends BaseAdapter {
         if(convertView == null){
             holder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(mContext);
-            convertView = inflater.inflate(R.layout.image_group_list_item_layout, null);
+            convertView = inflater.inflate(R.layout.image_group_item, null);
             holder.albumCover = (ImageView) convertView.findViewById(R.id.album_cover);
             holder.albumName = (TextView) convertView.findViewById(R.id.album_name);
             holder.albumSize = (TextView) convertView.findViewById(R.id.album_size);
@@ -79,7 +75,7 @@ public class ImageGroupAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         ImageGroup item = mData.get(position);
-        mFetcher.loadImage(item.getFirstImgPath().getPath(), holder.albumCover);
+        ImageLoader.getInstance().displayImage(SFFileHelp.pathToFilePath(item.getFirstImgPath().getPath()),holder.albumCover);
         holder.albumName.setText(item.getDirName());
         holder.albumSize.setText(mContext.getString(R.string.count_of_pictures,item.getImageCount()));
         if(mCurrentGroup !=null && mCurrentGroup.equals(item)){
