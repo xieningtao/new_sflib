@@ -17,7 +17,7 @@ android {
         release_debug {
             keyPassword "gorky1112"
             keyAlias "smartframe"
-            storeFile file('E:/gitRepository/android/sflib/SFSample/key/sfkey.jks')
+            storeFile file('./key/sfkey.jks')
             storePassword "gorky1112"
         }
     }
@@ -28,7 +28,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
         }
         debug {
-            proguardFile 'E:/gitRepository/android/sflib/SFSample/proguard-project.txt'
+            proguardFile './proguard-project.txt'
         }
 
         new_debug{
