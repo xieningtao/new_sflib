@@ -2,7 +2,27 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    
+
+    <Button
+        android:id="@+id/pick_back"
+        android:layout_width="60dp"
+        android:layout_height="48dp"
+        android:text="返回"
+        android:background="#7a000000"
+        android:textColor="@color/white"
+        android:layout_alignParentLeft="true"
+        />
+
+    <Button
+        android:id="@+id/pick_complete"
+        android:layout_width="60dp"
+        android:layout_height="48dp"
+        android:text="完成"
+        android:background="#7a000000"
+        android:textColor="@color/white"
+        android:layout_alignParentRight="true"
+        />
+
     <GridView 
         android:id="@+id/grid_view"
         android:layout_width="match_parent"
@@ -12,6 +32,7 @@
         android:scrollbars="none"
         android:numColumns="3"
         android:layout_above="@+id/action_bottom"
+        android:layout_below="@id/pick_back"
         />
     
     <RelativeLayout 

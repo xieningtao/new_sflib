@@ -42,9 +42,9 @@ public class SFBaseChatMoreFragment extends BaseFragment implements AdapterView.
                 cameraCommand.executeCommand();
                 break;
             case 1:
-                SFAlbumCommand albumCommand = (SFAlbumCommand) ChatMoreItem.ALBUM.getChatCommand();
+                SFCustomAlbumCommand albumCommand = (SFCustomAlbumCommand) ChatMoreItem.ALBUM.getChatCommand();
                 if (albumCommand == null) {
-                    albumCommand = new SFAlbumCommand(SFBaseChatMoreFragment.this);
+                    albumCommand = new SFCustomAlbumCommand(SFBaseChatMoreFragment.this);
                     ChatMoreItem.ALBUM.setChatCommand(albumCommand);
                 }
                 albumCommand.executeCommand();

@@ -180,6 +180,7 @@ public class SFFileHelp {
         }
         return content;
     }
+
     public static String getTxtFileContentWithAbsPath(String absPath) {
         String content = "";
         if (isSDCardMounted()) {
@@ -252,5 +253,9 @@ public class SFFileHelp {
         } else {
             return false;
         }
+    }
+
+    public static String pathToFilePath(String localPath) {
+        return "file://" + localPath;
     }
 }
