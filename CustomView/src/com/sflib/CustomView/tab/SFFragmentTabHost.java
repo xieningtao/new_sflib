@@ -1,14 +1,13 @@
 package com.sflib.CustomView.tab;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.v4.app.FragmentTabHost;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,18 +16,22 @@ import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TabWidget;
 
+
+import com.sf.loglib.L;
+
 import java.util.ArrayList;
 
 /**
  * Created by NetEase on 2016/6/30 0030.
  */
-public class SFFragmentTabHost extends TabHost  implements TabHost.OnTabChangeListener{
+public class SFFragmentTabHost extends TabHost implements TabHost.OnTabChangeListener {
+    private final String TAG = getClass().getName();
     private final ArrayList<TabInfo> mTabs = new ArrayList<TabInfo>();
     private FrameLayout mRealTabContent;
     private Context mContext;
     private FragmentManager mFragmentManager;
     private int mContainerId;
-    private TabHost.OnTabChangeListener mOnTabChangeListener;
+    private OnTabChangeListener mOnTabChangeListener;
     private TabInfo mLastTab;
     private boolean mAttached;
 
@@ -43,9 +46,15 @@ public class SFFragmentTabHost extends TabHost  implements TabHost.OnTabChangeLi
             clss = _class;
             args = _args;
         }
+
+        public Fragment findFragment(FragmentManager fm) {
+            return fm.findFragmentByTag(tag);
+        }
+
+
     }
 
-    static class DummyTabFactory implements TabHost.TabContentFactory {
+    static class DummyTabFactory implements TabContentFactory {
         private final Context mContext;
 
         public DummyTabFactory(Context context) {
@@ -86,8 +95,8 @@ public class SFFragmentTabHost extends TabHost  implements TabHost.OnTabChangeLi
                     + " curTab=" + curTab + "}";
         }
 
-        public static final Parcelable.Creator<SavedState> CREATOR
-                = new Parcelable.Creator<SavedState>() {
+        public static final Creator<SavedState> CREATOR
+                = new Creator<SavedState>() {
             public SavedState createFromParcel(Parcel in) {
                 return new SavedState(in);
             }
@@ -112,7 +121,7 @@ public class SFFragmentTabHost extends TabHost  implements TabHost.OnTabChangeLi
 
     private void initFragmentTabHost(Context context, AttributeSet attrs) {
         TypedArray a = context.obtainStyledAttributes(attrs,
-                new int[] { android.R.attr.inflatedId }, 0, 0);
+                new int[]{android.R.attr.inflatedId}, 0, 0);
         mContainerId = a.getResourceId(0, 0);
         a.recycle();
 
@@ -125,7 +134,7 @@ public class SFFragmentTabHost extends TabHost  implements TabHost.OnTabChangeLi
         if (findViewById(android.R.id.tabs) == null) {
             LinearLayout ll = new LinearLayout(context);
             ll.setOrientation(LinearLayout.VERTICAL);
-            addView(ll, new FrameLayout.LayoutParams(
+            addView(ll, new LayoutParams(
                     ViewGroup.LayoutParams.FILL_PARENT,
                     ViewGroup.LayoutParams.FILL_PARENT));
 
@@ -152,7 +161,8 @@ public class SFFragmentTabHost extends TabHost  implements TabHost.OnTabChangeLi
      * call {@link #setup(Context, FragmentManager)} or
      * {@link #setup(Context, FragmentManager, int)}.
      */
-    @Override @Deprecated
+    @Override
+    @Deprecated
     public void setup() {
         throw new IllegalStateException(
                 "Must call setup() that takes a Context and FragmentManager");
@@ -184,7 +194,7 @@ public class SFFragmentTabHost extends TabHost  implements TabHost.OnTabChangeLi
 
     private void ensureContent() {
         if (mRealTabContent == null) {
-            mRealTabContent = (FrameLayout)findViewById(mContainerId);
+            mRealTabContent = (FrameLayout) findViewById(mContainerId);
             if (mRealTabContent == null) {
                 throw new IllegalStateException(
                         "No tab content FrameLayout found for id " + mContainerId);
@@ -197,7 +207,7 @@ public class SFFragmentTabHost extends TabHost  implements TabHost.OnTabChangeLi
         mOnTabChangeListener = l;
     }
 
-    public void addTab(TabHost.TabSpec tabSpec, Class<?> clss, Bundle args) {
+    public void addTab(TabSpec tabSpec, Class<?> clss, Bundle args) {
         tabSpec.setContent(new DummyTabFactory(mContext));
         String tag = tabSpec.getTag();
 
@@ -228,7 +238,7 @@ public class SFFragmentTabHost extends TabHost  implements TabHost.OnTabChangeLi
         // Go through all tabs and make sure their fragments match
         // the correct state.
         FragmentTransaction ft = null;
-        for (int i=0; i<mTabs.size(); i++) {
+        for (int i = 0; i < mTabs.size(); i++) {
             TabInfo tab = mTabs.get(i);
             tab.fragment = mFragmentManager.findFragmentByTag(tab.tag);
             if (tab.fragment != null && !tab.fragment.isDetached()) {
@@ -289,6 +299,7 @@ public class SFFragmentTabHost extends TabHost  implements TabHost.OnTabChangeLi
             FragmentTransaction ft = doTabChanged(tabId, null);
             if (ft != null) {
                 ft.commit();
+                mFragmentManager.executePendingTransactions();
             }
         }
         if (mOnTabChangeListener != null) {
@@ -298,7 +309,7 @@ public class SFFragmentTabHost extends TabHost  implements TabHost.OnTabChangeLi
 
     private FragmentTransaction doTabChanged(String tabId, FragmentTransaction ft) {
         TabInfo newTab = null;
-        for (int i=0; i<mTabs.size(); i++) {
+        for (int i = 0; i < mTabs.size(); i++) {
             TabInfo tab = mTabs.get(i);
             if (tab.tag.equals(tabId)) {
                 newTab = tab;
@@ -312,10 +323,11 @@ public class SFFragmentTabHost extends TabHost  implements TabHost.OnTabChangeLi
                 ft = mFragmentManager.beginTransaction();
             }
             if (mLastTab != null) {
-                if (mLastTab.fragment != null&&mLastTab.fragment.isAdded()&&mLastTab.fragment.isVisible()) {
+                if (mLastTab.fragment != null && mLastTab.fragment.isAdded() && mLastTab.fragment.isVisible()) {
                     ft.hide(mLastTab.fragment);
-                }else if(mLastTab.fragment!=null&&!mLastTab.fragment.isDetached()){
+                } else if (mLastTab.fragment != null && !mLastTab.fragment.isDetached()) {
                     ft.detach(mLastTab.fragment);
+                    L.error(TAG, "last tab is detached");
                 }
             }
             if (newTab != null) {
@@ -323,13 +335,19 @@ public class SFFragmentTabHost extends TabHost  implements TabHost.OnTabChangeLi
                     newTab.fragment = Fragment.instantiate(mContext,
                             newTab.clss.getName(), newTab.args);
                     ft.add(mContainerId, newTab.fragment, newTab.tag);
-                } else if(newTab.fragment.isAdded()&&newTab.fragment.isHidden()) {
+                } else if (newTab.fragment.isAdded() && newTab.fragment.isHidden()) {
                     ft.show(newTab.fragment);
+                } else {
+                    ft.attach(newTab.fragment);
                 }
             }
 
             mLastTab = newTab;
         }
         return ft;
+    }
+
+    public ArrayList<TabInfo> getTabs() {
+        return mTabs;
     }
 }

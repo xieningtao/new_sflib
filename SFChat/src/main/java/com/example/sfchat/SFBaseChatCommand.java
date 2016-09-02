@@ -7,6 +7,7 @@ public interface SFBaseChatCommand {
 
     int CAMERA_REQUEST=1;
     int ALBUM_REQUEST=2;
+    int LOCATION_REQUEST =3;
 
     void executeCommand();
 }

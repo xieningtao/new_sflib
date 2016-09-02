@@ -63,6 +63,5 @@ dependencies {
     compile project(':AndroidTV')
     compile project(':Emoji')
     compile project(':SFChat')
-    compile project(':BaiduLib')
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'
 }
