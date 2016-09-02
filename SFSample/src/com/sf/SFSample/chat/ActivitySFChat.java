@@ -104,7 +104,5 @@ public class ActivitySFChat extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        NewAudioRecorderManager.getInstance().destroyRecord();
-        MediaRecordManager.getInstance().destroy();
     }
 }

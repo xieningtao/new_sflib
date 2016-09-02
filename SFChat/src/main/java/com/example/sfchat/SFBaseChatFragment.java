@@ -49,6 +49,7 @@ abstract public class SFBaseChatFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        NewAudioRecorderManager.getInstance().onCreate();
         init(view);
     }
 
@@ -72,11 +73,11 @@ abstract public class SFBaseChatFragment extends BaseFragment {
                 if (mChatState != ChatState.VOICE) {
                     mVoiceInput.setVisibility(View.VISIBLE);
                     mInputEt.setVisibility(View.GONE);
-                    mChatState=ChatState.VOICE;
+                    mChatState = ChatState.VOICE;
                 } else if (mChatState != ChatState.EDITOR) {
                     mVoiceInput.setVisibility(View.GONE);
                     mInputEt.setVisibility(View.VISIBLE);
-                    mChatState=ChatState.EDITOR;
+                    mChatState = ChatState.EDITOR;
                 }
             }
         });
@@ -149,6 +150,12 @@ abstract public class SFBaseChatFragment extends BaseFragment {
                 }
             }
         });
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        NewAudioRecorderManager.getInstance().onDestroy();
     }
 
     private void showExpressionContainer() {

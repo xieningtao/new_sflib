@@ -150,7 +150,7 @@ public class SFFileHelp {
             if (StringUtils.isNullOrEmpty(fileName)) {
                 return content;
             }
-            String path = Environment.getExternalStorageDirectory().getPath() + fileName;
+            String path = Environment.getExternalStorageDirectory().getAbsolutePath() + fileName;
             File file = new File(path);
             if (file.isFile()) {
                 InputStream instream = null;
@@ -162,7 +162,7 @@ public class SFFileHelp {
                         BufferedReader buffreader = new BufferedReader(inputreader);
                         String line;
                         while ((line = buffreader.readLine()) != null) {
-                            content += line + "\n";
+                            content += line;
                         }
                     }
                 } catch (Exception e) {
@@ -198,7 +198,7 @@ public class SFFileHelp {
                         BufferedReader buffreader = new BufferedReader(inputreader);
                         String line;
                         while ((line = buffreader.readLine()) != null) {
-                            content += line + "\n";
+                            content += line ;
                         }
                     }
                 } catch (Exception e) {
@@ -219,11 +219,19 @@ public class SFFileHelp {
 
     public static boolean writeTo(String content, String filePath) {
         if (isSDCardMounted()) {
-            String path = Environment.getExternalStorageDirectory().getPath() + filePath;
+            String path = Environment.getExternalStorageDirectory().getAbsolutePath() + filePath;
             if (StringUtils.isNullOrEmpty(filePath) || StringUtils.isNullOrEmpty(content)) {
                 return false;
             }
             File file = new File(path);
+            if (!file.exists()) {
+                try {
+                    file.createNewFile();
+                } catch (IOException e) {
+                    L.error(TAG, "create file fail, e = " + e);
+                    return false;
+                }
+            }
             if (file.isFile()) {
                 FileOutputStream ostream = null;
                 try {

@@ -4,6 +4,7 @@ import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
 
+import com.basesmartframe.baseui.BaseLifeCycle;
 import com.sf.loglib.L;
 import com.sf.utils.baseutil.DateFormatHelp;
 import com.sf.utils.baseutil.SFFileCreationUtil;
@@ -22,8 +23,9 @@ import java.util.TimerTask;
 /**
  * Created by NetEase on 2016/8/30 0030.
  */
-public class NewAudioRecorderManager {
+public class NewAudioRecorderManager implements BaseLifeCycle{
     private final String TAG = getClass().getName();
+
 
     public static interface OnRecordListener {
         public void onStartRecord();
@@ -62,7 +64,6 @@ public class NewAudioRecorderManager {
     }
 
     private NewAudioRecorderManager() {
-        creatAudioRecord();
     }
 
     public void setOnRecordListener(OnRecordListener onRecordListener) {
@@ -136,7 +137,7 @@ public class NewAudioRecorderManager {
         }
     }
 
-    public void destroyRecord() {
+    private void destroyRecord() {
         if (audioRecord != null) {
             audioRecord.release();
             audioRecord = null;
@@ -325,6 +326,27 @@ public class NewAudioRecorderManager {
         header[42] = (byte) ((totalAudioLen >> 16) & 0xff);
         header[43] = (byte) ((totalAudioLen >> 24) & 0xff);
         out.write(header, 0, 44);
+    }
+
+
+    @Override
+    public void onCreate() {
+            creatAudioRecord();
+    }
+
+    @Override
+    public void onStart() {
+
+    }
+
+    @Override
+    public void onPause() {
+
+    }
+
+    @Override
+    public void onDestroy() {
+        destroyRecord();
     }
 
 }

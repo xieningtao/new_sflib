@@ -2,6 +2,7 @@ package com.example.sfchat.media;
 
 import android.media.MediaRecorder;
 
+import com.basesmartframe.baseui.BaseLifeCycle;
 import com.sf.loglib.L;
 import com.sf.utils.baseutil.DateFormatHelp;
 import com.sf.utils.baseutil.SFFileCreationUtil;
@@ -14,7 +15,7 @@ import java.text.SimpleDateFormat;
 /**
  * Created by NetEase on 2016/8/30 0030.
  */
-public class MediaRecordManager {
+public class MediaRecordManager implements BaseLifeCycle{
     private final String TAG = getClass().getName();
     private MediaRecorder mMediaRecorder;
     private boolean mIsRecording = false;
@@ -28,7 +29,10 @@ public class MediaRecordManager {
         return mediaRecordManager;
     }
 
-    private MediaRecordManager() {
+    public MediaRecordManager() {
+    }
+
+    private void createMedia() {
         if (mMediaRecorder != null) {
             mMediaRecorder.release();
         }
@@ -110,7 +114,27 @@ public class MediaRecordManager {
         }
     }
 
-    public void destroy() {
+    private void destroy() {
         mMediaRecorder.release();
+    }
+
+    @Override
+    public void onCreate() {
+        createMedia();
+    }
+
+    @Override
+    public void onStart() {
+
+    }
+
+    @Override
+    public void onPause() {
+
+    }
+
+    @Override
+    public void onDestroy() {
+        destroy();
     }
 }
