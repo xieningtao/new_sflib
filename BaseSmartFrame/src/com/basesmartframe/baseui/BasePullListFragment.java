@@ -88,7 +88,7 @@ public abstract class BasePullListFragment<T> extends BaseFragment implements
         if (adapter == null) return false;
         int headViewsCount = mPullToRefreshListView.getRefreshableView().getHeaderViewsCount();
         int footViewsCouont = mPullToRefreshListView.getRefreshableView().getFooterViewsCount();
-        int count = adapter.getCount()-headViewsCount-footViewsCouont;
+        int count = adapter.getCount() - headViewsCount - footViewsCouont;
         return count > 0 ? true : false;
     }
 
@@ -140,12 +140,14 @@ public abstract class BasePullListFragment<T> extends BaseFragment implements
             mPullType = PullType.REFRESH;
             onRefresh();
         } else {
+            onRefreshNoNetwork();
             simpleFinishRefreshOrLoading();
         }
     }
 
     protected void simpleFinishRefreshOrLoading() {
         mPullToRefreshListView.onRefreshComplete();
+        showHttpResultView();
     }
 
     protected void finishRefreshOrLoading(List<T> data,
@@ -259,6 +261,10 @@ public abstract class BasePullListFragment<T> extends BaseFragment implements
      */
 
     protected abstract boolean onRefresh();
+
+    protected boolean onRefreshNoNetwork() {
+        return false;
+    }
 
     protected abstract boolean onLoadMore();
 

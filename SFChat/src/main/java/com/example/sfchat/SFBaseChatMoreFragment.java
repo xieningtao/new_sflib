@@ -17,9 +17,6 @@ import com.basesmartframe.baseui.BaseFragment;
 import com.sf.loglib.L;
 import com.sf.utils.baseutil.DateFormatHelp;
 import com.sf.utils.baseutil.SFFileCreationUtil;
-import com.sf.utils.baseutil.SFFileHelp;
-
-import java.util.List;
 
 /**
  * Created by NetEase on 2016/8/11 0011.
@@ -50,6 +47,12 @@ public class SFBaseChatMoreFragment extends BaseFragment implements AdapterView.
                 albumCommand.executeCommand();
                 break;
             case 2:
+                SFBaiduMapCommand mapCommand = (SFBaiduMapCommand) ChatMoreItem.LOCATION.getChatCommand();
+                if (mapCommand == null) {
+                    mapCommand = new SFBaiduMapCommand(SFBaseChatMoreFragment.this);
+                    ChatMoreItem.LOCATION.setChatCommand(mapCommand);
+                }
+                mapCommand.executeCommand();
                 break;
         }
     }
@@ -143,19 +146,22 @@ public class SFBaseChatMoreFragment extends BaseFragment implements AdapterView.
         }
         switch (requestCode) {
             case SFBaseChatCommand.ALBUM_REQUEST:
-                if(data!=null&&data.getData()!=null) {
+                if (data != null && data.getData() != null) {
                     Uri albumUri = data.getData();
                     L.info(TAG, TAG + ".onActivityResult,albumUri: " + albumUri);
                 }
                 break;
             case SFBaseChatCommand.CAMERA_REQUEST:
                 SFCameraCommand cameraCommand = (SFCameraCommand) ChatMoreItem.CAMERA.getChatCommand();
-                Uri cameraUri=cameraCommand.getPhotoUri();
-                L.info(TAG,TAG+".onActivityResult,cameraUri: "+cameraUri);
-                if(cameraUri!=null){
+                Uri cameraUri = cameraCommand.getPhotoUri();
+                L.info(TAG, TAG + ".onActivityResult,cameraUri: " + cameraUri);
+                if (cameraUri != null) {
 
                 }
                 break;
+            case SFBaseChatCommand.LOCATION_REQUEST:
+
+            break;
         }
     }
 }

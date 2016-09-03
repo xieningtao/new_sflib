@@ -4,6 +4,7 @@ import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
 
+import com.basesmartframe.baseui.BaseLifeCycle;
 import com.sf.loglib.L;
 import com.sf.utils.baseutil.DateFormatHelp;
 import com.sf.utils.baseutil.SFFileCreationUtil;
@@ -22,8 +23,9 @@ import java.util.TimerTask;
 /**
  * Created by NetEase on 2016/8/30 0030.
  */
-public class NewAudioRecorderManager {
+public class NewAudioRecorderManager implements BaseLifeCycle{
     private final String TAG = getClass().getName();
+
 
     public static interface OnRecordListener {
         public void onStartRecord();
@@ -32,7 +34,7 @@ public class NewAudioRecorderManager {
 
         public void onError(String error);
 
-        public void updateForeground(double maxAmplitude);
+        public void updateForeground(int maxAmplitude);
 
         public void updateTime(int currentTime, int maxTime);
     }
@@ -53,7 +55,7 @@ public class NewAudioRecorderManager {
     private static NewAudioRecorderManager audioRecorderManager = new NewAudioRecorderManager();
     private Thread mAudioRecordThread;
     private Timer mTimer;
-    private volatile double mFengBei = 0;
+    private volatile int mFengBei = 0;
 
     private OnRecordListener mOnRecordListener;
 
@@ -62,7 +64,6 @@ public class NewAudioRecorderManager {
     }
 
     private NewAudioRecorderManager() {
-        creatAudioRecord();
     }
 
     public void setOnRecordListener(OnRecordListener onRecordListener) {
@@ -136,7 +137,7 @@ public class NewAudioRecorderManager {
         }
     }
 
-    public void destroyRecord() {
+    private void destroyRecord() {
         if (audioRecord != null) {
             audioRecord.release();
             audioRecord = null;
@@ -168,6 +169,20 @@ public class NewAudioRecorderManager {
         }
     }
 
+    private int getMaxFenBei(byte byte_buffer[], int size) {
+        int mShortArrayLenght = size / 2;
+        short[] short_buffer = byteArray2ShortArray(byte_buffer, mShortArrayLenght);
+        int max = 0;
+        if (size > 0) {
+            for (int i = 0; i < mShortArrayLenght; i++) {
+                if (Math.abs(short_buffer[i]) > max) {
+                    max = Math.abs(short_buffer[i]);
+                }
+            }
+        }
+        return max;
+    }
+
     private double getFengBei(byte buffer[], int length) {
         long v = 0;
         // 将 buffer 内容取出，进行平方和运算
@@ -178,6 +193,16 @@ public class NewAudioRecorderManager {
         double mean = v / (double) length;
         double volume = 10 * Math.log10(mean);
         return volume;
+
+
+    }
+
+    private short[] byteArray2ShortArray(byte[] data, int items) {
+        short[] retVal = new short[items];
+        for (int i = 0; i < retVal.length; i++)
+            retVal[i] = (short) ((data[i * 2] & 0xff) | (data[i * 2 + 1] & 0xff) << 8);
+
+        return retVal;
     }
 
     /**
@@ -198,7 +223,7 @@ public class NewAudioRecorderManager {
         }
         while (isRecord == true) {
             size = audioRecord.read(contentData, 0, audioBufferSize);
-            mFengBei = getFengBei(contentData, size);
+            mFengBei = getMaxFenBei(contentData, size);
             if (AudioRecord.ERROR_INVALID_OPERATION != size) {
                 try {
                     fos.write(contentData);
@@ -301,6 +326,27 @@ public class NewAudioRecorderManager {
         header[42] = (byte) ((totalAudioLen >> 16) & 0xff);
         header[43] = (byte) ((totalAudioLen >> 24) & 0xff);
         out.write(header, 0, 44);
+    }
+
+
+    @Override
+    public void onCreate() {
+            creatAudioRecord();
+    }
+
+    @Override
+    public void onStart() {
+
+    }
+
+    @Override
+    public void onPause() {
+
+    }
+
+    @Override
+    public void onDestroy() {
+        destroyRecord();
     }
 
 }

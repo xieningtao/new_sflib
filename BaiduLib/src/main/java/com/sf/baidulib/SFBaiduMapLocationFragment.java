@@ -51,7 +51,7 @@ public class SFBaiduMapLocationFragment extends BaseFragment {
 
     private void showMyLocation() {
         mBaiduMap.setMyLocationEnabled(true);
-        mBaiduMap.setMapStatus( MapStatusUpdateFactory.zoomTo(mBaiduMap.getMaxZoomLevel()-2));
+        mBaiduMap.setMapStatus(MapStatusUpdateFactory.zoomTo(mBaiduMap.getMaxZoomLevel() - 2));
         BDLocation location = SFBaiduLocationManager.getInstance().getBDLocation();
         if (location != null) {
             // 构造定位数据

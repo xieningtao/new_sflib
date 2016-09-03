@@ -166,9 +166,6 @@
             android:name=".ui.FragmentTabActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".emoji.EmojiActivity"
-            android:screenOrientation="portrait"/>
-        <activity
             android:name=".ui.ActivityMultiChoice"
             android:screenOrientation="portrait"/>
         <activity
@@ -187,6 +184,9 @@
             android:name=".home.ActivityBaiduFamily"
             android:screenOrientation="portrait"/>
         <activity
+            android:name=".ui.PullCacheListActivity"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".chat.ActivitySFChat"
             android:configChanges="keyboardHidden"
             android:screenOrientation="portrait"
@@ -199,10 +199,7 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"
             />
-        <activity
-            android:name=".ui.BitMapSizeActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"/><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
 
         <meta-data

@@ -4,13 +4,13 @@ package com.sf.httpclient.newcore;
  * Created by xieningtao on 16-5-20.
  */
 public abstract class BaseHttpReqRes {
-    private RequestChannel mHttpType = RequestChannel.NETWORK;
+    private HttpType mHttpType = HttpType.NETWORK;
 
-    public RequestChannel getHttpType() {
+    public HttpType getHttpType() {
         return mHttpType;
     }
 
-    public void setHttpType(RequestChannel httpType) {
+    public void setHttpType(HttpType httpType) {
         mHttpType = httpType;
     }
 }

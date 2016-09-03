@@ -10,7 +10,7 @@ import com.sflib.reflection.core.SFMsgId;
 /**
  * Created by xieningtao on 15-5-21.
  */
-public class DownloadListItems extends DownloadTask {
+public class DownloadListItems<T> extends DownloadTask {
 
 
     protected final RequestPullListEntity mEntity;
@@ -21,7 +21,7 @@ public class DownloadListItems extends DownloadTask {
      * @throws Exception if entity is null
      */
     public DownloadListItems(String url, RequestPullListEntity entity) throws Exception {
-        super(url);
+        super(url,null);
         if (null == entity) {
             throw new IllegalArgumentException("entity is null");
         }
