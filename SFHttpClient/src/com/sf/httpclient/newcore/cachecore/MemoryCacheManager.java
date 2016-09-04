@@ -1,10 +1,7 @@
 package com.sf.httpclient.newcore.cachecore;
 
-import com.sf.httpclient.core.AjaxParams;
-import com.sf.httpclient.newcore.MethodType;
 import com.sf.httpclient.newcore.cache.CacheIndexBean;
 import com.sf.httpclient.newcore.cache.CacheIndexManager;
-import com.sf.httpclient.newcore.cache.CacheType;
 import com.sf.utils.baseutil.Md5Utils;
 
 import java.lang.ref.WeakReference;
@@ -33,23 +30,24 @@ public class MemoryCacheManager {
             String localMd5 = Md5Utils.getMD5(localContent);
             String saveMd5 = Md5Utils.getMD5(content);
             if (localMd5 != saveMd5) {
-                if (saveHelp(cacheIndexBean,content)) {
+                if (doSave(cacheIndexBean,content)) {
                     return true;
                 }
             }
         } else {
-            if (saveHelp(cacheIndexBean, content)) {
+            if (doSave(cacheIndexBean, content)) {
                 return true;
             }
         }
         return false;
     }
 
-    private boolean saveHelp(CacheIndexBean cacheIndexBean, String content) {
+    private boolean doSave(CacheIndexBean cacheIndexBean, String content) {
         if (cacheIndexBean != null) {
             MemoryCache memoryCache = new MemoryCache();
             memoryCache.save(content);
             mMemoryCache.put(cacheIndexBean.getParamsMd5(), new WeakReference<MemoryCache>(memoryCache));
+            CacheIndexManager.getInstance().addCacheIndex(cacheIndexBean);
             return true;
         }
         return false;

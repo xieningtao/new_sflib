@@ -9,6 +9,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import com.basesmartframe.baseevent.GlobalEvent;
+import com.sf.httpclient.newcore.cache.CacheIndexManager;
 import com.sf.utils.baseutil.NetWorkManagerUtil;
 import com.sf.utils.baseutil.SFBus;
 import com.sf.utils.baseutil.SFToast;
@@ -25,6 +26,7 @@ import com.umeng.socialize.PlatformConfig;
 public class BaseApp extends Application {
 
     public static Context gContext;
+    private final String mCacheFileName="sf_index_cache.txt";
 
     @Override
     public void onCreate() {
@@ -40,6 +42,7 @@ public class BaseApp extends Application {
         initUMengShare();
         initBaidu();
         initToast();
+        CacheIndexManager.getInstance().init(this,mCacheFileName);
         NetWorkManagerUtil.init(this);
     }
 

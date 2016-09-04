@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <EditText
+        android:id="@+id/content_et"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/transparent"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="12dp"
+        android:padding="4dp"
+        android:textSize="15sp"
+        android:textColor="@color/text_black"
+        android:hint="请输入信息"
+        android:gravity="left|top"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/pic_rlv"
+        android:layout_below="@+id/content_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        />
+
+    <TextView
+        android:id="@+id/location_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pic_rlv"
+        android:layout_marginTop="8dp"
+        android:text="位置"
+        />
+
+
+
+</RelativeLayout>

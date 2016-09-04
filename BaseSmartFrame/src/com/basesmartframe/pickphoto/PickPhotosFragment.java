@@ -66,6 +66,8 @@ public class PickPhotosFragment extends BaseFragment implements LoaderManager.Lo
 
     private GridView mGridView;
 
+    public static final String CHOOSE_PIC="choose_pic";
+
     private ArrayList<ImageBean> mAllImageData = new ArrayList<ImageBean>();
 
     private ArrayList<ImageGroup> mGroupList = new ArrayList<ImageGroup>();
@@ -167,6 +169,15 @@ public class PickPhotosFragment extends BaseFragment implements LoaderManager.Lo
         mImageGroupBackground = view.findViewById(R.id.image_group_background);
         mImageGroupLayout = view.findViewById(R.id.image_group_layout);
         mComplete = (Button) view.findViewById(R.id.pick_complete);
+        mComplete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent();
+                intent.putExtra(CHOOSE_PIC,mChoosedData);
+                getActivity().setResult(Activity.RESULT_OK,intent);
+
+            }
+        });
         view.findViewById(R.id.pick_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

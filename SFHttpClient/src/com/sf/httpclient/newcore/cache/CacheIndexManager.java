@@ -1,10 +1,12 @@
 package com.sf.httpclient.newcore.cache;
 
 import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
 
 import com.sf.httpclient.core.AjaxParams;
 import com.sf.utils.baseutil.Md5Utils;
+import com.sflib.reflection.core.ThreadHelp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,10 +23,7 @@ public class CacheIndexManager {
      * 这个会在多个线程进行操作，所以才采用线程安全的方式来操作
      */
     private List<CacheIndexBean> mAllCacheIndexBeans = new CopyOnWriteArrayList<>();
-    private List<CacheIndexBean> mLocalCacheIndexBeans = new CopyOnWriteArrayList<>();
-    private List<CacheIndexBean> mRemoveCacheIndexBeans = new CopyOnWriteArrayList<>();
 
-    private String mBaseCachePath = "";
 
     private CacheIndexManager() {
 
@@ -36,13 +35,18 @@ public class CacheIndexManager {
 
     public void init(Context context, String cacheIndexName) {
         mCacheIndexAction = new CacheIndexActionImpl(context, cacheIndexName);
-        mBaseCachePath = context.getCacheDir().getPath();
+        ThreadHelp.runInSingleBackThread(new Runnable() {
+            @Override
+            public void run() {
+                loadCacheIndex();
+            }
+        },0);
     }
 
     /**
      * 这个是读文件的操作,建议在后台线程操作
      */
-    public void loadCacheIndex() {
+    private void loadCacheIndex() {
         List<CacheIndexBean> beanList = mCacheIndexAction.loadIndex();
         mAllCacheIndexBeans.addAll(beanList);
     }
@@ -58,9 +62,13 @@ public class CacheIndexManager {
         if (cacheIndexBean == null) {
             return false;
         }
+        if (isCached(cacheIndexBean)) {
+            return false;
+        }
         mAllCacheIndexBeans.add(cacheIndexBean);
         return true;
     }
+
 
     public boolean isCached(CacheIndexBean cacheIndexBean) {
         if (cacheIndexBean == null) {
@@ -85,9 +93,11 @@ public class CacheIndexManager {
         String md5Params = Md5Utils.getMD5(url + paramsStr);
         String path = "";
         if (!TextUtils.isEmpty(url)) {
-            int urlIndex = url.lastIndexOf("/");
+            Uri uri = Uri.parse(url);
+            String myPath = uri.getPath();
+            int urlIndex = myPath.lastIndexOf("/");
             if (urlIndex != -1) {
-                path = url.substring(urlIndex, url.length());
+                path = myPath.substring(urlIndex, myPath.length());
             }
         }
         return new CacheIndexBean(md5Params, path, cacheType.ordinal());

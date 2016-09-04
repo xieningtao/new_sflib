@@ -73,7 +73,6 @@ public abstract class ZoomBaseGridFragment extends BaseFragment {
             }
         };
     }
-
     class SimpleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         public SimpleAdapter() {
             init();

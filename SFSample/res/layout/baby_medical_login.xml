@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+
+    <ImageView
+        android:id="@+id/logo_iv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/app_icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        />
+    <com.sflib.CustomView.baseview.AutoCompleteTextClearDroidView
+        android:id="@+id/login_atv"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/logo_iv"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:background="@drawable/baby_medical_input_et"
+        android:textCursorDrawable="@null"
+        android:textColor="@color/text_black"
+        android:singleLine="true"
+        />
+
+    <com.sflib.CustomView.baseview.EditTextClearDroidView
+        android:id="@+id/pwd_cdv"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:layout_alignLeft="@id/login_atv"
+        android:layout_alignRight="@id/login_atv"
+        android:layout_below="@id/login_atv"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:background="@drawable/baby_medical_input_et"
+        android:textCursorDrawable="@null"
+        android:textColor="@color/text_black"
+        android:singleLine="true"
+        android:inputType="textPassword"
+        />
+    <Button
+        android:id="@+id/login_bt"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignLeft="@id/login_atv"
+        android:layout_alignRight="@id/login_atv"
+        android:layout_below="@id/pwd_cdv"
+        android:layout_marginTop="36dp"
+        android:text="@string/login_tip"
+        android:background="@drawable/baby_medical_login_bt"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:enabled="false"
+
+        />
+</RelativeLayout>

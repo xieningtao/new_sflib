@@ -11,9 +11,14 @@ import com.sf.utils.baseutil.Md5Utils;
  */
 public class FileCacheManager {
     private static FileCacheManager fileCacheManager = new FileCacheManager();
+    private String mBasePath="sf_http_cache";
 
     private FileCacheManager() {
 
+    }
+
+    public void setBasePath(String basePath) {
+        mBasePath = basePath;
     }
 
     public static FileCacheManager getInstance() {
@@ -48,7 +53,7 @@ public class FileCacheManager {
     }
 
     private boolean doSave(CacheIndexBean cacheIndexBean, String content) {
-        FileCache fileCache = new FileCache("/" + cacheIndexBean.getParamsMd5() + ".txt");
+        FileCache fileCache = new FileCache(mBasePath,cacheIndexBean.getParamsMd5());
         boolean save = fileCache.save(content);
         if (save) {
             CacheIndexManager.getInstance().addCacheIndex(cacheIndexBean);
@@ -60,7 +65,9 @@ public class FileCacheManager {
         if (cacheIndexBean == null) {
             return "";
         }
-        FileCache fileCache = new FileCache("/" + cacheIndexBean.getParamsMd5() + ".txt");
+        FileCache fileCache = new FileCache(mBasePath,cacheIndexBean.getParamsMd5());
         return fileCache.get();
     }
+
+
 }

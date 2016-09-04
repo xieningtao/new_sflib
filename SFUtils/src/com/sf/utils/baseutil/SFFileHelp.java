@@ -104,6 +104,13 @@ public class SFFileHelp {
         return true;
     }
 
+    public static boolean createDirOnSDCard(String dir){
+        if (isSDCardMounted()) {
+            String dirPath = Environment.getExternalStorageDirectory().getPath() + dir;
+            return createDir(dirPath);
+        }
+        return false;
+    }
     public static boolean createDir(String dirPath) {
         File dirFile = new File(dirPath);
         if (!dirFile.exists()) {
@@ -152,7 +159,7 @@ public class SFFileHelp {
             }
             String path = Environment.getExternalStorageDirectory().getAbsolutePath() + fileName;
             File file = new File(path);
-            if (file.isFile()) {
+            if (file.exists()&&file.isFile()) {
                 InputStream instream = null;
                 try {
                     instream = new FileInputStream(file);

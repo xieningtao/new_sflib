@@ -102,4 +102,7 @@ public class EditTextClearDroidView extends LinearLayout {
 		return mClearView.getVisibility() == View.VISIBLE;
 	}
 
+	public EditText getEditText() {
+		return mEditText;
+	}
 }

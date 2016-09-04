@@ -37,4 +37,5 @@ dependencies {
     compile project(':Android-PullToRefresh:PullRefreshLib')
     compile project(':SFUtils')
     compile project(':CustomView')
+    compile project (':SFDBLib')
 }

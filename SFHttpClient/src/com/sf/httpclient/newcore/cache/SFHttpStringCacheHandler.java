@@ -6,6 +6,7 @@ import com.sf.httpclient.newcore.HttpType;
 import com.sf.httpclient.newcore.SFHttpStringHandler;
 import com.sf.httpclient.newcore.cachecore.FileCacheManager;
 import com.sf.httpclient.newcore.cachecore.MemoryCacheManager;
+import com.sf.httpclient.newcore.cachecore.SqliteCacheManager;
 
 /**
  * Created by NetEase on 2016/9/2 0002.
@@ -30,12 +31,20 @@ abstract public class SFHttpStringCacheHandler extends SFHttpStringHandler {
             super.start();
         } else if (mSFRequest.getHttpType() == HttpType.LOCAL_THEN_NETWORK) {
             CacheIndexBean cacheIndexBean = mSFRequest.getCacheIndexBean();
-            String result = MemoryCacheManager.getInstance().get(cacheIndexBean);
-            if (TextUtils.isEmpty(result)) {
-                result = FileCacheManager.getInstance().get(cacheIndexBean);
-            }
-            if (!TextUtils.isEmpty(result)) {
-                onCacheHandlerResult(result);
+            if (CacheIndexManager.getInstance().isCached(cacheIndexBean)) {
+                //memory
+                String result = MemoryCacheManager.getInstance().get(cacheIndexBean);
+                //file
+                if (TextUtils.isEmpty(result)) {
+                    result = FileCacheManager.getInstance().get(cacheIndexBean);
+                }
+                //sqlite
+                if (TextUtils.isEmpty(result)) {
+                    result = SqliteCacheManager.getInstance().get(cacheIndexBean);
+                }
+                if (!TextUtils.isEmpty(result)) {
+                    onCacheHandlerResult(result);
+                }
             }
             super.start();
         }
@@ -44,11 +53,17 @@ abstract public class SFHttpStringCacheHandler extends SFHttpStringHandler {
     @Override
     protected void onHandlerResult(final String result) {
         if (mSFRequest.getCacheType() == CacheType.FILE) {
-            FileCacheManager.getInstance().save(mSFRequest.getCacheIndexBean(), result);
+            CacheIndexBean cacheIndexBean = mSFRequest.getCacheIndexBean();
+            cacheIndexBean.setCacheType(CacheType.FILE.ordinal());
+            FileCacheManager.getInstance().save(cacheIndexBean, result);
         } else if (mSFRequest.getCacheType() == CacheType.MEMORY) {
-            MemoryCacheManager.getInstance().save(mSFRequest.getCacheIndexBean(), result);
+            CacheIndexBean cacheIndexBean = mSFRequest.getCacheIndexBean();
+            cacheIndexBean.setCacheType(CacheType.MEMORY.ordinal());
+            MemoryCacheManager.getInstance().save(cacheIndexBean, result);
         } else if (mSFRequest.getCacheType() == CacheType.MEMORY_DB) {
-
+            CacheIndexBean cacheIndexBean = mSFRequest.getCacheIndexBean();
+            cacheIndexBean.setCacheType(CacheType.MEMORY_DB.ordinal());
+            SqliteCacheManager.getInstance().save(cacheIndexBean, result);
         }
         onCacheHandlerResult(result);
     }

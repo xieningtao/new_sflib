@@ -48,17 +48,12 @@ public class CacheIndexBean implements Serializable{
 
         CacheIndexBean that = (CacheIndexBean) o;
 
-        if (mCacheType != that.mCacheType) return false;
-        if (!mParamsMd5.equals(that.mParamsMd5)) return false;
-        return mPath.equals(that.mPath);
+        return mParamsMd5 != null ? mParamsMd5.equals(that.mParamsMd5) : that.mParamsMd5 == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = mParamsMd5.hashCode();
-        result = 31 * result + mPath.hashCode();
-        result = 31 * result + mCacheType;
-        return result;
+        return mParamsMd5 != null ? mParamsMd5.hashCode() : 0;
     }
 }

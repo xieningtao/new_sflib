@@ -60,35 +60,41 @@ public class AutoCompleteTextClearDroidView extends LinearLayout {
 		addView(mClearView, new LinearLayout.LayoutParams(
 				LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT));
 
-//		mAutoEditText.addTextChangedListener(new TextWatcher() {
-//
-//			@Override
-//			public void onTextChanged(CharSequence s, int doRefresh, int before,
-//					int count) {
-//				mTextWatcher.onTextChanged(s, doRefresh, before, count);
-//			}
-//
-//			@Override
-//			public void beforeTextChanged(CharSequence s, int doRefresh, int count,
-//					int after) {
-//				mTextWatcher.beforeTextChanged(s, doRefresh, count, after);
-//			}
-//
-//			@Override
-//			public void afterTextChanged(Editable s) {
-//				mTextWatcher.afterTextChanged(s);
-//				if (null != s) {
-//					String content = s.toString();
-//					if (null != content && !TextUtils.isEmpty(content.trim())) {
-//						showClearDroid();
-//						return;
-//					}
-//				}
-//				hideClearDroid();
-//				
-//				return;
-//			}
-//		});
+		mAutoEditText.addTextChangedListener(new TextWatcher() {
+
+			@Override
+			public void onTextChanged(CharSequence s, int doRefresh, int before,
+					int count) {
+				if(mTextWatcher!=null) {
+					mTextWatcher.onTextChanged(s, doRefresh, before, count);
+				}
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int doRefresh, int count,
+					int after) {
+				if(mTextWatcher!=null) {
+					mTextWatcher.beforeTextChanged(s, doRefresh, count, after);
+				}
+			}
+
+			@Override
+			public void afterTextChanged(Editable s) {
+				if(mTextWatcher!=null) {
+					mTextWatcher.afterTextChanged(s);
+				}
+				if (null != s) {
+					String content = s.toString();
+					if (null != content && !TextUtils.isEmpty(content.trim())) {
+						showClearDroid();
+						return;
+					}
+				}
+				hideClearDroid();
+
+				return;
+			}
+		});
 	}
 
 	public void addTextChangedListener(TextWatcher textWatch) {

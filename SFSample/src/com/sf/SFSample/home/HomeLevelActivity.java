@@ -6,6 +6,7 @@ import android.util.SparseArray;
 import android.view.View;
 import android.widget.VideoView;
 
+import com.sf.SFSample.babymedical.ActivityLogin;
 import com.sf.SFSample.chat.ActivitySFChat;
 import com.sf.SFSample.ui.ActivitySpecialEmoji;
 import com.sf.SFSample.ui.ActivityUpgrade;
@@ -24,6 +25,7 @@ import com.sf.SFSample.ui.UMengShareActivity;
 import com.sf.SFSample.ui.VideoShowTest;
 import com.sf.SFSample.ui.ViewPagerTest;
 import com.sf.SFSample.ui.XPinListViewActivity;
+import com.sf.httpclient.newcore.cache.CacheIndexManager;
 
 public class HomeLevelActivity extends BaseLevelActivity {
 
@@ -56,7 +58,7 @@ public class HomeLevelActivity extends BaseLevelActivity {
         activities.put(19, new Pair<String, Class>("ActivityChat", ActivitySFChat.class));
         activities.put(20, new Pair<String, Class>("ActivityBaiduFamily", ActivityBaiduFamily.class));
         activities.put(21, new Pair<String, Class>("PullCacheListActivity", PullCacheListActivity.class));
-
+        activities.put(22, new Pair<String, Class>("BabyMedicalApp", ActivityLogin.class));
         return activities;
     }
 
@@ -69,6 +71,7 @@ public class HomeLevelActivity extends BaseLevelActivity {
 
     @Override
     protected void onDestroy() {
+        CacheIndexManager.getInstance().saveAllCacheIndex();
         super.onDestroy();
     }
 }
