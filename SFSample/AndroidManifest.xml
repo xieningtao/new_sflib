@@ -175,6 +175,9 @@
             android:name=".ui.ActivityUpgrade"
             android:screenOrientation="portrait"/>
         <activity
+            android:name=".ui.ActivityNewCircle"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".ui.ActivitySpecialEmoji"
             android:screenOrientation="portrait"/>
         <activity

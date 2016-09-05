@@ -8,9 +8,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.basesmartframe.baseui.BaseActivity;
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.nostra13.universalimageloader.utils.L;
 import com.sf.SFSample.R;
 

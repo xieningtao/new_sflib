@@ -16,10 +16,12 @@ import com.basesmartframe.baseui.BaseFragment;
 import com.basesmartframe.pickphoto.ActivityFragmentContainer;
 import com.basesmartframe.pickphoto.ImageBean;
 import com.basesmartframe.pickphoto.PickPhotosFragment;
+import com.basesmartframe.pickphoto.PickPhotosPreviewFragment;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.sf.utils.baseutil.SFFileCreationUtil;
 import com.sf.utils.baseutil.SFFileHelp;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,7 +61,7 @@ public class SFAddCircleEventFragment extends BaseFragment {
             if (data != null) {
                 List<ImageBean> imageBeenList = (List<ImageBean>) data.getSerializableExtra(PickPhotosFragment.CHOOSE_PIC);
                 if(imageBeenList!=null&&!imageBeenList.isEmpty()){
-                    imageBeenList.clear();
+                    mImageBeanList.clear();
                     mImageBeanList.addAll(imageBeenList);
                     mPicAdapter.notifyDataSetChanged();
                 }
@@ -89,13 +91,14 @@ public class SFAddCircleEventFragment extends BaseFragment {
                         public void onClick(View v) {
                             Bundle bundle = new Bundle();
                             bundle.putInt(PickPhotosFragment.MAX_IMAGE_NUM, 8);
+                            bundle.putSerializable(PickPhotosPreviewFragment.CHOOSE_DATA_LIST, (Serializable) mImageBeanList);
                             Intent intent = new Intent(getActivity(), ActivityFragmentContainer.class);
                             intent.putExtra(ActivityFragmentContainer.BUNDLE_CONTAINER, bundle);
                             intent.putExtra(ActivityFragmentContainer.FRAGMENT_CLASS_NAME, PickPhotosFragment.class.getName());
                             SFAddCircleEventFragment.this.startActivityForResult(intent, CUSTOM_ALBUM_COMMAND_RESULT);
                         }
                     });
-                    holder.mPicIv.setImageResource(R.drawable.ic_launcher);
+                    holder.mPicIv.setImageResource(R.drawable.add_photo);
                 }else {
                     ImageBean imageBean = mImageBeanList.get(position - 1);
                     String localPath = SFFileHelp.pathToFilePath(imageBean.getPath());

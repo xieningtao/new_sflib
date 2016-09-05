@@ -63,4 +63,5 @@ dependencies {
     compile project(':AndroidTV')
     compile project(':Emoji')
     compile project(':SFChat')
+    compile project(':SFCircle')
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              >
+    <include
+        android:id="@+id/circle_title"
+        layout="@layout/three_items_title"/>
+
+    <fragment
+        android:id="@+id/circle_fg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/circle_title"
+        class="com.sf.circlelib.SFCachedCircleFragment"
+        />
+</RelativeLayout>

@@ -175,7 +175,7 @@ public class PickPhotosFragment extends BaseFragment implements LoaderManager.Lo
                 Intent intent=new Intent();
                 intent.putExtra(CHOOSE_PIC,mChoosedData);
                 getActivity().setResult(Activity.RESULT_OK,intent);
-
+                getActivity().finish();
             }
         });
         view.findViewById(R.id.pick_back).setOnClickListener(new View.OnClickListener() {
