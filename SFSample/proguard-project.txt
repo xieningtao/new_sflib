@@ -69,6 +69,9 @@
  -keep public class com.umeng.socialize.* {*;}
 
 
+-keep class com.sflib.emoji.core.**{
+*;
+}
  -keep class com.facebook.**
  -keep class com.facebook.** { *; }
  -keep class com.umeng.scrshot.**

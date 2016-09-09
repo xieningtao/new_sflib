@@ -9,13 +9,13 @@ import java.util.List;
  */
 public class ConfiguredEmojiGroup {
 
-    private SparseArray<List<NewEmojiBean>> mEmojiBeans = new SparseArray<List<NewEmojiBean>>();
+    private SparseArray<List<EmojiBean>> mEmojiBeans = new SparseArray<List<EmojiBean>>();
 
     private int mColumNum;
     private int mRow;
     private EmojiGroup mEmojiGroup;
 
-    public SparseArray<List<NewEmojiBean>> getmEmojiBeans() {
+    public SparseArray<List<EmojiBean>> getmEmojiBeans() {
         return mEmojiBeans;
     }
 
@@ -35,7 +35,7 @@ public class ConfiguredEmojiGroup {
     }
     public void doConfigure() {
         if (mEmojiGroup != null && mEmojiGroup.getEmojiGroup() != null) {
-            List<NewEmojiBean> beans = mEmojiGroup.getEmojiGroup();
+            List<EmojiBean> beans = mEmojiGroup.getEmojiGroup();
             int reminderSize = beans.size();
             int startIndex = 0;
             int endIndex = 0;

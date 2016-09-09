@@ -10,7 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.GridView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.basesmartframe.baseui.BaseFragment;
@@ -21,13 +24,15 @@ import com.sflib.emoji.R;
 /**
  * Created by NetEase on 2016/7/11 0011.
  */
-abstract public class BaseSFEmojiPagerFragment extends BaseFragment implements ViewPager.OnPageChangeListener{
+abstract public class BaseSFEmojiPagerFragment extends BaseFragment implements ViewPager.OnPageChangeListener {
     private ViewPager mViewPage;
     private EmojiPagerAdapter mAdapter;
     private PageIndicator mPageIndicator;
+    private ViewGroup mContainer;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_pager_emoji,null);
+        return inflater.inflate(R.layout.fragment_pager_emoji, null);
     }
 
     @Override
@@ -36,26 +41,52 @@ abstract public class BaseSFEmojiPagerFragment extends BaseFragment implements V
         init(view);
     }
 
-    private void init(View view){
-        mPageIndicator= (PageIndicator) view.findViewById(R.id.emoji_ci);
-        mViewPage= (ViewPager) view.findViewById(R.id.emoji_pager);
+    private void init(View view) {
+        mContainer = (FrameLayout) view.findViewById(R.id.emoji_page_cotainer);
+        mPageIndicator = (PageIndicator) view.findViewById(R.id.emoji_ci);
+        mViewPage = (ViewPager) view.findViewById(R.id.emoji_pager);
         mViewPage.setOffscreenPageLimit(getFragmentCount());
-        mAdapter=new EmojiPagerAdapter();
+        mAdapter = new EmojiPagerAdapter();
         mViewPage.setAdapter(mAdapter);
         mViewPage.setOnPageChangeListener(this);
         mPageIndicator.setViewPager(mViewPage);
     }
 
-    public ViewPager getViewPage(){
+    protected void showLoaderView(boolean show) {
+        if (show) {
+            mContainer.setVisibility(View.VISIBLE);
+            final View emojiPb = mContainer.findViewById(R.id.download_emoji_pb);
+            final View downloadEmojiBt = mContainer.findViewById(R.id.download_emoji_bt);
+            downloadEmojiBt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    emojiPb.setVisibility(View.VISIBLE);
+                    downloadEmojiBt.setVisibility(View.GONE);
+                    onDownLoadEmojiClick(mContainer);
+                }
+            });
+        } else {
+            mContainer.setVisibility(View.GONE);
+        }
+    }
+
+    protected void notifyDatasetChange() {
+        mAdapter.notifyDataSetChanged();
+    }
+
+    public ViewPager getViewPage() {
         return mViewPage;
     }
 
+    protected void onDownLoadEmojiClick(ViewGroup progressBar) {
+
+    }
 
     protected abstract int getFragmentCount();
 
     protected abstract int getEmojiCount(int groupPosition);
 
-    protected  Object instantiateEmojiItem(ViewGroup container, int position){
+    protected Object instantiateEmojiItem(ViewGroup container, int position) {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.emoji_view, null);
         GridView gridView = (GridView) view.findViewById(R.id.emoji_gv);
         gridView.setAdapter(new EmojiAdapter(position));
@@ -63,14 +94,15 @@ abstract public class BaseSFEmojiPagerFragment extends BaseFragment implements V
         return view;
     }
 
-    protected abstract View getEmojiItemView(int groupPosition,int subPosition,View convertView,ViewGroup parent);
+    protected abstract View getEmojiItemView(int groupPosition, int subPosition, View convertView, ViewGroup parent);
 
     class EmojiAdapter extends BaseAdapter {
         private int mGroupPosition;
 
-        public EmojiAdapter(int groupPosition){
-            this.mGroupPosition=groupPosition;
+        public EmojiAdapter(int groupPosition) {
+            this.mGroupPosition = groupPosition;
         }
+
         @Override
         public int getCount() {
             return getEmojiCount(mGroupPosition);
@@ -88,15 +120,15 @@ abstract public class BaseSFEmojiPagerFragment extends BaseFragment implements V
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-           return getEmojiItemView(mGroupPosition,position,convertView,parent);
+            return getEmojiItemView(mGroupPosition, position, convertView, parent);
         }
     }
 
-    class EmojiPagerAdapter extends PagerAdapter{
+    class EmojiPagerAdapter extends PagerAdapter {
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-            return instantiateEmojiItem(container,position);
+            return instantiateEmojiItem(container, position);
         }
 
         @Override
@@ -111,7 +143,7 @@ abstract public class BaseSFEmojiPagerFragment extends BaseFragment implements V
 
         @Override
         public boolean isViewFromObject(View view, Object object) {
-            return view==object;
+            return view == object;
         }
     }
 

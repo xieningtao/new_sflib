@@ -11,7 +11,9 @@ import org.apache.http.HttpRequestInterceptor;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpResponseInterceptor;
 import org.apache.http.HttpVersion;
+import org.apache.http.auth.AuthSchemeRegistry;
 import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.conn.params.ConnManagerParams;
 import org.apache.http.conn.params.ConnPerRouteBean;
 import org.apache.http.conn.scheme.PlainSocketFactory;
@@ -27,6 +29,21 @@ import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.SyncBasicHttpContext;
+
+import java.io.IOException;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.security.KeyManagementException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableKeyException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 /**
  * Created by NetEase on 2016/8/12 0012.
@@ -52,39 +69,31 @@ abstract public class SFHttpHandler<T> extends SFTaskHandler<T> implements Entit
 
         HttpProtocolParams.setVersion(httpParams, HttpVersion.HTTP_1_1);
 
+        SSLSocketFactory sf = null;
+        try {
+            KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
+            trustStore.load(null, null);
+            sf = new CustomeSSLSocketFactory(trustStore);
+            sf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
+        } catch (Exception e) {
+            sf = SSLSocketFactory.getSocketFactory();
+        }
         SchemeRegistry schemeRegistry = new SchemeRegistry();
         schemeRegistry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
-        schemeRegistry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), 443));
+        schemeRegistry.register(new Scheme("https", sf, 443));
         ThreadSafeClientConnManager cm = new ThreadSafeClientConnManager(httpParams, schemeRegistry);
 
         httpContext = new SyncBasicHttpContext(new BasicHttpContext());
         httpClient = new DefaultHttpClient(cm, httpParams);
         httpClient.addRequestInterceptor(new HttpRequestInterceptor() {
             public void process(HttpRequest request, HttpContext context) {
-                if (!request.containsHeader(SFHttpConfig.HEADER_ACCEPT_ENCODING)) {
-                    request.addHeader(SFHttpConfig.HEADER_ACCEPT_ENCODING, SFHttpConfig.ENCODING_GZIP);
-                }
-//                for (String header : clientHeaderMap.keySet()) {
-//                    request.addHeader(header, clientHeaderMap.get(header));
-//                }
+
             }
         });
 
         httpClient.addResponseInterceptor(new HttpResponseInterceptor() {
             public void process(HttpResponse response, HttpContext context) {
-                final HttpEntity entity = response.getEntity();
-                if (entity == null) {
-                    return;
-                }
-                final Header encoding = entity.getContentEncoding();
-                if (encoding != null) {
-//                    for (HeaderElement element : encoding.getElements()) {
-//                        if (element.getName().equalsIgnoreCase(SFHttpConfig.ENCODING_GZIP)) {
-//                            response.setEntity(new InflatingEntity(response.getEntity()));
-//                            break;
-//                        }
-//                    }
-                }
+
             }
         });
 
@@ -92,6 +101,43 @@ abstract public class SFHttpHandler<T> extends SFTaskHandler<T> implements Entit
         clientManager = createHttpClientManager(httpClient, httpContext);
         clientManager.setEntityCallBack(this);
         onClientManagerCreated(clientManager);
+    }
+
+
+    public static class CustomeSSLSocketFactory extends SSLSocketFactory {
+        SSLContext sslContext = SSLContext.getInstance("TLS");
+
+        public CustomeSSLSocketFactory(KeyStore truststore) throws NoSuchAlgorithmException, KeyManagementException, KeyStoreException,
+                UnrecoverableKeyException {
+            super(truststore);
+
+            TrustManager tm = new X509TrustManager() {
+                public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+                }
+
+                public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+
+                }
+
+                public X509Certificate[] getAcceptedIssuers() {
+                    return null;
+                }
+            };
+
+            sslContext.init(null, new TrustManager[]{
+                    tm
+            }, null);
+        }
+
+        @Override
+        public Socket createSocket(Socket socket, String host, int port, boolean autoClose) throws IOException, UnknownHostException {
+            return sslContext.getSocketFactory().createSocket(socket, host, port, autoClose);
+        }
+
+        @Override
+        public Socket createSocket() throws IOException {
+            return sslContext.getSocketFactory().createSocket();
+        }
     }
 
     protected void onClientManagerCreated(BaseHttpClientManager clientManager) {

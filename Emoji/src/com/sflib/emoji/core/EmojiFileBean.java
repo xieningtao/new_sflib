@@ -31,4 +31,13 @@ public class EmojiFileBean {
     public void setFileType(String fileType) {
         this.fileType = fileType;
     }
+
+    @Override
+    public String toString() {
+        return "EmojiFileBean{" +
+                "fileName='" + fileName + '\'' +
+                ", fileId='" + fileId + '\'' +
+                ", fileType='" + fileType + '\'' +
+                '}';
+    }
 }

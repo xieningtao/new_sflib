@@ -2,22 +2,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                >
 
-    <fragment
-        android:id="@+id/chat_speak"
-        class="com.sf.SFSample.chat.SFChatFragment"
+
+    <FrameLayout
+        android:id="@+id/chat_speak_fl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         />
 
-    <fragment
-        android:id="@+id/chat_fg"
-        class="com.sf.SFSample.ui.MessagePullListFragment"
+    <FrameLayout
+        android:id="@+id/chat_fl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/chat_speak"
+        android:layout_above="@+id/chat_speak_fl"
         />
 
     <FrameLayout

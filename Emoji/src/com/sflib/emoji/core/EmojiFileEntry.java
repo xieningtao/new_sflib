@@ -15,4 +15,11 @@ public class EmojiFileEntry {
     public void setEmojiFileBeen(List<EmojiFileBean> emojiFileBeen) {
         this.emojiFileBeen = emojiFileBeen;
     }
+
+    @Override
+    public String toString() {
+        return "EmojiFileEntry{" +
+                "emojiFileBeen=" + emojiFileBeen +
+                '}';
+    }
 }

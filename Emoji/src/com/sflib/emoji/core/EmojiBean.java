@@ -1,70 +1,56 @@
 package com.sflib.emoji.core;
 
 /**
- * Created by NetEase on 2016/7/11 0011.
+ * Created by NetEase on 2016/7/12 0012.
  */
 public class EmojiBean {
-    public final String mCode;
+    private String code;
 
-    public final long mId;
+    private long id;
 
-    public final String mKey;
+    private String groupId;
 
-    public final String mValue;
+    private String fullName;
 
-    public final String mFullPath;
+    private String text;
 
-    public final String mText;
-
-   private EmojiBean(String code, long id, String key, String value, String fullPath, String text) {
-        this.mCode = code;
-        this.mId = id;
-        this.mKey = key;
-        this.mValue = value;
-        this.mFullPath = fullPath;
-        this.mText = text;
+    public String getCode() {
+        return code;
     }
 
-    public static class EmojiBeanBuilder {
-        private String code;
-        private long id;
-        private String key;
-        private String value;
-        private String fullPath;
-        private String text;
+    public void setCode(String code) {
+        this.code = code;
+    }
 
-        public EmojiBeanBuilder setCode(String code) {
-            this.code = code;
-            return this;
-        }
+    public long getId() {
+        return id;
+    }
 
-        public EmojiBeanBuilder setId(long id) {
-            this.id = id;
-            return this;
-        }
+    public void setId(long id) {
+        this.id = id;
+    }
 
-        public EmojiBeanBuilder setKey(String key) {
-            this.key = key;
-            return this;
-        }
+    public String getGroupId() {
+        return groupId;
+    }
 
-        public EmojiBeanBuilder setValue(String value) {
-            this.value = value;
-            return this;
-        }
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
 
-        public EmojiBeanBuilder setFullPath(String fullPath) {
-            this.fullPath = fullPath;
-            return this;
-        }
+    public String getFullName() {
+        return fullName;
+    }
 
-        public EmojiBeanBuilder setText(String text) {
-            this.text = text;
-            return this;
-        }
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
 
-        public EmojiBean createEmojiBean() {
-            return new EmojiBean(code, id, key, value, fullPath, text);
-        }
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 }

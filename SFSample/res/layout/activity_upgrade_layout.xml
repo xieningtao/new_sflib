@@ -10,5 +10,11 @@
         android:layout_height="48dp"
         android:text="升级"
         />
+    <Button
+        android:id="@+id/download_file_bt"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="下载文件"
+        />
 
 </LinearLayout>

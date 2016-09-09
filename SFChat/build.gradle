@@ -16,6 +16,5 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(":BaseSmartFrame")
     compile project(":Emoji")
-
     compile project(':BaiduLib')
 }

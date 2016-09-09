@@ -104,13 +104,14 @@ public class SFFileHelp {
         return true;
     }
 
-    public static boolean createDirOnSDCard(String dir){
+    public static boolean createDirOnSDCard(String dir) {
         if (isSDCardMounted()) {
-            String dirPath = Environment.getExternalStorageDirectory().getPath() + dir;
+            String dirPath = Environment.getExternalStorageDirectory().getPath()+File.separator + dir;
             return createDir(dirPath);
         }
         return false;
     }
+
     public static boolean createDir(String dirPath) {
         File dirFile = new File(dirPath);
         if (!dirFile.exists()) {
@@ -131,7 +132,7 @@ public class SFFileHelp {
     public static File createFileOnSD(String dir, String name) {
         File file = null;
         if (isSDCardMounted()) {
-            String dirPath = Environment.getExternalStorageDirectory().getPath() + dir;
+            String dirPath = Environment.getExternalStorageDirectory().getPath() + File.separator + dir;
             boolean create = createDir(dirPath);
             if (create) {
                 file = new File(dirPath + "/" + name);
@@ -159,7 +160,7 @@ public class SFFileHelp {
             }
             String path = Environment.getExternalStorageDirectory().getAbsolutePath() + fileName;
             File file = new File(path);
-            if (file.exists()&&file.isFile()) {
+            if (file.exists() && file.isFile()) {
                 InputStream instream = null;
                 try {
                     instream = new FileInputStream(file);
@@ -205,7 +206,7 @@ public class SFFileHelp {
                         BufferedReader buffreader = new BufferedReader(inputreader);
                         String line;
                         while ((line = buffreader.readLine()) != null) {
-                            content += line ;
+                            content += line;
                         }
                     }
                 } catch (Exception e) {

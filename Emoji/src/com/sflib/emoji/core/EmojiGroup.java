@@ -7,7 +7,7 @@ import java.util.List;
  */
 public class EmojiGroup {
 
-    private List<NewEmojiBean> emojiGroup;
+    private List<EmojiBean> emojiGroup;
 
     private String goupPath;
 
@@ -19,11 +19,11 @@ public class EmojiGroup {
         this.goupPath = goupPath;
     }
 
-    public List<NewEmojiBean> getEmojiGroup() {
+    public List<EmojiBean> getEmojiGroup() {
         return emojiGroup;
     }
 
-    public void setEmojiGroup(List<NewEmojiBean> emojiGroup) {
+    public void setEmojiGroup(List<EmojiBean> emojiGroup) {
         this.emojiGroup = emojiGroup;
     }
 }

@@ -50,15 +50,19 @@ abstract public class BaseSFEmojiContainerFragment extends BaseFragment implemen
             @Override
             public void onHeadItemClick(int position) {
                 Fragment fragment = mFragmentMap.get(position);
-                if(fragment instanceof BaseSFEmojiPagerFragment){
-                    BaseSFEmojiPagerFragment emojiPagerFragment= (BaseSFEmojiPagerFragment) fragment;
-                    ViewPager viewPager=emojiPagerFragment.getViewPage();
-                    if(viewPager!=null){
+                if (fragment instanceof BaseSFEmojiPagerFragment) {
+                    BaseSFEmojiPagerFragment emojiPagerFragment = (BaseSFEmojiPagerFragment) fragment;
+                    ViewPager viewPager = emojiPagerFragment.getViewPage();
+                    if (viewPager != null) {
                         viewPager.setCurrentItem(0);
                     }
                 }
             }
         });
+    }
+
+    protected void notifyDataSetChange() {
+        mAdapter.notifyDataSetChanged();
     }
 
     protected abstract Fragment getFragment(int i);

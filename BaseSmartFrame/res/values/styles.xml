@@ -42,6 +42,11 @@
         <item name="android:minHeight">29dip</item>
         <item name="android:maxHeight">60dip</item>
     </style>
+    <style name="horizontal_pb" parent="@android:style/Widget.ProgressBar.Horizontal">
+
+        <item name="android:minWidth">29dip</item>
+        <item name="android:minHeight">29dip</item>
+    </style>
 
     <style name="MessageDiloag">
         <item name="android:windowEnterAnimation">@anim/message_dialog_fade_in</item>
