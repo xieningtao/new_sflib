@@ -1,10 +1,12 @@
 package com.sf.circlelib;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,11 +20,18 @@ import com.basesmartframe.pickphoto.ImageBean;
 import com.basesmartframe.pickphoto.PickPhotosFragment;
 import com.basesmartframe.pickphoto.PickPhotosPreviewFragment;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.sf.circlelib.circledb.DBContent;
+import com.sf.circlelib.circledb.DBImage;
+import com.sf.dblib.DbUtils;
+import com.sf.dblib.exception.DbException;
+import com.sf.loglib.L;
 import com.sf.utils.baseutil.SFFileCreationUtil;
 import com.sf.utils.baseutil.SFFileHelp;
+import com.sf.utils.baseutil.SFToast;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -35,6 +44,7 @@ public class SFAddCircleEventFragment extends BaseFragment {
     private final int CUSTOM_ALBUM_COMMAND_RESULT = 1;
     private List<ImageBean> mImageBeanList = new ArrayList<>();
     private PicAdapter mPicAdapter;
+    private DbUtils mDbUtils;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.sf_circle_add_event, null);
@@ -47,8 +57,45 @@ public class SFAddCircleEventFragment extends BaseFragment {
     }
 
     private void init(View view) {
+        mDbUtils=DbUtils.create(getActivity());
         mContentEt = (EditText) view.findViewById(R.id.content_et);
         mPhotoRlv = (RecyclerView) view.findViewById(R.id.pic_rlv);
+        view.findViewById(R.id.back_iv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
+            }
+        });
+        view.findViewById(R.id.finish_iv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(TextUtils.isEmpty(mContentEt.getText())){
+                    SFToast.showToast("请填写发表内容");
+                    return;
+                }
+                String contentStr=mContentEt.getText().toString();
+
+                try {
+                    DBContent content=new DBContent();
+                    content.setContent(contentStr);
+                    content.setDate(Calendar.getInstance().getTime());
+
+                    List<DBImage> imageList=new ArrayList<DBImage>();
+                    for(ImageBean imageBean:mImageBeanList){
+                        DBImage dbImage=new DBImage();
+                        dbImage.setUrl(imageBean.getPath());
+                        dbImage.setContent(content);
+                        imageList.add(dbImage);
+                    }
+                    mDbUtils.saveBindingIdAll(imageList);
+                    getActivity().setResult(Activity.RESULT_OK);
+                    getActivity().finish();
+                } catch (DbException e) {
+                    L.error(TAG,"onClick exception: "+e);
+                }
+
+            }
+        });
         mPhotoRlv.setLayoutManager(new GridLayoutManager(getActivity(), 4));
         mPicAdapter=new PicAdapter(getActivity());
         mPhotoRlv.setAdapter(mPicAdapter);

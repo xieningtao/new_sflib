@@ -34,7 +34,7 @@ abstract public class SFCircleFragment<T extends ISFContent, N extends ISFImage,
     @Override
     protected void bindMainView(BaseAdapterHelper help, int GroupPosition, T bean) {
         help.setImageBuilder(R.id.photo_iv, bean.getPhotoUrl());
-        help.setText(R.id.circle_title, bean.getTitle());
+        help.setText(R.id.circle_title, bean.getContent());
     }
 
     @Override
@@ -80,14 +80,5 @@ abstract public class SFCircleFragment<T extends ISFContent, N extends ISFImage,
         return R.id.comment_lv;
     }
 
-    @Override
-    protected N getNineGrideItem(int childPos, T bean) {
-        return null;
-    }
-
-    @Override
-    protected C getCommentListItem(int childPos, T bean) {
-        return null;
-    }
 
 }

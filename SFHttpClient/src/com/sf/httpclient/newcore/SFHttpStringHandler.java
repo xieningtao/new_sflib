@@ -31,12 +31,13 @@ public class SFHttpStringHandler extends SFHttpHandler<byte[]> {
             if(bytes!=null&&bytes.length>0) {
                 String result = new String(bytes, mCharset);
                 onHandlerResult(result);
+                return;
             }
         } catch (UnsupportedEncodingException e) {
             L.error(TAG,TAG+".taskDone exception: "+e);
             taskException(e);
-            onHandlerResult(null);
         }
+        onHandlerResult(null);
     }
 
     @Override

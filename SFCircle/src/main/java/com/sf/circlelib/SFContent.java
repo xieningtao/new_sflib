@@ -10,6 +10,31 @@ import java.util.List;
  * Created by xieningtao on 16/9/4.
  */
 public class SFContent implements ISFContent {
+
+    private String content;
+
+    private String title;
+
+    private List<ISFImage> images;
+
+    private List<ISFComment> comments;
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setImages(List<ISFImage> images) {
+        this.images = images;
+    }
+
+    public void setComments(List<ISFComment> comments) {
+        this.comments = comments;
+    }
+
     @Override
     public String getPhotoUrl() {
         return null;
@@ -17,21 +42,21 @@ public class SFContent implements ISFContent {
 
     @Override
     public String getTitle() {
-        return null;
+        return title;
     }
 
     @Override
     public String getContent() {
-        return null;
+        return content;
     }
 
     @Override
     public List<ISFImage> getImages() {
-        return null;
+        return images;
     }
 
     @Override
     public List<ISFComment> getComments() {
-        return null;
+        return comments;
     }
 }
