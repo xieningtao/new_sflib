@@ -1,6 +1,6 @@
 /**
  * @(#)ViewPhotosFragment.java, 2015年1月16日.
- * <p>
+ * <p/>
  * Copyright 2015 netease, Inc. All rights reserved.
  * Netease PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.text.TextUtils;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -92,14 +93,14 @@ public class PickPhotosPreviewFragment extends BaseFragment {
             mChoosedData = getPhotoListFromArg(bundle, CHOOSE_DATA_LIST);
             mCurPhotoIndex = bundle.getInt(INDEX, 0);
         }
-        mImageIndexText= (TextView) view.findViewById(R.id.image_index_tv);
+        mImageIndexText = (TextView) view.findViewById(R.id.image_index_tv);
         mSelectLayout = view.findViewById(R.id.select_layout);
         mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
         mSelectCheckBox = (CheckBox) view.findViewById(R.id.select_checkbox);
         mSelectCheckBox.setClickable(false);
         mBottomBar = view.findViewById(R.id.bottom_bar);
         mComplete = (Button) view.findViewById(R.id.pick_complete);
-
+        mViewPager.setPageTransformer(true,new DepthPageTransform());
         mComplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -245,7 +246,11 @@ public class PickPhotosPreviewFragment extends BaseFragment {
             View view = mInflater.inflate(R.layout.image_viewer_layout, null);
             final PhotoView imageView = (PhotoView) view.findViewById(R.id.photo_view);
             ImageBean bean = mImageGroupData.get(position);
-            ImageLoader.getInstance().displayImage(SFFileHelp.pathToFilePath(bean.getPath()), imageView);
+            if (!TextUtils.isEmpty(bean.getPath()) && bean.getPath().startsWith("http")) {
+                ImageLoader.getInstance().displayImage(bean.getPath(), imageView);
+            } else {
+                ImageLoader.getInstance().displayImage(SFFileHelp.pathToFilePath(bean.getPath()), imageView);
+            }
             ((ViewPager) container).addView(view, 0);
             return view;
         }

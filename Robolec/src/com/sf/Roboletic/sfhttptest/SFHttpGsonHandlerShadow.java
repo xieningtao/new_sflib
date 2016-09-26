@@ -2,6 +2,8 @@ package com.sf.Roboletic.sfhttptest;
 
 import com.basesmartframe.request.SFHttpGsonHandler;
 import com.sf.Roboletic.customshadow.LoginUtil;
+import com.sf.httpclient.newcore.SFHttpStringCallback;
+import com.sf.httpclient.newcore.SFRequest;
 
 import org.robolectric.annotation.Implementation;
 import org.robolectric.annotation.Implements;
@@ -12,8 +14,12 @@ import org.robolectric.annotation.Implements;
 @Implements(SFHttpGsonHandler.class)
 public class SFHttpGsonHandlerShadow {
 
+    public void __constructor(SFRequest request, SFHttpStringCallback httpStringCallback) {
+
+    }
+
     @Implementation
-    protected void start(){
+    public void start() {
         System.out.println("SFHttpGsonHandlerShadow start called");
     }
 }

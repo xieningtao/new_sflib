@@ -17,6 +17,8 @@ import com.sf.httpclient.newcore.SFRequest;
 import com.sf.loglib.L;
 import com.sflib.reflection.core.ThreadHelp;
 
+import junit.framework.Assert;
+
 import org.apache.http.HttpException;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -59,93 +61,30 @@ import java.lang.reflect.Method;
 /**
  * Created by NetEase on 2016/7/21 0021.
  */
-@RunWith(PowerMockRunner.class)
-@PowerMockRunnerDelegate(RobolectricGradleTestRunner.class)
-@PowerMockIgnore({"org.mockito.*", "org.robolectric.*", "android.*"})
+@RunWith(CustomSFHttpTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = 21)
-@PrepareForTest({LoginPresenter.class})
 public class PowerMockLoginTest {
     private final String TAG = getClass().getName();
 
 
     @Test
-//    @PrepareForTest({LoginPresenter.class, TextUtils.class})
-    public void testDoLogin() {
-        LoginPresenter presenter = new LoginPresenter(PowerMockito.mock(LoginTask.UpdateLoginView.class));
-        LoginPresenter mockPresent = PowerMockito.spy(presenter);
-        final LoginPresenter.TestResponse response = presenter.getTestResponse();
-
-        final LoginPresenter.TestResponse spyResponse = PowerMockito.spy(response);
-        SFHttpGsonHandler handler = new SFHttpGsonHandler(null, response);
-        SFHttpGsonHandler mockHandler = PowerMockito.mock(handler.getClass());
-        try {
-            PowerMockito.whenNew(SFHttpGsonHandler.class).withAnyArguments()
-                    .thenReturn(mockHandler);
-
-            PowerMockito.doAnswer(new Answer<Object>() {
-                @Override
-                public Object answer(InvocationOnMock invocation) throws Throwable {
-                    LoginTask.TestBean testBean = new LoginTask.TestBean();
-                    testBean.setmName("ning tao");
-
-                    spyResponse.onSuccess(null, testBean);
-
-                    PowerMockito.verifyPrivate(spyResponse, Mockito.times(1)).invoke("isOk");
-                    return null;
-                }
-            }).when(mockHandler).start();
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("exception: " + e);
-        }
-
-
-        mockPresent.login("1111", "123456");
-        Mockito.verify(mockHandler).start();
-    }
-//
-//
-//    @Test
-//    public void testRoboletricHttp() {
-//        FakeHttpLayer fakeHttpLayer = FakeHttp.getFakeHttpLayer();
-//        fakeHttpLayer.addPendingHttpResponse(200, "OK");
-//        System.out.println(
-//                ((HttpUriRequest) fakeHttpLayer.getSentHttpRequestInfo(0)).getURI().toString()
-//        );
-//    }
-
-    @Test
     public void testLoginActivity() {
-
-        LoginPresenter presenter = new LoginPresenter(PowerMockito.mock(LoginTask.UpdateLoginView.class));
-        LoginPresenter mockPresent = (LoginPresenter) PowerMockito.mock(presenter.getClass());
-//        try {
-//            PowerMockito.whenNew(LoginPresenter.class).withAnyArguments()
-//                    .thenReturn(mockPresent);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            System.out.println("exception: "+e);
-//        }
-
         LoginActivity loginActivity = Robolectric.setupActivity(LoginActivity.class);
         EditText userNameEt = (EditText) loginActivity.findViewById(R.id.username_et);
-        EditText passwordEt = (EditText) loginActivity.findViewById(R.id.password_et);
-        Button submit= (Button) loginActivity.findViewById(R.id.login);
+        EditText passWordEt = (EditText) loginActivity.findViewById(R.id.password_et);
 
-        loginActivity.setLoginImpl(mockPresent);
-        userNameEt.setText("123456");
-        passwordEt.setText("111111");
+        userNameEt.setText("xieningtao");
+        passWordEt.setText("123456");
 
-        PowerMockito.doAnswer(new Answer<Object>() {
-            @Override
-            public Object answer(InvocationOnMock invocation) throws Throwable {
-                System.out.println("it is invoked");
-                return null;
-            }
-        }).when(mockPresent).login("123456","111111");
+        Assert.assertEquals(userNameEt.getText().toString(), "xieningtao");
+        Assert.assertEquals(passWordEt.getText().toString(), "123456");
 
-        submit.performClick();
+        Button loginBt = (Button) loginActivity.findViewById(R.id.login);
+        loginBt.performClick();
+    }
 
-
+    public void testLoginPresenter(){
+        LoginPresenter loginPresenter=Mockito.spy(new LoginPresenter(null));
+        loginPresenter.login("xieningtao","123456");
     }
 }
