@@ -221,7 +221,7 @@ public class SFFragmentTabHost extends TabHost implements TabHost.OnTabChangeLis
             if (info.fragment != null && !info.fragment.isDetached()) {
                 FragmentTransaction ft = mFragmentManager.beginTransaction();
                 ft.detach(info.fragment);
-                ft.commit();
+                ft.commitAllowingStateLoss();
             }
         }
 
@@ -263,7 +263,7 @@ public class SFFragmentTabHost extends TabHost implements TabHost.OnTabChangeLis
         mAttached = true;
         ft = doTabChanged(currentTab, ft);
         if (ft != null) {
-            ft.commit();
+            ft.commitAllowingStateLoss();
             mFragmentManager.executePendingTransactions();
         }
     }
@@ -298,7 +298,7 @@ public class SFFragmentTabHost extends TabHost implements TabHost.OnTabChangeLis
         if (mAttached) {
             FragmentTransaction ft = doTabChanged(tabId, null);
             if (ft != null) {
-                ft.commit();
+                ft.commitAllowingStateLoss();
                 mFragmentManager.executePendingTransactions();
             }
         }

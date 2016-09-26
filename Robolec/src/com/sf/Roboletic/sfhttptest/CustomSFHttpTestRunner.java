@@ -6,12 +6,13 @@ import com.sf.Roboletic.customshadow.LoginUtil;
 
 import org.junit.runners.model.InitializationError;
 import org.robolectric.RobolectricGradleTestRunner;
+import org.robolectric.internal.bytecode.ClassInfo;
 import org.robolectric.internal.bytecode.InstrumentationConfiguration;
 
 /**
  * Created by NetEase on 2016/8/17 0017.
  */
-public class CustomSFHttpTestRunner extends SFRoboletricTestRunner {
+public class CustomSFHttpTestRunner extends RobolectricGradleTestRunner {
 
     public CustomSFHttpTestRunner(Class<?> klass) throws InitializationError {
         super(klass);
@@ -26,4 +27,5 @@ public class CustomSFHttpTestRunner extends SFRoboletricTestRunner {
         builder.addInstrumentedClass(SFHttpGsonHandler.class.getName());
         return builder.build();
     }
+    
 }

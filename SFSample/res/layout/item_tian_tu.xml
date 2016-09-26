@@ -4,11 +4,12 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <com.sflib.CustomView.photoview.PhotoView
-        android:id="@+id/photo_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
+    <ImageView
+        android:id="@+id/tian_tu_iv"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:maxHeight="250dp"
+        android:src="@drawable/ic_launcher"
+        android:scaleType="fitStart"
         />
-
 </LinearLayout>
