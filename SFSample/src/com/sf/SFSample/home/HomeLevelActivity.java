@@ -8,7 +8,9 @@ import android.widget.VideoView;
 
 import com.sf.SFSample.babymedical.ActivityLogin;
 import com.sf.SFSample.chat.ActivitySFChat;
+import com.sf.SFSample.tiantu.ActivityHome;
 import com.sf.SFSample.ui.ActivityNewCircle;
+import com.sf.SFSample.ui.ActivityPopView;
 import com.sf.SFSample.ui.ActivitySpecialEmoji;
 import com.sf.SFSample.ui.ActivityUpgrade;
 import com.sf.SFSample.ui.AdbShellActivity;
