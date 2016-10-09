@@ -11,6 +11,7 @@ import com.sf.SFSample.chat.ActivitySFChat;
 import com.sf.SFSample.nybao.NYHomeActivity;
 import com.sf.SFSample.tiantu.ActivityHome;
 import com.sf.SFSample.ui.ActivityNewCircle;
+import com.sf.SFSample.ui.ActivityPopView;
 import com.sf.SFSample.ui.ActivitySpecialEmoji;
 import com.sf.SFSample.ui.ActivityUpgrade;
 import com.sf.SFSample.ui.AdbShellActivity;
@@ -63,8 +64,9 @@ public class HomeLevelActivity extends BaseLevelActivity {
         activities.put(21, new Pair<String, Class>("PullCacheListActivity", PullCacheListActivity.class));
         activities.put(22, new Pair<String, Class>("BabyMedicalApp", ActivityLogin.class));
         activities.put(23, new Pair<String, Class>("ActivityNewCircle", ActivityNewCircle.class));
-        activities.put(24, new Pair<String, Class>("TianTuActivityHome", ActivityHome.class));
-        activities.put(25, new Pair<String, Class>("NYHomeActivity", NYHomeActivity.class));
+        activities.put(24, new Pair<String, Class>("ActivityPopView", ActivityPopView.class));
+        activities.put(25, new Pair<String, Class>("TianTuActivityHome", ActivityHome.class));
+        activities.put(26, new Pair<String, Class>("NYHomeActivity", NYHomeActivity.class));
         return activities;
     }
 
