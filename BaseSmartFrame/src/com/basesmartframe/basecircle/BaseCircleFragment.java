@@ -40,7 +40,7 @@ public abstract class BaseCircleFragment<T, N, C> extends
 			final T bean) {
 		bindMainView(help, groupPosition, bean);
 		int nine_gv_id = getNineGrideViewId();
-		NineGridView nine_gv = help.getView(nine_gv_id);
+		FixedGridView nine_gv = help.getView(nine_gv_id);
 		nine_gv.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -63,7 +63,7 @@ public abstract class BaseCircleFragment<T, N, C> extends
 			adapter.notifyDataSetChanged();
 		}
 		int comment_lv_id = getCommentListViewId();
-		CommentListView comment_lv = help.getView(comment_lv_id);
+		FixedListView comment_lv = help.getView(comment_lv_id);
 		comment_lv.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override

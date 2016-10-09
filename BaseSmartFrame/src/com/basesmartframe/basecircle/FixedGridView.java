@@ -5,9 +5,9 @@ import android.util.AttributeSet;
 import android.view.View.MeasureSpec;
 import android.widget.GridView;
 
-public class NineGridView extends GridView {
+public class FixedGridView extends GridView {
 
-	public NineGridView(Context context, AttributeSet attrs) {
+	public FixedGridView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		// TODO Auto-generated constructor stub
 	}

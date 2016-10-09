@@ -31,7 +31,7 @@ android {
             proguardFile './proguard-project.txt'
         }
 
-        new_debug{
+        new_debug {
             debuggable true
             signingConfig signingConfigs.release_debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
@@ -57,6 +57,7 @@ tasks.withType(JavaCompile) {
 }
 
 dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':BaseSmartFrame')
     compile project(':CustomView')
     compile project(':openGL')

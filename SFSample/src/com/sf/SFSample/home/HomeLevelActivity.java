@@ -8,6 +8,7 @@ import android.widget.VideoView;
 
 import com.sf.SFSample.babymedical.ActivityLogin;
 import com.sf.SFSample.chat.ActivitySFChat;
+import com.sf.SFSample.nybao.NYHomeActivity;
 import com.sf.SFSample.tiantu.ActivityHome;
 import com.sf.SFSample.ui.ActivityNewCircle;
 import com.sf.SFSample.ui.ActivitySpecialEmoji;
@@ -63,6 +64,7 @@ public class HomeLevelActivity extends BaseLevelActivity {
         activities.put(22, new Pair<String, Class>("BabyMedicalApp", ActivityLogin.class));
         activities.put(23, new Pair<String, Class>("ActivityNewCircle", ActivityNewCircle.class));
         activities.put(24, new Pair<String, Class>("TianTuActivityHome", ActivityHome.class));
+        activities.put(25, new Pair<String, Class>("NYHomeActivity", NYHomeActivity.class));
         return activities;
     }
 

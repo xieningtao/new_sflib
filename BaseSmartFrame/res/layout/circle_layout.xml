@@ -22,17 +22,17 @@
             android:layout_toRightOf="@id/photo" />
     </RelativeLayout>
 
-    <com.basesmartframe.basecircle.NineGridView
+    <com.basesmartframe.basecircle.FixedGridView
         android:id="@+id/nine_gv"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:numColumns="3" >
-    </com.basesmartframe.basecircle.NineGridView>
+    </com.basesmartframe.basecircle.FixedGridView>
 
-    <com.basesmartframe.basecircle.CommentListView
+    <com.basesmartframe.basecircle.FixedListView
         android:id="@+id/comment_lv"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
-    </com.basesmartframe.basecircle.CommentListView>
+    </com.basesmartframe.basecircle.FixedListView>
 
 </LinearLayout>

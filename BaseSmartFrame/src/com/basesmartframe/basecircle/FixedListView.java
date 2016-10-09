@@ -4,9 +4,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ListView;
 
-public class CommentListView extends ListView {
+public class FixedListView extends ListView {
 
-	public CommentListView(Context context, AttributeSet attrs) {
+	public FixedListView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 	}
 

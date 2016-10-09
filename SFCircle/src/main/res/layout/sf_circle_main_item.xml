@@ -29,7 +29,7 @@
         android:layout_marginRight="4dp"
         />
 
-    <com.basesmartframe.basecircle.NineGridView
+    <com.basesmartframe.basecircle.FixedGridView
         android:id="@+id/nine_gv"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
         android:layout_alignRight="@id/circle_title"
         android:numColumns="3" />
 
-    <com.basesmartframe.basecircle.CommentListView
+    <com.basesmartframe.basecircle.FixedListView
         android:id="@+id/comment_lv"
         android:layout_below="@id/nine_gv"
         android:layout_width="fill_parent"
