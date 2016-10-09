@@ -1,5 +1,7 @@
 package com.sf.SFSample.ui;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
@@ -7,27 +9,37 @@ import android.widget.FrameLayout;
 
 import com.basesmartframe.baseui.BaseActivity;
 import com.sf.utils.baseutil.SystemUIWHHelp;
-import com.basesmartframe.basevideo.VideoViewUI;
+import com.basesmartframe.basevideo.SFVideoGroupView;
 import com.sf.loglib.L;
 import com.sf.SFSample.R;
 
 /**
  * Created by xieningtao on 15-11-16.
  */
-public class VideoShowTest extends BaseActivity {
+public class VideoPlayActivity extends BaseActivity {
 
-    private VideoViewUI mVideoViewUI;
+    private SFVideoGroupView mVideoViewUI;
 
     private final String TAG = "CustomVideoView";
+    public final static String VIDEO_URL = "video_url";
+    private String mUrl;
+
+    public static void jump2VideoPlay(Context context, String url) {
+        Intent intent = new Intent(context, VideoPlayActivity.class);
+        intent.putExtra(VIDEO_URL, url);
+        context.startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_videoshow);
-        mVideoViewUI = (VideoViewUI) findViewById(R.id.videoui_view);
-
-//        mVideoViewUI.setScaleType(VideoViewUI.ScaleType.FitScale);
-//
+        mVideoViewUI = (SFVideoGroupView) findViewById(R.id.videoui_view);
+        Intent intent = getIntent();
+        if (intent != null) {
+            mUrl = intent.getStringExtra(VIDEO_URL);
+            mVideoViewUI.setUrl(mUrl);
+        }
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

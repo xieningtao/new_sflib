@@ -4,7 +4,9 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TabHost;
+import android.widget.TextView;
 
 import com.basesmartframe.baseui.BaseActivity;
 import com.basesmartframe.baseui.BaseSFTabActivity;
@@ -22,6 +24,7 @@ public class NYHomeActivity extends BaseSFTabActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getTabWidget().setDividerDrawable(null);
+        getTabWidget().setBackgroundResource(R.drawable.home_bottom_bg);
         setTabAdapter(new FragmentTabAdpaper());
     }
 
@@ -43,18 +46,34 @@ public class NYHomeActivity extends BaseSFTabActivity {
             switch (index) {
                 case 0:
                     View tabView0 = layoutInflater.inflate(R.layout.tab_item, null);
+                    ImageView tabIv0 = (ImageView) tabView0.findViewById(R.id.tab_iv);
+                    tabIv0.setImageResource(R.drawable.ny_news_selector);
+                    TextView tabTv0 = (TextView) tabView0.findViewById(R.id.tab_tv);
+                    tabTv0.setText(R.string.news);
                     TabHost.TabSpec tabSpec0 = tabHost.newTabSpec("index" + index).setIndicator(tabView0);
                     return tabSpec0;
                 case 1:
                     View tabView1 = layoutInflater.inflate(R.layout.tab_item, null);
+                    ImageView tabIv1 = (ImageView) tabView1.findViewById(R.id.tab_iv);
+                    tabIv1.setImageResource(R.drawable.ny_video_selector);
+                    TextView tabTv1 = (TextView) tabView1.findViewById(R.id.tab_tv);
+                    tabTv1.setText(R.string.video);
                     TabHost.TabSpec tabSpec1 = tabHost.newTabSpec("index" + index).setIndicator(tabView1);
                     return tabSpec1;
                 case 2:
                     View tabView2 = layoutInflater.inflate(R.layout.tab_item, null);
+                    ImageView tabIv2 = (ImageView) tabView2.findViewById(R.id.tab_iv);
+                    tabIv2.setImageResource(R.drawable.ny_topic_selector);
+                    TextView tabTv2 = (TextView) tabView2.findViewById(R.id.tab_tv);
+                    tabTv2.setText(R.string.topic);
                     TabHost.TabSpec tabSpec2 = tabHost.newTabSpec("index" + index).setIndicator(tabView2);
                     return tabSpec2;
                 case 3:
                     View tabView3 = layoutInflater.inflate(R.layout.tab_item, null);
+                    ImageView tabIv3 = (ImageView) tabView3.findViewById(R.id.tab_iv);
+                    tabIv3.setImageResource(R.drawable.ny_profile_selector);
+                    TextView tabTv3 = (TextView) tabView3.findViewById(R.id.tab_tv);
+                    tabTv3.setText(R.string.profile);
                     TabHost.TabSpec tabSpec3 = tabHost.newTabSpec("index" + index).setIndicator(tabView3);
                     return tabSpec3;
             }

@@ -126,7 +126,7 @@
             android:name=".ui.BasicOpenGLES20Activity"
             android:configChanges="orientation"/>
         <activity
-            android:name=".ui.VideoShowTest"
+            android:name=".ui.VideoPlayActivity"
             android:configChanges="orientation"
             android:theme="@android:style/Theme.NoTitleBar"/>
         <activity android:name=".ui.TransformActivity"/>

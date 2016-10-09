@@ -26,7 +26,7 @@ import com.sf.SFSample.ui.PullListActivity;
 import com.sf.SFSample.ui.ReflectionActivity;
 import com.sf.SFSample.ui.RoundDrawableActivity;
 import com.sf.SFSample.ui.UMengShareActivity;
-import com.sf.SFSample.ui.VideoShowTest;
+import com.sf.SFSample.ui.VideoPlayActivity;
 import com.sf.SFSample.ui.ViewPagerTest;
 import com.sf.SFSample.ui.XPinListViewActivity;
 import com.sf.httpclient.newcore.cache.CacheIndexManager;
@@ -46,7 +46,7 @@ public class HomeLevelActivity extends BaseLevelActivity {
         activities.put(3, new Pair<String, Class>("roundBitmap", RoundDrawableActivity.class));
         activities.put(4, new Pair<String, Class>("gesture", GestureTest.class));
         activities.put(5, new Pair<String, Class>("gesturePullList", GestureListViewActiviy.class));
-        activities.put(6, new Pair<String, Class>("videoview", VideoShowTest.class));
+        activities.put(6, new Pair<String, Class>("videoview", VideoPlayActivity.class));
         activities.put(7, new Pair<String, Class>("customView", CustomViewLevelActivity.class));
         activities.put(8, new Pair<String, Class>("reflection", ReflectionActivity.class));
         activities.put(9, new Pair<String, Class>("opengl", OpenGLLevelActivity.class));
@@ -54,6 +54,7 @@ public class HomeLevelActivity extends BaseLevelActivity {
         activities.put(11, new Pair<String, Class>("adb shell", AdbShellActivity.class));
         activities.put(12, new Pair<String, Class>("XPinListView", XPinListViewActivity.class));
         activities.put(13, new Pair<String, Class>("DecencoderActivity", DecencoderActivity.class));
+
         activities.put(14, new Pair<String, Class>("UMengShareActivity", UMengShareActivity.class));
         activities.put(15, new Pair<String, Class>("FragmentTabActivity", FragmentTabActivity.class));
         activities.put(16, new Pair<String, Class>("ActivitySelected", ActivitySelected.class));

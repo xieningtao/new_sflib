@@ -3,7 +3,10 @@ package com.basesmartframe.basevideo;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -21,15 +24,14 @@ import com.basesmartframe.basevideo.util.GuestureControl;
 import com.basesmartframe.basevideo.util.TimeUtil;
 import com.basesmartframe.basevideo.util.ToggelSystemUIHelp;
 import com.sf.loglib.L;
+import com.sf.utils.baseutil.SFToast;
 
 /**
  * Created by xieningtao on 15-4-28.
  */
-public class VideoShowInteractHelp implements VideoShowLifeCycle {
+public class SFVideoUIController implements SFVideoLifeCycle {
 
-    public final String TAG = "VideoShowInteractHelp";
-
-    private VideoViewReceiver.VideoViewState state;
+    public final String TAG = "SFVideoUIController";
 
     private Context mContext;
 
@@ -65,30 +67,83 @@ public class VideoShowInteractHelp implements VideoShowLifeCycle {
 
     private final VideoShowManager mVideoShowManager;
 
-    private final VideoZoomHelp mZoomHelp;
+//    private final VideoZoomHelp mZoomHelp;
 
-    private final VideoShareHelp mShare;
+//    private final VideoShareHelp mShare;
 
-//    private String mUrl = "http://w2.dwstatic.com/2/8/1519/116567-99-1430820950.mp4";
     private String mUrl = "http://w2.dwstatic.com/8/5/1546/186570-102-1447226463.mp4";
 
-    private final TitleBottomViewToggle mToggle;
+//    private final TitleBottomViewToggle mToggle;
 
-    private final ActionTimeGapHelp mActionTimeGapHelp=new ActionTimeGapHelp();
+//    private final ActionTimeGapHelp mActionTimeGapHelp = new ActionTimeGapHelp();
 
 
-    public VideoShowInteractHelp(View rootView) {
+    public SFVideoUIController(View rootView) {
         this.mRootView = rootView;
         mContext = rootView.getContext();
         mHolder = new VideoViewHolder(rootView);
         mVideoShowManager = new VideoShowManager(mHolder);
-        mZoomHelp = new VideoZoomHelp(mContext, mHolder);
-        mShare = new VideoShareHelp(mContext, rootView);
-
-        mToggle = new TitleBottomViewToggle(mContext, mHolder);
+//        mZoomHelp = new VideoZoomHelp(mContext, mHolder);
+//        mShare = new VideoShareHelp(mContext, rootView);
+//        mToggle = new TitleBottomViewToggle(mContext, mHolder);
 
         initView();
-        initListener();
+        initActionListener();
+        registerVideoViewListener();
+    }
+
+    private void registerVideoViewListener() {
+        mHolder.mVideoView.setOnErrorListener(new MediaPlayer.OnErrorListener() {
+            @Override
+            public boolean onError(MediaPlayer mp, int what, int extra) {
+                L.info(TAG, "onError,what: " + what + " extra: " + extra);
+                mHolder.showError(what);
+                mp.reset();
+                return false;
+            }
+        });
+
+        mHolder.mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                L.info(TAG, "onCompletion");
+            }
+        });
+
+        mHolder.mVideoView.setOnInfoListener(new MediaPlayer.OnInfoListener() {
+            @Override
+            public boolean onInfo(MediaPlayer mp, int what, int extra) {
+                L.info(TAG, "onInfo,what: " + what + " extra: " + extra);
+                if (what == MediaPlayer.MEDIA_INFO_BUFFERING_START) {
+                    mHolder.showLoading();
+                } else if (what == MediaPlayer.MEDIA_INFO_BUFFERING_END) {
+                    mHolder.showPlaying();
+                }
+                return false;
+            }
+        });
+
+        mHolder.mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                L.info(TAG, "onPrepared");
+                mp.start();
+                mHolder.showPlaying();
+            }
+        });
+        mHolder.mVideoView.setOnPreparingListener(new CustomVideoView.OnPreparingListener() {
+            @Override
+            public void onPreparing(MediaPlayer mediaPlayer) {
+                L.info(TAG, "onPreparing");
+                mHolder.showLoading();
+            }
+        });
+        mHolder.mVideoView.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
+            @Override
+            public void onBufferingUpdate(MediaPlayer mp, int percent) {
+                L.info(TAG, "onBufferingUpdate percent: " + percent);
+            }
+        });
     }
 
     private void initView() {
@@ -103,50 +158,55 @@ public class VideoShowInteractHelp implements VideoShowLifeCycle {
 
     }
 
-    private void initListener() {
+    public void setUrl(String url) {
+        this.mUrl = url;
+    }
+
+    private void initActionListener() {
+        //play
         mHolder.video_play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mVideoShowManager.getCurVideoState() == mVideoShowManager.mPauseState) {
-                    mVideoShowManager.resume();
-                } else {
-                    mVideoShowManager.play(mUrl);
-                }
+                doPlay();
             }
         });
 
+        //replaly
         mHolder.reload_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!NetWorkManagerUtil.isNetworkAvailable(mContext)) {
-                    Toast.makeText(mContext, mContext.getResources().getString(R.string.net_unavailable), Toast.LENGTH_SHORT).show();
-                } else {
-                    mVideoShowManager.play(mUrl);
-                }
+                doPlay();
             }
         });
+        //zoom in or out
         mHolder.zoom_iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isFull()) {
-                    mZoomHelp.changeMode(false);
-                } else {
-                    mZoomHelp.changeMode(true);
-                }
+//                if (isFull()) {
+//                    mZoomHelp.changeMode(false);
+//                } else {
+//                    mZoomHelp.changeMode(true);
+//                }
             }
         });
+
+        //pause or resum
         mHolder.pause_iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mVideoShowManager.getCurVideoState() == mVideoShowManager.mPlayingState) {
-                    mVideoShowManager.pause();
-                } else if (mVideoShowManager.getCurVideoState() == mVideoShowManager.mPauseState) {
-                    mVideoShowManager.resume();
+                if (mHolder.mVideoView.canPause()) {
+                    mHolder.mVideoView.pause();
+                    mHolder.showPause();
+                } else if (mHolder.mVideoView.isPaused()) {
+                    mHolder.mVideoView.start();
+                    mHolder.showPlaying();
+                } else {//TODO wrong state
+
                 }
             }
         });
 
-
+        //seek
         mHolder.seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -162,35 +222,29 @@ public class VideoShowInteractHelp implements VideoShowLifeCycle {
             public void onStopTrackingTouch(SeekBar seekBar) {
                 int progress = seekBar.getProgress();
                 int seekPosition = progress * mHolder.mVideoView.getDuration() / 100;
-                mVideoShowManager.seek(seekPosition);
-//                else {
-//                    int cur = mHolder.mVideoView.getCurrentPosition();
-//                    int duration = mHolder.mVideoView.getDuration();
-//                    if (cur < 0) {
-//                        seekBar.setProgress(0);
-//                    } else {
-//                        int percentage = (int) ((cur * 1.0 / duration) * 100);
-//                        if (percentage < 0) {
-//                            percentage = 0;
-//                        }
-//                        seekBar.setProgress(percentage);
-//                    }
-//                }
+                int curPosition = mHolder.mVideoView.getCurrentPosition();
+                if (curPosition > seekPosition && mHolder.mVideoView.canSeekBackward()) {
+                    mHolder.mVideoView.seekTo(seekPosition);
+                } else if (curPosition < seekPosition && mHolder.mVideoView.canSeekForward()) {
+                    mHolder.mVideoView.seekTo(seekPosition);
+                } else {//TODO wrong view
+
+                }
             }
         });
 
-        mToggle.setSeekEvent(new TitleBottomViewToggle.ScrollSeekEvent() {
-            @Override
-            public void onFinished(int seekPosition) {
-                mVideoShowManager.seek(seekPosition);
-            }
-
-            @Override
-            public void onStart() {
-
-            }
-        });
-
+//        mToggle.setSeekEvent(new TitleBottomViewToggle.ScrollSeekEvent() {
+//            @Override
+//            public void onFinished(int seekPosition) {
+//                mVideoShowManager.seek(seekPosition);
+//            }
+//
+//            @Override
+//            public void onStart() {
+//
+//            }
+//        });
+        //back press
         videoshow_pt_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -199,30 +253,40 @@ public class VideoShowInteractHelp implements VideoShowLifeCycle {
             }
         });
 
-        videoshow_pt_share.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mShare.showPortraitDialog();
-            }
-        });
-
-        videoshow_ls_share.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toggle(false);
-                mShare.showLandscapeDialog();
-            }
-        });
+        //share
+//        videoshow_pt_share.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mShare.showPortraitDialog();
+//            }
+//        });
+//
+//        videoshow_ls_share.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                toggle(false);
+//                mShare.showLandscapeDialog();
+//            }
+//        });
     }
 
-    private boolean canPause() {
-        return VideoViewReceiver.VideoViewState.PLAY == state || VideoViewReceiver.VideoViewState.BUFFERED == state;
+    private void doPlay() {
+        if (NetWorkManagerUtil.isNetworkAvailable()) {
+            play();
+        } else {
+            SFToast.showToast(R.string.net_unavailable);
+        }
     }
 
-
-    public void setState(VideoViewReceiver.VideoViewState state) {
-        this.state = state;
+    private void play() {
+        if (!TextUtils.isEmpty(mUrl)) {
+            Uri uri = Uri.parse(mUrl);
+            mHolder.mVideoView.setVideoURI(uri);
+        } else {
+            //TODO show invalid url
+        }
     }
+
 
     public CustomVideoView getmVideoView() {
         return mHolder.mVideoView;
@@ -302,13 +366,6 @@ public class VideoShowInteractHelp implements VideoShowLifeCycle {
         return mHolder.title_ll.getVisibility() == View.VISIBLE ? true : false;
     }
 
-    private boolean isPlayingState() {
-        return state == VideoViewReceiver.VideoViewState.PLAY
-                || state == VideoViewReceiver.VideoViewState.PAUSE
-                || state == VideoViewReceiver.VideoViewState.SEEK
-                || state == VideoViewReceiver.VideoViewState.BUFFERED;
-    }
-
 
     private void toggleOtherView(boolean show) {
 
@@ -329,7 +386,7 @@ public class VideoShowInteractHelp implements VideoShowLifeCycle {
         L.info(this, "onConfigurationChanged: " + fullMode);
         isFullMode = fullMode;
         recycleControl();
-        mZoomHelp.changeMode(fullMode);
+//        mZoomHelp.changeMode(fullMode);
     }
 
     public void setFullMode(boolean fullMode) {
@@ -354,29 +411,29 @@ public class VideoShowInteractHelp implements VideoShowLifeCycle {
     }
 
     public boolean onBackPress() {
-        if (isFullMode) {
-            if (mShare.isShareViewShow() && !mShare.isShareViewAnimating()) {
-                mShare.dimissShareView();
-                return true;
-            } else {
-                setFullMode(false);
-                return true;
-            }
-        }
+//        if (isFullMode) {
+//            if (mShare.isShareViewShow() && !mShare.isShareViewAnimating()) {
+//                mShare.dimissShareView();
+//                return true;
+//            } else {
+//                setFullMode(false);
+//                return true;
+//            }
+//        }
         return false;
     }
 
 
     private boolean doubleAction() {
-        if (mActionTimeGapHelp.isInActionGap(ActionTimeGapHelp.ACTION_1000)) {
-            L.info(TAG, "double action is in gap");
-            return true;
-        }
-        if (isFull()) {
-            setFullMode(false);
-        } else {
-            setFullMode(true);
-        }
+//        if (mActionTimeGapHelp.isInActionGap(ActionTimeGapHelp.ACTION_1000)) {
+//            L.info(TAG, "double action is in gap");
+//            return true;
+//        }
+//        if (isFull()) {
+//            setFullMode(false);
+//        } else {
+//            setFullMode(true);
+//        }
         return false;
     }
 

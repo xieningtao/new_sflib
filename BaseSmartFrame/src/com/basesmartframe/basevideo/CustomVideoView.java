@@ -23,7 +23,7 @@ import java.util.Map;
  * providers), takes care of computing its measurement from the video so that
  * it can be used in any layout manager, and provides various display options
  * such as scaling and tinting.<p>
- * <p>
+ * <p/>
  * <em>Note: VideoView does not retain its full state when going into the
  * background.</em>  In particular, it does not restore the current play state,
  * play position, selected tracks, or any subtitle tracks added via
@@ -73,6 +73,7 @@ public class CustomVideoView extends SurfaceView {
     private int mCurrentBufferPercentage;
     private MediaPlayer.OnErrorListener mOnErrorListener;
     private MediaPlayer.OnInfoListener mOnInfoListener;
+    private MediaPlayer.OnBufferingUpdateListener mOnBufferingUpdateListener;
     private int mSeekWhenPrepared;  // recording the seek position while preparing
     private boolean mCanPause;
     private boolean mCanSeekBack;
@@ -80,7 +81,7 @@ public class CustomVideoView extends SurfaceView {
 
     private Context mContext;
 
-    private VideoViewUI.ScaleType mScaleType = VideoViewUI.ScaleType.OriginScale;
+    private SFVideoGroupView.ScaleType mScaleType = SFVideoGroupView.ScaleType.OriginScale;
 
     public CustomVideoView(Context context) {
         super(context);
@@ -98,7 +99,7 @@ public class CustomVideoView extends SurfaceView {
     }
 
 
-    public void setScaleType(VideoViewUI.ScaleType scaleType) {
+    public void setScaleType(SFVideoGroupView.ScaleType scaleType) {
         this.mScaleType = scaleType;
     }
 
@@ -115,14 +116,14 @@ public class CustomVideoView extends SurfaceView {
         if (viewHeight == 0 || viewWidth == 0) return;
         float videoRatio = videoWidth * 1.0f / videoHeight;
         float viewRatio = viewWidth * 1.0f / viewHeight;
-        if (mScaleType == VideoViewUI.ScaleType.OriginScale) {
+        if (mScaleType == SFVideoGroupView.ScaleType.OriginScale) {
             if (videoRatio < viewRatio) {
                 viewWidth = (int) (viewHeight * videoRatio);
             } else if (videoRatio > viewRatio) {
                 float reverse = 1.0f / videoRatio;
                 viewHeight = (int) (viewWidth * reverse);
             }
-        } else if (mScaleType == VideoViewUI.ScaleType.FitScale) {
+        } else if (mScaleType == SFVideoGroupView.ScaleType.FitScale) {
             float widthRatio = viewWidth * 1.0f / videoWidth;
             float heightRatio = viewHeight * 1.0f / videoHeight;
             if (widthRatio >= heightRatio) {
@@ -141,8 +142,8 @@ public class CustomVideoView extends SurfaceView {
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
 
-        L.info(TAG,"measure width: "+getMeasuredWidth()+" measure height: "+getMeasuredHeight());
-        L.info(TAG,"layout width: "+getWidth()+" layout height: "+getHeight());
+        L.info(TAG, "measure width: " + getMeasuredWidth() + " measure height: " + getMeasuredHeight());
+        L.info(TAG, "layout width: " + getWidth() + " layout height: " + getHeight());
     }
 
     @Override
@@ -448,6 +449,9 @@ public class CustomVideoView extends SurfaceView {
             new MediaPlayer.OnBufferingUpdateListener() {
                 public void onBufferingUpdate(MediaPlayer mp, int percent) {
                     mCurrentBufferPercentage = percent;
+                    if (mOnBufferingUpdateListener != null) {
+                        mOnBufferingUpdateListener.onBufferingUpdate(mp, percent);
+                    }
                 }
             };
 
@@ -491,6 +495,10 @@ public class CustomVideoView extends SurfaceView {
      */
     public void setOnInfoListener(MediaPlayer.OnInfoListener l) {
         mOnInfoListener = l;
+    }
+
+    public void setOnBufferingUpdateListener(MediaPlayer.OnBufferingUpdateListener onBufferingUpdateListener) {
+        mOnBufferingUpdateListener = onBufferingUpdateListener;
     }
 
     public void setOnPreparingListener(OnPreparingListener l) {
@@ -560,6 +568,10 @@ public class CustomVideoView extends SurfaceView {
         mTargetState = STATE_PAUSED;
     }
 
+    public boolean isPaused() {
+        return mTargetState == STATE_PAUSED && mCurrentState == STATE_PAUSED;
+    }
+
     public void suspend() {
         release(false);
     }
@@ -611,7 +623,7 @@ public class CustomVideoView extends SurfaceView {
     }
 
     public boolean canPause() {
-        return mCanPause;
+        return isInPlaybackState() && mMediaPlayer.isPlaying();
     }
 
     public boolean canSeekBackward() {

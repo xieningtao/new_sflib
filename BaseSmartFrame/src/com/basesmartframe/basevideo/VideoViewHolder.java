@@ -57,4 +57,41 @@ public class VideoViewHolder {
         videoshow_cover = (ImageView) view.findViewById(R.id.videoshow_cover);
         fast_control_tv = (TextView) view.findViewById(R.id.fast_control_tv);
     }
+
+    public void showLoading() {
+        video_loading.setVisibility(View.VISIBLE);
+        video_play.setVisibility(View.GONE);
+        error_ll.setVisibility(View.GONE);
+        videoshow_cover.setVisibility(View.GONE);
+    }
+
+    public void showPlaying() {
+        video_loading.setVisibility(View.GONE);
+        video_play.setVisibility(View.GONE);
+        error_ll.setVisibility(View.GONE);
+        videoshow_cover.setVisibility(View.GONE);
+        pause_iv.setImageResource(R.drawable.videoshow_pause_normal);
+    }
+
+    public void showPause() {
+        video_play.setVisibility(View.VISIBLE);
+        video_loading.setVisibility(View.GONE);
+        pause_iv.setImageResource(R.drawable.videoshow_miniplay_normal);
+    }
+
+    public void showError(int errorType) {
+        video_loading.setVisibility(View.GONE);
+        video_play.setVisibility(View.GONE);
+        control_ll.setVisibility(View.GONE);
+        videoshow_cover.setVisibility(View.GONE);
+        error_ll.setVisibility(View.VISIBLE);
+    }
+
+    public void showSeek() {
+
+    }
+
+    public void showComplete(){
+
+    }
 }

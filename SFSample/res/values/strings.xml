@@ -11,4 +11,9 @@
     <string name="user_name_input_hint">请输入用户名</string>
     <string name="pwd_input_hint">请输入密码</string>
     <string name="login_tip">登陆</string>
+
+    <string name="news">新闻</string>
+    <string name="video">视频</string>
+    <string name="topic">话题</string>
+    <string name="profile">我的</string>
 </resources>

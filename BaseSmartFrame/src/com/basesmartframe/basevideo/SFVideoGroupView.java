@@ -11,41 +11,40 @@ import com.basesmartframe.R;
 /**
  * Created by xieningtao on 15-4-27.
  */
-public class VideoViewUI extends FrameLayout implements VideoShowLifeCycle {
+public class SFVideoGroupView extends FrameLayout implements SFVideoLifeCycle {
 
     public static enum ScaleType {
         OriginScale, FitScale
     }
 
     private final String TAG = getClass().getName();
-
     private View mRootView;
-    private VideoShowInteractHelp mVideoViewUIHelp;
-
+    private SFVideoUIController mVideoViewUIHelp;
     private CustomVideoView mVideoView;
 
-
-    public VideoViewUI(Context context, AttributeSet attrs) {
+    public SFVideoGroupView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mRootView = LayoutInflater.from(getContext()).inflate(R.layout.videoviewui_layout, this);
         initView();
     }
 
-    public VideoViewUI(Context context) {
+    public SFVideoGroupView(Context context) {
         this(context, null);
     }
 
 
+    public void setUrl(String url) {
+        mVideoViewUIHelp.setUrl(url);
+    }
+
     private void initView() {
         mVideoView = (CustomVideoView) mRootView.findViewById(R.id.video_view);
-        mVideoViewUIHelp = new VideoShowInteractHelp(mRootView);
+        mVideoViewUIHelp = new SFVideoUIController(mRootView);
     }
 
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-//        L.info("VideoViewUI", "onMeasure(" + MeasureSpec.toString(widthMeasureSpec) + ", "
-//                + MeasureSpec.toString(heightMeasureSpec) + ")");
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
     }

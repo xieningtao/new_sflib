@@ -17,12 +17,6 @@
             android:gravity="center"
             android:keepScreenOn="true"/>
     </FrameLayout>
-    <!--
-    android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-    -->
 
     <View
         android:id="@+id/black_view"
