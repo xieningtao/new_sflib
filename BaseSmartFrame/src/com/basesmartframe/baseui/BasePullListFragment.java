@@ -84,6 +84,10 @@ public abstract class BasePullListFragment<T> extends BaseFragment implements
                 .getHeaderViewsCount();
     }
 
+    protected int getFootViewCount() {
+        return mPullToRefreshListView.getRefreshableView().getFooterViewsCount();
+    }
+
     private boolean isListViewHasData() {
         if (mPullToRefreshListView.getRefreshableView() == null) return false;
         ListAdapter adapter = mPullToRefreshListView.getRefreshableView().getAdapter();

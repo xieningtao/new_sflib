@@ -1,5 +1,6 @@
 package com.sf.SFSample.nybao;
 
+import android.app.ActionBar;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,6 +23,20 @@ public class NYHomeActivity extends BaseSFTabActivity {
         getTabWidget().setDividerDrawable(null);
         getTabWidget().setBackgroundResource(R.drawable.ny_home_bottom_layer);
         setTabAdapter(new FragmentTabAdpaper());
+        initActionBar();
+        updateActionBar();
+    }
+
+    private void initActionBar() {
+        getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getActionBar().setCustomView(R.layout.ny_home_title);
+    }
+
+    private void updateActionBar() {
+        View rootView = getActionBar().getCustomView();
+        rootView.setBackgroundColor(getResources().getColor(R.color.text_red));
+        ImageView logoIv = (ImageView) rootView.findViewById(R.id.ny_logo);
+        logoIv.setImageResource(R.drawable.app_icon);
     }
 
     @Override

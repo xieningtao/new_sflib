@@ -60,4 +60,8 @@ public class HttpViewManager implements HttpViewAction {
         }
 
     }
+
+    public void dismissAllHttpView(){
+        mActionHelper.dismissAllHttpViews();
+    }
 }

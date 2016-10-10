@@ -1,13 +1,12 @@
 package com.sf.SFSample.nybao;
 
-import android.graphics.drawable.Drawable;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 
 import com.basesmartframe.baseadapter.BaseAdapterHelper;
-import com.basesmartframe.baseui.BasePullListFragment;
-import com.google.gson.Gson;
+import com.basesmartframe.pickphoto.ActivityFragmentContainer;
 import com.maxleap.FindCallback;
 import com.maxleap.MLObject;
 import com.maxleap.MLQuery;
@@ -16,7 +15,7 @@ import com.maxleap.exception.MLException;
 import com.sf.SFSample.R;
 import com.sf.SFSample.nybao.bean.NYNewsBean;
 import com.sf.loglib.L;
-import com.sf.utils.baseutil.UnitHelp;
+import com.sf.utils.baseutil.GsonUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,20 +23,7 @@ import java.util.List;
 /**
  * Created by NetEase on 2016/10/9 0009.
  */
-public class NYFragmentNews extends BasePullListFragment<NYNewsBean> {
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        initListView();
-    }
-
-    private void initListView() {
-        getPullToRefreshListView().setBackgroundResource(R.color.ny_main_bg);
-        Drawable drawable = getResources().getDrawable(R.drawable.ny_gray_divider);
-        getPullToRefreshListView().getRefreshableView().setDivider(drawable);
-        getPullToRefreshListView().getRefreshableView().setDividerHeight(UnitHelp.dip2px(getActivity(), 1));
-        getPullToRefreshListView().getRefreshableView().setScrollBarSize(0);
-    }
+public class NYFragmentNews extends NYBasePullListFragment<NYNewsBean> {
 
     @Override
     protected boolean onRefresh() {
@@ -54,8 +40,7 @@ public class NYFragmentNews extends BasePullListFragment<NYNewsBean> {
                 List<NYNewsBean> nyNewsBeanLis = new ArrayList<NYNewsBean>();
                 if (list != null && !list.isEmpty()) {
                     for (MLObject mlObject : list) {
-                        Gson gson = new Gson();
-                        NYNewsBean newsBean = gson.fromJson(mlObject.getString("content"), NYNewsBean.class);
+                        NYNewsBean newsBean = GsonUtil.parse(mlObject.getString("content"), NYNewsBean.class);
                         nyNewsBeanLis.add(newsBean);
                     }
                 }
@@ -84,6 +69,14 @@ public class NYFragmentNews extends BasePullListFragment<NYNewsBean> {
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        int curPos = position - getHeadViewCount();
+        NYNewsBean bean = getPullItem(curPos);
+        Intent intent = new Intent(getActivity(), ActivityFragmentContainer.class);
+        intent.putExtra(ActivityFragmentContainer.FRAGMENT_CLASS_NAME, NYFragmentTopicDetail.class.getName());
+        Bundle bundle = new Bundle();
+        bundle.putString(NYFragmentTopicDetail.NEWS_ID, "C31Q8L9600011229");
+//        bundle.putString(NYFragmentTopicDetail.NEWS_ID, bean.getId());
+        intent.putExtra(ActivityFragmentContainer.BUNDLE_CONTAINER, bundle);
+        startActivity(intent);
     }
 }
