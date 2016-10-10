@@ -69,6 +69,7 @@ public class VideoViewHolder {
         video_loading.setVisibility(View.GONE);
         video_play.setVisibility(View.GONE);
         error_ll.setVisibility(View.GONE);
+        control_ll.setVisibility(View.VISIBLE);
         videoshow_cover.setVisibility(View.GONE);
         pause_iv.setImageResource(R.drawable.videoshow_pause_normal);
     }
@@ -91,7 +92,16 @@ public class VideoViewHolder {
 
     }
 
-    public void showComplete(){
+    public void showComplete() {
 
+    }
+
+    public void showPrepareView() {
+        error_ll.setVisibility(View.GONE);
+        video_loading.setVisibility(View.GONE);
+        video_play.setVisibility(View.VISIBLE);
+        videoshow_cover.setVisibility(View.VISIBLE);
+        control_ll.setVisibility(View.GONE);
+        pause_iv.setImageResource(R.drawable.videoshow_pause_normal);
     }
 }

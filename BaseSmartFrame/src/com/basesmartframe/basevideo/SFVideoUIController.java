@@ -13,13 +13,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.basesmartframe.R;
 import com.sf.utils.baseutil.NetWorkManagerUtil;
 import com.sf.utils.baseutil.SFBus;
 import com.basesmartframe.basevideo.core.VideoShowManager;
-import com.basesmartframe.basevideo.util.ActionTimeGapHelp;
 import com.basesmartframe.basevideo.util.GuestureControl;
 import com.basesmartframe.basevideo.util.TimeUtil;
 import com.basesmartframe.basevideo.util.ToggelSystemUIHelp;
@@ -67,7 +65,7 @@ public class SFVideoUIController implements SFVideoLifeCycle {
 
     private final VideoShowManager mVideoShowManager;
 
-//    private final VideoZoomHelp mZoomHelp;
+    private final VideoZoomHelp mZoomHelp;
 
 //    private final VideoShareHelp mShare;
 
@@ -83,13 +81,14 @@ public class SFVideoUIController implements SFVideoLifeCycle {
         mContext = rootView.getContext();
         mHolder = new VideoViewHolder(rootView);
         mVideoShowManager = new VideoShowManager(mHolder);
-//        mZoomHelp = new VideoZoomHelp(mContext, mHolder);
+        mZoomHelp = new VideoZoomHelp(mContext, mHolder);
 //        mShare = new VideoShareHelp(mContext, rootView);
 //        mToggle = new TitleBottomViewToggle(mContext, mHolder);
 
         initView();
         initActionListener();
         registerVideoViewListener();
+        mHolder.showPrepareView();
     }
 
     private void registerVideoViewListener() {
@@ -182,11 +181,11 @@ public class SFVideoUIController implements SFVideoLifeCycle {
         mHolder.zoom_iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if (isFull()) {
-//                    mZoomHelp.changeMode(false);
-//                } else {
-//                    mZoomHelp.changeMode(true);
-//                }
+                if (isFull()) {
+                    setOrientation(false);
+                } else {
+                    setOrientation(true);
+                }
             }
         });
 
@@ -386,11 +385,11 @@ public class SFVideoUIController implements SFVideoLifeCycle {
         L.info(this, "onConfigurationChanged: " + fullMode);
         isFullMode = fullMode;
         recycleControl();
-//        mZoomHelp.changeMode(fullMode);
+        mZoomHelp.changeMode(fullMode);
     }
 
     public void setFullMode(boolean fullMode) {
-        setOritation(fullMode);
+        setOrientation(fullMode);
     }
 
     private void changeGestureEvent(boolean isFull) {
@@ -401,7 +400,7 @@ public class SFVideoUIController implements SFVideoLifeCycle {
         }
     }
 
-    public void setOritation(boolean full) {
+    public void setOrientation(boolean full) {
         final Activity activity = (Activity) mContext;
         if (full) {
             activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);

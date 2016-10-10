@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 
 import com.basesmartframe.baseui.BaseActivity;
 import com.sf.utils.baseutil.SystemUIWHHelp;
@@ -40,15 +42,9 @@ public class VideoPlayActivity extends BaseActivity {
             mUrl = intent.getStringExtra(VIDEO_URL);
             mVideoViewUI.setUrl(mUrl);
         }
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getWidth(), getHeight());
-                mVideoViewUI.setVideoViewLayoutParams(layoutParams);
-                L.info(TAG, "invoke updateVideoPlayerScale");
-            }
-        }, 1000);
-
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(getWidth(), getHeight());
+        mVideoViewUI.setVideoViewLayoutParams(layoutParams);
+        L.info(TAG, "invoke updateVideoPlayerScale");
     }
 
     private int getWidth() {

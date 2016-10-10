@@ -8,12 +8,8 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
-import com.basesmartframe.baseui.BaseActivity;
 import com.basesmartframe.baseui.BaseSFTabActivity;
 import com.sf.SFSample.R;
-import com.sf.SFSample.tiantu.FragmentTianTuList;
-import com.sf.SFSample.ui.MyCircleFragment;
-import com.sf.SFSample.ui.PullListFragment;
 
 /**
  * Created by NetEase on 2016/10/9 0009.
@@ -24,7 +20,7 @@ public class NYHomeActivity extends BaseSFTabActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getTabWidget().setDividerDrawable(null);
-        getTabWidget().setBackgroundResource(R.drawable.home_bottom_bg);
+        getTabWidget().setBackgroundResource(R.drawable.ny_home_bottom_layer);
         setTabAdapter(new FragmentTabAdpaper());
     }
 

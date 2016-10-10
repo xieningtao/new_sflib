@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/white"
+                android:background="@drawable/ny_topic_list_selector"
                 android:orientation="vertical"
                 android:padding="8dp"
     >
@@ -36,5 +36,6 @@
         android:text="jklsjfkjs"
         android:textColor="@color/lb_grey"
         android:textSize="15sp"
+        android:layout_marginLeft="8dp"
         />
 </RelativeLayout>

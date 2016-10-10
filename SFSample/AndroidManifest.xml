@@ -127,7 +127,7 @@
             android:configChanges="orientation"/>
         <activity
             android:name=".ui.VideoPlayActivity"
-            android:configChanges="orientation"
+            android:configChanges="orientation|screenSize|keyboard"
             android:theme="@android:style/Theme.NoTitleBar"/>
         <activity android:name=".ui.TransformActivity"/>
         <activity

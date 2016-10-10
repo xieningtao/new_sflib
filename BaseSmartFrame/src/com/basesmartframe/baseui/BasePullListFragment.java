@@ -14,13 +14,11 @@ import com.basesmartframe.R;
 import com.basesmartframe.baseadapter.BaseAdapterHelper;
 import com.basesmartframe.baseevent.GlobalEvent;
 import com.basesmartframe.basepull.PullType;
-import com.sf.utils.baseutil.NetWorkManagerUtil;
-import com.sflib.CustomView.newhttpview.HttpViewManager;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
-import com.handmark.pulltorefresh.library.PullToRefreshBase.OnLastItemVisibleListener;
-import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.sf.utils.baseutil.NetWorkManagerUtil;
+import com.sflib.CustomView.newhttpview.HttpViewManager;
 import com.sflib.reflection.core.SFIntegerMessage;
 import com.sflib.reflection.core.SFMsgId;
 
@@ -44,6 +42,10 @@ public abstract class BasePullListFragment<T> extends BaseFragment implements
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.pull_list_fragment, null);
+    }
+
+    public PullToRefreshListView getPullToRefreshListView() {
+        return mPullToRefreshListView;
     }
 
     @Override

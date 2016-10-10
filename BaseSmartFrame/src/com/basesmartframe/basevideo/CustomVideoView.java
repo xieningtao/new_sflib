@@ -153,15 +153,6 @@ public class CustomVideoView extends SurfaceView {
 
         int width = getDefaultSize(mVideoWidth, widthMeasureSpec);
         int height = getDefaultSize(mVideoHeight, heightMeasureSpec);
-//        if (mVideoWidth > 0 && mVideoHeight > 0) {
-//            int widthSpecSize = MeasureSpec.getSize(widthMeasureSpec);
-//            int heightSpecSize = MeasureSpec.getSize(heightMeasureSpec);
-//            updateVideoPlayerScale(widthSpecSize, heightSpecSize, mVideoWidth, mVideoHeight);
-//        } else {
-//            L.info(TAG, "width: " + width + " height: " + height);
-//            setMeasuredDimension(width, height);
-//        }
-
         doSystemMeasure(widthMeasureSpec, heightMeasureSpec, width, height);
     }
 
