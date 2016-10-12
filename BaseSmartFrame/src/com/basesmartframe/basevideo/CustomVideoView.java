@@ -23,7 +23,7 @@ import java.util.Map;
  * providers), takes care of computing its measurement from the video so that
  * it can be used in any layout manager, and provides various display options
  * such as scaling and tinting.<p>
- * <p/>
+ * <p>
  * <em>Note: VideoView does not retain its full state when going into the
  * background.</em>  In particular, it does not restore the current play state,
  * play position, selected tracks, or any subtitle tracks added via
@@ -140,10 +140,22 @@ public class CustomVideoView extends SurfaceView {
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        Activity activity = (Activity) getContext();
+        final int width = SystemUIWHHelp.getScreenRealWidth(activity);
+        final int height = SystemUIWHHelp.getScreenRealHeight(activity) - SystemUIWHHelp.getStatusBarHeight(activity);
+        L.info(TAG, "system width: " + width + " system height: " + height);
+
+        if (right - left < width) {
+            int space = width - (right - left);
+            left = left + space / 2;
+            right = right + space / 2;
+        }
         super.onLayout(changed, left, top, right, bottom);
+
 
         L.info(TAG, "measure width: " + getMeasuredWidth() + " measure height: " + getMeasuredHeight());
         L.info(TAG, "layout width: " + getWidth() + " layout height: " + getHeight());
+
     }
 
     @Override
@@ -154,6 +166,7 @@ public class CustomVideoView extends SurfaceView {
         int width = getDefaultSize(mVideoWidth, widthMeasureSpec);
         int height = getDefaultSize(mVideoHeight, heightMeasureSpec);
         doSystemMeasure(widthMeasureSpec, heightMeasureSpec, width, height);
+//        updateVideoPlayerScale(width, height, mVideoWidth, mVideoHeight);
     }
 
     private void doSystemMeasure(int widthMeasureSpec, int heightMeasureSpec, int width, int height) {
@@ -243,6 +256,12 @@ public class CustomVideoView extends SurfaceView {
         setVideoURI(uri, null);
     }
 
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        L.info(TAG, "Custom Video View onSizeChanged,w: " + w + " h: " + h + " oldw: " + oldw + " oldh: " + oldh);
+    }
+
     /**
      * @hide
      */
@@ -324,6 +343,7 @@ public class CustomVideoView extends SurfaceView {
     MediaPlayer.OnVideoSizeChangedListener mSizeChangedListener =
             new MediaPlayer.OnVideoSizeChangedListener() {
                 public void onVideoSizeChanged(MediaPlayer mp, int width, int height) {
+                    L.info(TAG, "method->mediaPlayer onVideoSizeChanged");
                     mVideoWidth = mp.getVideoWidth();
                     mVideoHeight = mp.getVideoHeight();
 //                    height = getHeight();
@@ -337,9 +357,9 @@ public class CustomVideoView extends SurfaceView {
 //                        height = width * mVideoHeight / mVideoWidth;
 //                    }
                     if (mVideoHeight != 0 && mVideoWidth != 0) {
-                        getHolder().setFixedSize(mVideoWidth, mVideoHeight);
+//                        getHolder().setFixedSize(mVideoWidth, mVideoHeight);
                         requestLayout();
-                        L.info(TAG, "method->mediaPlayer onVideoSizeChanged");
+                        L.info(TAG, "do video size change");
                     }
                 }
             };
@@ -376,7 +396,7 @@ public class CustomVideoView extends SurfaceView {
 //                    height = width * mVideoHeight / mVideoWidth;
 //                }
 //                L.info(TAG, "method->onPrepared,addjust size-> width: " + width + " height: " + height);
-                getHolder().setFixedSize(mVideoWidth, mVideoHeight);
+//                getHolder().setFixedSize(mVideoWidth, mVideoHeight);
                 if (mSurfaceWidth == mVideoWidth && mSurfaceHeight == mVideoHeight) {
                     // We didn't actually change the size (it was already at the size
                     // we need), so we won't get a "surface changed" callback, so

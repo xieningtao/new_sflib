@@ -135,6 +135,7 @@ public class NYFragmentTopicDetail extends BaseFragment {
         return "";
     }
 
+
     @Override
     public void onDestroy() {
         super.onDestroy();

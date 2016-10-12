@@ -4,16 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
 
 import com.basesmartframe.baseui.BaseActivity;
-import com.sf.utils.baseutil.SystemUIWHHelp;
 import com.basesmartframe.basevideo.SFVideoGroupView;
-import com.sf.loglib.L;
 import com.sf.SFSample.R;
+import com.sf.loglib.L;
+import com.sf.utils.baseutil.SystemUIWHHelp;
 
 /**
  * Created by xieningtao on 15-11-16.
@@ -42,8 +38,7 @@ public class VideoPlayActivity extends BaseActivity {
             mUrl = intent.getStringExtra(VIDEO_URL);
             mVideoViewUI.setUrl(mUrl);
         }
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(getWidth(), getHeight());
-        mVideoViewUI.setVideoViewLayoutParams(layoutParams);
+        mVideoViewUI.setVideoViewWH(getWidth(),getHeight());
         L.info(TAG, "invoke updateVideoPlayerScale");
     }
 

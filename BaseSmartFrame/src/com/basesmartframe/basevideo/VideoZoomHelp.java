@@ -4,13 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
 import com.basesmartframe.R;
-import com.sf.utils.baseutil.SystemUIWHHelp;
 import com.basesmartframe.basevideo.util.ToggelSystemUIHelp;
 import com.sf.loglib.L;
+import com.sf.utils.baseutil.SystemUIWHHelp;
 
 /**
  * Created by xieningtao on 15-11-16.
@@ -28,9 +27,11 @@ class VideoZoomHelp {
         L.info(this, "to full action");
         Activity activity = (Activity) mContext;
         final int width = SystemUIWHHelp.getScreenRealWidth(activity);
-        final int height = SystemUIWHHelp.getScreenRealHeight(activity);
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(width, height);
-        mHolder.mVideoView.setLayoutParams(params);
+        final int height = SystemUIWHHelp.getScreenRealHeight(activity) - SystemUIWHHelp.getStatusBarHeight(activity);
+        RelativeLayout.LayoutParams layoutParams =(RelativeLayout.LayoutParams) mHolder.mVideoView.getLayoutParams();
+        layoutParams.width= ViewGroup.LayoutParams.MATCH_PARENT;
+        layoutParams.height= ViewGroup.LayoutParams.MATCH_PARENT;
+        mHolder.mVideoView.setLayoutParams(layoutParams);
     }
 
     private void updateVideoToHalfMode() {
@@ -38,8 +39,10 @@ class VideoZoomHelp {
         Activity activity = (Activity) mContext;
         final int width = SystemUIWHHelp.getScreenRealWidth(activity);
         final int height = width * 9 / 16;
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(width, height);
-        mHolder.mVideoView.setLayoutParams(params);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) mHolder.mVideoView.getLayoutParams();
+        layoutParams.width = width;
+        layoutParams.height = height;
+        mHolder.mVideoView.setLayoutParams(layoutParams);
     }
 
 

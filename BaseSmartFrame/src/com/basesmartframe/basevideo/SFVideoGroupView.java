@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
@@ -51,7 +50,10 @@ public class SFVideoGroupView extends FrameLayout implements SFVideoLifeCycle {
 
     }
 
-    public void setVideoViewLayoutParams(RelativeLayout.LayoutParams layoutParams) {
+    public void setVideoViewWH(int width, int height) {
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) mVideoView.getLayoutParams();
+        layoutParams.width = width;
+        layoutParams.height = height;
         mVideoView.setLayoutParams(layoutParams);
     }
 

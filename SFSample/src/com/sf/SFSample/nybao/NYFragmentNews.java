@@ -16,6 +16,7 @@ import com.sf.SFSample.R;
 import com.sf.SFSample.nybao.bean.NYNewsBean;
 import com.sf.loglib.L;
 import com.sf.utils.baseutil.GsonUtil;
+import com.sf.utils.baseutil.SFToast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,6 +66,12 @@ public class NYFragmentNews extends NYBasePullListFragment<NYNewsBean> {
         help.setImageBuilder(R.id.news_iv, bean.getImg());
         help.setText(R.id.news_label_tv, bean.getRecSource());
         help.setText(R.id.news_title_tv, bean.getTitle());
+    }
+
+    @Override
+    protected boolean onRefreshNoNetwork() {
+        SFToast.showToast(R.string.no_network);
+        return true;
     }
 
     @Override

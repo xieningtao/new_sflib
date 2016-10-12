@@ -21,6 +21,7 @@ import com.sf.utils.baseutil.NetWorkManagerUtil;
 import com.sflib.CustomView.newhttpview.HttpViewManager;
 import com.sflib.reflection.core.SFIntegerMessage;
 import com.sflib.reflection.core.SFMsgId;
+import com.sflib.reflection.core.ThreadHelp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -147,7 +148,12 @@ public abstract class BasePullListFragment<T> extends BaseFragment implements
             onRefresh();
         } else {
             onRefreshNoNetwork();
-            simpleFinishRefreshOrLoading();
+            ThreadHelp.runInMain(new Runnable() {
+                @Override
+                public void run() {
+                    simpleFinishRefreshOrLoading();
+                }
+            },500);
         }
     }
 
