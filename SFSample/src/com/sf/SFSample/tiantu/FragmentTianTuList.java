@@ -13,9 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.basesmartframe.baseui.BaseFragment;
-import com.basesmartframe.pickphoto.ActivityFragmentContainer;
 import com.basesmartframe.pickphoto.ImageBean;
-import com.basesmartframe.pickphoto.PickPhotosFragment;
 import com.basesmartframe.pickphoto.PickPhotosPreviewFragment;
 import com.basesmartframe.request.SFHttpGsonHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -25,7 +23,6 @@ import com.sf.httpclient.newcore.SFHttpStringCallback;
 import com.sf.httpclient.newcore.SFRequest;
 import com.sf.utils.baseutil.UnitHelp;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -136,13 +133,9 @@ public class FragmentTianTuList extends BaseFragment {
             holder.mImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle bundle = new Bundle();
-                    bundle.putBoolean(PickPhotosPreviewFragment.CAN_CHOOSE_IMAGE, false);
-                    bundle.putInt(PickPhotosPreviewFragment.INDEX, position);
-                    Intent intent = new Intent(getActivity(), ActivityFragmentContainer.class);
-                    intent.putExtra(ActivityFragmentContainer.BUNDLE_CONTAINER, bundle);
-                    intent.putExtra(ActivityFragmentContainer.FRAGMENT_CLASS_NAME, PickPhotosPreviewFragment.class.getName());
-                    PickPhotosPreviewFragment.setImageListData(tianTuImageList2ImageBean());
+                    Intent intent = new Intent(getActivity(), ActivityPhotoPreview.class);
+                    intent.putExtra(PickPhotosPreviewFragment.INDEX, position);
+                    intent.putExtra(ActivityPhotoPreview.IMAGE_BEAN_LIST, tianTuImageList2ImageBean());
                     FragmentTianTuList.this.startActivity(intent);
                 }
             });

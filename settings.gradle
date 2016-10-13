@@ -1,4 +1,4 @@
-include ':CustomView', ':SFSample', ':BaseSmartFrame', ':openGL', ':Emoji', ':SFChat', ':BaiduLib', ':MockLib', ':SFDBLib', ':SFCircle',
+include ':CustomView', ':SFSample', ':BaseSmartFrame', ':openGL', ':Emoji', ':SFChat', ':BaiduLib', ':MockLib', ':SFDBLib', ':SFCircle', ':sharelib',
         ':SFLog', ':SFUtils',
         ':reflection', ':Android-PullToRefresh:PullRefreshLib',
         ':UMengLib', ':AndroidTV', ':SFHttpClient',

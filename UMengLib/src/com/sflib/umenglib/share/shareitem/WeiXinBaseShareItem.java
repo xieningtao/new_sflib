@@ -5,7 +5,7 @@ import android.content.Context;
 import com.sflib.umenglib.R;
 import com.sflib.umenglib.share.ShareContent;
 import com.sflib.umenglib.share.sharecore.XBaseSocialBaseShareItem;
-import com.sflib.umenglib.share.sharecore.XDefaultSocialShareAction;
+import com.sflib.umenglib.share.sharecore.XUmengSocialShareAction;
 import com.sflib.umenglib.share.sharecore.XShareAction;
 import com.sflib.umenglib.share.sharecore.XShareType;
 
@@ -36,6 +36,6 @@ public class WeiXinBaseShareItem extends XBaseSocialBaseShareItem {
 
     @Override
     public XShareAction createShareAction() {
-        return new XDefaultSocialShareAction(mContext, mShareContent);
+        return new XUmengSocialShareAction(mContext, mShareContent);
     }
 }

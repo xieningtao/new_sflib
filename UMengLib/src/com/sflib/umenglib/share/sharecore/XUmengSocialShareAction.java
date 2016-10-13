@@ -18,7 +18,7 @@ import static com.umeng.socialize.bean.SHARE_MEDIA.*;
 /**
  * Created by xieningtao on 15-8-5.
  */
-public class XDefaultSocialShareAction implements XShareAction {
+public class XUmengSocialShareAction implements XShareAction {
     protected final String TAG = getClass().getName();
     private final ShareContent mShareContent;
     private final Context mContext;
@@ -28,7 +28,7 @@ public class XDefaultSocialShareAction implements XShareAction {
     /**
      * @param shareContent
      */
-    public XDefaultSocialShareAction(Context context, ShareContent shareContent) {
+    public XUmengSocialShareAction(Context context, ShareContent shareContent) {
         if (null == shareContent) {
 //            shareContent = new ShareContent.ShareContentBuilder()
 //                    .setContent(context.getResources().getString(R.string.share_content))

@@ -76,7 +76,7 @@ public class NYHomeActivity extends BaseSFTabActivity {
                     ImageView tabIv2 = (ImageView) tabView2.findViewById(R.id.tab_iv);
                     tabIv2.setImageResource(R.drawable.ny_topic_selector);
                     TextView tabTv2 = (TextView) tabView2.findViewById(R.id.tab_tv);
-                    tabTv2.setText(R.string.topic);
+                    tabTv2.setText(R.string.beauty);
                     TabHost.TabSpec tabSpec2 = tabHost.newTabSpec("index" + index).setIndicator(tabView2);
                     return tabSpec2;
                 case 3:

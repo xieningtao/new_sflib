@@ -8,26 +8,17 @@ package com.basesmartframe.pickphoto;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
-import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.text.TextUtils;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.view.animation.Animation;
-import android.view.animation.Animation.AnimationListener;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.basesmartframe.R;
@@ -35,7 +26,6 @@ import com.basesmartframe.baseui.BaseFragment;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.sf.utils.baseutil.SFFileHelp;
 import com.sf.utils.baseutil.SFToast;
-import com.sflib.CustomView.photoview.PhotoView;
 
 import java.io.File;
 import java.io.Serializable;
@@ -100,7 +90,7 @@ public class PickPhotosPreviewFragment extends BaseFragment {
         mSelectCheckBox.setClickable(false);
         mBottomBar = view.findViewById(R.id.bottom_bar);
         mComplete = (Button) view.findViewById(R.id.pick_complete);
-        mViewPager.setPageTransformer(true,new DepthPageTransform());
+        mViewPager.setPageTransformer(true,new XTranslateTransform());
         mComplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -244,7 +234,7 @@ public class PickPhotosPreviewFragment extends BaseFragment {
         @Override
         public Object instantiateItem(View container, int position) {
             View view = mInflater.inflate(R.layout.image_viewer_layout, null);
-            final PhotoView imageView = (PhotoView) view.findViewById(R.id.photo_view);
+            final ImageView imageView = (ImageView) view.findViewById(R.id.photo_view);
             ImageBean bean = mImageGroupData.get(position);
             if (!TextUtils.isEmpty(bean.getPath()) && bean.getPath().startsWith("http")) {
                 ImageLoader.getInstance().displayImage(bean.getPath(), imageView);

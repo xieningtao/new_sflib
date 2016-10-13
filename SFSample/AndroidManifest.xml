@@ -210,16 +210,24 @@
             android:windowSoftInputMode="adjustResize"
             />
 
+        <activity
+            android:name=".tiantu.ActivityPhotoPreview"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.NoActionBar"
+            />
         <!--baby medical app-->
-        <activity android:name=".babymedical.ActivityLogin"
+        <activity
+            android:name=".babymedical.ActivityLogin"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Holo.NoActionBar"
             />
-        <activity android:name=".tiantu.ActivityHome"
+        <activity
+            android:name=".tiantu.ActivityHome"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Holo.NoActionBar"
             />
-        <activity android:name=".nybao.NYHomeActivity"
+        <activity
+            android:name=".nybao.NYHomeActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Holo"
             />
