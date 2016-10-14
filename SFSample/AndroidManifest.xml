@@ -213,7 +213,7 @@
         <activity
             android:name=".tiantu.ActivityPhotoPreview"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Holo.NoActionBar"
+            android:theme="@style/photo_preview_style"
             />
         <!--baby medical app-->
         <activity
@@ -230,6 +230,10 @@
             android:name=".nybao.NYHomeActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Holo"
+            />
+        <activity
+            android:name=".ui.ActivityLivePopView"
+            android:screenOrientation="portrait"
             />
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->

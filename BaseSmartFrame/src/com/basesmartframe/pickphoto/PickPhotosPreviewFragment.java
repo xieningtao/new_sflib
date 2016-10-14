@@ -1,6 +1,6 @@
 /**
  * @(#)ViewPhotosFragment.java, 2015年1月16日.
- * <p/>
+ * <p>
  * Copyright 2015 netease, Inc. All rights reserved.
  * Netease PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
@@ -26,6 +26,7 @@ import com.basesmartframe.baseui.BaseFragment;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.sf.utils.baseutil.SFFileHelp;
 import com.sf.utils.baseutil.SFToast;
+import com.sf.utils.baseutil.UnitHelp;
 
 import java.io.File;
 import java.io.Serializable;
@@ -90,7 +91,9 @@ public class PickPhotosPreviewFragment extends BaseFragment {
         mSelectCheckBox.setClickable(false);
         mBottomBar = view.findViewById(R.id.bottom_bar);
         mComplete = (Button) view.findViewById(R.id.pick_complete);
-        mViewPager.setPageTransformer(true,new XTranslateTransform());
+        mViewPager.setPageTransformer(true, new XTranslateTransform());
+        mViewPager.setPageMargin(UnitHelp.dip2px(getActivity(),5));
+        mViewPager.setPageMarginDrawable(R.drawable.black_shape);
         mComplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

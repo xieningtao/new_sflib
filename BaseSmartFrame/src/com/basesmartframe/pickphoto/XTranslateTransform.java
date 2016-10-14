@@ -24,7 +24,7 @@ public class XTranslateTransform implements ViewPager.PageTransformer {
             L.info(TAG, "middle position: " + position);
             view.scrollTo((int) (pageWidth * position * mScale), 0);
         } else if (position <= 1) { // (0,1] right
-            view.setTranslationX(pageWidth * -position * mScale);
+            view.scrollTo((int) (pageWidth * position * mScale),0);
         } else { // (1,+Infinity]
 
         }
