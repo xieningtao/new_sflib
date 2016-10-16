@@ -99,7 +99,7 @@ public class NYHomeActivity extends BaseSFTabActivity {
                 case 1:
                     return NYFragmentVideo.class;
                 case 2:
-                    return NYFragmentTopic.class;
+                    return NYFragmentPic.class;
                 case 3:
                     return NYFragmentProfile.class;
             }

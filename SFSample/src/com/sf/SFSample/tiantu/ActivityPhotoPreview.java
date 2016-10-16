@@ -4,13 +4,22 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.basesmartframe.baseui.BaseActivity;
+import com.basesmartframe.basevideo.util.TimeUtil;
 import com.basesmartframe.pickphoto.ImageBean;
 import com.basesmartframe.pickphoto.PickPhotosPreviewFragment;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.sf.SFSample.R;
+import com.sf.SFSample.ui.ActivityLivePopView;
+import com.sflib.CustomView.viewgroup.BaseLivePopAdapter;
+import com.sflib.CustomView.viewgroup.LivePopView;
+import com.sflib.reflection.core.ThreadHelp;
 
 import java.util.ArrayList;
 
@@ -19,7 +28,18 @@ import java.util.ArrayList;
  */
 public class ActivityPhotoPreview extends BaseActivity {
     public static final String IMAGE_BEAN_LIST = "image_bean_list";
-
+    private String imageUrl[] = {
+            "http://g.hiphotos.baidu.com/image/w%3D310/sign=40484034b71c8701d6b6b4e7177e9e6e/21a4462309f79052f619b9ee08f3d7ca7acbd5d8.jpg",
+            "http://a.hiphotos.baidu.com/image/w%3D310/sign=b0fccc9b8518367aad8979dc1e728b68/3c6d55fbb2fb43166d8f7bc823a4462308f7d3eb.jpg",
+            "http://d.hiphotos.baidu.com/image/w%3D310/sign=af0348abeff81a4c2632eac8e72b6029/caef76094b36acaf8ded6c2378d98d1000e99ce4.jpg"
+    };
+    private String content[] = {
+            "aajfsdkjfksjk",
+            "bbjflksjfks",
+            "ccjskfjsdklfj"
+    };
+    private LivePopView mLivePopView;
+    private int mNumber=-1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +56,43 @@ public class ActivityPhotoPreview extends BaseActivity {
             fragment.setArguments(bundle);
             PickPhotosPreviewFragment.setImageListData(imageBeanArrayList);
             getFragmentManager().beginTransaction().replace(R.id.photo_preview_fl, fragment).commitAllowingStateLoss();
+        }
+        mLivePopView= (LivePopView) findViewById(R.id.live_popview);
+        mLivePopView.setAdapter(new ImageCommentAdapter());
+
+        ThreadHelp.runInMain(new Runnable() {
+            @Override
+            public void run() {
+                mNumber++;
+                mLivePopView.push();
+
+                if(mNumber<10){
+                    ThreadHelp.runInMain(this,500);
+                }
+
+            }
+        },500);
+
+
+    }
+
+    class ImageCommentAdapter extends BaseLivePopAdapter {
+
+        @Override
+        public View getView(View rootView) {
+            if (rootView == null) {
+                rootView = LayoutInflater.from(ActivityPhotoPreview.this).inflate(R.layout.item_pop_view, null);
+            }
+            ImageView mPhotoIv = (ImageView) rootView.findViewById(R.id.photo_iv);
+            ImageLoader.getInstance().displayImage(imageUrl[mNumber%3], mPhotoIv);
+            TextView contentTv = (TextView) rootView.findViewById(R.id.comment_tv);
+            contentTv.setText(content[mNumber%3]);
+            return rootView;
+        }
+
+        @Override
+        public int getCount() {
+            return 0;
         }
     }
 

@@ -264,13 +264,11 @@ public class BaseAdapterHelper {
 	 * 
 	 * @param viewId
 	 *            The view id.
-	 * @param visible
-	 *            True for VISIBLE, false for GONE.
 	 * @return The BaseAdapterHelper for chaining.
 	 */
-	public BaseAdapterHelper setVisible(int viewId, boolean visible) {
+	public BaseAdapterHelper setVisible(int viewId, int visible) {
 		View view = retrieveView(viewId);
-		view.setVisibility(visible ? View.VISIBLE : View.GONE);
+		view.setVisibility(visible);
 		return this;
 	}
 

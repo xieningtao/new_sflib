@@ -88,7 +88,7 @@ public class LivePopView extends ViewGroup {
 //        mLayoutTransition.setStagger(LayoutTransition.APPEARING, 1000);
 //        mLayoutTransition.setStagger(LayoutTransition.DISAPPEARING, 1000);
 
-        mLayoutTransition.setDuration(LayoutTransition.APPEARING, 350);
+        mLayoutTransition.setDuration(LayoutTransition.APPEARING, 400);
         mLayoutTransition.setStartDelay(LayoutTransition.APPEARING,0);
 //        mLayoutTransition.setDuration(LayoutTransition.DISAPPEARING, 1000);
         mLayoutTransition.setDuration(LayoutTransition.CHANGE_APPEARING, 500);
@@ -103,9 +103,9 @@ public class LivePopView extends ViewGroup {
             mLayoutTransition.disableTransitionType(LayoutTransition.DISAPPEARING);
         }
         int d = UnitHelp.dip2px(getContext(), 50);
-//        ObjectAnimator mAnimatorAppearing = ObjectAnimator.ofFloat(this, "translationY", d, 0);
+        ObjectAnimator mAnimatorAppearing = ObjectAnimator.ofFloat(this, "translationY", d, 0);
         //为LayoutTransition设置动画及动画类型
-
+        mLayoutTransition.setAnimator(LayoutTransition.APPEARING,mAnimatorAppearing);
 
 //        PropertyValuesHolder disappearingTranslateY = PropertyValuesHolder.ofFloat("translationY", 0, -d);
 //        ObjectAnimator mAnimatorDisappearing = ObjectAnimator.ofPropertyValuesHolder(this, disappearingTranslateY);
@@ -133,7 +133,7 @@ public class LivePopView extends ViewGroup {
                L.info(TAG,"updateValue: " +animation.getAnimatedValue("bottom"));
             }
         });
-        mLayoutTransition.setAnimator(LayoutTransition.APPEARING, defaultChangeIn.clone());
+
 //        ObjectAnimator mAnimatorChangeAppearingTranslationY = ObjectAnimator.ofFloat(null, "translationY", 0, -d);
 //        mAnimatorChangeAppearingTranslationY.setDuration(500);
         //为LayoutTransition设置动画及动画类型

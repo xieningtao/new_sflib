@@ -28,7 +28,7 @@ import com.sflib.CustomView.newhttpview.HttpViewManager;
 /**
  * Created by NetEase on 2016/10/10 0010.
  */
-public class NYFragmentTopicDetail extends BaseFragment {
+public class NYFragmentNewsDetail extends BaseFragment {
     public static final String NEWS_ID = "news_id";
     private WebView mWebView;
     private FrameLayout mErrorFl;

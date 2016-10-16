@@ -79,10 +79,10 @@ public class NYFragmentNews extends NYBasePullListFragment<NYNewsBean> {
         int curPos = position - getHeadViewCount();
         NYNewsBean bean = getPullItem(curPos);
         Intent intent = new Intent(getActivity(), ActivityFragmentContainer.class);
-        intent.putExtra(ActivityFragmentContainer.FRAGMENT_CLASS_NAME, NYFragmentTopicDetail.class.getName());
+        intent.putExtra(ActivityFragmentContainer.FRAGMENT_CLASS_NAME, NYFragmentNewsDetail.class.getName());
         Bundle bundle = new Bundle();
-        bundle.putString(NYFragmentTopicDetail.NEWS_ID, "C31Q8L9600011229");
-//        bundle.putString(NYFragmentTopicDetail.NEWS_ID, bean.getId());
+        bundle.putString(NYFragmentNewsDetail.NEWS_ID, "C31Q8L9600011229");
+//        bundle.putString(NYFragmentNewsDetail.NEWS_ID, bean.getId());
         intent.putExtra(ActivityFragmentContainer.BUNDLE_CONTAINER, bundle);
         startActivity(intent);
     }
