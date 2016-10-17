@@ -25,7 +25,6 @@ public class LivePopView extends ViewGroup {
     private final String TAG = LivePopView.class.getName();
     private BaseLivePopAdapter mLivePopAdapter;
     private List<View> mRecycledView = new ArrayList<>();
-    private List<View> mRecyclingView = new ArrayList<>();
     private LayoutTransition mLayoutTransition = new LayoutTransition();
 
     public LivePopView(Context context) {
@@ -83,17 +82,11 @@ public class LivePopView extends ViewGroup {
 
         mLayoutTransition.setAnimateParentHierarchy(true);
         //设置每个动画持续的时间
-//        mLayoutTransition.setStagger(LayoutTransition.CHANGE_APPEARING, 1000);
-//        mLayoutTransition.setStagger(LayoutTransition.CHANGE_DISAPPEARING, 1000);
-//        mLayoutTransition.setStagger(LayoutTransition.APPEARING, 1000);
-//        mLayoutTransition.setStagger(LayoutTransition.DISAPPEARING, 1000);
 
         mLayoutTransition.setDuration(LayoutTransition.APPEARING, 400);
-        mLayoutTransition.setStartDelay(LayoutTransition.APPEARING,0);
-//        mLayoutTransition.setDuration(LayoutTransition.DISAPPEARING, 1000);
+        mLayoutTransition.setStartDelay(LayoutTransition.APPEARING, 0);
         mLayoutTransition.setDuration(LayoutTransition.CHANGE_APPEARING, 500);
-        mLayoutTransition.setInterpolator(LayoutTransition.CHANGE_APPEARING,DECEL_INTERPOLATOR);
-//        mLayoutTransition.setDuration(LayoutTransition.CHANGE_DISAPPEARING, 1000);
+        mLayoutTransition.setInterpolator(LayoutTransition.CHANGE_APPEARING, DECEL_INTERPOLATOR);
         mLayoutTransition.setDuration(LayoutTransition.CHANGING, 500);
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN) {
             mLayoutTransition.disableTransitionType(LayoutTransition.CHANGING);
@@ -105,32 +98,16 @@ public class LivePopView extends ViewGroup {
         int d = UnitHelp.dip2px(getContext(), 50);
         ObjectAnimator mAnimatorAppearing = ObjectAnimator.ofFloat(this, "translationY", d, 0);
         //为LayoutTransition设置动画及动画类型
-        mLayoutTransition.setAnimator(LayoutTransition.APPEARING,mAnimatorAppearing);
+        mLayoutTransition.setAnimator(LayoutTransition.APPEARING, mAnimatorAppearing);
 
-//        PropertyValuesHolder disappearingTranslateY = PropertyValuesHolder.ofFloat("translationY", 0, -d);
-//        ObjectAnimator mAnimatorDisappearing = ObjectAnimator.ofPropertyValuesHolder(this, disappearingTranslateY);
-//        //为LayoutTransition设置动画及动画类型
-//        mLayoutTransition.setAnimator(LayoutTransition.DISAPPEARING, mAnimatorDisappearing);
-//
-//
-//        ObjectAnimator mAnimatorChangeDisappearing = ObjectAnimator.ofFloat(null, "alpha", 1f, 0f);
-//        //为LayoutTransition设置动画及动画类型
-//        mLayoutTransition.setAnimator(LayoutTransition.CHANGE_DISAPPEARING, mAnimatorChangeDisappearing);
-//
-
-//        PropertyValuesHolder pvhLeft = PropertyValuesHolder.ofInt("left", 0, 1);
         PropertyValuesHolder pvhTop = PropertyValuesHolder.ofInt("top", 40, 10);
-//        PropertyValuesHolder pvhRight = PropertyValuesHolder.ofInt("right", 0, 1);
         PropertyValuesHolder pvhBottom = PropertyValuesHolder.ofInt("bottom", 30, 100);
-//        PropertyValuesHolder pvhScrollX = PropertyValuesHolder.ofInt("scrollX", 0, 1);
-//        PropertyValuesHolder pvhScrollY = PropertyValuesHolder.ofInt("scrollY", 0, 1);
-        ObjectAnimator defaultChangeIn = ObjectAnimator.ofPropertyValuesHolder((Object)null,
-//                pvhLeft, , pvhRight, pvhBottom,pvhScrollX,
-                pvhTop,pvhBottom);
+        ObjectAnimator defaultChangeIn = ObjectAnimator.ofPropertyValuesHolder((Object) null,
+                pvhTop, pvhBottom);
         defaultChangeIn.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-               L.info(TAG,"updateValue: " +animation.getAnimatedValue("bottom"));
+                L.info(TAG, "updateValue: " + animation.getAnimatedValue("bottom"));
             }
         });
 
@@ -145,7 +122,19 @@ public class LivePopView extends ViewGroup {
         setLayoutTransition(mLayoutTransition);
     }
 
+
     private void initListener() {
+        setOnHierarchyChangeListener(new OnHierarchyChangeListener() {
+            @Override
+            public void onChildViewAdded(View parent, View child) {
+
+            }
+
+            @Override
+            public void onChildViewRemoved(View parent, View child) {
+                mRecycledView.add(child);
+            }
+        });
         mLayoutTransition.addTransitionListener(new LayoutTransition.TransitionListener() {
             @Override
             public void startTransition(LayoutTransition transition, ViewGroup container, View view, int transitionType) {
@@ -155,6 +144,10 @@ public class LivePopView extends ViewGroup {
             @Override
             public void endTransition(LayoutTransition transition, ViewGroup container, View view, int transitionType) {
                 L.info(TAG, "endTransition transitionType: " + transitionType + " view" + view);
+                L.info(TAG, "endTransition container height: " + container.getHeight() + "view addr: " + view + " view bottom:　" + view.getBottom());
+                if (view.getBottom() < 0) {
+                    removeView(view);
+                }
             }
         });
     }
@@ -175,7 +168,8 @@ public class LivePopView extends ViewGroup {
     public void push() {
         View rootView = null;
         if (!mRecycledView.isEmpty()) {
-            rootView = mRecycledView.get(0);
+            rootView = mRecycledView.remove(0);
+            L.info(TAG, "use recycled view : " + rootView);
         }
         rootView = mLivePopAdapter.getView(rootView);
 
