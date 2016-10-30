@@ -84,10 +84,11 @@ public class NYFragmentPic extends NYBasePullListFragment<NYPairPicBean> {
     }
 
     @Override
-    protected void bindView(BaseAdapterHelper help, int position, NYPairPicBean bean) {
+    protected void bindView(BaseAdapterHelper help, int position, final NYPairPicBean bean) {
         final NYPicBean leftBean=bean.getmLeftBean();
         if(leftBean!=null) {
             NYPicCoverBean coverBean=leftBean.getPicCoverBean();
+            help.setVisible(R.id.left,View.VISIBLE);
             if(coverBean!=null) {
                 help.setImageBuilder(R.id.pic_first_iv, coverBean.getThumberUrl());
                 help.setText(R.id.pic_number_first_tv, coverBean.getNumber() + "");
@@ -97,6 +98,7 @@ public class NYFragmentPic extends NYBasePullListFragment<NYPairPicBean> {
                     public void onClick(View v) {
                         Intent intent = new Intent(getActivity(), ActivityPhotoPreview.class);
                         intent.putExtra(PickPhotosPreviewFragment.INDEX, 0);
+                        intent.putStringArrayListExtra(ActivityPhotoPreview.IMAGE_MD5,getImageMd5Values(leftBean.getPicListBean()));
                         intent.putExtra(ActivityPhotoPreview.IMAGE_BEAN_LIST, tianTuImageList2ImageBean(leftBean.getPicListBean()));
                         startActivity(intent);
                     }
@@ -110,7 +112,8 @@ public class NYFragmentPic extends NYBasePullListFragment<NYPairPicBean> {
 
         final NYPicBean rightBean=bean.getmRightBean();
         if(rightBean!=null) {
-            NYPicCoverBean coverBean=leftBean.getPicCoverBean();
+            help.setVisible(R.id.right_rl,View.VISIBLE);
+            NYPicCoverBean coverBean=rightBean.getPicCoverBean();
             if(coverBean!=null) {
                 help.setImageBuilder(R.id.pic_second_iv, coverBean.getThumberUrl());
                 help.setText(R.id.pic_number_second_tv, coverBean.getNumber() + "");
@@ -120,6 +123,7 @@ public class NYFragmentPic extends NYBasePullListFragment<NYPairPicBean> {
                     public void onClick(View v) {
                         Intent intent = new Intent(getActivity(), ActivityPhotoPreview.class);
                         intent.putExtra(PickPhotosPreviewFragment.INDEX, 0);
+                        intent.putStringArrayListExtra(ActivityPhotoPreview.IMAGE_MD5,getImageMd5Values(rightBean.getPicListBean()));
                         intent.putExtra(ActivityPhotoPreview.IMAGE_BEAN_LIST, tianTuImageList2ImageBean(rightBean.getPicListBean()));
                         startActivity(intent);
                     }
@@ -138,6 +142,17 @@ public class NYFragmentPic extends NYBasePullListFragment<NYPairPicBean> {
 
     }
 
+    private ArrayList<String> getImageMd5Values(List<NYPicListBean> picListBeen){
+        ArrayList<String> imageMd5Values=new ArrayList<>();
+        if(picListBeen==null||picListBeen.isEmpty()){
+            return imageMd5Values;
+        }
+        for (NYPicListBean imageBean : picListBeen) {
+            imageMd5Values.add(imageBean.getImageUrlMd5());
+        }
+        return imageMd5Values;
+
+    }
     private ArrayList<ImageBean> tianTuImageList2ImageBean(List<NYPicListBean> picListBeen) {
         ArrayList<ImageBean> imageBeanList = new ArrayList<>();
         if(picListBeen==null||picListBeen.isEmpty()){

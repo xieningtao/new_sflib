@@ -7,6 +7,7 @@ import android.animation.TimeInterpolator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.os.Build;
+import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,8 @@ import android.view.animation.DecelerateInterpolator;
 
 import com.sf.loglib.L;
 import com.sf.utils.baseutil.UnitHelp;
+import com.sflib.CustomView.R;
+import com.sflib.reflection.core.ThreadHelp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +29,10 @@ public class LivePopView extends ViewGroup {
     private BaseLivePopAdapter mLivePopAdapter;
     private List<View> mRecycledView = new ArrayList<>();
     private LayoutTransition mLayoutTransition = new LayoutTransition();
+    private final int ALPAH_ANIMATION_TAG= R.id.alpha_animator_tag;
+
+    private Handler mHandler=new Handler();
+    private Runnable mPushRunnable;
 
     public LivePopView(Context context) {
         this(context, null);
@@ -156,6 +163,14 @@ public class LivePopView extends ViewGroup {
 
     }
 
+    public void clear(){
+        if(mPushRunnable!=null) {
+            mHandler.removeCallbacks(mPushRunnable);
+            mPushRunnable=null;
+        }
+        removeAllViews();
+    }
+
     public void setAdapter(BaseLivePopAdapter baseLivePopAdapter) {
         mLivePopAdapter = baseLivePopAdapter;
 
@@ -165,16 +180,56 @@ public class LivePopView extends ViewGroup {
 
     }
 
-    public void push() {
+    private int mNumber=0;
+    public void doPush(){
+        mNumber=0;
+        if(mPushRunnable==null){
+            mPushRunnable=new Runnable() {
+                @Override
+                public void run() {
+                    push(mNumber);
+                    mNumber++;
+                    if(mNumber<mLivePopAdapter.getCount()){
+                        mHandler.postDelayed(this,500);
+                    }
+                }
+            };
+        }
+        mHandler.post(mPushRunnable);
+
+    }
+
+    private void push(int position) {
+        if(position>=mLivePopAdapter.getCount()){
+            return;
+        }
         View rootView = null;
         if (!mRecycledView.isEmpty()) {
             rootView = mRecycledView.remove(0);
             L.info(TAG, "use recycled view : " + rootView);
         }
-        rootView = mLivePopAdapter.getView(rootView);
+        rootView = mLivePopAdapter.getView(rootView,position);
+        ObjectAnimator alphaAnimator=null;
+        if(rootView.getTag(ALPAH_ANIMATION_TAG)!=null){
+            alphaAnimator=(ObjectAnimator) rootView.getTag(ALPAH_ANIMATION_TAG);
+            alphaAnimator.cancel();
+            rootView.setAlpha(1.0f);
+        }else {
+            alphaAnimator=createAlphaAnimator(rootView);
+            rootView.setTag(ALPAH_ANIMATION_TAG,alphaAnimator);
+        }
+        alphaAnimator.start();
 
         addView(rootView);
     }
+
+    private ObjectAnimator createAlphaAnimator(View view){
+        ObjectAnimator alphaAnimator=ObjectAnimator.ofFloat(view,"alpha",1,0);
+        alphaAnimator.setDuration(4000);
+        alphaAnimator.setStartDelay(1000);
+        return alphaAnimator;
+    }
+
 
     public void pop() {
 

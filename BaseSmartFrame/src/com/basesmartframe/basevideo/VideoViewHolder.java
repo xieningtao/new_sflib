@@ -33,7 +33,11 @@ public class VideoViewHolder {
 
     public final TextView fast_control_tv;
 
+    public final View mBackView;
+
     public final View mRootView;
+
+    public final ImageView mCover;
 
     public VideoViewHolder(View view) {
         this.mRootView = view;
@@ -56,6 +60,9 @@ public class VideoViewHolder {
 
         videoshow_cover = (ImageView) view.findViewById(R.id.videoshow_cover);
         fast_control_tv = (TextView) view.findViewById(R.id.fast_control_tv);
+
+        mBackView=view.findViewById(R.id.videoshow_pt_back);
+        mCover=(ImageView) view.findViewById(R.id.videoshow_cover);
     }
 
     public void showLoading() {

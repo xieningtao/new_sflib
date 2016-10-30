@@ -4,7 +4,7 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <com.basesmartframe.basevideo.SFVideoGroupView
+    <com.basesmartframe.basevideo.SFDefaultVideoPlayer
         android:id="@+id/videoui_view"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>

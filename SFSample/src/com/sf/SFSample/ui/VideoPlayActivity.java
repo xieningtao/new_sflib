@@ -6,7 +6,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 
 import com.basesmartframe.baseui.BaseActivity;
-import com.basesmartframe.basevideo.SFVideoGroupView;
+import com.basesmartframe.basevideo.SFDefaultVideoPlayer;
 import com.sf.SFSample.R;
 import com.sf.loglib.L;
 import com.sf.utils.baseutil.SystemUIWHHelp;
@@ -16,15 +16,17 @@ import com.sf.utils.baseutil.SystemUIWHHelp;
  */
 public class VideoPlayActivity extends BaseActivity {
 
-    private SFVideoGroupView mVideoViewUI;
+    private SFDefaultVideoPlayer mVideoViewUI;
 
     private final String TAG = "CustomVideoView";
     public final static String VIDEO_URL = "video_url";
+    public final static String VIDEO_COVER="video_cover";
     private String mUrl;
 
-    public static void jump2VideoPlay(Context context, String url) {
+    public static void jump2VideoPlay(Context context, String url,String coverUrl) {
         Intent intent = new Intent(context, VideoPlayActivity.class);
         intent.putExtra(VIDEO_URL, url);
+        intent.putExtra(VIDEO_COVER,coverUrl);
         context.startActivity(intent);
     }
 
@@ -32,10 +34,12 @@ public class VideoPlayActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_videoshow);
-        mVideoViewUI = (SFVideoGroupView) findViewById(R.id.videoui_view);
+        mVideoViewUI = (SFDefaultVideoPlayer) findViewById(R.id.videoui_view);
         Intent intent = getIntent();
         if (intent != null) {
             mUrl = intent.getStringExtra(VIDEO_URL);
+            String video_cover=intent.getStringExtra(VIDEO_COVER);
+            mVideoViewUI.loadCover(video_cover);
             mVideoViewUI.setUrl(mUrl);
         }
         mVideoViewUI.setVideoViewWH(getWidth(),getHeight());
@@ -59,13 +63,13 @@ public class VideoPlayActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        mVideoViewUI.onResume();
+
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        mVideoViewUI.onPause();
+
     }
 
     @Override

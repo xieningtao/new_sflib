@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_tab"
+    >
+
+    <RelativeLayout
+        android:id="@+id/personal_rl"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/ny_item_selector"
+        android:layout_marginTop="8dp"
+        >
+
+        <com.basesmartframe.bitmap.rounddrawable.RoundedImageView
+            android:id="@+id/ny_photo_iv"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:riv_oval="true"
+            android:scaleType="centerCrop"
+            android:background="@drawable/circle_frame"
+            android:layout_marginLeft="4dp"
+            android:layout_centerVertical="true"
+            android:padding="1dp"
+            android:src="@drawable/app_icon"
+            />
+
+        <TextView
+            android:id="@+id/nick_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/ny_photo_iv"
+            android:layout_marginLeft="12dp"
+            android:textSize="14sp"
+            android:textColor="@color/text_black"
+            />
+    </RelativeLayout>
+</RelativeLayout>

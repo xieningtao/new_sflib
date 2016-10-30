@@ -8,8 +8,8 @@
 
     <com.basesmartframe.basevideo.CustomVideoView
         android:id="@+id/video_view"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@color/transparent"
         android:gravity="center"
         android:layout_centerInParent="true"

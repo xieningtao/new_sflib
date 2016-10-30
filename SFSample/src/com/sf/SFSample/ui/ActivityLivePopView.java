@@ -49,14 +49,14 @@ public class ActivityLivePopView extends BaseActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         mNumber++;
-        mLivePopView.push();
+        mLivePopView.doPush();
         return super.onOptionsItemSelected(item);
     }
 
     class LivePopAdapter extends BaseLivePopAdapter {
 
         @Override
-        public View getView(View rootView) {
+        public View getView(View rootView,int position) {
             if (rootView == null) {
                 rootView = LayoutInflater.from(ActivityLivePopView.this).inflate(R.layout.item_pop_view, null);
             }

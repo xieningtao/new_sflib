@@ -55,13 +55,17 @@ public class NYFragmentVideo extends NYBasePullListFragment<NYVideoBean> {
 
     @Override
     protected void bindView(BaseAdapterHelper help, int position, NYVideoBean bean) {
-        help.setImageBuilder(R.id.video_iv, bean.getCover());
-        help.setText(R.id.video_title_tv, bean.getTitle());
+        help.setImageBuilder(R.id.video_iv, bean.getVideoCover());
+        help.setText(R.id.video_title_tv, bean.getVideoTitle());
+        help.setText(R.id.ny_video_diggest_tv,bean.getVideoDescription());
+        help.setText(R.id.ny_video_label_tv,bean.getVideoLabel());
+        help.setText(R.id.ny_video_count_tv,bean.getVideoCount()+"");
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        position=position-getHeadViewCount();
         NYVideoBean videoBean = getPullItem(position);
-        VideoPlayActivity.jump2VideoPlay(getActivity(), videoBean.getMp4_url());
+        VideoPlayActivity.jump2VideoPlay(getActivity(), videoBean.getVideoUrl(),videoBean.getVideoCover());
     }
 }

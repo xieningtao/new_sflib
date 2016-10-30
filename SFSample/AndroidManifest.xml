@@ -128,7 +128,7 @@
         <activity
             android:name=".ui.VideoPlayActivity"
             android:configChanges="orientation|screenSize|keyboard"
-            android:theme="@android:style/Theme.NoTitleBar"/>
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
         <activity android:name=".ui.TransformActivity"/>
         <activity
             android:name=".ui.TVVerticalGridViewActivity"

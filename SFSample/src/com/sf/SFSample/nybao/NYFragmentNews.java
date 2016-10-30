@@ -63,8 +63,8 @@ public class NYFragmentNews extends NYBasePullListFragment<NYNewsBean> {
 
     @Override
     protected void bindView(BaseAdapterHelper help, int position, NYNewsBean bean) {
-        help.setImageBuilder(R.id.news_iv, bean.getImg());
-        help.setText(R.id.news_label_tv, bean.getRecSource());
+        help.setImageBuilder(R.id.news_iv, bean.getImageUrl());
+        help.setText(R.id.news_label_tv, bean.getLabel());
         help.setText(R.id.news_title_tv, bean.getTitle());
     }
 

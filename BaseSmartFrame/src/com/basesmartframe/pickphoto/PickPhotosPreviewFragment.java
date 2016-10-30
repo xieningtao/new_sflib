@@ -37,6 +37,9 @@ import java.util.ArrayList;
  */
 public class PickPhotosPreviewFragment extends BaseFragment {
 
+    public static interface OnPicSelectedListener{
+        void onPicSelected(int index);
+    }
     protected TextView mImageIndexText;
 
     protected Button mComplete;
@@ -64,6 +67,7 @@ public class PickPhotosPreviewFragment extends BaseFragment {
     private int mCurPhotoIndex = 0;
 
     private View mSelectLayout;
+    private OnPicSelectedListener onPicSelectedListener;
 
     public static void setImageListData(ArrayList<ImageBean> imageGroup) {
         mImageGroupData = imageGroup;
@@ -74,6 +78,10 @@ public class PickPhotosPreviewFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.view_pick_photo_fragment_layout, container, false);
         initViews(view);
         return view;
+    }
+
+    public void setOnPicSelectedListener(OnPicSelectedListener picSelectedListener){
+        this.onPicSelectedListener=picSelectedListener;
     }
 
     public void initViews(View view) {
@@ -125,6 +133,9 @@ public class PickPhotosPreviewFragment extends BaseFragment {
             public void onPageSelected(int arg0) {
                 updateCheckbox(arg0);
                 updatePhotoIndex(arg0);
+                if(onPicSelectedListener!=null){
+                    onPicSelectedListener.onPicSelected(arg0);
+                }
             }
 
             @Override

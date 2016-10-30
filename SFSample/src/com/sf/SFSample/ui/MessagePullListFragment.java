@@ -12,16 +12,17 @@ import com.sflib.reflection.core.ThreadHelp;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by NetEase on 2016/8/10 0010.
  */
-public class MessagePullListFragment extends BasePullListFragment<Student> {
+public class MessagePullListFragment extends BasePullListFragment<Object> {
     private int mCount = 1;
 
     @Override
     protected boolean onRefresh() {
-       final List<Student> students = new ArrayList<Student>();
+       final List<Object> students = new ArrayList<>();
         mCount=1;
         for (; mCount < 10; mCount++) {
             students.add(new Student("students" + mCount, 100 * mCount));
@@ -37,7 +38,7 @@ public class MessagePullListFragment extends BasePullListFragment<Student> {
 
     @Override
     protected boolean onLoadMore() {
-        final List<Student> students = new ArrayList<Student>();
+        final List<Object> students = new ArrayList<>();
         students.add(new Student("students" + mCount, 100 * mCount));
         mCount++;
         ThreadHelp.runInMain(new Runnable() {
@@ -57,8 +58,17 @@ public class MessagePullListFragment extends BasePullListFragment<Student> {
     }
 
     @Override
-    protected void bindView(BaseAdapterHelper help, int position, Student bean) {
-        help.setText(R.id.chat_tv,bean.name);
+    protected int getViewType(int position) {
+        return super.getViewType(position);
+    }
+
+    @Override
+    protected void bindView(BaseAdapterHelper help, int position, Object bean) {
+
+        if(bean instanceof Student){
+            Student student= (Student) bean;
+            help.setText(R.id.chat_tv,student.name);
+        }
     }
 
     @Override

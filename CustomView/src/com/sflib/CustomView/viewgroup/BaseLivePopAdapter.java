@@ -7,7 +7,7 @@ import android.view.View;
  */
 abstract public class BaseLivePopAdapter {
 
-    abstract public View getView(View rootView);
+    abstract public View getView(View rootView,int position);
 
     abstract public int getCount();
 }
