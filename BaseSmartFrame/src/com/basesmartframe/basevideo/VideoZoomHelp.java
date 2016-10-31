@@ -25,12 +25,9 @@ class VideoZoomHelp {
 
     private void updateVideoToFullMode() {
         L.info(this, "to full action");
-        Activity activity = (Activity) mContext;
-        final int width = SystemUIWHHelp.getScreenRealWidth(activity);
-        final int height = SystemUIWHHelp.getScreenRealHeight(activity) - SystemUIWHHelp.getStatusBarHeight(activity);
         RelativeLayout.LayoutParams layoutParams =(RelativeLayout.LayoutParams) mHolder.mVideoView.getLayoutParams();
         layoutParams.width= ViewGroup.LayoutParams.MATCH_PARENT;
-        layoutParams.height= ViewGroup.LayoutParams.MATCH_PARENT;
+        layoutParams.height=SystemUIWHHelp.getScreenRealHeight((Activity) mContext);
         mHolder.mVideoView.setLayoutParams(layoutParams);
     }
 

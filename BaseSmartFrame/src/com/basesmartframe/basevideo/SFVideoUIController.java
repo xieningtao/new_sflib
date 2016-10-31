@@ -377,13 +377,18 @@ public class SFVideoUIController implements SFVideoLifeCycle {
     private void toggle(boolean show) {
         toggleTopBottomView(show);
         if (isFullMode) {
-            ToggelSystemUIHelp.toggleScreenView(mContext, show);
+            if(show){
+                ToggelSystemUIHelp.showStatusBar((Activity) mContext);
+            }else {
+                ToggelSystemUIHelp.hideStatusBar((Activity) mContext);
+            }
         }
     }
 
     public void onConfigurationChanged(boolean fullMode) {
         L.info(this, "onConfigurationChanged: " + fullMode);
         isFullMode = fullMode;
+        toggle(false);
         recycleControl();
         mZoomHelp.changeMode(fullMode);
     }
@@ -477,12 +482,7 @@ public class SFVideoUIController implements SFVideoLifeCycle {
             } else {
                 mVideoShowManager.play(mUrl);
             }
-//            if (VideoViewReceiver.VideoViewState.PAUSE == state) {
-//                toggle(true);
-//            } else {
-//                toggle(!isControlShow());
-//            }
-//            recycleControl();
+            toggle(!isControlShow());
             return true;
         }
 

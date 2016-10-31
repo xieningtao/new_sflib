@@ -21,6 +21,34 @@ public class ToggelSystemUIHelp {
 
     private static boolean isNavigationBarRight = true;
 
+    public static void hideStatusBar(Activity activity){
+        // Hide Status Bar
+        if (Build.VERSION.SDK_INT < 16) {
+            activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
+        else {
+            View decorView = activity.getWindow().getDecorView();
+            // Hide Status Bar.
+            int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+            decorView.setSystemUiVisibility(uiOptions);
+        }
+    }
+
+    public static void showStatusBar(Activity activity){
+        if (Build.VERSION.SDK_INT < 16) {
+            activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
+        else {
+            View decorView = activity.getWindow().getDecorView();
+            // Show Status Bar.
+            int uiOptions = View.SYSTEM_UI_FLAG_VISIBLE;
+            decorView.setSystemUiVisibility(uiOptions);
+        }
+    }
+    public static void setLayoutScreenView(Context context){
+        toggleScreenView(context,false);
+    }
     public static void toggleScreenView(Context context, boolean show) {
         if (context instanceof Activity) {
             Activity activity = (Activity) context;
@@ -61,9 +89,14 @@ public class ToggelSystemUIHelp {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                         String os = Build.BRAND;
                         if (isNavigationBarRight) {// it has problem
+//                            decorView.setSystemUiVisibility(
+//                                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+//                                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+//                                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
                             decorView.setSystemUiVisibility(
                                     View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                                             | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                                             | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
                         } else {
                             decorView.setSystemUiVisibility(

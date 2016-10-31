@@ -144,15 +144,6 @@ public class CustomVideoView extends SurfaceView {
         final int width = SystemUIWHHelp.getScreenRealWidth(activity);
         final int height = SystemUIWHHelp.getScreenRealHeight(activity) - SystemUIWHHelp.getStatusBarHeight(activity);
         L.info(TAG, "system width: " + width + " system height: " + height);
-
-        if (right - left < width) {
-            int space = width - (right - left);
-            left = left + space / 2;
-            right = right + space / 2;
-        }
-        super.onLayout(changed, left, top, right, bottom);
-
-
         L.info(TAG, "measure width: " + getMeasuredWidth() + " measure height: " + getMeasuredHeight());
         L.info(TAG, "layout width: " + getWidth() + " layout height: " + getHeight());
 
@@ -175,7 +166,7 @@ public class CustomVideoView extends SurfaceView {
             int widthSpecSize = MeasureSpec.getSize(widthMeasureSpec);
             int heightSpecMode = MeasureSpec.getMode(heightMeasureSpec);
             int heightSpecSize = MeasureSpec.getSize(heightMeasureSpec);
-
+            L.info(TAG, "before width: " + widthSpecSize + " height: " + heightSpecSize);
 
             if (widthSpecMode == MeasureSpec.EXACTLY && heightSpecMode == MeasureSpec.EXACTLY) {
                 // the size is fixed
@@ -183,7 +174,6 @@ public class CustomVideoView extends SurfaceView {
                 height = heightSpecSize;
 
                 L.info(TAG, "mVideoWidth: " + mVideoWidth + " mVideoHeight: " + mVideoHeight);
-                L.info(TAG, "before width: " + width + " height: " + height);
                 // for compatibility, we adjust size based on aspect ratio
                 if (mVideoWidth * height < width * mVideoHeight) {
                     //Log.i("@@@", "image too wide, correcting");
