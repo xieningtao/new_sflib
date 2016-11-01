@@ -29,6 +29,60 @@ public class SFTextUtils {
 
     }
 
+    public enum NumberUnit {
+        K(10000, 9999999, "K"), M(10000000, 99999999999l, "m"), MAX(100000000000l, Long.MAX_VALUE, "m+");
+        private long leftInterval;
+        private long rightInterval;
+        private String unit;
+
+        NumberUnit(long left, long right, String unit) {
+            this.leftInterval = left;
+            this.rightInterval = right;
+            this.unit = unit;
+        }
+
+        public long getLeftInterval() {
+            return leftInterval;
+        }
+
+        public void setLeftInterval(long leftInterval) {
+            this.leftInterval = leftInterval;
+        }
+
+        public long getRightInterval() {
+            return rightInterval;
+        }
+
+        public void setRightInterval(long rightInterval) {
+            this.rightInterval = rightInterval;
+        }
+
+        public String getUnit() {
+            return unit;
+        }
+
+        public void setUnit(String unit) {
+            this.unit = unit;
+        }
+    }
+
+    ;
+
+    public static String formatNumber(long value) {
+        if (NumberUnit.K.getLeftInterval() > value) {
+            return String.valueOf(value);
+        } else if (NumberUnit.K.getLeftInterval() <= value && value <= NumberUnit.K.getRightInterval()) {
+            int curValue = (int) (value / NumberUnit.K.getLeftInterval());
+            return String.valueOf(curValue) + NumberUnit.K.getUnit();
+        } else if (NumberUnit.M.getLeftInterval() <= value && value <= NumberUnit.M.getRightInterval()) {
+            int curValue = (int) (value / NumberUnit.M.getLeftInterval());
+            return String.valueOf(curValue) + NumberUnit.M.getUnit();
+        } else {
+            int curValue = (int) (value / NumberUnit.MAX.getLeftInterval());
+            return String.valueOf(curValue) + NumberUnit.MAX.getUnit();
+        }
+    }
+
     /**
      * @param number
      * @param base
