@@ -18,8 +18,6 @@ import com.sf.SFSample.nybao.bean.NYPicBean;
 import com.sf.SFSample.nybao.bean.NYPicCoverBean;
 import com.sf.SFSample.nybao.bean.NYPicListBean;
 import com.sf.SFSample.tiantu.ActivityPhotoPreview;
-import com.sf.SFSample.tiantu.FragmentTianTuList;
-import com.sf.SFSample.tiantu.TianTuImageBeans;
 import com.sf.loglib.L;
 import com.sf.utils.baseutil.GsonUtil;
 
@@ -88,7 +86,7 @@ public class NYFragmentPic extends NYBasePullListFragment<NYPairPicBean> {
         final NYPicBean leftBean=bean.getmLeftBean();
         if(leftBean!=null) {
             NYPicCoverBean coverBean=leftBean.getPicCoverBean();
-            help.setVisible(R.id.left,View.VISIBLE);
+            help.setVisible(R.id.left_rl,View.VISIBLE);
             if(coverBean!=null) {
                 help.setImageBuilder(R.id.pic_first_iv, coverBean.getThumberUrl());
                 help.setText(R.id.pic_number_first_tv, coverBean.getNumber() + "");
@@ -104,10 +102,10 @@ public class NYFragmentPic extends NYBasePullListFragment<NYPairPicBean> {
                     }
                 });
             }else {
-                help.setVisible(R.id.left,View.INVISIBLE);
+                help.setVisible(R.id.left_rl,View.INVISIBLE);
             }
         }else {
-            help.setVisible(R.id.left,View.INVISIBLE);
+            help.setVisible(R.id.left_rl,View.INVISIBLE);
         }
 
         final NYPicBean rightBean=bean.getmRightBean();
