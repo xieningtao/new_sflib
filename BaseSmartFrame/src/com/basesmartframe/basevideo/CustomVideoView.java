@@ -175,15 +175,17 @@ public class CustomVideoView extends SurfaceView {
 
                 L.info(TAG, "mVideoWidth: " + mVideoWidth + " mVideoHeight: " + mVideoHeight);
                 // for compatibility, we adjust size based on aspect ratio
-                if (mVideoWidth * height < width * mVideoHeight) {
-                    //Log.i("@@@", "image too wide, correcting");
-                    width = height * mVideoWidth / mVideoHeight;
-                } else if (mVideoWidth * height > width * mVideoHeight) {
-                    //Log.i("@@@", "image too tall, correcting");
-                    height = width * mVideoHeight / mVideoWidth;
-                } else {
-                    L.info(TAG, "they have the same aspect ratio");
-                }
+//                if (mVideoWidth * height < width * mVideoHeight) {
+//                    //Log.i("@@@", "image too wide, correcting");
+//                    width = height * mVideoWidth / mVideoHeight;
+//                } else if (mVideoWidth * height > width * mVideoHeight) {
+//                    //Log.i("@@@", "image too tall, correcting");
+//                    height = width * mVideoHeight / mVideoWidth;
+//                } else {
+//                    L.info(TAG, "they have the same aspect ratio");
+//                }
+
+                width = height * mVideoWidth / mVideoHeight;
 
             } else if (widthSpecMode == MeasureSpec.EXACTLY) {
                 // only the width is fixed, adjust the height to match aspect ratio if possible

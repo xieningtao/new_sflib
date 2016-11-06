@@ -8,13 +8,24 @@ import android.os.Bundle;
 import com.basesmartframe.baseui.BaseActivity;
 import com.basesmartframe.basevideo.SFDefaultVideoPlayer;
 import com.sf.SFSample.R;
+import com.sf.SFSample.nybao.NYFragmentRecommendVideo;
 import com.sf.loglib.L;
 import com.sf.utils.baseutil.SystemUIWHHelp;
 
 /**
  * Created by xieningtao on 15-11-16.
  */
-public class VideoPlayActivity extends BaseActivity {
+public class VideoPlayActivity extends BaseActivity implements NYFragmentRecommendVideo.OnVideoPlayItemClick{
+
+    @Override
+    public void onVideoPlayClick(String videoUrl, String coverUrl) {
+        if(mVideoViewUI!=null){
+            mVideoViewUI.loadCover(coverUrl);
+            mVideoViewUI.setUrl(videoUrl);
+            mVideoViewUI.doPlay();
+        }
+    }
+
 
     private SFDefaultVideoPlayer mVideoViewUI;
 

@@ -23,6 +23,6 @@ abstract public class NYBasePullListFragment<T> extends BasePullListFragment<T> 
         Drawable drawable = getResources().getDrawable(R.drawable.ny_gray_divider);
         getPullToRefreshListView().getRefreshableView().setDivider(drawable);
         getPullToRefreshListView().getRefreshableView().setDividerHeight(UnitHelp.dip2px(getActivity(), 1));
-        getPullToRefreshListView().getRefreshableView().setScrollBarSize(0);
+//        getPullToRefreshListView().getRefreshableView().setScrollBarSize(0);
     }
 }

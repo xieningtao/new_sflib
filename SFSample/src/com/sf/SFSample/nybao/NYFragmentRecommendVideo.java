@@ -1,5 +1,6 @@
 package com.sf.SFSample.nybao;
 
+import android.app.Activity;
 import android.view.View;
 import android.widget.AdapterView;
 
@@ -23,28 +24,53 @@ import java.util.List;
 
 public class NYFragmentRecommendVideo extends NYBasePullListFragment<NYVideoBean> {
 
+    private final int PAGE_SIZE=10;
+    public static interface OnVideoPlayItemClick{
+        void onVideoPlayClick(String videoUrl,String coverUrl);
+    }
+
+    private OnVideoPlayItemClick mOnVideoPlayItemClick;
+
     @Override
-    protected boolean onRefresh() {
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        if(activity instanceof OnVideoPlayItemClick){
+            mOnVideoPlayItemClick= (OnVideoPlayItemClick) activity;
+        }
+    }
+
+    private void doRequest(boolean refresh){
         MLQuery<MLObject> newsQuery = MLQuery.getQuery("NYVideo");
+        newsQuery.setLimit(PAGE_SIZE);
+        newsQuery.setSkip(refresh?0:getDataSize());
         MLQueryManager.findAllInBackground(newsQuery, new FindCallback<MLObject>() {
             @Override
             public void done(List<MLObject> list, MLException e) {
                 L.debug(TAG, "videos: " + list);
+                boolean hasMoreData=false;
                 List<NYVideoBean> nyNewsBeanLis = new ArrayList<NYVideoBean>();
                 if (list != null && !list.isEmpty()) {
                     for (MLObject mlObject : list) {
                         NYVideoBean videoBean = GsonUtil.parse(mlObject.getString("videoContent"), NYVideoBean.class);
                         nyNewsBeanLis.add(videoBean);
                     }
+                    if(list.size()>=PAGE_SIZE){
+                        hasMoreData=true;
+                    }
                 }
-                finishRefreshOrLoading(nyNewsBeanLis, false);
+                finishRefreshOrLoading(nyNewsBeanLis, hasMoreData);
             }
         });
+    }
+    @Override
+    protected boolean onRefresh() {
+        doRequest(true);
         return true;
     }
 
     @Override
     protected boolean onLoadMore() {
+        doRequest(false);
         return false;
     }
 
@@ -64,6 +90,8 @@ public class NYFragmentRecommendVideo extends NYBasePullListFragment<NYVideoBean
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        position=position-getHeadViewCount();
+        NYVideoBean videoBean = getPullItem(position);
+        mOnVideoPlayItemClick.onVideoPlayClick(videoBean.getVideoUrl(),videoBean.getVideoCover());
     }
 }

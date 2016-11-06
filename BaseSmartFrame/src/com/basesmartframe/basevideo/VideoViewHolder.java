@@ -39,6 +39,9 @@ public class VideoViewHolder {
 
     public final ImageView mCover;
 
+    public final TextView curTime_tv;
+    public final TextView totalTime_tv;
+
     public VideoViewHolder(View view) {
         this.mRootView = view;
         //control view
@@ -63,6 +66,9 @@ public class VideoViewHolder {
 
         mBackView=view.findViewById(R.id.videoshow_pt_back);
         mCover=(ImageView) view.findViewById(R.id.videoshow_cover);
+
+        curTime_tv = (TextView) mRootView.findViewById(R.id.cur_tv);
+        totalTime_tv = (TextView) mRootView.findViewById(R.id.total_tv);
     }
 
     public void showLoading() {

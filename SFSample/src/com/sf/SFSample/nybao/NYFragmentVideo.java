@@ -23,28 +23,40 @@ import java.util.List;
  */
 public class NYFragmentVideo extends NYBasePullListFragment<NYVideoBean> {
 
-    @Override
-    protected boolean onRefresh() {
+    private final int PAGE_SIZE=10;
+
+    private void getVideos(boolean refresh){
         MLQuery<MLObject> newsQuery = MLQuery.getQuery("NYVideo");
+        newsQuery.setLimit(PAGE_SIZE);
+        newsQuery.setSkip(refresh?0:getDataSize());
         MLQueryManager.findAllInBackground(newsQuery, new FindCallback<MLObject>() {
             @Override
             public void done(List<MLObject> list, MLException e) {
                 L.debug(TAG, "videos: " + list);
+                boolean hasMoreData=false;
                 List<NYVideoBean> nyNewsBeanLis = new ArrayList<NYVideoBean>();
                 if (list != null && !list.isEmpty()) {
                     for (MLObject mlObject : list) {
                         NYVideoBean videoBean = GsonUtil.parse(mlObject.getString("videoContent"), NYVideoBean.class);
                         nyNewsBeanLis.add(videoBean);
                     }
+                    if(list.size()>=PAGE_SIZE){
+                        hasMoreData=true;
+                    }
                 }
-                finishRefreshOrLoading(nyNewsBeanLis, false);
+                finishRefreshOrLoading(nyNewsBeanLis, hasMoreData);
             }
         });
+    }
+    @Override
+    protected boolean onRefresh() {
+       getVideos(true);
         return false;
     }
 
     @Override
     protected boolean onLoadMore() {
+        getVideos(false);
         return false;
     }
 

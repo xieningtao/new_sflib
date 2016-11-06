@@ -15,10 +15,15 @@ import android.widget.SeekBar;
 import com.basesmartframe.R;
 import com.basesmartframe.basevideo.core.VideoViewAbs;
 import com.basesmartframe.basevideo.core.VideoViewPresentImpl;
+import com.basesmartframe.basevideo.util.TimeUtil;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.sf.utils.baseutil.NetWorkManagerUtil;
 import com.sf.utils.baseutil.SFToast;
 import com.sf.utils.baseutil.SystemUIWHHelp;
+import com.sflib.reflection.core.ThreadHelp;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by mac on 16/10/30.
@@ -31,11 +36,13 @@ public class SFDefaultVideoPlayer extends FrameLayout {
     private VideoViewAbs.VideoViewPresent mPresent;
     private CustomVideoView mVideoView;
     private VideoViewHolder mHolder;
-    private  VideoZoomHelp mZoomHelp;
+    private VideoZoomHelp mZoomHelp;
     private String mUrl;
 
+    private Timer mTimer;
+
     public SFDefaultVideoPlayer(Context context) {
-        this(context,null);
+        this(context, null);
     }
 
     public SFDefaultVideoPlayer(Context context, AttributeSet attrs) {
@@ -43,22 +50,22 @@ public class SFDefaultVideoPlayer extends FrameLayout {
         init();
     }
 
-   public void setUrl(String url){
-       this.mUrl=url;
-   }
-
-    public void loadCover(String url){
-        ImageLoader.getInstance().displayImage(url,mHolder.mCover);
+    public void setUrl(String url) {
+        this.mUrl = url;
     }
 
-    private void init(){
+    public void loadCover(String url) {
+        ImageLoader.getInstance().displayImage(url, mHolder.mCover);
+    }
+
+    private void init() {
         mRootView = LayoutInflater.from(getContext()).inflate(R.layout.videoviewui_layout, this);
         mVideoView = (CustomVideoView) mRootView.findViewById(R.id.video_view);
-        mHolder=new VideoViewHolder(mRootView);
+        mHolder = new VideoViewHolder(mRootView);
         initActionListener();
-        VideoViewAbs.VideoViewCallback videoViewCallback=new DefaultVideoViewController(mHolder);
-        mPresent=new VideoViewPresentImpl(mHolder.mVideoView,videoViewCallback);
-        mZoomHelp=new VideoZoomHelp(getContext(),mHolder);
+        VideoViewAbs.VideoViewCallback videoViewCallback = new DefaultVideoViewController(mHolder);
+        mPresent = new VideoViewPresentImpl(mHolder.mVideoView, videoViewCallback);
+        mZoomHelp = new VideoZoomHelp(getContext(), mHolder);
     }
 
     private void initActionListener() {
@@ -93,10 +100,10 @@ public class SFDefaultVideoPlayer extends FrameLayout {
         mHolder.pause_iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(v.getTag()==null||"resume".equals(v.getTag())) {
+                if (v.getTag() == null || "resume".equals(v.getTag())) {
                     mPresent.pause();
                     v.setTag("pause");
-                }else {
+                } else {
                     mPresent.resume();
                     v.setTag("resume");
                 }
@@ -138,9 +145,9 @@ public class SFDefaultVideoPlayer extends FrameLayout {
         mHolder.mBackView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isFull()){
+                if (isFull()) {
                     doOrientationRequest(false);
-                }else {
+                } else {
                     Activity activity = (Activity) getContext();
                     activity.finish();
                 }
@@ -174,16 +181,16 @@ public class SFDefaultVideoPlayer extends FrameLayout {
         }
     }
 
-    private boolean isFull(){
-        int width= SystemUIWHHelp.getScreenRealWidth((Activity) getContext());
-        int height=SystemUIWHHelp.getScreenRealHeight((Activity) getContext());
-        if(width>height){
+    private boolean isFull() {
+        int width = SystemUIWHHelp.getScreenRealWidth((Activity) getContext());
+        int height = SystemUIWHHelp.getScreenRealHeight((Activity) getContext());
+        if (width > height) {
             return true;
         }
         return false;
     }
 
-    private void doPlay() {
+    public void doPlay() {
         if (NetWorkManagerUtil.isNetworkAvailable()) {
             play();
         } else {
@@ -202,7 +209,39 @@ public class SFDefaultVideoPlayer extends FrameLayout {
         mVideoView.setLayoutParams(layoutParams);
     }
 
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        mTimer = new Timer();
+        mTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                ThreadHelp.runInMain(new Runnable() {
+                    @Override
+                    public void run() {
+                        int curMillis = mHolder.mVideoView.getCurrentPosition();
+                        int total = mHolder.mVideoView.getDuration();
+                        double pecentage = (curMillis * 1.0 / total) * 100;
+                        mHolder.seekBar.setProgress((int) pecentage);
+
+                        //update text
+                        mHolder.curTime_tv.setText(TimeUtil.getMSFormatTime(curMillis) + "/");
+                        mHolder.totalTime_tv.setText(TimeUtil.getMSFormatTime(total));
+                    }
+                });
+
+            }
+        }, 0,1000);
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        mTimer.cancel();
+        mTimer=null;
+    }
+
     public void onConfigurationChanged(boolean fullMode) {
-       mZoomHelp.changeMode(fullMode);
+        mZoomHelp.changeMode(fullMode);
     }
 }

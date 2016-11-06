@@ -171,14 +171,14 @@ public abstract class BasePullListFragment<T> extends BaseFragment implements
         if (data != null && data.size() > 0) {
             this.data.addAll(data);
         }
+        mAdapter.notifyDataSetChanged();
+        showHttpResultView();
+        simpleFinishRefreshOrLoading();
         if (isIncrement) {
             mPullToRefreshListView.setMode(Mode.BOTH);
         } else {
             mPullToRefreshListView.setMode(Mode.PULL_FROM_START);
         }
-        mAdapter.notifyDataSetChanged();
-        showHttpResultView();
-        simpleFinishRefreshOrLoading();
     }
 
     @SFIntegerMessage(messageId = SFMsgId.NetworkMessage.NETWORK_AVAILABLE)
@@ -208,7 +208,9 @@ public abstract class BasePullListFragment<T> extends BaseFragment implements
                                          PullToRefreshListView pullListView) {
 
     }
-
+    protected  int getDataSize(){
+        return data.size();
+    }
     protected T getPullItem(int position) {
         return (T) mAdapter.getItem(position);
     }

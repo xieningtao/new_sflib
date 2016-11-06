@@ -26,26 +26,34 @@ import java.util.List;
  */
 public class NYFragmentNews extends NYBasePullListFragment<NYNewsBean> {
 
+    private final int PAGE_SIZE = 10;
+
     @Override
     protected boolean onRefresh() {
-        getNews();
+        getNews(true);
         return false;
     }
 
-    private void getNews() {
+    private void getNews(boolean refresh) {
         MLQuery<MLObject> newsQuery = MLQuery.getQuery("NYNews");
+        newsQuery.setLimit(PAGE_SIZE);
+        newsQuery.setSkip(refresh ? 0 : getDataSize());
         MLQueryManager.findAllInBackground(newsQuery, new FindCallback<MLObject>() {
             @Override
             public void done(List<MLObject> list, MLException e) {
                 L.debug(TAG, "news: " + list);
+                boolean hasMoreData = false;
                 List<NYNewsBean> nyNewsBeanLis = new ArrayList<NYNewsBean>();
                 if (list != null && !list.isEmpty()) {
                     for (MLObject mlObject : list) {
                         NYNewsBean newsBean = GsonUtil.parse(mlObject.getString("content"), NYNewsBean.class);
                         nyNewsBeanLis.add(newsBean);
                     }
+                    if (list.size() >= PAGE_SIZE) {
+                        hasMoreData = true;
+                    }
                 }
-                finishRefreshOrLoading(nyNewsBeanLis, false);
+                finishRefreshOrLoading(nyNewsBeanLis, hasMoreData);
             }
         });
 
@@ -53,6 +61,7 @@ public class NYFragmentNews extends NYBasePullListFragment<NYNewsBean> {
 
     @Override
     protected boolean onLoadMore() {
+        getNews(false);
         return false;
     }
 
@@ -81,7 +90,7 @@ public class NYFragmentNews extends NYBasePullListFragment<NYNewsBean> {
         Intent intent = new Intent(getActivity(), ActivityFragmentContainer.class);
         intent.putExtra(ActivityFragmentContainer.FRAGMENT_CLASS_NAME, NYFragmentNewsDetail.class.getName());
         Bundle bundle = new Bundle();
-        bundle.putString(NYFragmentNewsDetail.NEWS_ID, "C31Q8L9600011229");
+        bundle.putString(NYFragmentNewsDetail.NEWS_ID, bean.getId());
 //        bundle.putString(NYFragmentNewsDetail.NEWS_ID, bean.getId());
         intent.putExtra(ActivityFragmentContainer.BUNDLE_CONTAINER, bundle);
         startActivity(intent);
