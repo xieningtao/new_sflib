@@ -1,10 +1,6 @@
 package com.basesmartframe.baseadapter;
 
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Paint;
 import android.graphics.Typeface;
@@ -12,9 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.text.util.Linkify;
 import android.util.SparseArray;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.widget.Adapter;
 import android.widget.AdapterView;
@@ -23,6 +17,10 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
+import com.basesmartframe.data.ViewBind;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
  * Allows an abstraction of the ViewHolder pattern.<br>
@@ -221,13 +219,13 @@ public class BaseAdapterHelper {
 	public BaseAdapterHelper setImageBuilder(int viewId, String imageUrl,
 			DisplayImageOptions option) {
 		ImageView view = retrieveView(viewId);
-		ImageLoader.getInstance().displayImage(imageUrl, view, option);
+		ViewBind.displayImage(imageUrl, view, ViewBind.DEFAULT_IMAGE_OPTIONS);
 		return this;
 	}
 
 	public BaseAdapterHelper setImageBuilder(int viewId, String imageUrl) {
 		ImageView view = retrieveView(viewId);
-		ImageLoader.getInstance().displayImage(imageUrl, view);
+		ViewBind.displayImage(imageUrl, view, ViewBind.DEFAULT_IMAGE_OPTIONS);
 		return this;
 	}
 
