@@ -11,7 +11,7 @@ import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 
 /**
- * Created by Legend on 2014/4/3.
+ * Created by elielo on 2016/11/07.
  */
 public class ViewBind {
     public static final DisplayImageOptions DEFAULT_IMAGE_OPTIONS = new DisplayImageOptions.Builder()

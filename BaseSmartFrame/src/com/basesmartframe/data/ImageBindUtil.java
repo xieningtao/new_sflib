@@ -14,7 +14,7 @@ import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.sf.utils.baseutil.FP;
 
 /**
- * Created by Carlos on 2015/11/9.
+ * Created by elielo on 2016/11/07.
  */
 public class ImageBindUtil {
 
