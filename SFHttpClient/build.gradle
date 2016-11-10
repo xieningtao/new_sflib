@@ -24,11 +24,29 @@ android {
     }
     productFlavors {
     }
+
+}
+
+apply plugin:'maven'
+
+group=lib_group
+version=lib_version
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: local_mavel)
+            pom.artifactId ="http_client"
+            pom.version=lib_version
+        }
+    }
 }
 
 dependencies {
     compile 'com.google.android:android:4.1.1.4@jar'
-    compile project(':SFLog')
-    compile project(':SFUtils')
-    compile project(':SFDBLib')
+//    compile "com.sf.cor:sf_log_lib:$lib_version@aar"
+//    compile "com.sf.cor:sf_util_lib:$lib_version@aar"
+//    compile "com.sf.cor:sf_db_lib:$lib_version@aar"
+    compile project(":SFLog")
+    compile project(":SFDBLib")
+    compile project(":SFUtils")
 }

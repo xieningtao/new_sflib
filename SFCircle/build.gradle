@@ -11,7 +11,19 @@ android {
         versionName "1.0"
     }
 }
+apply plugin:'maven'
 
+group=lib_group
+version=lib_version
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: local_mavel)
+            pom.artifactId ="sf_circle_lib"
+            pom.version=lib_version
+        }
+    }
+}
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(":BaseSmartFrame")

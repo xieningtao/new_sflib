@@ -26,9 +26,23 @@ android {
     }
 }
 
-repositories{
-    maven {
-        url "https://raw.githubusercontent.com/umeng/mvn-repo-umeng/master/repository"
+//repositories{
+//    maven {
+//        url "https://raw.githubusercontent.com/umeng/mvn-repo-umeng/master/repository"
+//    }
+//}
+
+apply plugin:'maven'
+
+group=lib_group
+version=lib_version
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: local_mavel)
+            pom.artifactId ="sf_umeng_lib"
+            pom.version=lib_version
+        }
     }
 }
 dependencies {

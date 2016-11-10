@@ -89,4 +89,22 @@ public class ShaderHelper {
         return program;
         //-----edn shader
     }
+    public static int createObjProgram() {
+        //-----prepare shader program
+        int program = GLES20.glCreateProgram();
+        int vertexShader = loadShader(GLES20.GL_VERTEX_SHADER, ShaderCode.mVertexObjShader);
+        checkGlError("loadVertexShader");
+        int fragmentShader = loadShader(GLES20.GL_FRAGMENT_SHADER, ShaderCode.mFragmentObjShader);
+        String fragmentShaderLogs = GLES20.glGetShaderInfoLog(fragmentShader);
+        Log.e(TAG, "fragmentShaderLogs: " + fragmentShaderLogs);
+        checkGlError("loadFragmentShader");
+        GLES20.glAttachShader(program, vertexShader);
+        GLES20.glAttachShader(program, fragmentShader);
+        GLES20.glLinkProgram(program);
+        String linkLogs = GLES20.glGetProgramInfoLog(program);
+        Log.e(TAG, "linkLogs: " + linkLogs);
+        checkGlError("linkProgram");
+        return program;
+        //-----edn shader
+    }
 }

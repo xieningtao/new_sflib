@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 android {
 
     compileSdkVersion 22
-    buildToolsVersion '21.1.2'
+    buildToolsVersion '22.0.1'
 
     defaultConfig {
         minSdkVersion 17
@@ -65,4 +65,13 @@ dependencies {
     compile project(':Emoji')
     compile project(':SFChat')
     compile project(':SFCircle')
+//    compile "com.sf.core:base_sf_core:1.0.0@aar"
+//    compile "com.sf.core:android_tv:1.0.0@aar"
+//    compile "com.sf.core:emoji_lib:1.0.0@aar"
+//    compile "com.sf.core:http_client:1.0.0@aar"
+//    compile "com.sf.core:opengl_lib:1.0.0@aar"
+//    compile "com.sf.core:sf_umeng_lib:1.0.0@aar"
+//    compile "com.sf.core:sf_pay_lib:1.0.0@aar"
+//    compile "com.sf.core:sf_circle_lib:1.0.0@aar"
+//    compile "com.sf.core:sfchat_lib:1.0.0@aar"
 }

@@ -9,6 +9,11 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
+ext {
+     lib_version = "1.0.0"
+     lib_group = "com.sf.core"
+     local_mavel="file://E:/gitMavenLib"
+}
 
 allprojects {
     repositories {
@@ -16,5 +21,8 @@ allprojects {
             dirs 'libs'
         }
         mavenCentral()
+        maven {
+            url "https://raw.githubusercontent.com/xieningtao/mavenRepo/master/"
+        }
     }
 }
