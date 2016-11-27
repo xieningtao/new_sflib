@@ -29,4 +29,5 @@ dependencies {
     compile project(":BaseSmartFrame")
     compile project(":Emoji")
     compile project(':BaiduLib')
+    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.3'
 }

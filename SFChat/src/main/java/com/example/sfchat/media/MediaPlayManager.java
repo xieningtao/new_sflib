@@ -129,7 +129,7 @@ public class MediaPlayManager {
     }
 
     //开始播放
-    private boolean startPlay(String path) {
+    public boolean startPlay(String path) {
         L.info(TAG, TAG + ".startPlay,path: " + path);
         if (TextUtils.isEmpty(path)) {
             return false;
