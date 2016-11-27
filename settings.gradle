@@ -2,8 +2,9 @@ include ':CustomView', ':BaseSmartFrame', ':openGL', ':Emoji', ':SFChat', ':Baid
         ':SFLog', ':SFUtils',
         ':reflection', ':Android-PullToRefresh:PullRefreshLib',
         ':UMengLib', ':AndroidTV', ':SFHttpClient',
-        ':SFPay', ":SFLog", ":Emoji", ':Robolec' ,"SFSample"
+        ':SFPay', ":SFLog", ":Emoji", ':Robolec', ":SFSample"
 //,':Robotium'
 
 //':EventBus:EventBusCore',
-//include "SFSample"
+//include ':SFLog',":BaseSmartFrame",':SFHttpClient',':UMengLib',':reflection', ':Android-PullToRefresh:PullRefreshLib',':SFUtils' ,
+//        ':BaiduLib',":CustomView","SFDBLib"

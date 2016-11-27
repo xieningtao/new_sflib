@@ -1,6 +1,7 @@
 package com.basesmartframe.filecache.cacheentry;
 
-import com.sf.utils.baseutil.SFFileHelp;
+
+import com.sf.loglib.file.SFFileHelp;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -4,7 +4,7 @@ import android.text.TextUtils;
 
 import com.google.gson.Gson;
 import com.nostra13.universalimageloader.utils.L;
-import com.sf.utils.baseutil.SFFileHelp;
+import com.sf.loglib.file.SFFileHelp;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -182,6 +182,7 @@ public class EmojiLoadManager {
 
     private static <T> T parse(String manifestFileName, Class<T> emojiClass) {
         String manifestContent = SFFileHelp.getTxtFileContentWithAbsPath(manifestFileName);
+
         if (!TextUtils.isEmpty(manifestContent)) {
             try {
                 Gson gson = new Gson();

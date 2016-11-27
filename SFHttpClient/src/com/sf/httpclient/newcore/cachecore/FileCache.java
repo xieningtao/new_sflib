@@ -1,6 +1,7 @@
 package com.sf.httpclient.newcore.cachecore;
 
-import com.sf.utils.baseutil.SFFileHelp;
+
+import com.sf.loglib.file.SFFileHelp;
 
 import java.io.File;
 

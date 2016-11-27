@@ -4,9 +4,7 @@ package com.sf.httpclient.newcore.cache;
 import android.content.Context;
 
 import com.sf.loglib.L;
-import com.sf.utils.baseutil.SFFileHelp;
 
-import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

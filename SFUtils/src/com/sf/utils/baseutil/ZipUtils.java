@@ -4,6 +4,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 
 import com.sf.loglib.L;
+import com.sf.loglib.file.SFFileHelp;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

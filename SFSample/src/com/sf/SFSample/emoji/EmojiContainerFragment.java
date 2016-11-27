@@ -8,24 +8,19 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.basesmartframe.request.SFHttpFileHandler;
-import com.basesmartframe.request.SFHttpGsonCacheHandler;
-import com.basesmartframe.request.SFHttpGsonHandler;
 import com.sf.SFSample.R;
 import com.sf.httpclient.newcore.MethodType;
 import com.sf.httpclient.newcore.SFHttpFileCallback;
-import com.sf.httpclient.newcore.SFHttpStringCallback;
 import com.sf.httpclient.newcore.SFRequest;
 import com.sf.loglib.L;
-import com.sf.utils.baseutil.SFFileHelp;
+import com.sf.loglib.file.SFFileHelp;
 import com.sflib.emoji.core.BaseSFEmojiContainerFragment;
-import com.sflib.emoji.core.EmojiFileEntry;
 import com.sflib.emoji.core.EmojiLoadManager;
 import com.sflib.reflection.core.ThreadHelp;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by NetEase on 2016/7/11 0011.

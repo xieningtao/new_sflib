@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+    >
+
+    <include
+        android:id="@+id/msg_left_audio_common_item"
+        layout="@layout/msg_common_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/msg_left_audio_common_item"
+        android:gravity="left"
+        android:orientation="horizontal"
+        >
+
+        <include
+            android:id="@+id/msg_audio_user"
+            layout="@layout/msg_user_item"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            />
+
+        <RelativeLayout
+            android:id="@+id/audio_content_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:paddingLeft="2dp">
+
+            <FrameLayout
+                android:id="@+id/audio_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true">
+
+                <ImageView
+                    android:id="@+id/audio_stop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1.5dp"
+                    android:src="@drawable/left_audio_stop"/>
+
+                <ProgressBar
+                    android:id="@+id/audio_play"
+                    style="@style/left_audio_progressbar_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1.5dp"
+                    android:visibility="gone"/>
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/voice_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/msg_left_small_text_color"
+                android:textSize="@dimen/msg_left_small_text_dimen"/>
+
+        </RelativeLayout>
+
+        <include
+            android:id="@+id/msg_left_audio_state"
+            layout="@layout/msg_state_item"
+            />
+    </LinearLayout>
+</RelativeLayout>

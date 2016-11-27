@@ -3,13 +3,11 @@ package com.basesmartframe.updateutil.download;
 import android.content.Context;
 
 import com.sf.loglib.L;
-import com.sf.utils.baseutil.SFFileHelp;
+import com.sf.loglib.file.SFFileHelp;
 
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.net.HttpURLConnection;
-import java.net.InetSocketAddress;
-import java.net.Proxy;
 import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.Map;

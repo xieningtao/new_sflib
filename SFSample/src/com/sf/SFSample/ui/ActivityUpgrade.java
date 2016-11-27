@@ -1,7 +1,6 @@
 package com.sf.SFSample.ui;
 
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.View;
 
 import com.basesmartframe.baseui.BaseActivity;
@@ -12,7 +11,7 @@ import com.sf.httpclient.newcore.MethodType;
 import com.sf.httpclient.newcore.SFHttpFileCallback;
 import com.sf.httpclient.newcore.SFRequest;
 import com.sf.loglib.L;
-import com.sf.utils.baseutil.SFFileHelp;
+import com.sf.loglib.file.SFFileHelp;
 
 import java.io.File;
 

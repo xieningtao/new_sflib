@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="msg_max_w">167dp</dimen>
+    <dimen name="msg_max_w2">208dp</dimen>
+    <dimen name="msg_max_w3">182dp</dimen>
+
+    <dimen name="msg_left_big_text_dimen">16sp</dimen>
+    <dimen name="msg_left_small_text_dimen">14sp</dimen>
+    <dimen name="msg_right_big_text_dimen">16sp</dimen>
+    <dimen name="msg_right_small_text_dimen">14sp</dimen>
+</resources>

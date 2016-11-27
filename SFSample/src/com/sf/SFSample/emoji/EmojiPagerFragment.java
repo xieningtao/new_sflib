@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.basesmartframe.request.SFHttpFileHandler;
 import com.basesmartframe.request.SFHttpZipFileHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.sf.SFSample.R;
@@ -17,14 +16,13 @@ import com.sf.httpclient.newcore.MethodType;
 import com.sf.httpclient.newcore.SFHttpFileCallback;
 import com.sf.httpclient.newcore.SFRequest;
 import com.sf.loglib.L;
-import com.sf.utils.baseutil.SFFileHelp;
+import com.sf.loglib.file.SFFileHelp;
 import com.sflib.emoji.core.BaseSFEmojiPagerFragment;
 import com.sflib.emoji.core.ConfiguredEmojiGroup;
+import com.sflib.emoji.core.EmojiBean;
 import com.sflib.emoji.core.EmojiFileBean;
 import com.sflib.emoji.core.EmojiGroup;
 import com.sflib.emoji.core.EmojiLoadManager;
-import com.sflib.emoji.core.EmojiBean;
-import com.sflib.reflection.core.ThreadHelp;
 
 import java.io.File;
 import java.util.List;
