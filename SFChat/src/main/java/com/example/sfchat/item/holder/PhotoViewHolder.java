@@ -15,11 +15,12 @@ public class PhotoViewHolder extends UserAndIndicatorViewHolder {
     public final ImageView mBubbleIv;
     public final ProgressBar mProgressBar;
     public final TextView mProgressBarTv;
-
+    public final View mPhotoContainer;
     public PhotoViewHolder(View rootView) {
         super(rootView);
         mBubbleIv = (ImageView) rootView.findViewById(R.id.image);
         mProgressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
         mProgressBarTv = (TextView) rootView.findViewById(R.id.progressText);
+        mPhotoContainer=rootView.findViewById(R.id.photo_container);
     }
 }

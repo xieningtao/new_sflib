@@ -2,8 +2,6 @@ package com.example.sfchat.item.view;
 
 import android.content.Context;
 
-import com.example.sfchat.item.holder.SFGifItemView;
-
 /**
  * Created by NetEase on 2016/11/25 0025.
  */
@@ -20,17 +18,21 @@ public class ChatItemViewFactory {
         return photoItemView;
     }
 
-    public static BaseChatItemView createGifItemView(Context context){
-        SFGifItemView gifItemView=new SFGifItemView(context,createCommonItemview(context));
+    public static BaseChatItemView createGifItemView(Context context) {
+        GifItemView gifItemView = new GifItemView(context, createCommonItemview(context));
         return gifItemView;
     }
 
-    public static BaseChatItemView createTxtItemView(Context context){
-        return new TxtItemView(context,createCommonItemview(context));
+    public static BaseChatItemView createTxtItemView(Context context) {
+        return new TxtItemView(context, createCommonItemview(context));
     }
 
-    public static BaseChatItemView createAudioItemView(Context context){
-        return new AudioItemView(context,createCommonItemview(context));
+    public static BaseChatItemView createAudioItemView(Context context) {
+        return new AudioItemView(context, createCommonItemview(context));
+    }
+
+    public static BaseChatItemView createPaperItemView(Context context) {
+        return new PaperItemView(context, createCommonItemview(context));
     }
 
     private static BaseChatItemView createCommonItemview(Context context) {

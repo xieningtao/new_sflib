@@ -25,11 +25,12 @@ public class TxtItemView extends BaseChatItemView<SFMsg> {
 
     @Override
     protected void updateContentView(SFMsg data, BaseChatHolder baseChatHolder, int position) {
-        if(data==null|| TextUtils.isEmpty(data.getContent()))return;
-        if(baseChatHolder instanceof TxtViewHolder){
-            TxtViewHolder txtViewHolder= (TxtViewHolder) baseChatHolder;
-            SFTxt txt= GsonUtil.parse(data.getContent(),SFTxt.class);
-
+        if (data == null || TextUtils.isEmpty(data.getContent())) return;
+        if (baseChatHolder instanceof TxtViewHolder) {
+            TxtViewHolder txtViewHolder = (TxtViewHolder) baseChatHolder;
+            SFTxt txt = GsonUtil.parse(data.getContent(), SFTxt.class);
+            txtViewHolder.mContentTv.setText(txt.getContent());
+            setUserBgBy(txtViewHolder.mContentTv, data.isFromMe());
         }
     }
 }

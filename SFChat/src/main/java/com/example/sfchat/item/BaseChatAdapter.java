@@ -10,8 +10,9 @@ import com.example.sfchat.R;
 import com.example.sfchat.item.chatbean.SFMsg;
 import com.example.sfchat.item.holder.AudioViewHolder;
 import com.example.sfchat.item.holder.BaseChatHolder;
-import com.example.sfchat.item.holder.GiftViewHolder;
+import com.example.sfchat.item.holder.GifViewHolder;
 import com.example.sfchat.item.holder.LocationViewHolder;
+import com.example.sfchat.item.holder.PaperViewHolder;
 import com.example.sfchat.item.holder.PhotoViewHolder;
 import com.example.sfchat.item.holder.TxtViewHolder;
 import com.example.sfchat.item.view.BaseChatItemView;
@@ -33,6 +34,10 @@ public class BaseChatAdapter extends BaseAdapter {
     public BaseChatAdapter(Context context) {
         this.mContext = context;
         mLayoutInflater = LayoutInflater.from(context);
+    }
+
+    public List<SFMsg> getMsgList() {
+        return msgList;
     }
 
     @Override
@@ -90,6 +95,12 @@ public class BaseChatAdapter extends BaseAdapter {
                 } else {
                     return ChatViewType.MSG_LEFT_TXT.ordinal();
                 }
+            case MsgType.paper_type:
+                if (fromMe) {
+                    return ChatViewType.MSG_RIGHT_PAPER.ordinal();
+                } else {
+                    return ChatViewType.MSG_LEFT_PAPER.ordinal();
+                }
         }
         return super.getItemViewType(position);
     }
@@ -136,7 +147,7 @@ public class BaseChatAdapter extends BaseAdapter {
                         convertView = mLayoutInflater.inflate(R.layout.msg_left_gif_item, null);
                     }
                     chatItemView = ChatItemViewFactory.createGifItemView(mContext);
-                    chatHolder = new GiftViewHolder(convertView);
+                    chatHolder = new GifViewHolder(convertView);
                     break;
                 case MSG_LEFT_TXT:
                 case MSG_RIGHT_TXT:
@@ -168,6 +179,17 @@ public class BaseChatAdapter extends BaseAdapter {
                     chatItemView = ChatItemViewFactory.createLocationItemView(mContext);
                     chatHolder = new LocationViewHolder(convertView);
                     break;
+                case MSG_LEFT_PAPER:
+                case MSG_RIGHT_PAPER:
+                    if (fromMe) {
+                        convertView = mLayoutInflater.inflate(R.layout.msg_right_paper_item, null);
+                    } else {
+                        convertView = mLayoutInflater.inflate(R.layout.msg_left_paper_item, null);
+                    }
+                    chatItemView = ChatItemViewFactory.createPaperItemView(mContext);
+                    chatHolder = new PaperViewHolder(convertView);
+                    break;
+
             }
 
             if (convertView != null) {

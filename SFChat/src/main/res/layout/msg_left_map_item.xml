@@ -28,9 +28,11 @@
             />
 
         <RelativeLayout
+            android:id="@+id/map_container"
             android:layout_width="wrap_content"
             android:layout_height="76dp"
             android:layout_marginLeft="8dp"
+            android:padding="4dp"
             >
 
 

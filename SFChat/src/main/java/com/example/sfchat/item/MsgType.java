@@ -10,5 +10,6 @@ public interface MsgType {
     int gif_type = 3;
     int location_type = 4;
     int audio_type = 5;
+    int paper_type=6;
 
 }

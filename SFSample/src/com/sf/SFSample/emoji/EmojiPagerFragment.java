@@ -10,6 +10,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.basesmartframe.request.SFHttpZipFileHandler;
+import com.example.sfchat.SFChatMessageId;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.sf.SFSample.R;
 import com.sf.httpclient.newcore.MethodType;
@@ -17,6 +18,7 @@ import com.sf.httpclient.newcore.SFHttpFileCallback;
 import com.sf.httpclient.newcore.SFRequest;
 import com.sf.loglib.L;
 import com.sf.loglib.file.SFFileHelp;
+import com.sf.utils.baseutil.SFBus;
 import com.sflib.emoji.core.BaseSFEmojiPagerFragment;
 import com.sflib.emoji.core.ConfiguredEmojiGroup;
 import com.sflib.emoji.core.EmojiBean;
@@ -132,9 +134,15 @@ public class EmojiPagerFragment extends BaseSFEmojiPagerFragment {
         ImageView emojiIv = (ImageView) convertView.findViewById(R.id.emoji_iv);
         List<EmojiBean> emojiBeens = mConfiguredEmoji.getmEmojiBeans().get(groupPosition);
         EmojiBean emojiBean = emojiBeens.get(subPosition);
-        String emojiPath = "file://" + mConfiguredEmoji.getGroupPath() + File.separator + emojiBean.getFullName();
+        final String emojiPath = "file://" + mConfiguredEmoji.getGroupPath() + File.separator + emojiBean.getFullName();
         ImageLoader.getInstance().displayImage(emojiPath, emojiIv);
         headTv.setText(groupPosition + "_" + subPosition + "");
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SFBus.send(SFChatMessageId.ADD_MSG, emojiPath);
+            }
+        });
         return convertView;
     }
 }
