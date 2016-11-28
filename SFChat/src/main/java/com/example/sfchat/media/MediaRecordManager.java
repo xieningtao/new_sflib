@@ -99,6 +99,7 @@ public class MediaRecordManager implements BaseLifeCycle{
             mMediaRecorder.start();
             SFToast.showToast("开始录音");
             mIsRecording = true;
+
         }
     }
 

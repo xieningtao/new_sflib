@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
     >
 
     <include
@@ -13,8 +12,9 @@
         />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
         android:layout_below="@id/msg_right_audio_common_item"
         android:gravity="right"
         android:orientation="horizontal"
@@ -37,8 +37,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:paddingRight="4dp"
-                android:layout_centerVertical="true">
+                android:layout_centerVertical="true"
+                android:paddingRight="4dp">
 
                 <ImageView
                     android:id="@+id/audio_stop"
@@ -60,8 +60,8 @@
                 android:id="@+id/voice_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
                 android:textColor="@color/msg_left_small_text_color"
                 android:textSize="@dimen/msg_left_small_text_dimen"/>
 

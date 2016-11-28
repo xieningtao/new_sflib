@@ -164,6 +164,9 @@ public class NewAudioRecorderManager implements BaseLifeCycle{
                         copyWaveFile(sourceFilePath, desFilePath);//给裸数据加上头文件
                     }
                     SFFileHelp.removeDirOrFile(sourceFile);
+                    if(mOnRecordListener!=null){
+//                        mOnRecordListener.onEndRecord(true,);
+                    }
                 }
             }
         }

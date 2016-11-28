@@ -1,6 +1,7 @@
 package com.example.sfchat.item.view;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,10 +29,10 @@ public class AudioItemView extends BaseChatItemView<SFMsg> {
     }
 
     @Override
-    protected void updateContentView(SFMsg data, BaseChatHolder baseChatHolder, int position) {
+    protected void updateContentView(SFMsg data, final BaseChatHolder baseChatHolder, int position) {
         if (data == null || TextUtils.isEmpty(data.getContent())) return;
         if (baseChatHolder instanceof AudioViewHolder) {
-            AudioViewHolder audioViewHolder = (AudioViewHolder) baseChatHolder;
+            final AudioViewHolder audioViewHolder = (AudioViewHolder) baseChatHolder;
             setUserBgBy(audioViewHolder.mAudioContainer, data.isFromMe());
             final SFAudio audio = GsonUtil.parse(data.getContent(), SFAudio.class);
             int voiceTime = (int) (audio.getMilliseconds() / (60 * 1000));
@@ -40,11 +41,37 @@ public class AudioItemView extends BaseChatItemView<SFMsg> {
             ViewGroup.LayoutParams params = audioViewHolder.mAudioContainer.getLayoutParams();
             params.width = width;
             audioViewHolder.mAudioContainer.setLayoutParams(params);
+            audioViewHolder.mPlayingView.setVisibility(View.GONE);
+            audioViewHolder.mStopView.setVisibility(View.VISIBLE);
             audioViewHolder.mAudioContainer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     MediaPlayManager.getInstance().createMediaPlay();
                     MediaPlayManager.getInstance().startPlay(audio.getUrl());
+                    MediaPlayManager.getInstance().setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                        @Override
+                        public void onPrepared(MediaPlayer mp) {
+                            audioViewHolder.mStopView.setVisibility(View.GONE);
+                            audioViewHolder.mPlayingView.setVisibility(View.VISIBLE);
+                        }
+                    });
+                    MediaPlayManager.getInstance().setOnErrorListener(new MediaPlayer.OnErrorListener() {
+                        @Override
+                        public boolean onError(MediaPlayer mp, int what, int extra) {
+                            showFailed(baseChatHolder);
+                            audioViewHolder.mStopView.setVisibility(View.VISIBLE);
+                            audioViewHolder.mPlayingView.setVisibility(View.GONE);
+                            return true;
+                        }
+                    });
+
+                    MediaPlayManager.getInstance().setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            audioViewHolder.mPlayingView.setVisibility(View.GONE);
+                            audioViewHolder.mStopView.setVisibility(View.VISIBLE);
+                        }
+                    });
                 }
             });
 
