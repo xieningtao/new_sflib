@@ -1,8 +1,10 @@
-include ':CustomView', ':SFSample', ':BaseSmartFrame', ':openGL', ':Emoji', ':SFChat', ':BaiduLib', ':MockLib', ':SFDBLib', ':SFCircle', ':sharelib',
+include ':CustomView', ':BaseSmartFrame', ':openGL', ':Emoji', ':SFChat', ':BaiduLib', ':MockLib', ':SFDBLib', ':SFCircle', ':sharelib',
         ':SFLog', ':SFUtils',
         ':reflection', ':Android-PullToRefresh:PullRefreshLib',
         ':UMengLib', ':AndroidTV', ':SFHttpClient',
-        ':SFPay', ":SFLog", ":Emoji", ':Robolec'
+        ':SFPay', ":SFLog", ":Emoji", ':Robolec', ":SFSample"
 //,':Robotium'
 
 //':EventBus:EventBusCore',
+//include ':SFLog',":BaseSmartFrame",':SFHttpClient',':UMengLib',':reflection', ':Android-PullToRefresh:PullRefreshLib',':SFUtils' ,
+//        ':BaiduLib',":CustomView","SFDBLib"

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="left_audio_progressbar_style">
+        <item name="android:indeterminateDrawable">@anim/left_audio_anim</item>
+        <item name="android:minWidth">24dip</item>
+        <item name="android:minHeight">24dip</item>
+        <item name="android:maxWidth">24dip</item>
+        <item name="android:maxHeight">24dip</item>
+    </style>
+
+    <style name="right_audio_progressbar_style">
+        <item name="android:indeterminateDrawable">@anim/right_audio_anim</item>
+        <item name="android:minWidth">24dip</item>
+        <item name="android:minHeight">24dip</item>
+        <item name="android:maxWidth">24dip</item>
+        <item name="android:maxHeight">24dip</item>
+    </style>
+</resources>

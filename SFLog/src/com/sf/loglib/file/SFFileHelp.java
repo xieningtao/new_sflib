@@ -1,10 +1,11 @@
-package com.sf.utils.baseutil;
+package com.sf.loglib.file;
 
 import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
 
 import com.sf.loglib.L;
+import com.sf.loglib.StringUtils;
 
 import java.io.BufferedReader;
 import java.io.File;

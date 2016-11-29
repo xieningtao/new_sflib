@@ -1,6 +1,12 @@
 package com.sf.loglib;
 
+import android.content.Context;
 import android.util.Log;
+
+import com.sf.loglib.task.LogFileTask;
+
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 /**
  * log
@@ -11,6 +17,13 @@ public class L {
     public static enum LOG_LEVEL {
         VERBO, DEBUG, INFO, WARNING, ERROR
     }
+
+    private static Executor mExecutor;
+    public final static int LOG_SAVE_LOCAL = 0x00000001;
+    public final static int LOG_SAVE_FILE = 0x00000010;
+    public final static int LOG_SAVE_SERVER = 0x00000100;
+
+    public final static int LOG_SAVE_TYPE = LOG_SAVE_LOCAL;
 
     private static LOG_LEVEL logLevel = LOG_LEVEL.DEBUG;
     private static boolean enable = true;
@@ -23,36 +36,51 @@ public class L {
         logLevel = level;
     }
 
+    public static int getLogSaveType() {
+        return LOG_SAVE_TYPE;
+    }
+
+    static {
+        mExecutor = Executors.newSingleThreadExecutor();
+    }
+
+    private static Context context;
+
+    public void configLog(Context _context, boolean _enable, LOG_LEVEL log_level) {
+        context = _context;
+        enable = _enable;
+        logLevel = log_level;
+    }
+
     public static void info(Object object, String msg) {
-        if (enable && logLevel.ordinal() <= LOG_LEVEL.INFO.ordinal()) {
-            String tag = getTag(object);
-            String prefix = getPrefix();
-            Log.i(tag, prefix + msg);
+        doLog(object, msg, LOG_LEVEL.INFO);
+    }
+
+    private static void doLog(Object object, String msg, LOG_LEVEL log_level) {
+        if (!enable) {
+            return;
+        }
+        if (logLevel.ordinal() > log_level.INFO.ordinal()) {
+            return;
+        }
+        String tag = getTag(object);
+        String prefix = getPrefix();
+        Log.i(tag, prefix + msg);
+        if ((LOG_SAVE_TYPE & LOG_SAVE_FILE) != 0) {
+            mExecutor.execute(new LogFileTask(context, tag, prefix + msg));
         }
     }
 
     public static void debug(Object object, String msg) {
-        if (enable && logLevel.ordinal() <= LOG_LEVEL.DEBUG.ordinal()) {
-            String tag = getTag(object);
-            String prefix = getPrefix();
-            Log.d(tag, prefix + msg);
-        }
+        doLog(object, msg, LOG_LEVEL.DEBUG);
     }
 
     public static void warn(Object object, String msg) {
-        if (enable && logLevel.ordinal() <= LOG_LEVEL.WARNING.ordinal()) {
-            String tag = getTag(object);
-            String prefix = getPrefix();
-            Log.w(tag, prefix + msg);
-        }
+        doLog(object, msg, LOG_LEVEL.WARNING);
     }
 
     public static void error(Object object, String msg) {
-        if (enable && logLevel.ordinal() <= LOG_LEVEL.ERROR.ordinal()) {
-            String tag = getTag(object);
-            String prefix = getPrefix();
-            Log.e(tag, prefix + msg);
-        }
+        doLog(object, msg, LOG_LEVEL.ERROR);
     }
 
     private static String getTag(Object object) {
@@ -67,10 +95,6 @@ public class L {
         return tag;
     }
 
-    //文件的容量，超容量的备份日志，日志打印多线程的问题
-    private static void logToFile() {
-
-    }
 
     private static String getPrefix() {
         StackTraceElement[] sts = Thread.currentThread().getStackTrace();

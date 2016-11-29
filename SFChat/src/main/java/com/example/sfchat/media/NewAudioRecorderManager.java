@@ -6,9 +6,9 @@ import android.media.MediaRecorder;
 
 import com.basesmartframe.baseui.BaseLifeCycle;
 import com.sf.loglib.L;
+import com.sf.loglib.file.SFFileCreationUtil;
+import com.sf.loglib.file.SFFileHelp;
 import com.sf.utils.baseutil.DateFormatHelp;
-import com.sf.utils.baseutil.SFFileCreationUtil;
-import com.sf.utils.baseutil.SFFileHelp;
 import com.sflib.reflection.core.ThreadHelp;
 
 import java.io.File;
@@ -164,6 +164,9 @@ public class NewAudioRecorderManager implements BaseLifeCycle{
                         copyWaveFile(sourceFilePath, desFilePath);//给裸数据加上头文件
                     }
                     SFFileHelp.removeDirOrFile(sourceFile);
+                    if(mOnRecordListener!=null){
+//                        mOnRecordListener.onEndRecord(true,);
+                    }
                 }
             }
         }

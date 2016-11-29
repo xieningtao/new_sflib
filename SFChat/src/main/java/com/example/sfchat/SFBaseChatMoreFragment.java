@@ -15,8 +15,8 @@ import android.widget.TextView;
 
 import com.basesmartframe.baseui.BaseFragment;
 import com.sf.loglib.L;
+import com.sf.loglib.file.SFFileCreationUtil;
 import com.sf.utils.baseutil.DateFormatHelp;
-import com.sf.utils.baseutil.SFFileCreationUtil;
 
 /**
  * Created by NetEase on 2016/8/11 0011.

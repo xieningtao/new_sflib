@@ -1,4 +1,4 @@
-package com.sf.utils.baseutil;
+package com.sf.loglib.file;
 
 import android.os.Environment;
 import android.text.TextUtils;
@@ -20,6 +20,7 @@ public class SFFileCreationUtil {
 
     public final static String TAG = "SFFileUtil";
 
+    public final static String DEFAULT_DIRECTORY = "sf";
     /**
      * 外部存储的基本路劲
      */
@@ -74,11 +75,11 @@ public class SFFileCreationUtil {
      * @return
      */
     public static File createFile(SimpleDateFormat format, String suffix) {
-        return createFile(format, BaseUtilConfig.DEFAULT_DIRECTORY, suffix);
+        return createFile(format, DEFAULT_DIRECTORY, suffix);
     }
 
     public static File createFile(String format_str, String suffix) {
-        return createFile(format_str, BaseUtilConfig.DEFAULT_DIRECTORY, suffix);
+        return createFile(format_str, DEFAULT_DIRECTORY, suffix);
     }
 
     /**

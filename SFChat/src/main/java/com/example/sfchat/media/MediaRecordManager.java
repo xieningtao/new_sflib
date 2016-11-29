@@ -4,8 +4,8 @@ import android.media.MediaRecorder;
 
 import com.basesmartframe.baseui.BaseLifeCycle;
 import com.sf.loglib.L;
+import com.sf.loglib.file.SFFileCreationUtil;
 import com.sf.utils.baseutil.DateFormatHelp;
-import com.sf.utils.baseutil.SFFileCreationUtil;
 import com.sf.utils.baseutil.SFToast;
 
 import java.io.File;
@@ -99,6 +99,7 @@ public class MediaRecordManager implements BaseLifeCycle{
             mMediaRecorder.start();
             SFToast.showToast("开始录音");
             mIsRecording = true;
+
         }
     }
 

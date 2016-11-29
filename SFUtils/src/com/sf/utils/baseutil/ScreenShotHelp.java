@@ -7,6 +7,9 @@ import android.graphics.Canvas;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+
+import com.sf.loglib.file.SFFileCreationUtil;
+
 /**
  * screenshot
  * @author xieningtao

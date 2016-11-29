@@ -8,3 +8,5 @@ build
 *.apk
 *.properties
 *.bat
+gradlew
+gradle/

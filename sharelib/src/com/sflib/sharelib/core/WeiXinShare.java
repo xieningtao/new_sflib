@@ -15,6 +15,7 @@ import com.tencent.mm.sdk.modelmsg.WXWebpageObject;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 
+
 /**
  * Created by NetEase on 2016/10/12 0012.
  */

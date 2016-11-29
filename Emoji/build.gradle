@@ -38,6 +38,19 @@ android {
 //    }
 //}
 
+apply plugin:'maven'
+
+group=lib_group
+version=lib_version
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: local_mavel)
+            pom.artifactId ="emoji_lib"
+            pom.version=lib_version
+        }
+    }
+}
 dependencies {
     compile 'com.google.android:android:4.1.1.4@jar'
     compile project(':BaseSmartFrame')

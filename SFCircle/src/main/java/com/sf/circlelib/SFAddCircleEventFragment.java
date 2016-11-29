@@ -10,7 +10,6 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -25,8 +24,7 @@ import com.sf.circlelib.circledb.DBImage;
 import com.sf.dblib.DbUtils;
 import com.sf.dblib.exception.DbException;
 import com.sf.loglib.L;
-import com.sf.utils.baseutil.SFFileCreationUtil;
-import com.sf.utils.baseutil.SFFileHelp;
+import com.sf.loglib.file.SFFileHelp;
 import com.sf.utils.baseutil.SFToast;
 
 import java.io.Serializable;

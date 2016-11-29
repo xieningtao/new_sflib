@@ -30,6 +30,13 @@ public class MediaPlayManager {
     }
 
     private MediaPlayManager() {
+
+    }
+
+    public void createMediaPlay() {
+        if (mPlayer != null) {
+            mPlayer.release();
+        }
         mPlayer = new MediaPlayer();
         initListener();
     }
@@ -119,9 +126,16 @@ public class MediaPlayManager {
     }
 
     //停止播放
-    private void stopPlay() {
-        mPlayer.stop();
-        mPlayer.release();
+    public void stopPlay() {
+        if (mPlayer != null) {
+            mPlayer.stop();
+        }
+    }
+
+    public void destroyPlayer() {
+        if (mPlayer != null) {
+            mPlayer.release();
+        }
     }
 
     public MediaPlayer getPlayer() {
@@ -129,12 +143,16 @@ public class MediaPlayManager {
     }
 
     //开始播放
-    private boolean startPlay(String path) {
+    public boolean startPlay(String path) {
         L.info(TAG, TAG + ".startPlay,path: " + path);
         if (TextUtils.isEmpty(path)) {
             return false;
         }
+        if (mPlayer == null) {
+            return false;
+        }
         try {
+            mPlayer.reset();
             mPlayer.setDataSource(path);
             mPlayer.prepareAsync();
             mPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
