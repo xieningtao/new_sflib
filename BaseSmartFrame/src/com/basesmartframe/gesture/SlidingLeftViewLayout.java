@@ -505,4 +505,9 @@ public class SlidingLeftViewLayout extends FrameLayout {
         return true;
     }
 
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        SlidingLeftViewHelper.getSlidingViewInstance().setOpenView(null);
+    }
 }
