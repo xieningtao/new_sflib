@@ -4,17 +4,13 @@ import com.sf.httpclient.core.RetryHandler;
 import com.sf.httpclient.entity.EntityCallBack;
 import com.sf.loglib.L;
 
-import org.apache.http.Header;
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpException;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpRequestInterceptor;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpResponseInterceptor;
 import org.apache.http.HttpVersion;
-import org.apache.http.auth.AuthSchemeRegistry;
 import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.conn.params.ConnManagerParams;
 import org.apache.http.conn.params.ConnPerRouteBean;
 import org.apache.http.conn.scheme.PlainSocketFactory;
@@ -55,8 +51,10 @@ abstract public class SFHttpHandler<T> extends SFTaskHandler<T> implements Entit
     private final HttpContext httpContext;
     private HttpUriRequest mUriRequest;
     private final BaseHttpClientManager<T> clientManager;
+
     private HttpRequestInterceptor mRequestInterceptor;
     private HttpResponseInterceptor mResponseInterceptor;
+
     public SFHttpHandler() {
         SFHttpConfig sfHttpConfig = SFHttpConfigFactory.createDefaultHttpConfig();
         BasicHttpParams httpParams = new BasicHttpParams();
@@ -103,15 +101,15 @@ abstract public class SFHttpHandler<T> extends SFTaskHandler<T> implements Entit
 
         httpClient.addResponseInterceptor(new HttpResponseInterceptor() {
             public void process(HttpResponse response, HttpContext context) {
-                    if(mResponseInterceptor!=null){
-                        try {
-                            mResponseInterceptor.process(response,context);
-                        } catch (HttpException e) {
-                            L.error(TAG,"addResponseInterceptor exception: "+e);
-                        } catch (IOException e) {
-                            L.error(TAG,"addResponseInterceptor exception: "+e);
-                        }
+                if(mResponseInterceptor!=null){
+                    try {
+                        mResponseInterceptor.process(response,context);
+                    } catch (HttpException e) {
+                        L.error(TAG,"addRequestInterceptor exception: "+e);
+                    } catch (IOException e) {
+                        L.error(TAG,"addRequestInterceptor exception: "+e);
                     }
+                }
             }
         });
 
@@ -121,12 +119,12 @@ abstract public class SFHttpHandler<T> extends SFTaskHandler<T> implements Entit
         onClientManagerCreated(clientManager);
     }
 
-    public void setRequestInterceptor(HttpRequestInterceptor mRequestInterceptor) {
-        this.mRequestInterceptor = mRequestInterceptor;
+    public void setRequestInterceptor(HttpRequestInterceptor requestInterceptor) {
+        mRequestInterceptor = requestInterceptor;
     }
 
-    public void setResponseInterceptor(HttpResponseInterceptor mResponseInterceptor) {
-        this.mResponseInterceptor = mResponseInterceptor;
+    public void setResponseInterceptor(HttpResponseInterceptor responseInterceptor) {
+        mResponseInterceptor = responseInterceptor;
     }
 
     public static class CustomeSSLSocketFactory extends SSLSocketFactory {

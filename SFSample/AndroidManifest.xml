@@ -232,6 +232,16 @@
             android:theme="@android:style/Theme.Holo"
             />
         <activity
+            android:name=".nybao.NYRegisterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo"
+            />
+        <activity
+            android:name=".nybao.NYLoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo"
+            />
+        <activity
             android:name=".ui.ActivityLivePopView"
             android:screenOrientation="portrait"
             />
