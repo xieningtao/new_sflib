@@ -5,6 +5,7 @@ import android.text.TextUtils;
 
 import com.sf.loglib.L;
 
+import java.io.FileDescriptor;
 import java.io.IOException;
 
 /**
@@ -142,6 +143,33 @@ public class MediaPlayManager {
         return mPlayer;
     }
 
+    public boolean startPlay(FileDescriptor file,long startOffset,long length){
+        if (file==null) {
+            return false;
+        }
+        if (mPlayer == null) {
+            return false;
+        }
+        try {
+            mPlayer.reset();
+            mPlayer.setDataSource(file,startOffset,length);
+            mPlayer.prepareAsync();
+            mPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+                    L.info(TAG, TAG + ".startPlay.onPrepared");
+                    if (mOnPreparedListener != null) {
+                        mOnPreparedListener.onPrepared(mp);
+                    }
+                    mp.start();
+                }
+            });
+        } catch (IOException e) {
+            L.error(TAG, TAG + ".startPlay exception: " + e);
+            return false;
+        }
+        return true;
+    }
     //开始播放
     public boolean startPlay(String path) {
         L.info(TAG, TAG + ".startPlay,path: " + path);
