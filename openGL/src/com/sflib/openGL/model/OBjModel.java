@@ -57,7 +57,7 @@ public class OBjModel {
 
 //        GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
 //        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, mTextureId);
-        GLES20.glDrawElements(GLES20.GL_TRIANGLES, mLoadOBJModelHelper.getNumObjectIndex(), GLES20.GL_UNSIGNED_INT , mLoadOBJModelHelper.getBuffer(LoadOBJModelHelper.BUFFER_TYPE.BUFFER_TYPE_INDICES));
+        GLES20.glDrawElements(GLES20.GL_TRIANGLE_STRIP, mLoadOBJModelHelper.getNumObjectIndex(), GLES20.GL_UNSIGNED_INT , mLoadOBJModelHelper.getBuffer(LoadOBJModelHelper.BUFFER_TYPE.BUFFER_TYPE_INDICES));
 //        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, mLoadOBJModelHelper.getNumObjectVertex());
         ShaderHelper.checkGlError("glDrawElements");
 

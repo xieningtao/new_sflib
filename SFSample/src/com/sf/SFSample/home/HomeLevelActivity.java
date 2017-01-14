@@ -10,6 +10,8 @@ import com.sf.SFSample.babymedical.ActivityLogin;
 import com.sf.SFSample.chat.ActivitySFChat;
 import com.sf.SFSample.nybao.NYHomeActivity;
 import com.sf.SFSample.tiantu.ActivityHome;
+import com.sf.SFSample.ui.ActivityBlur;
+import com.sf.SFSample.ui.ActivityCameraTest;
 import com.sf.SFSample.ui.ActivityLivePopView;
 import com.sf.SFSample.ui.ActivityNewCircle;
 import com.sf.SFSample.ui.ActivityPopView;
@@ -70,6 +72,8 @@ public class HomeLevelActivity extends BaseLevelActivity {
         activities.put(25, new Pair<String, Class>("TianTuActivityHome", ActivityHome.class));
         activities.put(26, new Pair<String, Class>("NYHomeActivity", NYHomeActivity.class));
         activities.put(27, new Pair<String, Class>("ActivityLivePopView", ActivityLivePopView.class));
+        activities.put(28, new Pair<String, Class>("ActivityBlur", ActivityBlur.class));
+        activities.put(29, new Pair<String, Class>("ActivityCameraTest", ActivityCameraTest.class));
         return activities;
     }
 

@@ -4,13 +4,14 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.basesmartframe.baseui.BaseActivity;
-import com.nostra13.universalimageloader.utils.L;
 import com.sf.SFSample.R;
+import com.sf.loglib.L;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by xieningtao on 16-3-14.
@@ -35,17 +36,25 @@ public class AdbShellActivity extends BaseActivity {
                 copyFile(srcPath, desPath);
             }
         });
+        findViewById(R.id.adb_shell).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShellCmd shellCmd = new ShellCmd();
+                List<String> results = shellCmd.doShcmd("cat /proc/version");
+                L.info(TAG, "results: " + results);
+            }
+        });
     }
 
     private void copyFile(String srcPath, String desPath) {
         if (srcPath == null || desPath == null) {
-            L.e(TAG, "method->copyFile,srcPath is null or desPath is null");
+            L.error(TAG, "method->copyFile,srcPath is null or desPath is null");
             return;
         }
-        L.i(TAG, "method->copyFile,scrPath: " + srcPath + " desPath: " + desPath);
+        L.info(TAG, "method->copyFile,scrPath: " + srcPath + " desPath: " + desPath);
         File srcFile = new File(srcPath);
         if (!srcFile.exists()) {
-            L.e(TAG, "method->copyFile,there is no file named: " + srcPath);
+            L.error(TAG, "method->copyFile,there is no file named: " + srcPath);
             return;
         }
         File desFile = new File(desPath);
@@ -54,7 +63,7 @@ public class AdbShellActivity extends BaseActivity {
                 desFile.createNewFile();
             } catch (IOException e) {
                 e.printStackTrace();
-                L.w(TAG, "method->copyFile, fail to create file: " + desPath + " exception: " + e.getMessage());
+                L.warn(TAG, "method->copyFile, fail to create file: " + desPath + " exception: " + e.getMessage());
             }
         }
 
@@ -77,7 +86,7 @@ public class AdbShellActivity extends BaseActivity {
                     srcIn.close();
                 } catch (IOException e) {
                     e.printStackTrace();
-                    L.w(TAG, "method->copyFile,fail to close file: " + srcPath);
+                    L.warn(TAG, "method->copyFile,fail to close file: " + srcPath);
                 }
             }
 
@@ -86,7 +95,7 @@ public class AdbShellActivity extends BaseActivity {
                     desOut.close();
                 } catch (IOException e) {
                     e.printStackTrace();
-                    L.w(TAG, "method->copyFile,fail to close file: " + desPath);
+                    L.warn(TAG, "method->copyFile,fail to close file: " + desPath);
                 }
             }
         }
