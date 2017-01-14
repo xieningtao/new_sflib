@@ -7,7 +7,8 @@ android {
     defaultConfig {
         minSdkVersion 17
         multiDexEnabled true
-
+        renderscriptTargetApi 19
+        renderscriptSupportModeEnabled true
         ndk {
             abiFilters "armeabi", "armeabi-v7a"
         }
@@ -75,4 +76,5 @@ dependencies {
 //    compile "com.sf.core:sf_pay_lib:1.0.0@aar"
 //    compile "com.sf.core:sf_circle_lib:1.0.0@aar"
 //    compile "com.sf.core:sfchat_lib:1.0.0@aar"
+    compile project(path: ':cameralib')
 }

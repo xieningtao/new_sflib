@@ -1,16 +1,13 @@
 apply plugin: 'com.android.library'
 android {
     compileSdkVersion 22
-    buildToolsVersion '23.0.1'
+    buildToolsVersion '21.1.2'
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 22
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0.0"
-
-        renderscriptTargetApi 19
-        renderscriptSupportModeEnabled true
     }
 
     sourceSets {
@@ -27,6 +24,11 @@ android {
     dexOptions {
         jumboMode = true
     }
+
+    lintOptions{
+        abortOnError false
+    }
+
 }
 apply plugin:'maven'
 
@@ -36,22 +38,13 @@ uploadArchives {
     repositories {
         mavenDeployer {
             repository(url: local_mavel)
-            pom.artifactId ="base_sf_core"
+            pom.artifactId ="camera_lib"
             pom.version=lib_version
         }
     }
 }
-
 dependencies {
-
     compile 'com.google.android:android:4.1.1.4@jar'
-    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4@jar'
-    compile project(':SFLog')
-    compile project(':SFHttpClient')
-    compile project(':UMengLib')
-    compile project(':Android-PullToRefresh:PullRefreshLib')
     compile project(':SFUtils')
-    compile project(':CustomView')
-    compile project (':SFDBLib')
-
 }
+

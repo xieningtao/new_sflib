@@ -27,7 +27,7 @@
     <uses-permission android:name="android.permission.GET_TASKS"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
-
+    <uses-permission android:name="android.permission.CAMERA" />
     <!--百度定位-->
     <!-- 这个权限用于进行网络定位-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
@@ -248,6 +248,14 @@
         <activity
             android:name=".opengl.ObjModelActivity"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.ActivityCameraTest"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.ActivityBlur"
+            android:screenOrientation="portrait"
+            />
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
 

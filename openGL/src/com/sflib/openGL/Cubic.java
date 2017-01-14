@@ -9,6 +9,7 @@ import android.util.Log;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
 
 /**
  * Created by xieningtao on 15-10-31.
@@ -23,9 +24,16 @@ public class Cubic {
     private FloatBuffer mTextureBuffer;
     private FloatBuffer mLandscapeTextureBuffer;
 
+    private IntBuffer mVertextIndexBuffer;
+
     private final float mCubicVertex[] = {
-            1.0f, -1.0f, 0.5f, -1.0f, 1.0f, 0.5f, 1.0f, 1.0f, 0.5f,
-            -1.0f, 1.0f, 0.5f, -1.0f, -1.0f, 0.5f, 1.0f, -1.0f, 0.5f,
+//            1.0f, -1.0f, 0.5f, -1.0f, 1.0f, 0.5f, 1.0f, 1.0f, 0.5f,
+//            -1.0f, 1.0f, 0.5f, -1.0f, -1.0f, 0.5f, 1.0f, -1.0f, 0.5f,
+
+            1.0f, -1.0f, 0.5f,
+            -1.0f, -1.0f, 0.5f,
+            -1.0f, 1.0f, 0.5f,
+            1.0f, 1.0f, 0.5f
 //            0.5f, 0.5f, 0.5f, 0.5f, -0.5f, 0.5f, 0.5f, -0.5f, -0.5f,
 //            0.5f, -0.5f, -0.5f, 0.5f, 0.5f, -0.5f, 0.5f, 0.5f, 0.5f,
     };
@@ -40,6 +48,10 @@ public class Cubic {
             1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f
     };
 
+    private final int mCubicIndex[] = {
+            0, 1, 2,
+            2, 3, 0
+    };
 
     float color[] = {0.5f, 1.0f, 1.0f, 1.0f};
 
@@ -70,11 +82,11 @@ public class Cubic {
         fillVertexBuffer();
 
         //---vertex index start
-//        ByteBuffer cubicIndex = ByteBuffer.allocateDirect(mCubicIndex.length * 4);
-//        cubicIndex.order(ByteOrder.nativeOrder());
-//        mVertextIndexBuffer = cubicIndex.asIntBuffer();
-//        mVertextIndexBuffer.put(mCubicIndex);
-//        mVertextIndexBuffer.position(0);
+        ByteBuffer cubicIndex = ByteBuffer.allocateDirect(mCubicIndex.length * 4);
+        cubicIndex.order(ByteOrder.nativeOrder());
+        mVertextIndexBuffer = cubicIndex.asIntBuffer();
+        mVertextIndexBuffer.put(mCubicIndex);
+        mVertextIndexBuffer.position(0);
         //---vertex index end
 
     }
@@ -112,12 +124,12 @@ public class Cubic {
 
         mCubicVertex[9] = mCubicVertex[9] * x;
         mCubicVertex[10] = mCubicVertex[10] * y;
-
-        mCubicVertex[12] = mCubicVertex[12] * x;
-        mCubicVertex[13] = mCubicVertex[13] * y;
-
-        mCubicVertex[15] = mCubicVertex[15] * x;
-        mCubicVertex[16] = mCubicVertex[16] * y;
+//
+//        mCubicVertex[12] = mCubicVertex[12] * x;
+//        mCubicVertex[13] = mCubicVertex[13] * y;
+//
+//        mCubicVertex[15] = mCubicVertex[15] * x;
+//        mCubicVertex[16] = mCubicVertex[16] * y;
 
         ByteBuffer cubicVertex = ByteBuffer.allocateDirect(mCubicVertex.length * 4);
         cubicVertex.order(ByteOrder.nativeOrder());
@@ -158,27 +170,27 @@ public class Cubic {
         GLES20.glVertexAttribPointer(positionHandler, 3, GLES20.GL_FLOAT, false, vetextStride, mVertextFloatBuffer);
         ShaderHelper.checkGlError("vertex glVertexAttribPointer");
 
-        int textureHandler = GLES20.glGetAttribLocation(mProgram, "aTextureCoordinate");
-        GLES20.glEnableVertexAttribArray(textureHandler);
-            GLES20.glVertexAttribPointer(textureHandler, 2, GLES20.GL_FLOAT, false, 2 * 4, mTextureBuffer);
-        ShaderHelper.checkGlError("texture glVertexAttribPointer");
+//        int textureHandler = GLES20.glGetAttribLocation(mProgram, "aTextureCoordinate");
+//        GLES20.glEnableVertexAttribArray(textureHandler);
+//        GLES20.glVertexAttribPointer(textureHandler, 2, GLES20.GL_FLOAT, false, 2 * 4, mTextureBuffer);
+//        ShaderHelper.checkGlError("texture glVertexAttribPointer");
 
-//        int colorHandler = GLES20.glGetUniformLocation(mProgram, "color");
-//        GLES20.glUniform4fv(colorHandler, 1, color, 0);
-//        ShaderHelper.checkGlError("glUniform4fv");
+        int colorHandler = GLES20.glGetUniformLocation(mProgram, "color");
+        GLES20.glUniform4fv(colorHandler, 1, color, 0);
+        ShaderHelper.checkGlError("glUniform4fv");
 
         int vmMatrixHandler = GLES20.glGetUniformLocation(mProgram, "mMatrix");
         GLES20.glUniformMatrix4fv(vmMatrixHandler, 1, false, vmMatrix, 0);
         ShaderHelper.checkGlError("glUniformMatrix4fv");
 
-        GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
-        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, mTextureId);
-//        GLES20.glDrawElements(GLES20.GL_TRIANGLES, mCubicIndex.length, GLES20.GL_INT, mVertextIndexBuffer);
-        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, mCubicVertex.length / 3);
+//        GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+//        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, mTextureId);
+        GLES20.glDrawElements(GLES20.GL_TRIANGLES, mCubicIndex.length, GLES20.GL_UNSIGNED_INT, mVertextIndexBuffer);
+//        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, mCubicVertex.length / 3);
         ShaderHelper.checkGlError("glDrawElements");
 
         GLES20.glDisableVertexAttribArray(positionHandler);
-        GLES20.glDisableVertexAttribArray(textureHandler);
+//        GLES20.glDisableVertexAttribArray(textureHandler);
     }
 
 }

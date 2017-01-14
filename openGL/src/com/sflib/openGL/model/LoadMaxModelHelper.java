@@ -11,6 +11,8 @@ import java.io.InputStreamReader;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,10 +23,10 @@ import java.util.List;
 public class LoadMaxModelHelper {
 
     private final String TAG = LoadMaxModelHelper.class.getName();
-    private ByteBuffer verts;
+    private FloatBuffer verts;
     private ByteBuffer textCoords;
     private ByteBuffer norms;
-    private ByteBuffer mIndBuff;
+    private IntBuffer mIndBuff;
     private int numVerts = 0;
     private int numIndex = 0;
     private List<Float> mVertexFloat = new ArrayList<>();
@@ -49,7 +51,7 @@ public class LoadMaxModelHelper {
         }
         String allIndex[] = segment.split("/");
         if (allIndex != null && allIndex.length >= 3) {
-            mFragmentIndex.add(Integer.parseInt(allIndex[0]));
+            mFragmentIndex.add(Integer.parseInt(allIndex[0]) - 1);
         }
     }
 
@@ -68,10 +70,12 @@ public class LoadMaxModelHelper {
 
             String fragmentIndex[] = line.split(" ");
             while (line.startsWith("f") && fragmentIndex != null && fragmentIndex.length > 3) {
-                fragmentNum++;
                 addIndex(fragmentIndex[1]);
+                fragmentNum++;
                 addIndex(fragmentIndex[2]);
+                fragmentNum++;
                 addIndex(fragmentIndex[3]);
+                fragmentNum++;
                 line = reader.readLine();
                 if (line == null) {
                     break;
@@ -79,15 +83,19 @@ public class LoadMaxModelHelper {
                 fragmentIndex = line.split(" ");
             }
             numIndex = fragmentNum;
-            mIndBuff = ByteBuffer.allocateDirect(fragmentNum * 4);
-            mIndBuff.order(ByteOrder.nativeOrder());
+            ByteBuffer indBuff = ByteBuffer.allocateDirect(fragmentNum * 4);
+            indBuff.order(ByteOrder.nativeOrder());
+            mIndBuff = indBuff.asIntBuffer();
+
+            int indBuffArray[] = new int[mFragmentIndex.size()];
             for (int i = 0; i < fragmentNum; i++) {
-                mIndBuff.putInt(mFragmentIndex.get(i));
+                indBuffArray[i] = mFragmentIndex.get(i);
             }
+            mIndBuff.put(indBuffArray);
             mIndBuff.position(0);
 
         } catch (Exception e) {
-
+            L.e(TAG, "exception: " + e);
         }
     }
 
@@ -105,10 +113,13 @@ public class LoadMaxModelHelper {
 
             String vertexContent[] = line.split(" ");
             while (line.startsWith("v") && vertexContent != null && vertexContent.length > 3) {
-                vertexNum++;
+
                 mVertexFloat.add(Float.parseFloat(vertexContent[2]));
+                vertexNum++;
                 mVertexFloat.add(Float.parseFloat(vertexContent[3]));
+                vertexNum++;
                 mVertexFloat.add(Float.parseFloat(vertexContent[4]));
+                vertexNum++;
                 line = reader.readLine();
                 if (line == null) {
                     break;
@@ -116,11 +127,14 @@ public class LoadMaxModelHelper {
                 vertexContent = line.split(" ");
             }
             numVerts = vertexNum;
-            verts = ByteBuffer.allocateDirect(vertexNum * 4);
-            verts.order(ByteOrder.nativeOrder());
+            ByteBuffer vertsBuffer = ByteBuffer.allocateDirect(vertexNum * 4);
+            vertsBuffer.order(ByteOrder.nativeOrder());
+            verts = vertsBuffer.asFloatBuffer();
+            float vertsArray[] = new float[mVertexFloat.size()];
             for (int i = 0; i < vertexNum; i++) {
-                verts.putFloat(mVertexFloat.get(i));
+                vertsArray[i] = mVertexFloat.get(i);
             }
+            verts.put(vertsArray);
             verts.position(0);
         } catch (Exception e) {
             L.e(TAG, "loadVertex exception: " + e);
