@@ -17,7 +17,7 @@ import javax.microedition.khronos.opengles.GL10;
 
 public class XModelRender implements GLSurfaceView.Renderer {
 
-    private static final String TAG = "MyGLRenderer";
+    private static final String TAG = "OpenGLVideoViewRenderer";
     private OBjModel mOBjModel;
 
     // mMVPMatrix is an abbreviation for "Model View Projection Matrix"

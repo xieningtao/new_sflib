@@ -35,10 +35,10 @@ import javax.microedition.khronos.opengles.GL10;
  * <li>{@link GLSurfaceView.Renderer#onSurfaceChanged}</li>
  * </ul>
  */
-public class MyGLRenderer implements GLSurfaceView.Renderer {
+public class OpenGLVideoViewRenderer implements GLSurfaceView.Renderer {
 
-    private static final String TAG = "MyGLRenderer";
-    private Cubic mCubic;
+    private static final String TAG = "OpenGLVideoViewRenderer";
+    private OpenGLVideo videoView;
 
     // mMVPMatrix is an abbreviation for "Model View Projection Matrix"
     private final float[] mMVPMatrix = new float[16];
@@ -51,7 +51,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 
     private AtomicBoolean fullMode = new AtomicBoolean(false);
 
-    public MyGLRenderer(Context context) {
+    public OpenGLVideoViewRenderer(Context context) {
         this.mContext = context;
     }
 
@@ -61,6 +61,10 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         // Set the background frame color
         GLES20.glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 
+    }
+
+    public void updateVideoScaleType(int scaleType) {
+        videoView.updateVideoViewScaleType(scaleType);
     }
 
     @Override
@@ -82,7 +86,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 //        Matrix.scaleM(firsScaleMVMatrix, 0, 0.5f, 0.5f, 1);
 
         Matrix.multiplyMM(firsScaleMVMatrix, 0, mMVPMatrix, 0, firsScaleMVMatrix, 0);
-        mCubic.draw(firsScaleMVMatrix);
+        videoView.draw(firsScaleMVMatrix);
 
 //        float simpleTranslate[] = new float[4 * 4];
 //        Matrix.setIdentityM(simpleTranslate, 0);
@@ -90,7 +94,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 //
 //        Matrix.multiplyMM(simpleTranslate, 0, mMVPMatrix, 0, simpleTranslate, 0);
 //
-//        mCubic.draw(simpleTranslate, fullMode.get());
+//        videoView.draw(simpleTranslate, fullMode.get());
 //
 //
 //        float scaleMVMatrix[] = new float[4 * 4];
@@ -105,7 +109,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 //
 //        Matrix.multiplyMM(scaleMVMatrix, 0, mMVPMatrix, 0, scaleMVMatrix, 0);
 //
-//        mCubic.draw(scaleMVMatrix, fullMode.get());
+//        videoView.draw(scaleMVMatrix, fullMode.get());
 
 
 //        float scaleTranslate[] = new float[4 * 4];
@@ -113,7 +117,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 //        Matrix.translateM(scaleTranslate, 0, 2, 2, 0);
 //        Matrix.multiplyMM(scaleTranslate, 0, scaleTranslate, 0, temScale, 0);
 //        Matrix.multiplyMM(scaleTranslate,0,mMVPMatrix,0,scaleTranslate,0);
-//        mCubic.draw(scaleTranslate, fullMode.get());
+//        videoView.draw(scaleTranslate, fullMode.get());
 
 
         // Draw square
@@ -135,7 +139,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         // for the matrix multiplication product to be correct.
 //        Matrix.multiplyMM(scratch, 0, mMVPMatrix, 0, mRotationMatrix, 0);
 
-//        mCubic.draw(scratch);
+//        videoView.draw(scratch);
         // Draw triangle
 //        mTriangle.draw(scratch);
         Log.d("drawFrame", " " + GLES20.glGetError());
@@ -148,8 +152,8 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         GLES20.glViewport(0, 0, width, height);
 
         float ratio = (float) width / height;
-        mCubic = new Cubic(mContext,width,height);
-        Matrix.frustumM(mProjectionMatrix, 0, -ratio, ratio, -1, 1, 1.499999f, 100);
+        videoView = new OpenGLVideo(mContext, width, height, 1.5f, 3.0f);
+        Matrix.frustumM(mProjectionMatrix, 0, -ratio, ratio, -1, 1, 1.5f, 100);
 
     }
 

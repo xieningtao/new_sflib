@@ -12,7 +12,7 @@ import com.sflib.openGL.ShaderHelper;
 public class OBjModel {
 
 
-    private final String TAG = "Cubic";
+    private final String TAG = "OpenGLVideo";
 
     private int mProgram;
 
