@@ -24,6 +24,7 @@ import com.sf.SFSample.ui.DecencoderActivity;
 import com.sf.SFSample.ui.FragmentTabActivity;
 import com.sf.SFSample.ui.GestureListViewActiviy;
 import com.sf.SFSample.ui.GestureTest;
+import com.sf.SFSample.ui.OfOLanucher;
 import com.sf.SFSample.ui.PullCacheListActivity;
 import com.sf.SFSample.ui.PullListActivity;
 import com.sf.SFSample.ui.ReflectionActivity;
@@ -74,6 +75,7 @@ public class HomeLevelActivity extends BaseLevelActivity {
         activities.put(27, new Pair<String, Class>("ActivityLivePopView", ActivityLivePopView.class));
         activities.put(28, new Pair<String, Class>("ActivityBlur", ActivityBlur.class));
         activities.put(29, new Pair<String, Class>("ActivityCameraTest", ActivityCameraTest.class));
+        activities.put(30, new Pair<String, Class>("ActivityLuancher", OfOLanucher.class));
         return activities;
     }
 
