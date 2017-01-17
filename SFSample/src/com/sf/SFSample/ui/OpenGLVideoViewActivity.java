@@ -24,7 +24,7 @@ import com.sf.SFSample.R;
 import com.sflib.openGL.OpenGLVideo;
 import com.sflib.openGL.OpenGLVideoView;
 
-public class BasicOpenGLES20Activity extends Activity {
+public class OpenGLVideoViewActivity extends Activity {
 
     private OpenGLVideoView mGLView;
     private RadioGroup mScaleType;

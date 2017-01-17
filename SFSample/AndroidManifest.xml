@@ -123,7 +123,7 @@
         <activity android:name=".ui.ReflectionActivity"></activity>
         <activity android:name=".ui.RoundBitmapActivity"></activity>
         <activity
-            android:name=".ui.BasicOpenGLES20Activity"
+            android:name=".ui.OpenGLVideoViewActivity"
             android:configChanges="orientation"/>
         <activity
             android:name=".ui.VideoPlayActivity"

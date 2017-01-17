@@ -5,7 +5,6 @@ import android.util.SparseArray;
 
 import com.sf.SFSample.ui.ActivityBaiduLocation;
 import com.sf.SFSample.ui.BaseLevelActivity;
-import com.sf.SFSample.ui.BasicOpenGLES20Activity;
 
 /**
  * Created by NetEase on 2016/8/12 0012.
