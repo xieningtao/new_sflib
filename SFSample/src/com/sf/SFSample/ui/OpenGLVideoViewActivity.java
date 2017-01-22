@@ -18,25 +18,33 @@ package com.sf.SFSample.ui;
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.widget.RadioGroup;
 
 import com.sf.SFSample.R;
-import com.sflib.openGL.MyGLSurfaceView;
+import com.sflib.openGL.OpenGLVideo;
+import com.sflib.openGL.OpenGLVideoView;
 
-public class BasicOpenGLES20Activity extends Activity {
+public class OpenGLVideoViewActivity extends Activity {
 
-    private MyGLSurfaceView mGLView;
-
+    private OpenGLVideoView mGLView;
+    private RadioGroup mScaleType;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Create a GLSurfaceView instance and set it
-        // as the ContentView for this Activity
-//        setContentView(mGLView);
         setContentView(R.layout.activity_opengl);
-        mGLView = (MyGLSurfaceView) findViewById(R.id.gl_sf);
-
+        mGLView = (OpenGLVideoView) findViewById(R.id.gl_sf);
+        mScaleType = (RadioGroup) findViewById(R.id.scale_type);
+        mScaleType.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.scale_fit_rb) {
+                    mGLView.updateVideoViewScaleType(OpenGLVideo.FILL_FIT);
+                } else if (checkedId == R.id.scale_full_rb) {
+                    mGLView.updateVideoViewScaleType(OpenGLVideo.FULL_SCREEN);
+                }
+            }
+        });
     }
 
     @Override

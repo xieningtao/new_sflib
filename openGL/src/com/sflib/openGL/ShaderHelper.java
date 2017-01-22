@@ -41,7 +41,7 @@ public class ShaderHelper {
      * <p>
      * <pre>
      * mColorHandle = GLES20.glGetUniformLocation(mProgram, "vColor");
-     * MyGLRenderer.checkGlError("glGetUniformLocation");</pre>
+     * OpenGLVideoViewRenderer.checkGlError("glGetUniformLocation");</pre>
      *
      * If the operation is not successful, the check throws an error.
      *

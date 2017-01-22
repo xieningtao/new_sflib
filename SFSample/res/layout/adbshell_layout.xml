@@ -10,4 +10,10 @@
         android:text="cp anr to sdcard root"
         />
 
+    <Button
+        android:id="@+id/adb_shell"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="run adb shell cmd"
+        />
 </LinearLayout>

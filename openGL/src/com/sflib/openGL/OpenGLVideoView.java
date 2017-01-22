@@ -24,21 +24,21 @@ import android.util.AttributeSet;
  * This view can also be used to capture touch events, such as a user
  * interacting with drawn objects.
  */
-public class MyGLSurfaceView extends GLSurfaceView {
+public class OpenGLVideoView extends GLSurfaceView {
 
-    private MyGLRenderer mRenderer;
+    private OpenGLVideoViewRenderer mRenderer;
 
 
     private final float TOUCH_SCALE_FACTOR = 180.0f / 320;
     private float mPreviousX;
     private float mPreviousY;
 
-    public MyGLSurfaceView(Context context) {
+    public OpenGLVideoView(Context context) {
         super(context);
         init();
     }
 
-    public MyGLSurfaceView(Context context, AttributeSet attrs) {
+    public OpenGLVideoView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
@@ -48,11 +48,11 @@ public class MyGLSurfaceView extends GLSurfaceView {
         setEGLContextClientVersion(2);
 
         // Set the Renderer for drawing on the GLSurfaceView
-        mRenderer = new MyGLRenderer(getContext());
+        mRenderer = new OpenGLVideoViewRenderer(getContext());
         setRenderer(mRenderer);
-
         // Render the view only when there is a change in the drawing data
         setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
+
     }
 
     public void changeConfiguration(boolean fullMode) {
@@ -60,5 +60,14 @@ public class MyGLSurfaceView extends GLSurfaceView {
 //        requestRender();
     }
 
+    public void updateVideoViewScaleType(final int type){
+        queueEvent(new Runnable() {
+            @Override
+            public void run() {
+                mRenderer.updateVideoScaleType(type);
+                requestRender();
+            }
+        });
+    }
 
 }

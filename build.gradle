@@ -12,7 +12,7 @@ buildscript {
 ext {
      lib_version = "1.0.0"
      lib_group = "com.sf.core"
-     local_mavel="file://E:/gitMavenLib"
+     local_mavel="file:///Users/mac/Downloads/gitMavenLib"
 }
 
 allprojects {

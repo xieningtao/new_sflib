@@ -17,7 +17,7 @@ import javax.microedition.khronos.opengles.GL10;
 
 public class XModelRender implements GLSurfaceView.Renderer {
 
-    private static final String TAG = "MyGLRenderer";
+    private static final String TAG = "OpenGLVideoViewRenderer";
     private OBjModel mOBjModel;
 
     // mMVPMatrix is an abbreviation for "Model View Projection Matrix"
@@ -53,7 +53,7 @@ public class XModelRender implements GLSurfaceView.Renderer {
 
 
         // Set the camera position (View matrix)
-        Matrix.setLookAtM(mViewMatrix, 0, 0, 80, 3.0f, 0f, 0f, 0f, 0f, 1.0f, 0.0f);
+        Matrix.setLookAtM(mViewMatrix, 0, 0, 0, 10.0f, 0f, 0f, 0f, 0f, 1.0f, 0.0f);
 
         // Calculate the projection and view transformation
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
@@ -131,7 +131,8 @@ public class XModelRender implements GLSurfaceView.Renderer {
         GLES20.glViewport(0, 0, width, height);
 
         float ratio = (float) width / height;
-        Matrix.frustumM(mProjectionMatrix, 0, -ratio, ratio, -1, 1, 0.5f, 100);
+//        Matrix.frustumM(mProjectionMatrix, 0, -ratio, ratio, -1, 1, 0.5f, 100);
+        Matrix.frustumM(mProjectionMatrix, 0, -ratio, ratio, -1, 1, 1.4999999f, 100);
 
     }
 

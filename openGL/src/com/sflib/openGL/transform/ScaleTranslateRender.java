@@ -5,7 +5,7 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
 
-import com.sflib.openGL.Cubic;
+import com.sflib.openGL.OpenGLVideo;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -22,7 +22,7 @@ public class ScaleTranslateRender implements GLSurfaceView.Renderer {
 
     private AtomicBoolean fullMode = new AtomicBoolean(false);
 
-    private Cubic mCubic;
+    private OpenGLVideo mCubic;
 
     private Context mContext;
 
@@ -44,7 +44,7 @@ public class ScaleTranslateRender implements GLSurfaceView.Renderer {
         GLES20.glViewport(0, 0, width, height);
 
         float ratio = (float) width / height;
-        mCubic = new Cubic(mContext,width,height);
+        mCubic = new OpenGLVideo(mContext,width,height,1,4.0f);
         // this projection matrix is applied to object coordinates
         // in the onDrawFrame() method
         Matrix.frustumM(mProjectionMatrix, 0, -ratio, ratio, -1, 1, 1, 4);

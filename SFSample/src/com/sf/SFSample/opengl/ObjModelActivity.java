@@ -26,7 +26,7 @@ public class ObjModelActivity extends BaseActivity {
             @Override
             public void run() {
                 try {
-                    modelHelper.loadObjModel(getAssets(), "newcar.obj");
+                    modelHelper.loadObjModel(getAssets(), "cubic6.obj");
                 } catch (Exception e) {
                     L.e(TAG, "ObjModelActivity.onCreate exception: " + e);
                 }

@@ -8,8 +8,11 @@ import android.widget.VideoView;
 
 import com.sf.SFSample.babymedical.ActivityLogin;
 import com.sf.SFSample.chat.ActivitySFChat;
+import com.sf.SFSample.increaseupdate.IncreaseUpdateActivity;
 import com.sf.SFSample.nybao.NYHomeActivity;
 import com.sf.SFSample.tiantu.ActivityHome;
+import com.sf.SFSample.ui.ActivityBlur;
+import com.sf.SFSample.ui.ActivityCameraTest;
 import com.sf.SFSample.ui.ActivityLivePopView;
 import com.sf.SFSample.ui.ActivityNewCircle;
 import com.sf.SFSample.ui.ActivityPopView;
@@ -22,6 +25,7 @@ import com.sf.SFSample.ui.DecencoderActivity;
 import com.sf.SFSample.ui.FragmentTabActivity;
 import com.sf.SFSample.ui.GestureListViewActiviy;
 import com.sf.SFSample.ui.GestureTest;
+import com.sf.SFSample.ui.OfOLanucher;
 import com.sf.SFSample.ui.PullCacheListActivity;
 import com.sf.SFSample.ui.PullListActivity;
 import com.sf.SFSample.ui.ReflectionActivity;
@@ -70,6 +74,11 @@ public class HomeLevelActivity extends BaseLevelActivity {
         activities.put(25, new Pair<String, Class>("TianTuActivityHome", ActivityHome.class));
         activities.put(26, new Pair<String, Class>("NYHomeActivity", NYHomeActivity.class));
         activities.put(27, new Pair<String, Class>("ActivityLivePopView", ActivityLivePopView.class));
+        activities.put(28, new Pair<String, Class>("ActivityBlur", ActivityBlur.class));
+        activities.put(29, new Pair<String, Class>("ActivityCameraTest", ActivityCameraTest.class));
+        activities.put(30, new Pair<String, Class>("ActivityLuancher", OfOLanucher.class));
+        activities.put(31, new Pair<String, Class>("IncreaseUpdate", IncreaseUpdateActivity.class));
+        activities.put(32, new Pair<String, Class>("IncreaseUpdate", IncreaseUpdateActivity.class));
         return activities;
     }
 
