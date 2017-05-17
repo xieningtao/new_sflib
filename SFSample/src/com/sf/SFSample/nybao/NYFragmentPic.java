@@ -35,7 +35,7 @@ public class NYFragmentPic extends NYBasePullListFragment<NYPairPicBean> {
             @Override
             public void done(List<MLObject> list, MLException e) {
                 L.debug(TAG, "news: " + list);
-                List<NYPicBean> nyPicBeanList = new ArrayList<>();
+                List<NYPicBean> nyPicBeanList = new ArrayList<NYPicBean>();
                 if (list != null && !list.isEmpty()) {
                     for (MLObject mlObject : list) {
                         NYPicBean picBean = GsonUtil.parse(mlObject.getString("picContent"), NYPicBean.class);
@@ -50,7 +50,7 @@ public class NYFragmentPic extends NYBasePullListFragment<NYPairPicBean> {
     }
 
     private List<NYPairPicBean> single2Pair(List<NYPicBean> picBeanList){
-        List<NYPairPicBean> pairPicBeanList=new ArrayList<>();
+        List<NYPairPicBean> pairPicBeanList=new ArrayList<NYPairPicBean>();
         if(picBeanList==null||picBeanList.isEmpty()){
             return pairPicBeanList;
         }
@@ -141,7 +141,7 @@ public class NYFragmentPic extends NYBasePullListFragment<NYPairPicBean> {
     }
 
     private ArrayList<String> getImageMd5Values(List<NYPicListBean> picListBeen){
-        ArrayList<String> imageMd5Values=new ArrayList<>();
+        ArrayList<String> imageMd5Values=new ArrayList<String>();
         if(picListBeen==null||picListBeen.isEmpty()){
             return imageMd5Values;
         }
@@ -152,7 +152,7 @@ public class NYFragmentPic extends NYBasePullListFragment<NYPairPicBean> {
 
     }
     private ArrayList<ImageBean> tianTuImageList2ImageBean(List<NYPicListBean> picListBeen) {
-        ArrayList<ImageBean> imageBeanList = new ArrayList<>();
+        ArrayList<ImageBean> imageBeanList = new ArrayList<ImageBean>();
         if(picListBeen==null||picListBeen.isEmpty()){
             return imageBeanList;
         }

@@ -2,14 +2,15 @@ apply plugin: 'com.android.application'
 android {
 
     compileSdkVersion 22
-    buildToolsVersion '21.1.2'
+    buildToolsVersion '24.0.0'
 
     defaultConfig {
-        minSdkVersion 17
+        minSdkVersion 15
         multiDexEnabled true
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
         ndk {
+            moduleName = 'bsdiff'
             abiFilters "armeabi", "armeabi-v7a"
         }
     }

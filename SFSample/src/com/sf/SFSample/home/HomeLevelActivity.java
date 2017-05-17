@@ -8,6 +8,7 @@ import android.widget.VideoView;
 
 import com.sf.SFSample.babymedical.ActivityLogin;
 import com.sf.SFSample.chat.ActivitySFChat;
+import com.sf.SFSample.increaseupdate.IncreaseUpdateActivity;
 import com.sf.SFSample.nybao.NYHomeActivity;
 import com.sf.SFSample.tiantu.ActivityHome;
 import com.sf.SFSample.ui.ActivityBlur;
@@ -76,6 +77,8 @@ public class HomeLevelActivity extends BaseLevelActivity {
         activities.put(28, new Pair<String, Class>("ActivityBlur", ActivityBlur.class));
         activities.put(29, new Pair<String, Class>("ActivityCameraTest", ActivityCameraTest.class));
         activities.put(30, new Pair<String, Class>("ActivityLuancher", OfOLanucher.class));
+        activities.put(31, new Pair<String, Class>("IncreaseUpdate", IncreaseUpdateActivity.class));
+        activities.put(32, new Pair<String, Class>("IncreaseUpdate", IncreaseUpdateActivity.class));
         return activities;
     }
 
