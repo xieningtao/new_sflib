@@ -192,7 +192,6 @@ public class OpenGLVideo {
         mCubicVertex[9] = mCubicVertex[9] * scale;
         mCubicVertex[10] = mCubicVertex[10] * scale;
 
-
 //
 //        mCubicVertex[12] = mCubicVertex[12] * x;
 //        mCubicVertex[13] = mCubicVertex[13] * y;

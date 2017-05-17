@@ -72,6 +72,7 @@ public class RsaUtil {
                     "c7o0HLlMsYPAzJw="; // 私钥
 
     private static final String RSA = "RSA";
+    //    private static final String RSA = "RSA/ECB/PKCS1Padding";  对接不同的服务器厂商
 
     public static byte[] encodeData(byte[] data, String pubkey_str) {
         try {
