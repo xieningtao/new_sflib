@@ -2,4 +2,8 @@
     <string name="share_success">分享成功</string>
     <string name="share_cancel">取消分享</string>
     <string name="share_fail">分享失败</string>
+
+    <string name="uninstalled_qq">没有安装QQ</string>
+    <string name="wx_install">请安装微信</string>
+    <string name="wx_unspoort">您安装微信客户端不支持分享，无法使用分享功能</string>
 </resources>
