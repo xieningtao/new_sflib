@@ -27,6 +27,32 @@ android {
     dexOptions {
         jumboMode = true
     }
+
+//    task myJavadocs(type: Javadoc) {
+//        source = 'src'
+//        options.encoding 'utf-8'
+//        failOnError false
+//        ext.androidJar = "${android.plugin.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
+//        classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
+////        classpath += project.files(configurations.compile.files,android.getBootClasspath().join(File.pathSeparator))
+//    }
+
+}
+
+android.libraryVariants.all { variant ->
+
+    task("generate${variant.name.capitalize()}Javadoc", type: Javadoc) {
+        description "Generates Javadoc for $variant.name."
+        source = variant.javaCompile.source
+        options.encoding='utf-8'
+        failOnError false
+        exclude '**/BuildConfig.java'
+        exclude '**/R.java'
+        ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
+        classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
+//        options.links("http://docs.oracle.com/javase/7/docs/api/");
+//        options.links("http://d.android.com/reference/");
+    }
 }
 apply plugin:'maven'
 

@@ -26,7 +26,7 @@ public class FilePreferenceService {
      * @param path
      * @param num
      *            线程个数
-     * @return Map<Integer, Long>
+     * @return
      */
     public Map<Integer, Long> getData(String path, int num) {
 

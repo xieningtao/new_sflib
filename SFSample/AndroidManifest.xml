@@ -27,7 +27,7 @@
     <uses-permission android:name="android.permission.GET_TASKS"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
-    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CAMERA"/>
     <!--百度定位-->
     <!-- 这个权限用于进行网络定位-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
@@ -55,7 +55,8 @@
     <application
         android:name=".SFApp"
         android:icon="@drawable/app_icon"
-        android:label="@string/app_name">
+        android:label="@string/app_name"
+        android:theme="@style/app_style">
 
         <!--<uses-library android:name="android.test.runner"/>-->
 
@@ -264,12 +265,31 @@
 
         <activity
             android:name=".ui.ActivityScreenShot"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:launchMode="singleInstance"
             />
-        <activity android:name=".increaseupdate.IncreaseUpdateActivity"
+        <activity
+            android:name=".increaseupdate.IncreaseUpdateActivity"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".home.SDKLNewFeatureLevelActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.RippleActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.CardActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.SDKLAnimatorActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.PaletteActivity"
+            android:screenOrientation="portrait"/>
+
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
 
