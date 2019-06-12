@@ -148,7 +148,6 @@
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Black.NoTitleBar"/>
         <activity android:name=".home.OpenGLLevelActivity"/>
-        <activity android:name=".home.TVLevelActivity"/>
         <activity android:name=".ui.AdbShellActivity"/>
         <activity
             android:name=".home.ActivitySelected"
@@ -251,9 +250,6 @@
             />
         <activity
             android:name=".opengl.ObjModelActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".ui.ActivityCameraTest"
             android:screenOrientation="portrait"/>
 
         <activity

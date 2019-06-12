@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.AdapterView;
 
 import com.basesmartframe.baseadapter.BaseAdapterHelper;
-import com.basesmartframe.basepull.PullHttpResult;
 import com.sf.utils.ThreadHelp;
 import com.basesmartframe.baseui.BaseActivity;
 import com.basesmartframe.baseui.BasePullListFragment;

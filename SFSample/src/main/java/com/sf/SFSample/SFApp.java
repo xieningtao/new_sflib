@@ -1,8 +1,6 @@
 package com.sf.SFSample;
 
 import com.basesmartframe.baseapp.BaseApp;
-import com.example.androidtv.module.BaseModule;
-import com.example.androidtv.module.home.TVGameModule;
 import com.maxleap.GetCallback;
 import com.maxleap.MLDataManager;
 import com.maxleap.MLObject;
@@ -11,28 +9,46 @@ import com.maxleap.exception.MLException;
 import com.sf.baidulib.SFBaiduLocationManager;
 import com.sf.loglib.L;
 
+import org.greenrobot.greendao.database.Database;
+
 public class SFApp extends BaseApp {
     public static final String APP_ID = "57f9edc887d4a7e337b8c231";
     public static final String APP_ID_KEY = "MmNsUDJONjlNc2xwNzEtbVY3RE5KUQ";
+    public static SFApp instance;
+    private DaoSession mDaoSession;
 //    public static final String APP_ID_KEY = "WHB0a1QzUXZwNDZJMXFYYjNpbnJxZw";
 
     @Override
     public void onCreate() {
         super.onCreate();
+        instance = this;
         init();
         startModule();
         doTest();
     }
 
+    public static SFApp getInstance() {
+        return instance;
+    }
+
+    public DaoSession getDaoSession() {
+        return mDaoSession;
+    }
+
+    private void initDao() {
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "notes-db");
+        Database db = helper.getWritableDb();
+        mDaoSession = new DaoMaster(db).newSession();
+    }
+
     private void startModule() {
-        BaseModule module = new TVGameModule();
-        module.onStart();
     }
 
     private void init() {
         SFBaiduLocationManager.getInstance().init(getApplicationContext());
         SFBaiduLocationManager.getInstance().requestLocate();
         MaxLeap.initialize(this, APP_ID, APP_ID_KEY, MaxLeap.REGION_CN);
+        initDao();
     }
 
     private void doTest() {

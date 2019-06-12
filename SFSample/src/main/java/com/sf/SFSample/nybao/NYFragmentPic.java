@@ -17,7 +17,6 @@ import com.sf.SFSample.nybao.bean.NYPairPicBean;
 import com.sf.SFSample.nybao.bean.NYPicBean;
 import com.sf.SFSample.nybao.bean.NYPicCoverBean;
 import com.sf.SFSample.nybao.bean.NYPicListBean;
-import com.sf.SFSample.tiantu.ActivityPhotoPreview;
 import com.sf.loglib.L;
 import com.sf.utils.baseutil.GsonUtil;
 
@@ -94,11 +93,11 @@ public class NYFragmentPic extends NYBasePullListFragment<NYPairPicBean> {
                 help.getView(R.id.left_rl).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(getActivity(), ActivityPhotoPreview.class);
-                        intent.putExtra(PickPhotosPreviewFragment.INDEX, 0);
-                        intent.putStringArrayListExtra(ActivityPhotoPreview.IMAGE_MD5,getImageMd5Values(leftBean.getPicListBean()));
-                        intent.putExtra(ActivityPhotoPreview.IMAGE_BEAN_LIST, tianTuImageList2ImageBean(leftBean.getPicListBean()));
-                        startActivity(intent);
+//                        Intent intent = new Intent(getActivity(), ActivityPhotoPreview.class);
+//                        intent.putExtra(PickPhotosPreviewFragment.INDEX, 0);
+//                        intent.putStringArrayListExtra(ActivityPhotoPreview.IMAGE_MD5,getImageMd5Values(leftBean.getPicListBean()));
+//                        intent.putExtra(ActivityPhotoPreview.IMAGE_BEAN_LIST, tianTuImageList2ImageBean(leftBean.getPicListBean()));
+//                        startActivity(intent);
                     }
                 });
             }else {
@@ -119,11 +118,11 @@ public class NYFragmentPic extends NYBasePullListFragment<NYPairPicBean> {
                 help.getView(R.id.right_rl).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(getActivity(), ActivityPhotoPreview.class);
-                        intent.putExtra(PickPhotosPreviewFragment.INDEX, 0);
-                        intent.putStringArrayListExtra(ActivityPhotoPreview.IMAGE_MD5,getImageMd5Values(rightBean.getPicListBean()));
-                        intent.putExtra(ActivityPhotoPreview.IMAGE_BEAN_LIST, tianTuImageList2ImageBean(rightBean.getPicListBean()));
-                        startActivity(intent);
+//                        Intent intent = new Intent(getActivity(), ActivityPhotoPreview.class);
+//                        intent.putExtra(PickPhotosPreviewFragment.INDEX, 0);
+//                        intent.putStringArrayListExtra(ActivityPhotoPreview.IMAGE_MD5,getImageMd5Values(rightBean.getPicListBean()));
+//                        intent.putExtra(ActivityPhotoPreview.IMAGE_BEAN_LIST, tianTuImageList2ImageBean(rightBean.getPicListBean()));
+//                        startActivity(intent);
                     }
                 });
             }else {

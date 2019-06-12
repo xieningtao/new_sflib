@@ -1,12 +1,21 @@
 apply from: "configs/config.gradle"
 buildscript {
     repositories {
-        jcenter()
-        google()
+//        //切换到阿里镜像
+//        maven{ url 'http://maven.aliyun.com/nexus/content/repositories/central/'}
+//        //jcenter
+//        maven{url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'}
+
+        //切换到阿里镜像，central和jcenter的聚合仓库
+        maven{url 'https://maven.aliyun.com/nexus/content/groups/public'}
+        //gradle plugin
+        maven{url 'https://maven.aliyun.com/repository/gradle-plugin'}
+        //google
+        maven{ url "https://maven.aliyun.com/nexus/content/repositories/google"}
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.1'
-
+        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual common build.gradle files
     }
@@ -22,12 +31,17 @@ allprojects {
         flatDir {
             dirs 'libs'
         }
-        mavenCentral()
-        jcenter()
+//
+//        maven{ url 'http://maven.aliyun.com/nexus/content/repositories/central/'}
+//        //jcenter
+//        maven{url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'}
+        //切换到阿里镜像，central和jcenter的聚合仓库
+        maven{url 'https://maven.aliyun.com/nexus/content/groups/public'}
         maven { url 'https://jitpack.io' }
         maven {
             url "https://raw.githubusercontent.com/xieningtao/mavenRepo/master/"
         }
-        google()
+        //google
+        maven{ url 'https://maven.aliyun.com/nexus/content/repositories/google'}
     }
 }
