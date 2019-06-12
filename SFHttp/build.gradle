@@ -1,0 +1,35 @@
+apply plugin: 'com.android.library'
+apply from: rootProject.commonOption
+
+apply plugin:'maven'
+
+group=lib_group
+version=lib_version
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: local_mavel)
+            pom.artifactId ="http"
+            pom.version=lib_version
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api project(":SFLog")
+    final OKHTTP_VERSION = '3.11.0'
+    final RETROFIT_VERSION = '2.4.0'
+    //okhttp
+    api "com.squareup.okhttp3:okhttp:$OKHTTP_VERSION"
+    api "com.squareup.okhttp3:logging-interceptor:$OKHTTP_VERSION"
+//    compile "com.squareup.okhttp3:okhttp-urlconnection:$OKHTTP_VERSION"
+    //retrofit
+    api "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
+    api ("com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"){
+        exclude group: 'com.google.code.gson.annotations', module: 'annotations'
+    }
+    api ("com.squareup.retrofit2:adapter-rxjava2:$RETROFIT_VERSION"){
+        exclude group: 'io.reactivex.rxjava2', module: 'rxjava'
+    }
+}

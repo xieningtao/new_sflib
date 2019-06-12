@@ -1,3 +1,4 @@
+apply from: "configs/config.gradle"
 buildscript {
     repositories {
         jcenter()
@@ -7,13 +8,13 @@ buildscript {
         classpath 'com.android.tools.build:gradle:3.4.1'
 
         // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        // in the individual common build.gradle files
     }
 }
 ext {
-     lib_version = "1.0.0"
-     lib_group = "com.sf.core"
-     local_mavel="file:///Users/mac/Downloads/gitMavenLib"
+    lib_version = "1.0.0"
+    lib_group = "com.sf.core"
+    local_mavel = "file:///Users/mac/Downloads/gitMavenLib"
 }
 
 allprojects {
@@ -23,6 +24,7 @@ allprojects {
         }
         mavenCentral()
         jcenter()
+        maven { url 'https://jitpack.io' }
         maven {
             url "https://raw.githubusercontent.com/xieningtao/mavenRepo/master/"
         }

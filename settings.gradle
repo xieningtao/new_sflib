@@ -1,5 +1,5 @@
-include ':CustomView', ':BaseSmartFrame', ':openGL', ':Emoji', ':SFChat', ':BaiduLib',  ':SFDBLib', ':SFCircle', ':sharelib',   ':thirdlib',
+include ':CustomView', ':BaseSmartFrame', ':openGL', ':Emoji', ':SFChat', ':BaiduLib',  ':SFDBLib', ':SFCircle', ':sharelib',   ':thirdlib', ':SFHttp',
         ':SFUtils',
         ':reflection', ':PullRefreshLib',
-        ':UMengLib',  ':SFHttpClient',
-        ':SFPay',  ":Emoji",  ":SFSample"
+        ':UMengLib', ":SFHttp",
+        ':SFPay',  ":Emoji",  ":SFSample",":SFLog"

@@ -1,16 +1,5 @@
 apply plugin: 'com.android.library'
-
-android {
-    compileSdkVersion 22
-    buildToolsVersion '26.0.2'
-
-    defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 21
-        versionCode 1
-        versionName "1.0.0"
-    }
-}
+apply from: rootProject.commonOption
 apply plugin:'maven'
 
 group=lib_group
@@ -25,6 +14,6 @@ uploadArchives {
     }
 }
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':BaseSmartFrame')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':BaseSmartFrame')
 }

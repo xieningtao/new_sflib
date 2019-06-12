@@ -18,11 +18,6 @@ import com.basesmartframe.pickphoto.ActivityFragmentContainer;
 import com.basesmartframe.pickphoto.ImageBean;
 import com.basesmartframe.pickphoto.PickPhotosFragment;
 import com.basesmartframe.pickphoto.PickPhotosPreviewFragment;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.sf.circlelib.circledb.DBContent;
-import com.sf.circlelib.circledb.DBImage;
-import com.sf.dblib.DbUtils;
-import com.sf.dblib.exception.DbException;
 import com.sf.loglib.L;
 import com.sf.loglib.file.SFFileHelp;
 import com.sf.utils.baseutil.SFToast;
@@ -42,7 +37,6 @@ public class SFAddCircleEventFragment extends BaseFragment {
     private final int CUSTOM_ALBUM_COMMAND_RESULT = 1;
     private List<ImageBean> mImageBeanList = new ArrayList<>();
     private PicAdapter mPicAdapter;
-    private DbUtils mDbUtils;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.sf_circle_add_event, null);
@@ -55,7 +49,6 @@ public class SFAddCircleEventFragment extends BaseFragment {
     }
 
     private void init(View view) {
-        mDbUtils=DbUtils.create(getActivity());
         mContentEt = (EditText) view.findViewById(R.id.content_et);
         mPhotoRlv = (RecyclerView) view.findViewById(R.id.pic_rlv);
         view.findViewById(R.id.back_iv).setOnClickListener(new View.OnClickListener() {
@@ -73,24 +66,19 @@ public class SFAddCircleEventFragment extends BaseFragment {
                 }
                 String contentStr=mContentEt.getText().toString();
 
-                try {
-                    DBContent content=new DBContent();
-                    content.setContent(contentStr);
-                    content.setDate(Calendar.getInstance().getTime());
-
-                    List<DBImage> imageList=new ArrayList<DBImage>();
-                    for(ImageBean imageBean:mImageBeanList){
-                        DBImage dbImage=new DBImage();
-                        dbImage.setUrl(imageBean.getPath());
-                        dbImage.setContent(content);
-                        imageList.add(dbImage);
-                    }
-                    mDbUtils.saveBindingIdAll(imageList);
+//                    DBContent content=new DBContent();
+//                    content.setContent(contentStr);
+//                    content.setDate(Calendar.getInstance().getTime());
+//
+//                    List<DBImage> imageList=new ArrayList<DBImage>();
+//                    for(ImageBean imageBean:mImageBeanList){
+//                        DBImage dbImage=new DBImage();
+//                        dbImage.setUrl(imageBean.getPath());
+//                        dbImage.setContent(content);
+//                        imageList.add(dbImage);
+//                    }
                     getActivity().setResult(Activity.RESULT_OK);
                     getActivity().finish();
-                } catch (DbException e) {
-                    L.error(TAG,"onClick exception: "+e);
-                }
 
             }
         });
@@ -147,7 +135,7 @@ public class SFAddCircleEventFragment extends BaseFragment {
                 }else {
                     ImageBean imageBean = mImageBeanList.get(position - 1);
                     String localPath = SFFileHelp.pathToFilePath(imageBean.getPath());
-                    ImageLoader.getInstance().displayImage(localPath, holder.mPicIv);
+//                    ImageLoader.getInstance().displayImage(localPath, holder.mPicIv);
                 }
         }
 

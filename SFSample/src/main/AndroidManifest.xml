@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.sf.SFSample"
+    android:versionCode="1"
+    android:versionName="1.0"
+    tools:overrideLibrary="com.sflib.openGL">
+
+    <uses-sdk android:targetSdkVersion="22"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
+
+    <!--百度地图-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <!--百度定位-->
+    <!-- 这个权限用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <!-- 这个权限用于访问GPS定位-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
+    <!-- 用于读取手机当前的状态-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <!-- 访问网络，网络定位需要上网-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- SD卡读取权限，用户写入离线定位数据-->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
+    <!--<instrumentation-->
+    <!--android:name="android.test.InstrumentationTestRunner"-->
+    <!--android:targetPackage="com.sf.SFSample"/>-->
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <application
+        android:name=".SFApp"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:theme="@style/app_style">
+
+        <!--<uses-library android:name="android.test.runner"/>-->
+
+        <!-- Caution! Do not change this app key. It is only for demo usage. -->
+
+
+        <activity
+            android:name=".home.HomeLevelActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!--友盟分享-->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="557ae6fe67e58e40930039a3"/>
+
+        <!--qq和空间-->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="tencent100424468"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <!--微信-->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <activity
+            android:name="com.umeng.socialize.editorpage.ShareActivity"
+            android:excludeFromRecents="true"/>
+        <!---->
+
+
+        <activity android:name=".ui.ViewPagerTest"></activity>
+        <activity android:name=".ui.RoundDrawableActivity"></activity>
+        <activity android:name=".ui.PullListActivity"></activity>
+        <activity android:name=".ui.GestureTest"></activity>
+        <activity android:name=".ui.CircleTest"></activity>
+        <activity android:name=".home.CustomViewLevelActivity"></activity>
+        <activity android:name=".ui.SlidingActivity"></activity>
+        <activity android:name=".ui.ViewEventActivity"></activity>
+        <activity android:name=".ui.GestureListViewActiviy"></activity>
+        <activity android:name=".ui.HotwordActivity"></activity>
+        <activity android:name=".ui.SurfaceActivity"></activity>
+        <activity android:name=".ui.ReflectionActivity"></activity>
+        <activity android:name=".ui.RoundBitmapActivity"></activity>
+        <activity android:name=".ui.StackViewGroupActivity"></activity>
+        <activity android:name=".ui.StackViewActivity"></activity>
+        <activity android:name=".ui.TessractORCActivity"></activity>
+        <activity android:name=".home.ThirdLisLevelActivity"></activity>
+
+        <!--idrecognise-->
+        <activity android:name="com.sf.thirdlib.IdRecognizeActivity"/>
+        <activity android:name="com.sf.thirdlib.ResultActivit"/>
+        <activity
+            android:name=".ui.OpenGLVideoViewActivity"
+            android:configChanges="orientation"/>
+        <activity
+            android:name=".ui.VideoPlayActivity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name=".ui.TransformActivity"/>
+        <activity
+            android:name=".ui.TVVerticalGridViewActivity"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Black.NoTitleBar"/>
+        <activity
+            android:name=".ui.TVHorizontalGridViewActivity"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Black.NoTitleBar"/>
+        <activity android:name=".home.OpenGLLevelActivity"/>
+        <activity android:name=".home.TVLevelActivity"/>
+        <activity android:name=".ui.AdbShellActivity"/>
+        <activity
+            android:name=".home.ActivitySelected"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.StyledViewActivity"
+            android:theme="@style/styledView3"/>
+        <activity android:name=".ui.XPinListViewActivity"/>
+        <activity
+            android:name=".ui.OpenGLTanActivity"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".ui.DecencoderActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.UMengShareActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.FragmentTabActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.ActivityMultiChoice"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.ActivitySingleChoice"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.ActivityUpgrade"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.ActivityNewCircle"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.ActivitySpecialEmoji"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.ActivityBaiduLocation"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".home.ActivityBaiduFamily"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.PullCacheListActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".chat.ActivitySFChat"
+            android:configChanges="keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            />
+
+        <activity
+            android:name=".ui.ActivityPopView"
+            android:configChanges="keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            />
+
+        <activity
+            android:name="com.basesmartframe.pickphoto.ActivityFragmentContainer"
+            android:configChanges="keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            />
+
+        <activity
+            android:name=".tiantu.ActivityPhotoPreview"
+            android:screenOrientation="portrait"
+            android:theme="@style/photo_preview_style"
+            />
+        <!--baby medical app-->
+        <activity
+            android:name=".babymedical.ActivityLogin"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.NoActionBar"
+            />
+        <activity
+            android:name=".tiantu.ActivityHome"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.NoActionBar"
+            />
+        <activity
+            android:name=".nybao.NYHomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo"
+            />
+        <activity
+            android:name=".nybao.NYRegisterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo"
+            />
+        <activity
+            android:name=".nybao.NYLoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo"
+            />
+        <activity
+            android:name=".ui.ActivityLivePopView"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".opengl.ObjModelActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.ActivityCameraTest"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.ActivityBlur"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name=".ui.OfOLanucher"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name=".ui.ActivityScreenShot"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            />
+        <activity
+            android:name=".increaseupdate.IncreaseUpdateActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".home.SDKLNewFeatureLevelActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.RippleActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.CardActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.SDKLAnimatorActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.PaletteActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="hmq8yUzqaGtjZbEcwFUmPV2wO8jgVixR"/>
+
+        <meta-data
+            android:name="ml_channel"
+            android:value="test"/>
+    </application>
+</manifest>

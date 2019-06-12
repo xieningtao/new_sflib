@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="5" by="lint 3.4.1">
+
+    <issue
+        id="GradleOverrides"
+        severity="Warning"
+        message="This `versionCode` value (`1`) is not used; it is always overridden by the value specified in the Gradle build script (`1`)"
+        category="Correctness"
+        priority="4"
+        summary="Value overridden by Gradle build script"
+        explanation="The value of (for example) `minSdkVersion` is only used if it is not specified in the `build.gradle` build scripts. When specified in the Gradle build scripts, the manifest value is ignored and can be misleading, so should be removed to avoid ambiguity."
+        errorLine1="          android:versionCode=&quot;1&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\gitRepository\android\sflib\reflection\src\main\AndroidManifest.xml"
+            line="4"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="GradleOverrides"
+        severity="Warning"
+        message="This `versionName` value (`1.0`) is not used; it is always overridden by the value specified in the Gradle build script (`1.0`)"
+        category="Correctness"
+        priority="4"
+        summary="Value overridden by Gradle build script"
+        explanation="The value of (for example) `minSdkVersion` is only used if it is not specified in the `build.gradle` build scripts. When specified in the Gradle build scripts, the manifest value is ignored and can be misleading, so should be removed to avoid ambiguity."
+        errorLine1="          android:versionName=&quot;1.0&quot;>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\gitRepository\android\sflib\reflection\src\main\AndroidManifest.xml"
+            line="5"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UseSparseArrays"
+        severity="Warning"
+        message="Use `new SparseArray&lt;SFSlot>>(...)` instead for better performance"
+        category="Performance"
+        priority="4"
+        summary="HashMap can be replaced with SparseArray"
+        explanation="For maps where the keys are of type integer, it&apos;s typically more efficient to use the Android `SparseArray` API. This check identifies scenarios where you might want to consider using `SparseArray` instead of `HashMap` for better performance.&#xA;&#xA;This is **particularly** useful when the value types are primitives like ints, where you can use `SparseIntArray` and avoid auto-boxing the values from `int` to `Integer`.&#xA;&#xA;If you need to construct a `HashMap` because you need to call an API outside of your control which requires a `Map`, you can suppress this warning using for example the `@SuppressLint` annotation."
+        errorLine1="    private final Map&lt;Integer, List&lt;SFSlot>> mMessageSlotMap = new HashMap&lt;>();"
+        errorLine2="                                                               ~~~~~~~~~~~~~~~">
+        <location
+            file="D:\gitRepository\android\sflib\reflection\src\main\java\com\sflib\reflection\core\SFBridge.java"
+            line="24"
+            column="64"/>
+    </issue>
+
+    <issue
+        id="IconMissingDensityFolder"
+        severity="Warning"
+        message="Missing density variation folders in `src\\main\\res`: drawable-xxhdpi"
+        category="Usability:Icons"
+        priority="3"
+        summary="Missing density folder"
+        explanation="Icons will look best if a custom version is provided for each of the major screen density classes (low, medium, high, extra-high, extra-extra-high). This lint check identifies folders which are missing, such as `drawable-hdpi`.&#xA;&#xA;Low density is not really used much anymore, so this check ignores the ldpi density. To force lint to include it, set the environment variable `ANDROID_LINT_INCLUDE_LDPI=true`. For more information on current density usage, see http://developer.android.com/resources/dashboard/screens.html"
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="D:\gitRepository\android\sflib\reflection\src\main\res"/>
+    </issue>
+
+</issues>

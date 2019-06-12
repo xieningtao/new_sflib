@@ -17,11 +17,11 @@ import com.example.sfchat.item.chatbean.SFMsg;
 import com.example.sfchat.media.MediaPlayManager;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.sf.utils.ThreadHelp;
 import com.sf.utils.baseutil.NetWorkManagerUtil;
 import com.sflib.CustomView.newhttpview.HttpViewManager;
 import com.sflib.reflection.core.SFIntegerMessage;
 import com.sflib.reflection.core.SFMsgId;
-import com.sflib.reflection.core.ThreadHelp;
 
 import java.util.List;
 

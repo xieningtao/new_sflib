@@ -30,14 +30,12 @@ public class IdRecognizeActivity extends Activity {
     private Camera camera;
     private Button take;
 
-    private ImageView mMaskIv;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE); // 没有标题  必须在设置布局之前找到调用
-        setContentView(R.layout.id_activity_main);
+        setContentView(R.layout.activity_main);
 
             /*
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, // 设置全屏显示
@@ -45,7 +43,6 @@ public class IdRecognizeActivity extends Activity {
             */
 
         take = (Button) findViewById(R.id.take);
-        mMaskIv = (ImageView) findViewById(R.id.mask_iv);
 
         surfaceview = (SurfaceView) findViewById(R.id.surfaceview);
         SurfaceHolder holder = surfaceview.getHolder();
@@ -197,7 +194,6 @@ public class IdRecognizeActivity extends Activity {
 
                 Log.d(TAG, "origin width " + width + " new width: " + bitmap.getWidth());
                 Log.d(TAG, "origin height " + height + " new height: " + bitmap.getHeight());
-                Log.d(TAG, "mask width: " + mMaskIv.getWidth() + " height: " + mMaskIv.getHeight());
                 //截取透明框内照片(身份证)
                 Bitmap bitmap1 = Bitmap.createBitmap(bitmap, 50, 270, 620, 450);
 

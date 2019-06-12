@@ -33,7 +33,7 @@ public class ResultActivit extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.id_activity_result);
+        setContentView(R.layout.activity_result);
 
         handler=new Handler(){
 

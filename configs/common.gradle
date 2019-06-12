@@ -1,0 +1,31 @@
+//apply from: rootProject.utils
+def config = rootProject.android
+ext.lib = rootProject.ext.dependencies
+
+android {
+    compileSdkVersion config.compileSdkVersion
+    buildToolsVersion config.buildToolsVersion
+
+    lintOptions {
+        // 指定xml报告文档(默认lint-results.xml)
+        quiet true
+        abortOnError true
+        xmlOutput file("lint-report.lint")
+    }
+    defaultConfig {
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode config.versionCode
+        versionName config.versionName
+
+//        addRenderScript()
+//        addModuleHost()
+    }
+    /**
+     * clean 结束后,
+     * 自动生成需要单独运行的 common manifest 文件
+     */
+//    clean.doLast {
+//        makeRunAloneManifest()
+//    }
+}

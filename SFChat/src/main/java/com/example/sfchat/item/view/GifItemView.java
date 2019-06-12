@@ -7,8 +7,7 @@ import com.example.sfchat.item.chatbean.SFGif;
 import com.example.sfchat.item.chatbean.SFMsg;
 import com.example.sfchat.item.holder.BaseChatHolder;
 import com.example.sfchat.item.holder.GifViewHolder;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.utils.L;
+import com.sf.loglib.L;
 import com.sf.utils.baseutil.GsonUtil;
 
 import java.io.File;
@@ -21,7 +20,7 @@ import pl.droidsonroids.gif.GifDrawable;
  */
 
 public class GifItemView extends BaseChatItemView<SFMsg> {
-    private DisplayImageOptions mOptions;
+//    private DisplayImageOptions mOptions;
 
     public GifItemView(Context context) {
         super(context);
@@ -31,9 +30,9 @@ public class GifItemView extends BaseChatItemView<SFMsg> {
         super(context, baseChatItemView);
     }
 
-    public void setOptions(DisplayImageOptions options) {
-        mOptions = options;
-    }
+//    public void setOptions(DisplayImageOptions options) {
+//        mOptions = options;
+//    }
 
     @Override
     protected void updateContentView(SFMsg data, BaseChatHolder baseChatHolder, int position) {
@@ -73,7 +72,7 @@ public class GifItemView extends BaseChatItemView<SFMsg> {
                     viewHolder.mGifTextView.setImageDrawable(new GifDrawable(file));
                 }
             } catch (IOException e) {
-                L.e(TAG, "exception: " + e);
+                L.error(TAG, "exception: " + e);
             }
         }
     }

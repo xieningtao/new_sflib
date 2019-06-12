@@ -1,61 +1,49 @@
 apply plugin: 'com.android.library'
+def config = rootProject.android
+ext.lib = rootProject.ext.dependencies
+
 android {
-    compileSdkVersion 22
-    buildToolsVersion '24.0.0'
+    compileSdkVersion config.compileSdkVersion
+    buildToolsVersion config.buildToolsVersion
 
-    defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 21
-        versionCode 1
-        versionName "1.0.0"
-
-        renderscriptTargetApi 19
-        renderscriptSupportModeEnabled true
-    }
-
-    sourceSets {
-        main {
-            manifest.srcFile 'AndroidManifest.xml'
-            java.srcDirs = ['src']
-            aidl.srcDirs = ['src']
-            renderscript.srcDirs = ['src']
-            res.srcDirs = ['res']
-            assets.srcDirs = ['assets']
-        }
-    }
-
-    dexOptions {
-        jumboMode = true
-    }
-
-//    task myJavadocs(type: Javadoc) {
-//        source = 'src'
-//        options.encoding 'utf-8'
-//        failOnError false
-//        ext.androidJar = "${android.plugin.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
-//        classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
-////        classpath += project.files(configurations.compile.files,android.getBootClasspath().join(File.pathSeparator))
-//    }
     lintOptions {
-        abortOnError false
+        // 指定xml报告文档(默认lint-results.xml)
+        xmlOutput file("lint-report.lint")
     }
-}
+    defaultConfig {
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode config.versionCode
+        versionName config.versionName
 
-android.libraryVariants.all { variant ->
-
-    task("generate${variant.name.capitalize()}Javadoc", type: Javadoc) {
-        description "Generates Javadoc for $variant.name."
-        source = variant.javaCompile.source
-        options.encoding='utf-8'
-        failOnError false
-        exclude '**/BuildConfig.java'
-        exclude '**/R.java'
-        ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
-        classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
-//        options.links("http://docs.oracle.com/javase/7/docs/api/");
-//        options.links("http://d.android.com/reference/");
+        renderscriptTargetApi 23
+        renderscriptSupportModeEnabled true
+//        addRenderScript()
+//        addModuleHost()
     }
+    /**
+     * clean 结束后,
+     * 自动生成需要单独运行的 common manifest 文件
+     */
+//    clean.doLast {
+//        makeRunAloneManifest()
+//    }
 }
+//android.libraryVariants.all { variant ->
+//
+//    task("generate${variant.name.capitalize()}Javadoc", type: Javadoc) {
+//        description "Generates Javadoc for $variant.name."
+//        source = variant.javaCompile.source
+//        options.encoding='utf-8'
+//        failOnError false
+//        exclude '**/BuildConfig.java'
+//        exclude '**/R.java'
+//        ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
+//        classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
+////        options.links("http://docs.oracle.com/javase/7/docs/api/");
+////        options.links("http://d.android.com/reference/");
+//    }
+//}
 apply plugin:'maven'
 
 group=lib_group
@@ -71,15 +59,14 @@ uploadArchives {
 }
 
 dependencies {
-
-    compile 'com.google.android:android:4.1.1.4@jar'
-    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4@jar'
-    compile project(':SFLog')
-    compile project(':SFHttpClient')
-    compile project(':UMengLib')
-    compile project(':Android-PullToRefresh:PullRefreshLib')
-    compile project(':SFUtils')
-    compile project(':CustomView')
-    compile project (':SFDBLib')
+    api 'com.nostra13.universalimageloader:universal-image-loader:1.9.4@jar'
+    api project(':SFHttp')
+    api project(':UMengLib')
+    api project(':PullRefreshLib')
+    api project(":reflection")
+    api project(':SFUtils')
+    api project(':CustomView')
+    //recycler view动画
+    api 'com.github.wasabeef:recyclerview-animators:3.0.0'
 
 }

@@ -1,30 +1,5 @@
 apply plugin: 'com.android.library'
-android {
-    compileSdkVersion 22
-    buildToolsVersion '24.0.0'
-
-    defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 21
-        versionCode 1
-        versionName "1.0.0"
-    }
-
-    sourceSets {
-        main {
-            manifest.srcFile 'AndroidManifest.xml'
-            java.srcDirs = ['src']
-            aidl.srcDirs = ['src']
-            renderscript.srcDirs = ['src']
-            res.srcDirs = ['res']
-            assets.srcDirs = ['assets']
-        }
-    }
-
-    dexOptions {
-        jumboMode = true
-    }
-}
+apply from: rootProject.commonOption
 apply plugin:'maven'
 
 group=lib_group
@@ -39,6 +14,5 @@ uploadArchives {
     }
 }
 dependencies {
-    compile 'com.google.android:android:4.1.1.4@jar'
-    compile project(':SFLog')
+    implementation project(':SFUtils')
 }

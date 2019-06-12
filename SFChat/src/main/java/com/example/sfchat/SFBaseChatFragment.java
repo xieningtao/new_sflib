@@ -15,9 +15,9 @@ import com.basesmartframe.baseui.BaseFragment;
 import com.example.sfchat.media.MediaRecordManager;
 import com.example.sfchat.media.NewAudioRecorderManager;
 import com.sf.loglib.L;
-import com.sf.utils.baseutil.SFBus;
+import com.sf.utils.ThreadHelp;
 import com.sf.utils.baseutil.SystemUIHelp;
-import com.sflib.reflection.core.ThreadHelp;
+import com.sflib.reflection.core.SFBus;
 
 import java.io.IOException;
 

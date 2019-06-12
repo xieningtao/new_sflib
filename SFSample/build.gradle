@@ -1,11 +1,13 @@
 apply plugin: 'com.android.application'
+def config = rootProject.android;
 android {
 
-    compileSdkVersion 22
-    buildToolsVersion '24.0.0'
+    compileSdkVersion config.compileSdkVersion
+    buildToolsVersion config.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 15
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
         multiDexEnabled true
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
@@ -39,19 +41,6 @@ android {
 //            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
 //        }
     }
-
-    sourceSets {
-        main {
-            manifest.srcFile 'AndroidManifest.xml'
-            java.srcDirs = ['src']
-            aidl.srcDirs = ['src']
-            renderscript.srcDirs = ['src']
-            res.srcDirs = ['res']
-            assets.srcDirs = ['assets']
-            jniLibs.srcDirs = ['libs']
-        }
-    }
-
 }
 
 tasks.withType(JavaCompile) {
@@ -60,30 +49,18 @@ tasks.withType(JavaCompile) {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':BaseSmartFrame')
-    compile project(':CustomView')
-    compile project(':openGL')
-    compile project(':AndroidTV')
-    compile project(':Emoji')
-    compile project(':SFChat')
-    compile project(':SFCircle')
-    compile project(':SFPay')
-//    compile "com.sf.core:base_sf_core:1.0.0@aar"
-//    compile "com.sf.core:android_tv:1.0.0@aar"
-//    compile "com.sf.core:emoji_lib:1.0.0@aar"
-//    compile "com.sf.core:http_client:1.0.0@aar"
-//    compile "com.sf.core:opengl_lib:1.0.0@aar"
-//    compile "com.sf.core:sf_umeng_lib:1.0.0@aar"
-//    compile "com.sf.core:sf_pay_lib:1.0.0@aar"
-//    compile "com.sf.core:sf_circle_lib:1.0.0@aar"
-//    compile "com.sf.core:sfchat_lib:1.0.0@aar"
-    compile project(path: ':cameralib')
-
-    compile project(':thirdlib')
+    implementation project(':BaseSmartFrame')
+    implementation project(':CustomView')
+    implementation project(':openGL')
+    implementation project(':Emoji')
+    implementation project(':SFChat')
+    implementation project(':SFCircle')
+    implementation project(':SFPay')
+    implementation project(':thirdlib')
 
     //lifeCycle viewModel room
-    compile 'android.arch.lifecycle:extensions:1.0.0@aar'
-    compile 'android.arch.persistence.room:runtime:1.0.0@aar'
-    annotationProcessor 'android.arch.lifecycle:compiler:1.0.0@aar'
-    annotationProcessor 'android.arch.persistence.room:compiler:1.0.0@aar'
+//    implementation 'android.arch.lifecycle:extensions:1.0.0@aar'
+//    implementation 'android.arch.persistence.room:runtime:1.0.0@aar'
+//    annotationProcessor 'android.arch.lifecycle:compiler:1.0.0@aar'
+//    annotationProcessor 'android.arch.persistence.room:compiler:1.0.0@aar'
 }
