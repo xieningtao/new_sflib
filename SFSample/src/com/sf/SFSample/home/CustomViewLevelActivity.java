@@ -7,6 +7,8 @@ import com.sf.SFSample.ui.BaseLevelActivity;
 import com.sf.SFSample.ui.HotwordActivity;
 import com.sf.SFSample.ui.RoundBitmapActivity;
 import com.sf.SFSample.ui.SlidingActivity;
+import com.sf.SFSample.ui.StackViewActivity;
+import com.sf.SFSample.ui.StackViewGroupActivity;
 import com.sf.SFSample.ui.StyledViewActivity;
 import com.sf.SFSample.ui.SurfaceActivity;
 import com.sf.SFSample.ui.ViewEventActivity;
@@ -26,6 +28,8 @@ public class CustomViewLevelActivity extends BaseLevelActivity {
         activities.put(3, new Pair<String, Class>("hotwords", HotwordActivity.class));
         activities.put(4, new Pair<String, Class>("roundBitmap", RoundBitmapActivity.class));
         activities.put(5, new Pair<String, Class>("styledView", StyledViewActivity.class));
+        activities.put(6, new Pair<String, Class>("stackViewGroup", StackViewGroupActivity.class));
+        activities.put(7, new Pair<String, Class>("stackView", StackViewActivity.class));
         return activities;
     }
 }

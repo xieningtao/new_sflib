@@ -36,7 +36,9 @@ android {
 //        classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
 ////        classpath += project.files(configurations.compile.files,android.getBootClasspath().join(File.pathSeparator))
 //    }
-
+    lintOptions {
+        abortOnError false
+    }
 }
 
 android.libraryVariants.all { variant ->

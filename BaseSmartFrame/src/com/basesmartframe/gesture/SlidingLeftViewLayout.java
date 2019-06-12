@@ -454,7 +454,7 @@ public class SlidingLeftViewLayout extends FrameLayout {
     }
 
     private boolean isOpen() {
-        return getScrollX() == mExtraView.getWidth();
+        return mExtraView!=null&&getScrollX() == mExtraView.getWidth();
     }
 
     public void doClose() {
