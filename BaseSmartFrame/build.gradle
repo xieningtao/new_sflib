@@ -15,7 +15,7 @@ android {
         targetSdkVersion config.targetSdkVersion
         versionCode config.versionCode
         versionName config.versionName
-
+        multiDexEnabled true
         renderscriptTargetApi 23
         renderscriptSupportModeEnabled true
 //        addRenderScript()
@@ -67,7 +67,7 @@ dependencies {
     api project(':SFUtils')
     api project(':CustomView')
     //recycler view动画
-//    api 'com.github.wasabeef:recyclerview-animators:3.0.0'
+    api 'com.github.wasabeef:recyclerview-animators:3.0.0'
     //green dao
     api 'org.greenrobot:greendao:3.2.2'
 

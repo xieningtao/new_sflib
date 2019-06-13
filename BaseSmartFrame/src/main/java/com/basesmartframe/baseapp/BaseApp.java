@@ -1,12 +1,12 @@
 package com.basesmartframe.baseapp;
 
-import android.app.Application;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import androidx.multidex.MultiDexApplication;
 
 import com.basesmartframe.baseevent.GlobalEvent;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
@@ -14,7 +14,6 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
-import com.sf.loglib.file.SFFileHelp;
 import com.sf.utils.ThreadHelp;
 import com.sf.utils.baseutil.NetWorkManagerUtil;
 import com.sf.utils.baseutil.SFToast;
@@ -24,7 +23,7 @@ import com.sflib.umenglib.share.ShareConstant;
 import com.umeng.socialize.PlatformConfig;
 
 
-public class BaseApp extends Application {
+public class BaseApp extends MultiDexApplication {
 
     public static Context gContext;
     private final String mCacheFileName = "sf_index_cache.txt";

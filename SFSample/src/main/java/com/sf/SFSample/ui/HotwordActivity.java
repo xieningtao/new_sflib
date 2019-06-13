@@ -7,7 +7,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.sf.SFSample.R;
-import com.sflib.CustomView.viewgroup.HotWordsView;
+import com.zhy.view.flowlayout.FlowLayout;
+import com.zhy.view.flowlayout.TagAdapter;
+import com.zhy.view.flowlayout.TagFlowLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,14 +20,14 @@ public class HotwordActivity extends Activity {
      */
     private List<String> beans = new ArrayList<>();
 
-    private HotWordsView mHotWordsView;
+    private TagFlowLayout mHotWordsView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotword);
 
-        mHotWordsView = (HotWordsView) findViewById(R.id.hotwords);
+        mHotWordsView = (TagFlowLayout) findViewById(R.id.hotwords);
 
        beans.add("fsjfksljfklsj");
        beans.add("fsjsfsdffksljfklsj");
@@ -37,25 +39,15 @@ public class HotwordActivity extends Activity {
        beans.add("fsjfksjfkfklsj");
        beans.add("fsjfksljfsjfskjfkfklsj");
 
-        mHotWordsView.setAdapter(new HotWordsView.HotWordsAdapter() {
-            @Override
-            public View getView(ViewGroup parent, int position) {
-                TextView textView = new TextView(HotwordActivity.this);
-                textView.setPadding(10, 10, 10, 10);
-                String item = (String) getItem(position);
-                textView.setText(item);
-                return textView;
-            }
-
-            @Override
-            public int getCount() {
-                return beans.size();
-            }
-
-            @Override
-            public Object getItem(int position) {
-                return beans.get(position);
-            }
-        });
+       mHotWordsView.setAdapter(new TagAdapter(beans) {
+           @Override
+           public View getView(FlowLayout parent, int position, Object o) {
+               TextView textView = new TextView(HotwordActivity.this);
+               textView.setPadding(10, 10, 10, 10);
+               String item = (String) getItem(position);
+               textView.setText(item);
+               return textView;
+           }
+       });
     }
 }

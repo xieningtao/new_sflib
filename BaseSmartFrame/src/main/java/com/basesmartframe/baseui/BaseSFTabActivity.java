@@ -2,7 +2,6 @@ package com.basesmartframe.baseui;
 
 import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v13.app.FragmentTabHost;
 import android.view.LayoutInflater;
 import android.widget.TabHost;
 import android.widget.TabWidget;

@@ -9,17 +9,20 @@ import com.sf.SFSample.ui.OpenGLVideoViewActivity;
 import com.sf.SFSample.ui.OpenGLTanActivity;
 import com.sf.SFSample.ui.TransformActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by xieningtao on 15-11-20.
  */
 public class OpenGLLevelActivity extends BaseLevelActivity {
     @Override
-    protected SparseArray<Pair<String, Class>> getActivities() {
-        SparseArray<Pair<String, Class>> activities = new SparseArray<>();
-        activities.put(0, new Pair<String, Class>("image scale type open gl", OpenGLVideoViewActivity.class));
-        activities.put(1, new Pair<String, Class>("transform open gl", TransformActivity.class));
-        activities.put(2, new Pair<String, Class>("tan open gl", OpenGLTanActivity.class));
-        activities.put(3, new Pair<String, Class>("3d model open gl", ObjModelActivity.class));
+    protected List<Pair<String, Class>> getActivities() {
+        List<Pair<String, Class>> activities = new ArrayList<>();
+        activities.add( new Pair<String, Class>("image scale type open gl", OpenGLVideoViewActivity.class));
+        activities.add( new Pair<String, Class>("transform open gl", TransformActivity.class));
+        activities.add( new Pair<String, Class>("tan open gl", OpenGLTanActivity.class));
+        activities.add( new Pair<String, Class>("3d model open gl", ObjModelActivity.class));
         return activities;
     }
 }

@@ -1,24 +1,18 @@
 package com.sflib.emoji.core;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.os.Bundle;
-import android.support.v13.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
+
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.GridView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.basesmartframe.baseui.BaseFragment;
 import com.sflib.CustomView.indicator.PageIndicator;
-import com.sflib.CustomView.indicator.SFPageHeadView;
 import com.sflib.emoji.R;
 
 /**

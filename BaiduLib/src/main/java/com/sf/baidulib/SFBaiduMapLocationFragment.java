@@ -66,7 +66,7 @@ public class SFBaiduMapLocationFragment extends BaseFragment {
             BitmapDescriptor mCurrentMarker = BitmapDescriptorFactory
                     .fromResource(R.drawable.icon_geo);
             MyLocationConfiguration config = new MyLocationConfiguration(MyLocationConfiguration.LocationMode.FOLLOWING, true, mCurrentMarker);
-            mBaiduMap.setMyLocationConfigeration(config);
+            mBaiduMap.setMyLocationConfiguration(config);
         }
     }
 

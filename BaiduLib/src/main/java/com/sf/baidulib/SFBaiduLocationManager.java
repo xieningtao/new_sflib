@@ -3,11 +3,13 @@ package com.sf.baidulib;
 import android.app.Application;
 import android.content.Context;
 
+import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.location.Poi;
+import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.sf.loglib.L;
 
@@ -19,7 +21,7 @@ import java.util.List;
  */
 public class SFBaiduLocationManager {
     private LocationClient mLocationClient = null;
-    private BDLocationListener myListener = new MyLocationListener();
+    private BDAbstractLocationListener myListener = new MyLocationListener();
     private static SFBaiduLocationManager mSFBaiduLocationManager = new SFBaiduLocationManager();
 
     private List<SFBDLocationListener> mSFBDLocationListeners = new ArrayList<SFBDLocationListener>();
@@ -45,6 +47,7 @@ public class SFBaiduLocationManager {
 
     public void init(Context application) {
         SDKInitializer.initialize(application);
+        SDKInitializer.setCoordType(CoordType.BD09LL);
         mLocationClient = new LocationClient(application);     //声明LocationClient类
         mLocationClient.registerLocationListener(myListener);    //注册监听函数
         initLocation();
@@ -75,7 +78,7 @@ public class SFBaiduLocationManager {
         }
     }
 
-    public void removeLocationListener(BDLocationListener listener) {
+    public void removeLocationListener(BDAbstractLocationListener listener) {
         mLocationClient.unRegisterLocationListener(listener);
         if (listener instanceof SFBDLocationListener) {
             SFBDLocationListener sfbdLocationListener = (SFBDLocationListener) listener;
@@ -100,7 +103,7 @@ public class SFBaiduLocationManager {
         mLocationClient.setLocOption(option);
     }
 
-    private  class MyLocationListener implements BDLocationListener {
+    private  class MyLocationListener extends BDAbstractLocationListener {
 
         @Override
         public void onReceiveLocation(BDLocation location) {

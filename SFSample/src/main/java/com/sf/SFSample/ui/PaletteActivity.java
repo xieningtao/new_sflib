@@ -3,7 +3,7 @@ package com.sf.SFSample.ui;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.v7.graphics.Palette;
+import androidx.palette.graphics.Palette;
 import android.widget.TextView;
 
 import com.basesmartframe.baseui.BaseActivity;

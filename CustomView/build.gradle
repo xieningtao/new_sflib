@@ -11,6 +11,7 @@ dependencies {
     api lib.cardView
     api lib.paletteV7
     api lib.design
+    api lib.flowlayout
 }
 apply plugin:'maven'
 

@@ -17,8 +17,8 @@
 
 package com.sflib.CustomView.indicator;
 
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
 
 /**
  * A PageIndicator is responsible to show an visual indicator on the total views

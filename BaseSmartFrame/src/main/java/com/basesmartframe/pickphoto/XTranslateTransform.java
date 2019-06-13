@@ -1,6 +1,6 @@
 package com.basesmartframe.pickphoto;
 
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 import android.view.View;
 
 import com.sf.loglib.L;

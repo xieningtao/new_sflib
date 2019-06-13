@@ -12,17 +12,20 @@ import com.basesmartframe.anim.animation.DoActivityAnim;
 import com.basesmartframe.baseui.BaseActivity;
 import com.sf.SFSample.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by xieningtao on 15-11-16.
  */
 abstract public class BaseLevelActivity extends BaseActivity {
-    private SparseArray<Pair<String, Class>> mActivities = new SparseArray<>();
+    private List<Pair<String, Class>> mActivities = new ArrayList<>();
     private ListView mListView;
 
     protected void onCreate(android.os.Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        SparseArray<Pair<String, Class>> activities = getActivities();
+        List<Pair<String, Class>> activities = getActivities();
         if (activities != null) {
             mActivities = activities;
         }
@@ -54,6 +57,6 @@ abstract public class BaseLevelActivity extends BaseActivity {
         return mActivities.get(position).second;
     }
 
-    abstract protected SparseArray<Pair<String, Class>> getActivities();
+    abstract protected List<Pair<String, Class>> getActivities();
 
 }

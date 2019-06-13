@@ -6,7 +6,7 @@
 
     >
 
-    <com.sflib.CustomView.viewgroup.HotWordsView
+    <com.zhy.view.flowlayout.TagFlowLayout
         android:id="@+id/hotwords"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

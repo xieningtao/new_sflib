@@ -12,6 +12,7 @@ buildscript {
         maven{url 'https://maven.aliyun.com/repository/gradle-plugin'}
         //google
         maven{ url "https://maven.aliyun.com/nexus/content/repositories/google"}
+        google()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
@@ -43,5 +44,6 @@ allprojects {
         }
         //google
         maven{ url 'https://maven.aliyun.com/nexus/content/repositories/google'}
+        google()
     }
 }
