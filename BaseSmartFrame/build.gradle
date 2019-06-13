@@ -53,7 +53,7 @@ uploadArchives {
     repositories {
         mavenDeployer {
             repository(url: local_mavel)
-            pom.artifactId ="base_sf_core"
+            //pom.artifactId ="base_sf_core"
             pom.version=lib_version
         }
     }

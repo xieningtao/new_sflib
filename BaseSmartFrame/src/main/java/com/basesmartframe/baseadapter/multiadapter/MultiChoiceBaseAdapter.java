@@ -28,7 +28,7 @@ import android.widget.BaseAdapter;
 
 
 /**
- * MultiChoiceBaseAdapter is an implementation of ListAdapter which adds support for modal multiple choice selection as
+ * MultiChoiceBaseAdapter is an api of ListAdapter which adds support for modal multiple choice selection as
  * in the native GMail app.
  * <p>
  * It provides a functionality similar to that of the CHOICE_MODE_MULTIPLE_MODAL ListView mode, but in a manner that is

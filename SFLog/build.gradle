@@ -12,7 +12,7 @@ uploadArchives {
     repositories {
         mavenDeployer {
             repository(url: local_mavel)
-            pom.artifactId ="sf_log_lib"
+            //pom.artifactId ="sf_log_lib"
             pom.version=lib_version
         }
     }

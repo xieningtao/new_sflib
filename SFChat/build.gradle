@@ -9,15 +9,15 @@ uploadArchives {
     repositories {
         mavenDeployer {
             repository(url: local_mavel)
-            pom.artifactId ="sfchat_lib"
+            //pom.artifactId ="sfchat_lib"
             pom.version=lib_version
         }
     }
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(":BaseSmartFrame")
-    implementation project(":Emoji")
-    implementation project(':BaiduLib')
-    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.3'
+    api project(":BaseSmartFrame")
+    api project(":Emoji")
+    api project(':BaiduLib')
+    api 'pl.droidsonroids.gif:android-gif-drawable:1.2.3'
 }

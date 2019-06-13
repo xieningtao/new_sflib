@@ -9,12 +9,12 @@ uploadArchives {
     repositories {
         mavenDeployer {
             repository(url: local_mavel)
-            pom.artifactId ="opengl_lib"
+           //pom.artifactId ="opengl_lib"
             pom.version=lib_version
         }
     }
 }
 dependencies {
 
-    implementation project(':BaseSmartFrame')
+    api project(':BaseSmartFrame')
 }

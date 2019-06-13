@@ -9,12 +9,12 @@ uploadArchives {
     repositories {
         mavenDeployer {
             repository(url: local_mavel)
-            pom.artifactId ="baidu_lib"
+            //pom.artifactId ="baidu_lib"
             pom.version=lib_version
         }
     }
 }
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':BaseSmartFrame')
+    api project(':BaseSmartFrame')
 }

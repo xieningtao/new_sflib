@@ -241,7 +241,7 @@ public interface IPhotoView {
      * Will return instance of IPhotoView (eg. PhotoViewAttacher), can be used to provide better
      * integration
      *
-     * @return IPhotoView implementation instance if available, null if not
+     * @return IPhotoView api instance if available, null if not
      */
     IPhotoView getIPhotoViewImplementation();
 

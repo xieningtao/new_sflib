@@ -9,7 +9,7 @@ uploadArchives {
     repositories {
         mavenDeployer {
             repository(url: local_mavel)
-            pom.artifactId = "pull_refresh_lib"
+            //pom.artifactId = "pull_refresh_lib"
             pom.version = lib_version
         }
     }

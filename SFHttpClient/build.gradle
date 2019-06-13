@@ -10,7 +10,7 @@ uploadArchives {
     repositories {
         mavenDeployer {
             repository(url: local_mavel)
-            pom.artifactId ="http_client"
+            //pom.artifactId ="http_client"
             pom.version=lib_version
         }
     }
@@ -18,9 +18,9 @@ uploadArchives {
 
 dependencies {
 
-//    implementation "com.sf.cor:sf_log_lib:$lib_version@aar"
-//    implementation "com.sf.cor:sf_util_lib:$lib_version@aar"
-//    implementation "com.sf.cor:sf_db_lib:$lib_version@aar"
-//    implementation project(":SFDBLib")
-    implementation project(":SFUtils")
+//    api "com.sf.cor:sf_log_lib:$lib_version@aar"
+//    api "com.sf.cor:sf_util_lib:$lib_version@aar"
+//    api "com.sf.cor:sf_db_lib:$lib_version@aar"
+//    api project(":SFDBLib")
+    api project(":SFUtils")
 }

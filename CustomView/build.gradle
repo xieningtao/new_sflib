@@ -4,8 +4,7 @@ apply from: rootProject.commonOption
 def lib = rootProject.ext.dependencies;
 
 dependencies {
-
-    implementation project(':SFUtils')
+    api project(':SFUtils')
     api lib.supportV4
     api lib.supportCompatV13
     api lib.recyclerView
@@ -22,8 +21,9 @@ uploadArchives{
     repositories {
         mavenDeployer {
             repository(url: local_mavel)
-            pom.artifactId ="custom_view"
+            //pom.artifactId ="custom_view"
             pom.version=lib_version
+
         }
     }
 }

@@ -1,20 +1,26 @@
 apply from: "configs/config.gradle"
+apply from: "configs/utils.gradle"
+
 buildscript {
     repositories {
-//        //切换到阿里镜像
-//        maven{ url 'http://maven.aliyun.com/nexus/content/repositories/central/'}
-//        //jcenter
-//        maven{url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'}
 
-        //切换到阿里镜像，central和jcenter的聚合仓库
-//        maven{url 'https://maven.aliyun.com/nexus/content/groups/public'}
-//        //gradle plugin
-//        maven{url 'https://maven.aliyun.com/repository/gradle-plugin'}
-//        //google
-//        maven{ url "https://maven.aliyun.com/nexus/content/repositories/google"}
-        jcenter()
-        mavenCentral()
-        google()
+        if ("xieningtao".equals(System.getenv("USERNAME"))) {
+            //切换到阿里镜像
+            maven { url 'http://maven.aliyun.com/nexus/content/repositories/central/' }
+            //jcenter
+            maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+
+            //切换到阿里镜像，central和jcenter的聚合仓库
+            maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
+            //gradle plugin
+            maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+            //google
+            maven { url "https://maven.aliyun.com/nexus/content/repositories/google" }
+        } else {
+            jcenter()
+            mavenCentral()
+            google()
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
@@ -26,31 +32,34 @@ buildscript {
     }
 }
 ext {
-    lib_version = "1.7.0"
+    lib_version = "1.8.0"
     lib_group = "com.github.xieningtao.new_sflib"
     local_mavel = "file:///Users/mac/Downloads/gitMavenLib"
 }
+
 
 allprojects {
     repositories {
         flatDir {
             dirs 'libs'
         }
-//
-//        maven{ url 'http://maven.aliyun.com/nexus/content/repositories/central/'}
-//        //jcenter
-//        maven{url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'}
-        //切换到阿里镜像，central和jcenter的聚合仓库
-//        maven{url 'https://maven.aliyun.com/nexus/content/groups/public'}
+        if (willPassThroughGreatWall) {
+            maven { url 'http://maven.aliyun.com/nexus/content/repositories/central/' }
+            //jcenter
+            maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+            //切换到阿里镜像，central和jcenter的聚合仓库
+            maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
 
-//        maven {
-//            url "https://raw.githubusercontent.com/xieningtao/mavenRepo/master/"
-//        }
-//        //google
-//        maven{ url 'https://maven.aliyun.com/nexus/content/repositories/google'}
-        jcenter()
-        mavenCentral()
-        google()
+            maven {
+                url "https://raw.githubusercontent.com/xieningtao/mavenRepo/master/"
+            }
+            //google
+            maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
+        } else {
+            jcenter()
+            mavenCentral()
+            google()
+        }
         maven { url 'https://jitpack.io' }
     }
 }

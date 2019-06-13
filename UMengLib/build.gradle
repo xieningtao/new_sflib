@@ -17,14 +17,14 @@ uploadArchives {
     repositories {
         mavenDeployer {
             repository(url: local_mavel)
-            pom.artifactId ="sf_umeng_lib"
+            //pom.artifactId ="sf_umeng_lib"
             pom.version=lib_version
         }
     }
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-//    implementation 'com.umeng:fb:5.4.0'
-    implementation lib.supportV4
+//    api 'com.umeng:fb:5.4.0'
+    api lib.supportV4
     api project(':SFLog')
 }

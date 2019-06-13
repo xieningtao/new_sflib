@@ -9,11 +9,11 @@ uploadArchives {
     repositories {
         mavenDeployer {
             repository(url: local_mavel)
-            pom.artifactId ="reflection_lib"
+            //pom.artifactId ="reflection_lib"
             pom.version=lib_version
         }
     }
 }
 dependencies {
-    implementation project(':SFUtils')
+    api project(':SFUtils')
 }

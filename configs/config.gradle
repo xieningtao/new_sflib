@@ -3,7 +3,7 @@ ext {
     roomVersion = "1.1.1"
     configPath = rootDir.absolutePath + '/configs'
     commonOption = configPath + '/common.gradle'
-//    utils = configPath + '/utils.gradle'
+    utils = configPath + '/utils.gradle'
 //    protect = rootDir.absolutePath + '/tools/app-protect/release-protect.gradle'
 
     // 配置本地maven仓库

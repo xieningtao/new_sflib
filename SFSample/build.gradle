@@ -55,19 +55,19 @@ greendao {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':BaseSmartFrame')
-    implementation project(':CustomView')
-    implementation project(':openGL')
-    implementation project(':Emoji')
-    implementation project(':SFChat')
-    implementation project(':SFCircle')
-    implementation project(':SFPay')
-    implementation project(':thirdlib')
-    implementation project(':BaiduLib')
+    api project(':BaseSmartFrame')
+    api project(':CustomView')
+    api project(':openGL')
+    api project(':Emoji')
+    api project(':SFChat')
+    api project(':SFCircle')
+    api project(':SFPay')
+    api project(':thirdlib')
+    api project(':BaiduLib')
 
     //lifeCycle viewModel room
-//    implementation 'android.arch.lifecycle:extensions:1.0.0@aar'
-//    implementation 'android.arch.persistence.room:runtime:1.0.0@aar'
+//    api 'android.arch.lifecycle:extensions:1.0.0@aar'
+//    api 'android.arch.persistence.room:runtime:1.0.0@aar'
 //    annotationProcessor 'android.arch.lifecycle:compiler:1.0.0@aar'
 //    annotationProcessor 'android.arch.persistence.room:compiler:1.0.0@aar'
 }

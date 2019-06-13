@@ -1,0 +1,12 @@
+ext{
+    willPassThroughGreatWall = canPassThroughGreatWall()
+}
+
+def canPassThroughGreatWall(){
+    String name = System.getenv("USERNAME");
+    System.out.println("in utils USERNAME: "+name)
+    if("xieningtao".equals(name)){
+        return true;
+    }
+    return false;
+}
