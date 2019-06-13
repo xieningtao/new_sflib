@@ -5,8 +5,8 @@ ext{
 def canPassThroughGreatWall(){
     String name = System.getenv("USERNAME");
     System.out.println("in utils USERNAME: "+name)
-    if("xieningtao".equals(name)){
-        return true;
+    if("xieningtao".equals(name)){//自己的私人电脑下载maven和jcenter超时
+        return false;
     }
-    return false;
+    return true;
 }

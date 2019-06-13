@@ -5,11 +5,6 @@ buildscript {
     repositories {
 
         if ("xieningtao".equals(System.getenv("USERNAME"))) {
-            //切换到阿里镜像
-            maven { url 'http://maven.aliyun.com/nexus/content/repositories/central/' }
-            //jcenter
-            maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
-
             //切换到阿里镜像，central和jcenter的聚合仓库
             maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
             //gradle plugin
@@ -43,16 +38,9 @@ allprojects {
         flatDir {
             dirs 'libs'
         }
-        if (willPassThroughGreatWall) {
-            maven { url 'http://maven.aliyun.com/nexus/content/repositories/central/' }
-            //jcenter
-            maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        if (!willPassThroughGreatWall) {
             //切换到阿里镜像，central和jcenter的聚合仓库
             maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
-
-            maven {
-                url "https://raw.githubusercontent.com/xieningtao/mavenRepo/master/"
-            }
             //google
             maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
         } else {
