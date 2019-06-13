@@ -10,3 +10,4 @@ build
 *.bat
 gradlew
 gradle/
+*.lint
