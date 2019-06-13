@@ -1,4 +1,4 @@
-apply plugin: 'com.android.library'
+apply plugin: 'com.android.library' apply plugin: 'com.github.dcendents.android-maven'
 apply from: rootProject.commonOption
 
 apply plugin:'maven'
