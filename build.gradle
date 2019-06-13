@@ -26,8 +26,8 @@ buildscript {
     }
 }
 ext {
-    lib_version = "1.0.0"
-    lib_group = "com.sf.core"
+    lib_version = "1.7.0"
+    lib_group = "com.github.xieningtao.new_sflib"
     local_mavel = "file:///Users/mac/Downloads/gitMavenLib"
 }
 
