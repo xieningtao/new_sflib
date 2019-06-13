@@ -29,7 +29,5 @@ dependencies {
     api ("com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"){
         exclude group: 'com.google.code.gson.annotations', module: 'annotations'
     }
-    api ("com.squareup.retrofit2:adapter-rxjava2:$RETROFIT_VERSION"){
-        exclude group: 'io.reactivex.rxjava2', module: 'rxjava'
-    }
+    api ("com.squareup.retrofit2:adapter-rxjava2:$RETROFIT_VERSION")
 }

@@ -35,7 +35,7 @@ public class CardActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cardview_activity);
         mRecyclerView = (RecyclerView) findViewById(R.id.recycle_view);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         mRecyclerView.setLayoutManager(layoutManager);
         RecycleViewAdapter adapter = new RecycleViewAdapter(this);
         List<HolderBean> holderBeanList = new ArrayList<>();

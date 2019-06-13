@@ -33,7 +33,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
         }
         debug {
-            proguardFile './proguard-project.txt'
+            ext.enableCrashlytics = false
         }
 
 //        new_debug {
