@@ -48,9 +48,9 @@ allprojects {
 //        }
 //        //google
 //        maven{ url 'https://maven.aliyun.com/nexus/content/repositories/google'}
-        maven { url 'https://jitpack.io' }
         jcenter()
         mavenCentral()
         google()
+        maven { url 'https://jitpack.io' }
     }
 }
