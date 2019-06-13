@@ -19,14 +19,15 @@ import android.widget.TextView;
 
 import com.basesmartframe.baseui.BaseActivity;
 import com.sf.SFSample.R;
-import com.sf.dblib.DbUtils;
-import com.sf.dblib.exception.DbException;
-import com.sf.dblib.sqlite.Selector;
+import com.sf.SFSample.SFApp;
+import com.sf.SFSample.UserInfoBeanDao;
 import com.sf.loglib.L;
 import com.sf.utils.baseutil.UnitHelp;
 import com.sflib.CustomView.baseview.AutoCompleteTextClearDroidView;
 import com.sflib.CustomView.baseview.EditTextClearDroidView;
 import com.sf.utils.ThreadHelp;
+
+import org.greenrobot.greendao.Property;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,6 @@ public class ActivityLogin extends BaseActivity {
     private Button mLoginBt;
     private AutoCompleteTextClearDroidView mUserName;
     private EditTextClearDroidView mPwd;
-    private DbUtils mDbUtils;
 
     private UserNameAdapter mUserNameAdapter;
     private AutoCompleteTextView mAutoCompleteTextView;
@@ -52,7 +52,6 @@ public class ActivityLogin extends BaseActivity {
     }
 
     private void initView() {
-        mDbUtils = DbUtils.create(this);
         mLoginBt = (Button) findViewById(R.id.login_bt);
         mUserName = (AutoCompleteTextClearDroidView) findViewById(R.id.login_atv);
         mPwd = (EditTextClearDroidView) findViewById(R.id.pwd_cdv);
@@ -65,16 +64,15 @@ public class ActivityLogin extends BaseActivity {
                 ThreadHelp.runInSingleBackThread(new Runnable() {
                     @Override
                     public void run() {
-                        try {
-                            final UserInfoBean userInfoBean = new UserInfoBean();
-                            userInfoBean.setUserName(userName);
-                            List<UserInfoBean> userInfoBeanList = mDbUtils.findAll(Selector.from(UserInfoBean.class).where("userName", "==", userName));
-                            if (userInfoBeanList == null || userInfoBeanList.isEmpty()) {
-                                mDbUtils.save(userInfoBean);
-                            }
-                        } catch (DbException e) {
-                            L.error(TAG, "initView.mLoginBt.onClick exception: " + e);
+                        final UserInfoBean userInfoBean = new UserInfoBean();
+                        userInfoBean.setUserName(userName);
+                        List<UserInfoBean> userInfoBeanList = SFApp.getInstance().getDaoSession().getUserInfoBeanDao()
+                                .queryBuilder()
+                                .where(UserInfoBeanDao.Properties.UserName.eq(userName)).list();
+                        if (userInfoBeanList == null || userInfoBeanList.isEmpty()) {
+                            SFApp.getInstance().getDaoSession().getUserInfoBeanDao().save(userInfoBean);
                         }
+
                     }
                 }, 0);
 
@@ -87,7 +85,7 @@ public class ActivityLogin extends BaseActivity {
         mUserName.getAutoCompleteTextView().addTextChangedListener(mTextWatcher);
         mPwd.getEditText().addTextChangedListener(mTextWatcher);
 
-        mAutoCompleteTextView= mUserName.getAutoCompleteTextView();
+        mAutoCompleteTextView = mUserName.getAutoCompleteTextView();
         mUserNameAdapter = new UserNameAdapter(this, R.layout.baby_medical_user_name_item);
         mAutoCompleteTextView.setThreshold(1);
         mAutoCompleteTextView.setDropDownBackgroundResource(R.drawable.baby_medical_user_name_pop_bg);
@@ -177,17 +175,11 @@ public class ActivityLogin extends BaseActivity {
             return new Filter() {
                 @Override
                 protected FilterResults performFiltering(CharSequence constraint) {
-
-                    try {
-                        List<UserInfoBean> userInfoBeanList = mDbUtils.findAll(Selector.from(UserInfoBean.class).where("userName", "LIKE", "%" + constraint + "%"));
+                        List<UserInfoBean> userInfoBeanList =SFApp.getInstance().getDaoSession().getUserInfoBeanDao().queryBuilder()
+                        .where(UserInfoBeanDao.Properties.UserName.like(String.valueOf(constraint))).list();
                         FilterResults results = new FilterResults();
                         results.values = userInfoBeanList;
                         return results;
-                    } catch (DbException e) {
-                        L.error(TAG, "UserNameAdapter.getFilter exception: " + e);
-                    }
-
-                    return null;
                 }
 
                 @Override
@@ -197,9 +189,9 @@ public class ActivityLogin extends BaseActivity {
                         List<UserInfoBean> userInfoBeanList = (List<UserInfoBean>) results.values;
                         mUserInfoBeanList.addAll(userInfoBeanList);
                     }
-                    if(mUserInfoBeanList.size()>3){
-                        mAutoCompleteTextView.setDropDownHeight(UnitHelp.dip2px(ActivityLogin.this,120));
-                    }else {
+                    if (mUserInfoBeanList.size() > 3) {
+                        mAutoCompleteTextView.setDropDownHeight(UnitHelp.dip2px(ActivityLogin.this, 120));
+                    } else {
                         mAutoCompleteTextView.setDropDownHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
                     }
                     notifyDataSetChanged();

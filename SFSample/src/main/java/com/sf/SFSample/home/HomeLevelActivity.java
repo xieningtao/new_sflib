@@ -11,7 +11,6 @@ import com.sf.SFSample.chat.ActivitySFChat;
 import com.sf.SFSample.increaseupdate.IncreaseUpdateActivity;
 import com.sf.SFSample.nybao.NYHomeActivity;
 import com.sf.SFSample.ui.ActivityBlur;
-import com.sf.SFSample.ui.ActivityCameraTest;
 import com.sf.SFSample.ui.ActivityLivePopView;
 import com.sf.SFSample.ui.ActivityNewCircle;
 import com.sf.SFSample.ui.ActivityPopView;
@@ -53,7 +52,6 @@ public class HomeLevelActivity extends BaseLevelActivity {
         activities.put(7, new Pair<String, Class>("customView", CustomViewLevelActivity.class));
         activities.put(8, new Pair<String, Class>("reflection", ReflectionActivity.class));
         activities.put(9, new Pair<String, Class>("opengl", OpenGLLevelActivity.class));
-        activities.put(10, new Pair<String, Class>("tv", TVLevelActivity.class));
         activities.put(11, new Pair<String, Class>("adb shell", AdbShellActivity.class));
         activities.put(12, new Pair<String, Class>("XPinListView", XPinListViewActivity.class));
         activities.put(13, new Pair<String, Class>("DecencoderActivity", DecencoderActivity.class));
@@ -72,7 +70,6 @@ public class HomeLevelActivity extends BaseLevelActivity {
         activities.put(26, new Pair<String, Class>("NYHomeActivity", NYHomeActivity.class));
         activities.put(27, new Pair<String, Class>("ActivityLivePopView", ActivityLivePopView.class));
         activities.put(28, new Pair<String, Class>("ActivityBlur", ActivityBlur.class));
-        activities.put(29, new Pair<String, Class>("ActivityCameraTest", ActivityCameraTest.class));
         activities.put(30, new Pair<String, Class>("ActivityLuancher", OfOLanucher.class));
         activities.put(31, new Pair<String, Class>("IncreaseUpdate", IncreaseUpdateActivity.class));
         activities.put(32, new Pair<String, Class>("IncreaseUpdate", IncreaseUpdateActivity.class));

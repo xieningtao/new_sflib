@@ -1,18 +1,31 @@
 package com.sf.SFSample.babymedical;
 
-import com.sf.dblib.annotation.Column;
-import com.sf.dblib.annotation.Table;
+
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Property;
+import org.greenrobot.greendao.annotation.Generated;
 
 /**
  * Created by xieningtao on 16/9/3.
  */
-@Table(name = "UserInfoBean")
+@Entity(nameInDb = "UserInfoBean")
 public class UserInfoBean {
 
     private int id;
 
-    @Column(column = "userName")
+    @Property(nameInDb = "userName")
     private String userName;
+
+
+    @Generated(hash = 1819963636)
+    public UserInfoBean(int id, String userName) {
+        this.id = id;
+        this.userName = userName;
+    }
+
+    @Generated(hash = 1818808915)
+    public UserInfoBean() {
+    }
 
 
     public int getId() {
