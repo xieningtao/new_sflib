@@ -8,6 +8,7 @@ import com.sflib.umenglib.share.sharecore.XBaseSocialBaseShareItem;
 import com.sflib.umenglib.share.sharecore.XUmengSocialShareAction;
 import com.sflib.umenglib.share.sharecore.XShareAction;
 import com.sflib.umenglib.share.sharecore.XShareType;
+import com.umeng.socialize.ShareAction;
 
 
 /**
@@ -15,8 +16,8 @@ import com.sflib.umenglib.share.sharecore.XShareType;
  */
 public class WeiXinBaseShareItem extends XBaseSocialBaseShareItem {
 
-    public WeiXinBaseShareItem(Context context, ShareContent shareContent) {
-        super(context, shareContent);
+    public WeiXinBaseShareItem(Context context, ShareAction shareAction) {
+        super(context,shareAction);
     }
 
     @Override
@@ -36,6 +37,6 @@ public class WeiXinBaseShareItem extends XBaseSocialBaseShareItem {
 
     @Override
     public XShareAction createShareAction() {
-        return new XUmengSocialShareAction(mContext, mShareContent);
+        return new XUmengSocialShareAction(mContext, mShareAction);
     }
 }

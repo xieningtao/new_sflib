@@ -10,6 +10,8 @@ import com.sflib.umenglib.share.DefaultShareAdapter;
 import com.sflib.umenglib.share.ShareContent;
 import com.sflib.umenglib.share.XSocialShareView;
 import com.sf.SFSample.R;
+import com.umeng.socialize.ShareAction;
+import com.umeng.socialize.media.UMImage;
 
 /**
  * Created by NetEase on 2016/6/21 0021.
@@ -24,17 +26,16 @@ public class UMengShareActivity extends BaseActivity {
         findViewById(R.id.dialog_share_bt).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View rootView=View.inflate(UMengShareActivity.this,R.layout.view_umeng_share,null);
-                XSocialShareView shareView= (XSocialShareView) rootView.findViewById(R.id.share);
-                ShareContent shareContent=new  ShareContent.ShareContentBuilder()
-                        .setContent("share content test")
-                        .setImage_url("http://img4.imgtn.bdimg.com/it/u=2989430555,1416378759&fm=21&gp=0.jpg")
-                        .setTitle("share title test")
-                        .setUrl("https://github.com/xieningtao/new_sflib")
-                        .build();
-                shareView.setShareContent(shareContent);
+                View rootView = View.inflate(UMengShareActivity.this, R.layout.view_umeng_share, null);
+                XSocialShareView shareView = (XSocialShareView) rootView.findViewById(R.id.share);
+                ShareAction shareAction = new ShareAction(UMengShareActivity.this);
+                shareAction.withText("share content test")
+                        .withTitle("share title test")
+                        .withExtra(new UMImage(UMengShareActivity.this, "http://img4.imgtn.bdimg.com/it/u=2989430555,1416378759&fm=21&gp=0.jpg"))
+                        .withTargetUrl("https://github.com/xieningtao/new_sflib");
+                shareView.setShareAction(shareAction);
                 shareView.setShareAdapter(new DefaultShareAdapter());
-                final Dialog dialog=DialogFactory.getNoFloatingDimDialog(UMengShareActivity.this,rootView);
+                final Dialog dialog = DialogFactory.getNoFloatingDimDialog(UMengShareActivity.this, rootView);
                 dialog.show();
                 rootView.findViewById(R.id.cancle).setOnClickListener(new View.OnClickListener() {
                     @Override

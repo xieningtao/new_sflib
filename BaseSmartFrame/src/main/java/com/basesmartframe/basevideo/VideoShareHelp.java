@@ -1,5 +1,6 @@
 package com.basesmartframe.basevideo;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import com.sflib.umenglib.share.ShareContent;
 import com.sflib.umenglib.share.XSocialShareView;
 import com.sflib.umenglib.share.sharecore.OnXBaseShareViewItemClickListener;
 import com.sflib.umenglib.share.shareitem.XBaseShareItem;
+import com.umeng.socialize.ShareAction;
 
 /**
  * Created by xieningtao on 15-11-16.
@@ -75,7 +77,7 @@ class VideoShareHelp {
     }
 
     private void initShareGridView(XSocialShareView shareGridView) {
-        shareGridView.setShareContent(mShareContent);
+        shareGridView.setShareAction(new ShareAction((Activity) mContext));
         shareGridView.setShareAdapter(new DefaultShareAdapter());
     }
 

@@ -8,14 +8,15 @@ import com.sflib.umenglib.share.sharecore.XBaseSocialBaseShareItem;
 import com.sflib.umenglib.share.sharecore.XUmengSocialShareAction;
 import com.sflib.umenglib.share.sharecore.XShareAction;
 import com.sflib.umenglib.share.sharecore.XShareType;
+import com.umeng.socialize.ShareAction;
 
 
 /**
  * Created by xieningtao on 15-8-5.
  */
 public class SinaBaseShareItem extends XBaseSocialBaseShareItem {
-    public SinaBaseShareItem(Context context, ShareContent shareContent) {
-        super(context, shareContent);
+    public SinaBaseShareItem(Context context, ShareAction shareAction) {
+        super(context, shareAction);
     }
 
     @Override
@@ -35,6 +36,6 @@ public class SinaBaseShareItem extends XBaseSocialBaseShareItem {
 
     @Override
     public XShareAction createShareAction() {
-        return new XUmengSocialShareAction(mContext, mShareContent);
+        return new XUmengSocialShareAction(mContext, mShareAction);
     }
 }

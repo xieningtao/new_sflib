@@ -20,32 +20,12 @@ import static com.umeng.socialize.bean.SHARE_MEDIA.*;
  */
 public class XUmengSocialShareAction implements XShareAction {
     protected final String TAG = getClass().getName();
-    private final ShareContent mShareContent;
     private final Context mContext;
     private ShareAction mShareAction;
-    private InnerUMShareListener mInnerUMShareListener;
 
-    /**
-     * @param shareContent
-     */
-    public XUmengSocialShareAction(Context context, ShareContent shareContent) {
-        if (null == shareContent) {
-//            shareContent = new ShareContent.ShareContentBuilder()
-//                    .setContent(context.getResources().getString(R.string.share_content))
-//                    .setTitle(context.getResources().getString(R.string.share_title))
-//                    .setUrl(DataConst.URL_DEFAULT_SHARE)
-//                    .setImage_url(DataConst.URL_PREFIX_QIAN_LONG + "/icon/share.png")
-//                    .build();
-        }
+    public XUmengSocialShareAction(Context context, ShareAction shareAction) {
         this.mContext = context;
-        this.mShareContent = shareContent;
-        mInnerUMShareListener=new InnerUMShareListener();
-        mShareAction = new ShareAction((Activity) mContext);
-        mShareAction .setCallback(mInnerUMShareListener);
-        mShareAction .withTitle(mShareContent.title);
-        mShareAction .withText(mShareContent.content);
-        mShareAction .withTargetUrl(mShareContent.url);
-        mShareAction .withMedia(new UMImage(mContext, mShareContent.image_url));
+        this.mShareAction = shareAction;
 
     }
 
@@ -62,8 +42,7 @@ public class XUmengSocialShareAction implements XShareAction {
     private void shareToSocial(XBaseShareItem item, OnXShareListener onXShareListener) {
         if (mContext != null && mContext instanceof Activity) {
             SHARE_MEDIA plartform = shareType2ShareMedia(item.getShareType());
-            if (plartform != null && mShareContent != null) {
-                mInnerUMShareListener.setOnXShareListener(onXShareListener);
+            if (plartform != null && mShareAction != null) {
                 mShareAction.setPlatform(plartform);
                 mShareAction.share();
             } else {
@@ -72,22 +51,6 @@ public class XUmengSocialShareAction implements XShareAction {
         } else {
             L.error(TAG, "method->shareToSocial,mContext is not activity");
         }
-    }
-
-    private SHARE_MEDIA shareType2ShareMedia(XShareType type) {
-        switch (type) {
-            case WEIXIN:
-                return WEIXIN;
-            case PENYOUQUAN:
-                return WEIXIN_CIRCLE;
-            case SINA:
-                return SINA;
-            case QQ:
-                return QQ;
-            case QZONE:
-                return QZONE;
-        }
-        return null;
     }
 
     private XShareType ShareMedia2ShareType(SHARE_MEDIA shareMedia) {
@@ -106,7 +69,23 @@ public class XUmengSocialShareAction implements XShareAction {
         return null;
     }
 
-    class InnerUMShareListener implements UMShareListener {
+    private SHARE_MEDIA shareType2ShareMedia(XShareType type) {
+        switch (type) {
+            case WEIXIN:
+                return WEIXIN;
+            case PENYOUQUAN:
+                return WEIXIN_CIRCLE;
+            case SINA:
+                return SINA;
+            case QQ:
+                return QQ;
+            case QZONE:
+                return QZONE;
+        }
+        return null;
+    }
+
+   class InnerUMShareListener implements UMShareListener {
         private OnXShareListener mOnXShareListener;
 
         public void setOnXShareListener(OnXShareListener onXShareListener) {
