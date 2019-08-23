@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 
 import com.sf.loglib.L;
 import com.sflib.CustomView.newhttpview.HttpViewManager;
-import com.sflib.reflection.core.SFBus;
 import com.umeng.analytics.MobclickAgent;
 
 
@@ -35,16 +34,12 @@ public class BaseActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        MobclickAgent.onResume(this);
-        SFBus.register(this);
         L.info(this, getClass().getName() + " register evenBus onResume");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        MobclickAgent.onPause(this);
-        SFBus.unregister(this);
         L.info(this, getClass().getName() + " unregister evenBus onPause");
     }
 

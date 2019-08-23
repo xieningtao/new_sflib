@@ -35,7 +35,7 @@ public class ActivityLivePopView extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_live_pop);
-        mLivePopView = (LivePopView) findViewById(R.id.pop_view);
+        mLivePopView = findViewById(R.id.pop_view);
         mLivePopView.setAdapter(new LivePopAdapter());
     }
 
@@ -60,9 +60,9 @@ public class ActivityLivePopView extends BaseActivity {
             if (rootView == null) {
                 rootView = LayoutInflater.from(ActivityLivePopView.this).inflate(R.layout.item_pop_view, null);
             }
-            ImageView mPhotoIv = (ImageView) rootView.findViewById(R.id.photo_iv);
+            ImageView mPhotoIv = rootView.findViewById(R.id.photo_iv);
             ImageLoader.getInstance().displayImage(imageUrl[mNumber%3], mPhotoIv);
-            TextView contentTv = (TextView) rootView.findViewById(R.id.comment_tv);
+            TextView contentTv = rootView.findViewById(R.id.comment_tv);
             contentTv.setText(content[mNumber%3]);
             return rootView;
         }

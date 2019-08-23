@@ -18,13 +18,13 @@ import android.view.inputmethod.InputMethodManager;
  */
 public class SystemUIHelp {
 	
-	public static interface SystemUIWHHelpEvent{
+	public interface SystemUIWHHelpEvent{
 		/**
 		 * 
 		 * @param hideStatu true if statu is hidden otherwise show
 		 * @param hideNavigationBar the same as hideStatu
 		 */
-		public void onSystemUIWHHelpEvent(boolean hideStatu,boolean hideNavigationBar);
+        void onSystemUIWHHelpEvent(boolean hideStatu, boolean hideNavigationBar);
 	}
 	private Activity activity;
 	private SystemUIWHHelpEvent event;

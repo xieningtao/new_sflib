@@ -137,7 +137,7 @@ public class PickPhotosFragment extends BaseFragment implements LoaderManager.Lo
             }
             mMaxImageNum = bundle.getInt(MAX_IMAGE_NUM, 4);
         }
-        mGridView = (GridView) view.findViewById(R.id.grid_view);
+        mGridView = view.findViewById(R.id.grid_view);
         mImageAdapter = new GridAdapter(getActivity());
         mGridView.setAdapter(mImageAdapter);
         mGridView.setOnScrollListener(new AbsListView.OnScrollListener() {
@@ -155,12 +155,12 @@ public class PickPhotosFragment extends BaseFragment implements LoaderManager.Lo
 
             }
         });
-        mImageGroupList = (ListView) view.findViewById(R.id.image_group_list);
+        mImageGroupList = view.findViewById(R.id.image_group_list);
         mAlbums = view.findViewById(R.id.albums_layout);
-        mPreview = (TextView) view.findViewById(R.id.preview);
+        mPreview = view.findViewById(R.id.preview);
         mImageGroupBackground = view.findViewById(R.id.image_group_background);
         mImageGroupLayout = view.findViewById(R.id.image_group_layout);
-        mComplete = (Button) view.findViewById(R.id.pick_complete);
+        mComplete = view.findViewById(R.id.pick_complete);
         mComplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -453,7 +453,7 @@ public class PickPhotosFragment extends BaseFragment implements LoaderManager.Lo
     }
 
     private void updateAlbumName() {
-        TextView text = (TextView) mAlbums.findViewById(R.id.albums);
+        TextView text = mAlbums.findViewById(R.id.albums);
         text.setText(mCurrentGroup.getDirName());
     }
 
@@ -583,8 +583,8 @@ public class PickPhotosFragment extends BaseFragment implements LoaderManager.Lo
                 if (convertView == null) {
                     convertView = LayoutInflater.from(getActivity()).inflate(R.layout.pick_photo_item_layout, null);
                     holder = new ViewHolder();
-                    holder.image = (ImageView) convertView.findViewById(R.id.image);
-                    holder.checkBox = (CheckBox) convertView.findViewById(R.id.check_box);
+                    holder.image = convertView.findViewById(R.id.image);
+                    holder.checkBox = convertView.findViewById(R.id.check_box);
                     convertView.setTag(holder);
                 } else {
                     holder = (ViewHolder) convertView.getTag();
@@ -609,8 +609,8 @@ public class PickPhotosFragment extends BaseFragment implements LoaderManager.Lo
             if (convertView == null) {
                 convertView = LayoutInflater.from(getActivity()).inflate(R.layout.pick_photo_item_layout, null);
                 holder = new ViewHolder();
-                holder.image = (ImageView) convertView.findViewById(R.id.image);
-                holder.checkBox = (CheckBox) convertView.findViewById(R.id.check_box);
+                holder.image = convertView.findViewById(R.id.image);
+                holder.checkBox = convertView.findViewById(R.id.check_box);
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();

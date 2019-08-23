@@ -79,7 +79,7 @@ public class AudioItemView extends BaseChatItemView<SFMsg> {
     }
 
     private int getAudioViewPadding(int voiceTime) {
-        int padding = (int) (voiceTime * 10);
+        int padding = voiceTime * 10;
         if (padding > UnitHelp.dip2px(getContext(), 200)) {
             return UnitHelp.dip2px(getContext(), 200);
         } else if (padding < UnitHelp.dip2px(getContext(), 40)) {

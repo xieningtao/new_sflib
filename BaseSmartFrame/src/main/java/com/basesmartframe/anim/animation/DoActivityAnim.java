@@ -15,7 +15,7 @@ public enum DoActivityAnim {
 	private final int in;
 	private final int out;
 
-	private DoActivityAnim(int in, int out) {
+	DoActivityAnim(int in, int out) {
 		this.in = in;
 		this.out = out;
 	}

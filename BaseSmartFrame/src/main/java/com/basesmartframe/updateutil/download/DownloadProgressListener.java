@@ -1,12 +1,12 @@
 package com.basesmartframe.updateutil.download;
 
 public interface DownloadProgressListener {
-	public void onDownloadSize(long size);
+	void onDownloadSize(long size);
 
-	public void onErrorListener(String exception);
+	void onErrorListener(String exception);
 
-	public void onDownloadFinish();
+	void onDownloadFinish();
 
 
-	public void onStartDownload(long size);
+	void onStartDownload(long size);
 }

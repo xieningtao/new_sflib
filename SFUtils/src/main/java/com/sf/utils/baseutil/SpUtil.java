@@ -33,7 +33,7 @@ public class SpUtil {
 		}
 	}
 	private static Editor getSp(Activity context){
-		SharedPreferences sp=context.getSharedPreferences(BaseUtilConfig.SharePreferenceName,context.MODE_PRIVATE);
+		SharedPreferences sp=context.getSharedPreferences(BaseUtilConfig.SharePreferenceName, Context.MODE_PRIVATE);
 		return sp.edit();
 	}
 	public static void save(Activity context,String key,String value){
@@ -52,15 +52,15 @@ public class SpUtil {
 		ed.commit();
 	}
 	public static String getString(Activity context,String key){
-		SharedPreferences sp=context.getSharedPreferences(BaseUtilConfig.SharePreferenceName,context.MODE_PRIVATE);
+		SharedPreferences sp=context.getSharedPreferences(BaseUtilConfig.SharePreferenceName, Context.MODE_PRIVATE);
 		return sp.getString(key, "");
 	}
 	public static int getInt(Activity context,String key){
-		SharedPreferences sp=context.getSharedPreferences(BaseUtilConfig.SharePreferenceName,context.MODE_PRIVATE);
+		SharedPreferences sp=context.getSharedPreferences(BaseUtilConfig.SharePreferenceName, Context.MODE_PRIVATE);
 		return sp.getInt(key, 0);
 	}
 	public static boolean getBoolean(Context context,String key){
-		SharedPreferences sp=context.getSharedPreferences(BaseUtilConfig.SharePreferenceName,context.MODE_PRIVATE);
+		SharedPreferences sp=context.getSharedPreferences(BaseUtilConfig.SharePreferenceName, Context.MODE_PRIVATE);
 		return sp.getBoolean(key, false);
 	}
 }

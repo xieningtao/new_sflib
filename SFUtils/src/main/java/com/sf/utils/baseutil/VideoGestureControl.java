@@ -10,10 +10,10 @@ import android.view.ViewConfiguration;
 
 public class VideoGestureControl {
 
-	    public static interface GestureControlEvent{
-	        public boolean onSingleEvent(MotionEvent e);
-	        public boolean onDoubleEevent(MotionEvent e);
-	        public boolean onScroll(int distance);
+	    public interface GestureControlEvent{
+	        boolean onSingleEvent(MotionEvent e);
+	        boolean onDoubleEevent(MotionEvent e);
+	        boolean onScroll(int distance);
 	    }
 
 	    public static class VideoGesture extends GestureDetector.SimpleOnGestureListener{
@@ -49,7 +49,7 @@ public class VideoGestureControl {
 	                        curRunnable=null;
 	                    }
 	                };
-	                handler.postDelayed(curRunnable, configuration.getTapTimeout());
+	                handler.postDelayed(curRunnable, ViewConfiguration.getTapTimeout());
 	            }else if(state==1){
 	                state=0;
 	            }

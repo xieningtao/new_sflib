@@ -100,11 +100,7 @@ public final class SFLogUtils {
 
     public static boolean sdAvailible() {
         String state = Environment.getExternalStorageState();
-        if (Environment.MEDIA_MOUNTED.equals(state)) {
-            return true;
-        } else {
-            return false;
-        }
+        return Environment.MEDIA_MOUNTED.equals(state);
     }
 
     public static String encrypt(String str) {
@@ -174,11 +170,8 @@ public final class SFLogUtils {
         ConnectivityManager connectivityManager = (ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
-        if (activeNetInfo != null
-                && activeNetInfo.getType() == ConnectivityManager.TYPE_WIFI) {
-            return true;
-        }
-        return false;
+        return activeNetInfo != null
+                && activeNetInfo.getType() == ConnectivityManager.TYPE_WIFI;
     }
 
     @SuppressLint("MissingPermission")

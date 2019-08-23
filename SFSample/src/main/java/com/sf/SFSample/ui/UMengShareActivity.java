@@ -27,7 +27,7 @@ public class UMengShareActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 View rootView = View.inflate(UMengShareActivity.this, R.layout.view_umeng_share, null);
-                XSocialShareView shareView = (XSocialShareView) rootView.findViewById(R.id.share);
+                XSocialShareView shareView = rootView.findViewById(R.id.share);
                 ShareAction shareAction = new ShareAction(UMengShareActivity.this);
                 shareAction.withText("share content test")
                         .withTitle("share title test")

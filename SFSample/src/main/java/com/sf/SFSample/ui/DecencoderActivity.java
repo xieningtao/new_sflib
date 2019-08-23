@@ -38,21 +38,21 @@ public class DecencoderActivity extends BaseActivity implements View.OnClickList
     }
 
     private void init() {
-        mEncoder = (Button) findViewById(R.id.encoder);
-        mDecoder = (Button) findViewById(R.id.decoder);
+        mEncoder = findViewById(R.id.encoder);
+        mDecoder = findViewById(R.id.decoder);
 
         mEncoder.setOnClickListener(this);
         mDecoder.setOnClickListener(this);
 
-        mAfterEncoder = (TextView) findViewById(R.id.after_encoder);
-        mAfterDecoder = (TextView) findViewById(R.id.after_decoder);
+        mAfterEncoder = findViewById(R.id.after_encoder);
+        mAfterDecoder = findViewById(R.id.after_decoder);
 
         mAfterDecoder.setOnClickListener(this);
         mAfterEncoder.setOnClickListener(this);
 
-        mInput = (EditText) findViewById(R.id.input_et);
+        mInput = findViewById(R.id.input_et);
 
-        mCiper = (RadioGroup) findViewById(R.id.ciper_rg);
+        mCiper = findViewById(R.id.ciper_rg);
         mCiper.check(R.id.standar);
         mCiper.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override

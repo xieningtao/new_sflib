@@ -14,8 +14,8 @@ import android.net.NetworkInfo;
  */
 public class NetworkChangeHelp {
 
-	public static interface NetworkChangeEvent{
-		public void onNetworkChangeEvent(boolean connectMobile,boolean connectWifi);
+	public interface NetworkChangeEvent{
+		void onNetworkChangeEvent(boolean connectMobile, boolean connectWifi);
 	}
 	
 	private NetworkChangeEvent event;

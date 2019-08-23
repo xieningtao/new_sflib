@@ -1,12 +1,10 @@
 package com.sf.SFSample.home;
 
 import android.util.Pair;
-import android.util.SparseArray;
 
 import com.sf.SFSample.ui.BaseLevelActivity;
 import com.sf.SFSample.ui.HotwordActivity;
 import com.sf.SFSample.ui.RoundBitmapActivity;
-import com.sf.SFSample.ui.SlidingActivity;
 import com.sf.SFSample.ui.StackViewActivity;
 import com.sf.SFSample.ui.StackViewGroupActivity;
 import com.sf.SFSample.ui.StyledViewActivity;
@@ -25,7 +23,6 @@ public class CustomViewLevelActivity extends BaseLevelActivity {
     @Override
     protected List<Pair<String, Class>> getActivities() {
         List<Pair<String, Class>> activities = new ArrayList<>();
-        activities.add( new Pair<String, Class>("slidingactivity", SlidingActivity.class));
         activities.add( new Pair<String, Class>("surfaceactivity", SurfaceActivity.class));
         activities.add( new Pair<String, Class>("viewevent", ViewEventActivity.class));
         activities.add( new Pair<String, Class>("hotwords", HotwordActivity.class));

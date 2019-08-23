@@ -165,11 +165,7 @@ public class ToggelSystemUIHelp {
         Activity activity = (Activity) context;
         final int width = SystemUIWHHelp.getScreenRealWidth(activity);
         final int height = SystemUIWHHelp.getScreenRealHeight(activity);
-        if (width > height) {
-            return true;
-        } else {
-            return false;
-        }
+        return width > height;
     }
 
 }

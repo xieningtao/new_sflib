@@ -15,7 +15,7 @@ public class UserViewHolder extends BaseChatHolder {
 
     public UserViewHolder(View rootView) {
         super(rootView);
-        mAvatar = (ImageView) rootView.findViewById(R.id.user_iv);
+        mAvatar = rootView.findViewById(R.id.user_iv);
     }
 
 }

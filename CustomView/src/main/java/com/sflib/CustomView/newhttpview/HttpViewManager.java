@@ -11,7 +11,7 @@ import com.sf.utils.baseutil.NetWorkManagerUtil;
  */
 public class HttpViewManager implements HttpViewAction {
 
-    public static enum TVHttpViewType {
+    public enum TVHttpViewType {
         NONE, LOADING_VIEW, NO_DATA_VIEW, NO_NETWORK_VIEW
     }
 

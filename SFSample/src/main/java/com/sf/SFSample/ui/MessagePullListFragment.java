@@ -6,7 +6,8 @@ import android.view.View;
 import android.widget.AdapterView;
 
 import com.example.sfchat.BaseChatMessageShowFragment;
-import com.example.sfchat.SFChatMessageId;
+import com.example.sfchat.event.SFChatEvent;
+import com.example.sfchat.event.SFChatItemEvent;
 import com.example.sfchat.item.MsgType;
 import com.example.sfchat.item.chatbean.SFAudio;
 import com.example.sfchat.item.chatbean.SFGif;
@@ -16,10 +17,9 @@ import com.example.sfchat.item.chatbean.SFPic;
 import com.example.sfchat.item.chatbean.SFTxt;
 import com.example.sfchat.item.chatbean.SFUserInfo;
 import com.google.gson.Gson;
-import com.sf.utils.baseutil.UnitHelp;
-import com.sflib.reflection.core.SFIntegerMessage;
 import com.sf.utils.ThreadHelp;
-import com.sflib.reflection.core.ThreadId;
+
+import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +34,6 @@ public class MessagePullListFragment extends BaseChatMessageShowFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getPullToRefreshListView().setDividerPadding(UnitHelp.dip2px(getActivity(), 10));
     }
 
     @Override
@@ -137,11 +136,12 @@ public class MessagePullListFragment extends BaseChatMessageShowFragment {
         return userInfo;
     }
 
-    @SFIntegerMessage(messageId = SFChatMessageId.ADD_MSG, theadId = ThreadId.MainThread)
-    public void onMessageAdded(String path) {
+    @Subscribe
+    public void onMessageAdded(SFChatItemEvent itemEvent) {
+        String path = itemEvent.emojiPath;
         if (TextUtils.isEmpty(path)) return;
         int index = path.lastIndexOf(".");
-        String postFix = path.substring(index+1, path.length());
+        String postFix = path.substring(index + 1, path.length());
         if ("gif".equals(postFix)) {
             sfMsgList.add(createMsg(true, MsgType.gif_type, path));
         } else {

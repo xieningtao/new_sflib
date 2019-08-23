@@ -54,12 +54,12 @@ public class ResultActivit extends Activity {
 
 
         photo = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory()+"/身份证"+".jpg");
-        imageView = (ImageView)findViewById(R.id.photo);
+        imageView = findViewById(R.id.photo);
         imageView.setImageBitmap(photo);
 
-        addressText = (EditText)findViewById(R.id.address);
-        nameText = (EditText)findViewById(R.id.name);
-        numberText = (EditText)findViewById(R.id.number);
+        addressText = findViewById(R.id.address);
+        nameText = findViewById(R.id.name);
+        numberText = findViewById(R.id.number);
 
         dialog = new ProgressDialog(this);
         dialog.setMessage("识别中");

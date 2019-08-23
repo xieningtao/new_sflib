@@ -41,7 +41,7 @@ public class EmojiFragment extends BaseFragment {
     }
 
     private void init(View view) {
-        mEmojiGv = (GridView) view.findViewById(R.id.emoji_gv);
+        mEmojiGv = view.findViewById(R.id.emoji_gv);
         mEmojiGv.setAdapter(new EmojiAdapter());
     }
 
@@ -67,7 +67,7 @@ public class EmojiFragment extends BaseFragment {
             if (convertView == null) {
                 convertView = LayoutInflater.from(getActivity()).inflate(R.layout.emoji_item_view, null);
             }
-            TextView headTv = (TextView) convertView.findViewById(R.id.item_view_tv);
+            TextView headTv = convertView.findViewById(R.id.item_view_tv);
             headTv.setText(mIndex+"_"+position + "");
             return convertView;
         }

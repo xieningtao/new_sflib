@@ -35,7 +35,7 @@ import java.util.Map;
  */
 public class CustomVideoView extends SurfaceView {
 
-    public static interface OnPreparingListener {
+    public interface OnPreparingListener {
         void onPreparing(MediaPlayer mediaPlayer);
     }
 

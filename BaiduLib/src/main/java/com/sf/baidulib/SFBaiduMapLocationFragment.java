@@ -44,7 +44,7 @@ public class SFBaiduMapLocationFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mMapView = (MapView) view.findViewById(R.id.bmapView);
+        mMapView = view.findViewById(R.id.bmapView);
         mBaiduMap = mMapView.getMap();
         showMyLocation();
     }

@@ -11,7 +11,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 
 import com.basesmartframe.R;
-import com.basesmartframe.dialoglib.DialogFactory;
 import com.sflib.umenglib.share.DefaultShareAdapter;
 import com.sflib.umenglib.share.ShareContent;
 import com.sflib.umenglib.share.XSocialShareView;
@@ -33,7 +32,7 @@ class VideoShareHelp {
 
     public VideoShareHelp(Context context, View rootView) {
         this.mContext = context;
-        mShareContainer = (ViewGroup) rootView.findViewById(R.id.view_container);
+        mShareContainer = rootView.findViewById(R.id.view_container);
 
     }
 
@@ -58,7 +57,7 @@ class VideoShareHelp {
                     }
                 }
             });
-            XSocialShareView shareGridView = (XSocialShareView) share_view.findViewById(R.id.videoshow_share);
+            XSocialShareView shareGridView = share_view.findViewById(R.id.videoshow_share);
             initShareGridView(shareGridView);
             shareGridView.setOnXBaseShareViewItemClickListener(new OnXBaseShareViewItemClickListener() {
                 @Override
@@ -70,7 +69,8 @@ class VideoShareHelp {
                 }
             });
 
-            mDialog = DialogFactory.getMatchParentDialog(mContext, share_view);
+            //TODO
+//            mDialog = DialogFactory.getMatchParentDialog(mContext, share_view);
         }
         if (mDialog.isShowing()) return;
         mDialog.show();
@@ -94,7 +94,7 @@ class VideoShareHelp {
             }
         });
 
-        XSocialShareView shareGridView = (XSocialShareView) share_view.findViewById(R.id.videoshow_share);
+        XSocialShareView shareGridView = share_view.findViewById(R.id.videoshow_share);
         initShareGridView(shareGridView);
         shareGridView.setOnXBaseShareViewItemClickListener(new OnXBaseShareViewItemClickListener() {
             @Override

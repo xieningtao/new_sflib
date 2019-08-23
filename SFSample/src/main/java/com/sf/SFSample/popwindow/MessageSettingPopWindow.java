@@ -37,9 +37,9 @@ public class MessageSettingPopWindow extends BaseCornerPopWindow implements View
         mHigherCredit_ll = view.findViewById(R.id.higher_credit_ll);
         mFriendsCondition_ll = view.findViewById(R.id.friends_condition_ll);
 
-        mRealPhoto_cb = (CheckBox) view.findViewById(R.id.real_photo_cb);
-        mHigherCredit_cb = (CheckBox) view.findViewById(R.id.higher_credit_cb);
-        mFriendsCondition_cb = (CheckBox) view.findViewById(R.id.friends_condition_cb);
+        mRealPhoto_cb = view.findViewById(R.id.real_photo_cb);
+        mHigherCredit_cb = view.findViewById(R.id.higher_credit_cb);
+        mFriendsCondition_cb = view.findViewById(R.id.friends_condition_cb);
 
         mRealPhoto_ll.setOnClickListener(this);
         mHigherCredit_ll.setOnClickListener(this);

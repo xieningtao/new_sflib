@@ -19,7 +19,6 @@ import android.widget.RemoteViews;
 import android.widget.TextView;
 
 import com.basesmartframe.R;
-import com.basesmartframe.dialoglib.DialogFactory;
 import com.basesmartframe.updateutil.download.DownloadProgressListener;
 import com.basesmartframe.updateutil.download.FileDownloader;
 import com.sf.loglib.L;
@@ -60,7 +59,7 @@ public class UpdateService {
 
     private int mMessageCount = 0;
     private Context mContext;
-    private Dialog mDialog;
+//    private Dialog mDialog;
     private ProgressBar mUpgradePb;
     private TextView mRateTv;
     private TextView mTitleTv;
@@ -70,12 +69,9 @@ public class UpdateService {
         mNotificationManager = (NotificationManager) context.getSystemService(Activity.NOTIFICATION_SERVICE);
         mNotification = new Notification(R.drawable.update_notify_big, context.getString(R.string.update_notify_title), System.currentTimeMillis());
         View upgradeView = LayoutInflater.from(context).inflate(R.layout.upgrade_layout, null);
-        mUpgradePb = (ProgressBar) upgradeView.findViewById(R.id.sf_upgrade_pb);
-        mRateTv= (TextView) upgradeView.findViewById(R.id.rate_tv);
-        mTitleTv= (TextView) upgradeView.findViewById(R.id.title_tv);
-        mDialog=DialogFactory.getNoFloatingDialog(mContext,upgradeView);
-        mDialog.setCancelable(false);
-        mDialog.setCanceledOnTouchOutside(false);
+        mUpgradePb = upgradeView.findViewById(R.id.sf_upgrade_pb);
+        mRateTv= upgradeView.findViewById(R.id.rate_tv);
+        mTitleTv= upgradeView.findViewById(R.id.title_tv);
     }
 
     public void start(String url){
@@ -83,7 +79,6 @@ public class UpdateService {
         if(TextUtils.isEmpty(url)){
             return;
         }
-        mDialog.show();
         UpdateThread t = new UpdateThread(url);
         t.start();
     }

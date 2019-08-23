@@ -107,36 +107,20 @@
         <!---->
 
 
-        <activity android:name=".ui.ViewPagerTest"></activity>
         <activity android:name=".ui.RoundDrawableActivity"></activity>
-        <activity android:name=".ui.PullListActivity"></activity>
-        <activity android:name=".ui.GestureTest"></activity>
         <activity android:name=".ui.CircleTest"></activity>
         <activity android:name=".home.CustomViewLevelActivity"></activity>
-        <activity android:name=".ui.SlidingActivity"></activity>
         <activity android:name=".ui.ViewEventActivity"></activity>
-        <activity android:name=".ui.GestureListViewActiviy"></activity>
         <activity android:name=".ui.HotwordActivity"></activity>
         <activity android:name=".ui.SurfaceActivity"></activity>
-        <activity android:name=".ui.ReflectionActivity"></activity>
         <activity android:name=".ui.RoundBitmapActivity"></activity>
         <activity android:name=".ui.StackViewGroupActivity"></activity>
         <activity android:name=".ui.StackViewActivity"></activity>
-        <activity android:name=".ui.TessractORCActivity"></activity>
         <activity android:name=".home.ThirdLisLevelActivity"></activity>
 
         <!--idrecognise-->
         <activity android:name="com.sf.thirdlib.IdRecognizeActivity"/>
         <activity android:name="com.sf.thirdlib.ResultActivit"/>
-        <activity
-            android:name=".ui.OpenGLVideoViewActivity"
-            android:configChanges="orientation"/>
-        <activity
-            android:name=".ui.VideoPlayActivity"
-            android:configChanges="orientation|screenSize|keyboard"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
-        <activity android:name=".ui.TransformActivity"/>
-        <activity android:name=".home.OpenGLLevelActivity"/>
         <activity android:name=".ui.AdbShellActivity"/>
         <activity
             android:name=".home.ActivitySelected"
@@ -144,18 +128,11 @@
         <activity
             android:name=".ui.StyledViewActivity"
             android:theme="@style/styledView3"/>
-        <activity android:name=".ui.XPinListViewActivity"/>
-        <activity
-            android:name=".ui.OpenGLTanActivity"
-            android:screenOrientation="landscape"/>
         <activity
             android:name=".ui.DecencoderActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.UMengShareActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".ui.FragmentTabActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.ActivityMultiChoice"
@@ -177,9 +154,6 @@
             android:screenOrientation="portrait"/>
         <activity
             android:name=".home.ActivityBaiduFamily"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".ui.PullCacheListActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".chat.ActivitySFChat"
@@ -204,49 +178,14 @@
 
         <!--baby medical app-->
         <activity
-            android:name=".babymedical.ActivityLogin"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Holo.NoActionBar"
-            />
-        <activity
-            android:name=".nybao.NYHomeActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Holo"
-            />
-        <activity
-            android:name=".nybao.NYRegisterActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Holo"
-            />
-        <activity
-            android:name=".nybao.NYLoginActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Holo"
-            />
-        <activity
             android:name=".ui.ActivityLivePopView"
             android:screenOrientation="portrait"
             />
-        <activity
-            android:name=".opengl.ObjModelActivity"
-            android:screenOrientation="portrait"/>
-
         <activity
             android:name=".ui.ActivityBlur"
             android:screenOrientation="portrait"
             />
 
-        <activity
-            android:name=".ui.OfOLanucher"
-            android:screenOrientation="portrait"
-            />
-
-        <activity
-            android:name=".ui.ActivityScreenShot"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            />
         <activity
             android:name=".increaseupdate.IncreaseUpdateActivity"
             android:screenOrientation="portrait"/>

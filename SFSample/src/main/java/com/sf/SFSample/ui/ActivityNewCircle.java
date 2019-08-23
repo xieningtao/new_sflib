@@ -10,7 +10,6 @@ import com.basesmartframe.baseui.BaseActivity;
 import com.basesmartframe.pickphoto.ActivityFragmentContainer;
 import com.basesmartframe.pickphoto.PickPhotosPreviewFragment;
 import com.sf.SFSample.R;
-import com.sf.circlelib.SFAddCircleEventFragment;
 
 /**
  * Created by NetEase on 2016/9/5 0005.
@@ -25,15 +24,12 @@ public class ActivityNewCircle extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_circle);
 
-        mRightBt = (ImageButton) findViewById(R.id.pop_right_ib);
+        mRightBt = findViewById(R.id.pop_right_ib);
         mRightBt.setVisibility(View.VISIBLE);
         mRightBt.setImageResource(R.drawable.plus);
         mRightBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ActivityNewCircle.this, ActivityFragmentContainer.class);
-                intent.putExtra(ActivityFragmentContainer.FRAGMENT_CLASS_NAME, SFAddCircleEventFragment.class.getName());
-                startActivityForResult(intent,ADD_CIRCLE_EVENT);
             }
         });
     }

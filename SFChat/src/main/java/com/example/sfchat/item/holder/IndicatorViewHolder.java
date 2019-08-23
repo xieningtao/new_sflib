@@ -19,9 +19,9 @@ public class IndicatorViewHolder extends BaseChatHolder {
 
     public IndicatorViewHolder(View rootView) {
         super(rootView);
-        mTime = (TextView) rootView.findViewById(R.id.time);
-        mProgressBar = (ProgressBar) rootView.findViewById(R.id.progress);
-        mErrorView = (ImageView) rootView.findViewById(R.id.sending_error);
-        mUnreadView = (ImageView) rootView.findViewById(R.id.unread);
+        mTime = rootView.findViewById(R.id.time);
+        mProgressBar = rootView.findViewById(R.id.progress);
+        mErrorView = rootView.findViewById(R.id.sending_error);
+        mUnreadView = rootView.findViewById(R.id.unread);
     }
 }

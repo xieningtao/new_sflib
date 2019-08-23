@@ -137,7 +137,7 @@ public class HeadViewInteraction implements
 	private boolean doUpDownFling(float velocityX, float velocityY) {
 		L.debug(TAG, "doFling action");
 		float curY = head_hide_fl.getY();
-		boolean show_HideHeadView = velocityY > 0 ? true : false;
+		boolean show_HideHeadView = velocityY > 0;
 
 		flingUpDowHeadView(show_HideHeadView, curY);
 		return true;
@@ -146,7 +146,7 @@ public class HeadViewInteraction implements
 	private boolean doLeftRightFling(float velocityX, float velocityY) {
 		L.debug(TAG, "doLeftRightFling action");
 		float curX = head_hide_fl.getX();
-		boolean show_HideHeadView = velocityX > 0 ? true : false;
+		boolean show_HideHeadView = velocityX > 0;
 
 		flingLeftRightHeadView(show_HideHeadView, curX);
 		return true;
@@ -174,8 +174,7 @@ public class HeadViewInteraction implements
 			return false;
 		} else {
 			float curY = head_hide_fl.getY();
-			boolean show_HideHeadView = curY > -hideViewYLowerBound / 2 ? true
-					: false;
+			boolean show_HideHeadView = curY > -hideViewYLowerBound / 2;
 			flingUpDowHeadView(show_HideHeadView, curY);
 			return true;
 		}
@@ -189,8 +188,7 @@ public class HeadViewInteraction implements
 			return false;
 		} else {
 			float curX = head_hide_fl.getX();
-			boolean show_HideHeadView = curX > -hideViewXLowerBound / 2 ? true
-					: false;
+			boolean show_HideHeadView = curX > -hideViewXLowerBound / 2;
 			flingLeftRightHeadView(show_HideHeadView, curX);
 			return true;
 		}

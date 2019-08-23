@@ -14,7 +14,7 @@ import com.basesmartframe.R;
  */
 public class SFVideoGroupView extends FrameLayout implements SFVideoLifeCycle {
 
-    public static enum ScaleType {
+    public enum ScaleType {
         OriginScale, FitScale
     }
 
@@ -39,7 +39,7 @@ public class SFVideoGroupView extends FrameLayout implements SFVideoLifeCycle {
     }
 
     private void initView() {
-        mVideoView = (CustomVideoView) mRootView.findViewById(R.id.video_view);
+        mVideoView = mRootView.findViewById(R.id.video_view);
         mVideoViewUIHelp = new SFVideoUIController(mRootView);
     }
 

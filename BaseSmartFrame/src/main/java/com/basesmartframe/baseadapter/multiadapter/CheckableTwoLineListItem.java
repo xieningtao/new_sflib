@@ -55,8 +55,8 @@ public class CheckableTwoLineListItem extends CheckableRelativeLayout {
     protected void onFinishInflate() {
         super.onFinishInflate();
         
-        mText1 = (TextView) findViewById(android.R.id.text1);
-        mText2 = (TextView) findViewById(android.R.id.text2);
+        mText1 = findViewById(android.R.id.text1);
+        mText2 = findViewById(android.R.id.text2);
     }
     
     /**

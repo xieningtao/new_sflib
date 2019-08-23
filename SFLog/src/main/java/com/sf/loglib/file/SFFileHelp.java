@@ -44,10 +44,7 @@ public class SFFileHelp {
             return false;
         }
         long total = getSDCardRemainSize();
-        if (total < sMemLimitation) {
-            return false;
-        }
-        return true;
+        return total >= sMemLimitation;
     }
 
     private static long getSDCardRemainSize() {

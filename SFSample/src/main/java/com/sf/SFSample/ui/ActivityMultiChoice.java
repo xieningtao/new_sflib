@@ -27,7 +27,7 @@ public class ActivityMultiChoice extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choices);
-        mChoice = (ListView) findViewById(R.id.choice_lv);
+        mChoice = findViewById(R.id.choice_lv);
         mChoice.setAdapter(new MyMultiChoiceAdapter(new MyBaseAdpater(),R.id.choice_iv));
     }
 
@@ -78,7 +78,7 @@ public class ActivityMultiChoice extends BaseActivity {
             if (convertView == null) {
                 convertView = LayoutInflater.from(ActivityMultiChoice.this).inflate(R.layout.choice_item, null);
             }
-            TextView choiceTv = (TextView) convertView.findViewById(R.id.choice_tv);
+            TextView choiceTv = convertView.findViewById(R.id.choice_tv);
             choiceTv.setText(mData.get(position));
             return convertView;
         }

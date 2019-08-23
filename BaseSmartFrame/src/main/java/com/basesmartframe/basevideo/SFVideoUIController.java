@@ -22,7 +22,6 @@ import com.basesmartframe.basevideo.util.TimeUtil;
 import com.basesmartframe.basevideo.util.ToggelSystemUIHelp;
 import com.sf.loglib.L;
 import com.sf.utils.baseutil.SFToast;
-import com.sflib.reflection.core.SFBus;
 
 /**
  * Created by xieningtao on 15-4-28.
@@ -148,12 +147,12 @@ public class SFVideoUIController implements SFVideoLifeCycle {
     private void initView() {
 
         //progress
-        curTime_tv = (TextView) mRootView.findViewById(R.id.cur_tv);
-        totalTime_tv = (TextView) mRootView.findViewById(R.id.total_tv);
+        curTime_tv = mRootView.findViewById(R.id.cur_tv);
+        totalTime_tv = mRootView.findViewById(R.id.total_tv);
 
-        videoshow_pt_back = (ImageView) mRootView.findViewById(R.id.videoshow_pt_back);
-        videoshow_ls_share = (ImageView) mRootView.findViewById(R.id.videoshow_ls_share);
-        videoshow_pt_share = (ImageView) mRootView.findViewById(R.id.videoshow_pt_share);
+        videoshow_pt_back = mRootView.findViewById(R.id.videoshow_pt_back);
+        videoshow_ls_share = mRootView.findViewById(R.id.videoshow_ls_share);
+        videoshow_pt_share = mRootView.findViewById(R.id.videoshow_pt_share);
 
     }
 
@@ -358,11 +357,11 @@ public class SFVideoUIController implements SFVideoLifeCycle {
     }
 
     private boolean isControlShow() {
-        return mHolder.control_ll.getVisibility() == View.VISIBLE ? true : false;
+        return mHolder.control_ll.getVisibility() == View.VISIBLE;
     }
 
     private boolean isTitleShow() {
-        return mHolder.title_ll.getVisibility() == View.VISIBLE ? true : false;
+        return mHolder.title_ll.getVisibility() == View.VISIBLE;
     }
 
 
@@ -464,12 +463,12 @@ public class SFVideoUIController implements SFVideoLifeCycle {
 
     @Override
     public void onResume() {
-        SFBus.register(this);
+
     }
 
     @Override
     public void onPause() {
-        SFBus.unregister(this);
+
     }
 
 

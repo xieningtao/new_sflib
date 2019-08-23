@@ -58,7 +58,7 @@ public class WeiXinShare extends XShareInterface {
         SendMessageToWX.Req localReq = new SendMessageToWX.Req();
         localReq.transaction = System.currentTimeMillis() + "";
         localReq.message = localWXMediaMessage;
-        localReq.scene = mXShareType == XShareType.WEIXIN ? localReq.WXSceneSession : localReq.WXSceneTimeline;
+        localReq.scene = mXShareType == XShareType.WEIXIN ? SendMessageToWX.Req.WXSceneSession : SendMessageToWX.Req.WXSceneTimeline;
         boolean result = api.sendReq(localReq);
         L.info(TAG, "weixin send request result: " + result);
     }

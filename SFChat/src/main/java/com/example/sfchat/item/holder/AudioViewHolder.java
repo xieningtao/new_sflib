@@ -19,7 +19,7 @@ public class AudioViewHolder extends UserAndIndicatorViewHolder {
         super(rootView);
         mStopView = rootView.findViewById(R.id.audio_stop);
         mPlayingView = rootView.findViewById(R.id.audio_play);
-        mTimeView = (TextView) rootView.findViewById(R.id.voice_time);
+        mTimeView = rootView.findViewById(R.id.voice_time);
         mAudioContainer = rootView.findViewById(R.id.audio_content_container);
     }
 }

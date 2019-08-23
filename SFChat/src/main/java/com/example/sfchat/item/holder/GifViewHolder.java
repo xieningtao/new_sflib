@@ -14,6 +14,6 @@ public class GifViewHolder extends UserAndIndicatorViewHolder {
     public final GifImageView mGifTextView;
     public GifViewHolder(View rootView) {
         super(rootView);
-        mGifTextView= (GifImageView) rootView.findViewById(R.id.gif_view);
+        mGifTextView= rootView.findViewById(R.id.gif_view);
     }
 }

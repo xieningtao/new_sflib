@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 import com.sflib.CustomView.R;
 
 public class AutoCompleteTextClearDroidView extends LinearLayout {
-	public static interface EditTextClearDroidEvent {
+	public interface EditTextClearDroidEvent {
 		void onEditTextClearEvent(View v);
 	}
 

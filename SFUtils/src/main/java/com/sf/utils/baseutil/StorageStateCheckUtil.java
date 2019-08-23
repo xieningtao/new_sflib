@@ -27,11 +27,8 @@ public class StorageStateCheckUtil {
 	 */
 	public static boolean isExternalStorageWritable() {
 	    String state = Environment.getExternalStorageState();
-	    if (Environment.MEDIA_MOUNTED.equals(state)) {
-	        return true;
-	    }
-	    return false;
-	}
+        return Environment.MEDIA_MOUNTED.equals(state);
+    }
 
 	/**
 	 * 检测外部存储是否可读
@@ -39,10 +36,7 @@ public class StorageStateCheckUtil {
 	 */
 	public static boolean isExternalStorageReadable() {
 	    String state = Environment.getExternalStorageState();
-	    if (Environment.MEDIA_MOUNTED.equals(state) ||
-	        Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
-	        return true;
-	    }
-	    return false;
-	}
+        return Environment.MEDIA_MOUNTED.equals(state) ||
+                Environment.MEDIA_MOUNTED_READ_ONLY.equals(state);
+    }
 }

@@ -60,7 +60,7 @@ public class SFDefaultVideoPlayer extends FrameLayout {
 
     private void init() {
         mRootView = LayoutInflater.from(getContext()).inflate(R.layout.videoviewui_layout, this);
-        mVideoView = (CustomVideoView) mRootView.findViewById(R.id.video_view);
+        mVideoView = mRootView.findViewById(R.id.video_view);
         mHolder = new VideoViewHolder(mRootView);
         initActionListener();
         VideoViewAbs.VideoViewCallback videoViewCallback = new DefaultVideoViewController(mHolder);
@@ -184,10 +184,7 @@ public class SFDefaultVideoPlayer extends FrameLayout {
     private boolean isFull() {
         int width = SystemUIWHHelp.getScreenRealWidth((Activity) getContext());
         int height = SystemUIWHHelp.getScreenRealHeight((Activity) getContext());
-        if (width > height) {
-            return true;
-        }
-        return false;
+        return width > height;
     }
 
     public void doPlay() {

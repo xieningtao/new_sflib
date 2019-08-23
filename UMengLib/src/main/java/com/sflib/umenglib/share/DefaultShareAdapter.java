@@ -25,8 +25,8 @@ public final class DefaultShareAdapter implements BaseShareAdapter {
 
     @Override
     public void bindView(int position, View convertView, XBaseShareItem shareItem) {
-        ImageView iv = (ImageView) convertView.findViewById(R.id.icon);
-        TextView tv = (TextView) convertView.findViewById(R.id.tv);
+        ImageView iv = convertView.findViewById(R.id.icon);
+        TextView tv = convertView.findViewById(R.id.tv);
         iv.setImageResource(shareItem.getIconRes());
         tv.setText(shareItem.getTitle());
     }

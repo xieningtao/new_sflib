@@ -22,7 +22,7 @@ import com.sf.loglib.L;
  */
 class TitleBottomViewToggle implements GuestureControl.GestureControlEvent {
 
-    public static interface ScrollSeekEvent {
+    public interface ScrollSeekEvent {
         void onFinished(int seekPosition);
 
         void onStart();
@@ -98,11 +98,7 @@ class TitleBottomViewToggle implements GuestureControl.GestureControlEvent {
         if (preX == -1) {
             preX = e1.getRawX();
         }
-        if (e2.getRawX() - preX > 0) {
-            directionLeft = false;
-        } else {
-            directionLeft = true;
-        }
+        directionLeft = !(e2.getRawX() - preX > 0);
         preX = e2.getRawX();
         if (e1.getAction() == MotionEvent.ACTION_DOWN) {
             L.info(TAG, "scroll action down");

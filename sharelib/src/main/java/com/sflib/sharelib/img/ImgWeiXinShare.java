@@ -55,7 +55,7 @@ public class ImgWeiXinShare extends XShareInterface {
         SendMessageToWX.Req req = new SendMessageToWX.Req();
         req.transaction = System.currentTimeMillis() + "";
         req.message = message;
-        req.scene = mXShareType == XShareType.WEIXIN ? req.WXSceneSession : req.WXSceneTimeline;
+        req.scene = mXShareType == XShareType.WEIXIN ? SendMessageToWX.Req.WXSceneSession : SendMessageToWX.Req.WXSceneTimeline;
         boolean result = api.sendReq(req);
         L.info(TAG, "weixin send request result: " + result);
     }

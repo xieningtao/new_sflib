@@ -33,13 +33,13 @@ public class RoundBitmapActivity extends BaseActivity {
     }
 
     private void init() {
-        center_iv = (ImageView) findViewById(R.id.center_iv);
-        fitxy_iv = (ImageView) findViewById(R.id.fitxy_iv);
-        fitstart_iv = (ImageView) findViewById(R.id.fitstart_iv);
-        fitend_iv = (ImageView) findViewById(R.id.fitend_iv);
-        centerinside_iv = (ImageView) findViewById(R.id.centerinside_iv);
-        centercrop_iv = (ImageView) findViewById(R.id.centercrop_iv);
-        fitcenter_iv = (ImageView) findViewById(R.id.fitcenter_iv);
+        center_iv = findViewById(R.id.center_iv);
+        fitxy_iv = findViewById(R.id.fitxy_iv);
+        fitstart_iv = findViewById(R.id.fitstart_iv);
+        fitend_iv = findViewById(R.id.fitend_iv);
+        centerinside_iv = findViewById(R.id.centerinside_iv);
+        centercrop_iv = findViewById(R.id.centercrop_iv);
+        fitcenter_iv = findViewById(R.id.fitcenter_iv);
 
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.round_bit_map_test);
         int radius = UnitHelp.dip2px(this, 20);

@@ -21,11 +21,11 @@ import android.widget.TextView;
  */
 public class ErrorView extends FrameLayout {
 
-	public static interface ErrorViewEvent {
+	public interface ErrorViewEvent {
 		void onErrorClickEvent(View rootView);
 	}
 
-	public static interface ErrorViewLayoutEvent {
+	public interface ErrorViewLayoutEvent {
 		void onErrorLayoutClickEvent(View rootView);
 	}
 
@@ -73,10 +73,10 @@ public class ErrorView extends FrameLayout {
 	protected void makeAndInitView() {
 		LayoutInflater.from(getContext()).inflate(
 				R.layout.commanerrorview_layout, this);
-		error_ll = (LinearLayout) findViewById(R.id.content_ll);
-		error_tv = (TextView) findViewById(R.id.error_tips);
-		error_bt = (Button) findViewById(R.id.error_bt);
-		error_iv = (ImageView) findViewById(R.id.error_logo);
+		error_ll = findViewById(R.id.content_ll);
+		error_tv = findViewById(R.id.error_tips);
+		error_bt = findViewById(R.id.error_bt);
+		error_iv = findViewById(R.id.error_logo);
 	}
 
 	public void setErrorClick(final ErrorViewEvent event) {

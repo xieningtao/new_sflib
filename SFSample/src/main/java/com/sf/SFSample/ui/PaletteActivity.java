@@ -19,7 +19,7 @@ public class PaletteActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.palette_activity);
-        final TextView txtTv = (TextView) findViewById(R.id.txt_tv);
+        final TextView txtTv = findViewById(R.id.txt_tv);
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.round_bit_map_test);
         // Asynchronous
         Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {

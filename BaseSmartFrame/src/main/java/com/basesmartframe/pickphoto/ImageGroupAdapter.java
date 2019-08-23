@@ -65,10 +65,10 @@ public class ImageGroupAdapter extends BaseAdapter {
             holder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(mContext);
             convertView = inflater.inflate(R.layout.image_group_item, null);
-            holder.albumCover = (ImageView) convertView.findViewById(R.id.album_cover);
-            holder.albumName = (TextView) convertView.findViewById(R.id.album_name);
-            holder.albumSize = (TextView) convertView.findViewById(R.id.album_size);
-            holder.choosedIcon = (ImageView) convertView.findViewById(R.id.choosed_icon);
+            holder.albumCover = convertView.findViewById(R.id.album_cover);
+            holder.albumName = convertView.findViewById(R.id.album_name);
+            holder.albumSize = convertView.findViewById(R.id.album_size);
+            holder.choosedIcon = convertView.findViewById(R.id.choosed_icon);
             convertView.setTag(holder);
         }else{
             holder = (ViewHolder) convertView.getTag();

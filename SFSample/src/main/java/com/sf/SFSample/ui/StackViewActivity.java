@@ -20,7 +20,7 @@ public class StackViewActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.stackview_activity);
-        mStackView= (StackView) findViewById(R.id.stackview);
+        mStackView= findViewById(R.id.stackview);
         mStackView.setAdapter(new StackViewAdapter());
     }
 

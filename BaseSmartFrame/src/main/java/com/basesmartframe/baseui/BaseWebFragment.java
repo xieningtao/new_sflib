@@ -42,7 +42,7 @@ public class BaseWebFragment extends BaseFragment {
     }
 
     public void initViews(View view) {
-        mWebView = (WebView) view.findViewById(R.id.webview);
+        mWebView = view.findViewById(R.id.webview);
         mWebView.setVerticalScrollBarEnabled(false);
         mWebView.setHorizontalScrollBarEnabled(false);
         WebSettings webSettings = mWebView.getSettings();

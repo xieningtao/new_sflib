@@ -38,8 +38,8 @@ abstract public class BaseSFEmojiContainerFragment extends BaseFragment implemen
     }
 
     private void initView(View view) {
-        mPageHeadView = (SFPageHeadView) view.findViewById(R.id.head_tabs);
-        mViewPager = (ViewPager) view.findViewById(R.id.pager);
+        mPageHeadView = view.findViewById(R.id.head_tabs);
+        mViewPager = view.findViewById(R.id.pager);
         mViewPager.setOffscreenPageLimit(getFragmentCount());
         mAdapter = new EmojiContainerAdapter(getFragmentManager());
         mViewPager.setAdapter(mAdapter);

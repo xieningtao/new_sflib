@@ -27,16 +27,16 @@ public class NewAudioRecorderManager implements BaseLifeCycle{
     private final String TAG = getClass().getName();
 
 
-    public static interface OnRecordListener {
-        public void onStartRecord();
+    public interface OnRecordListener {
+        void onStartRecord();
 
-        public void onEndRecord(boolean isSuccess, final int duration);
+        void onEndRecord(boolean isSuccess, final int duration);
 
-        public void onError(String error);
+        void onError(String error);
 
-        public void updateForeground(int maxAmplitude);
+        void updateForeground(int maxAmplitude);
 
-        public void updateTime(int currentTime, int maxTime);
+        void updateTime(int currentTime, int maxTime);
     }
 
     // 音频获取源

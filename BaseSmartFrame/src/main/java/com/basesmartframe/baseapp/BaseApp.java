@@ -17,8 +17,6 @@ import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.sf.utils.ThreadHelp;
 import com.sf.utils.baseutil.NetWorkManagerUtil;
 import com.sf.utils.baseutil.SFToast;
-import com.sflib.reflection.core.SFBus;
-import com.sflib.reflection.core.SFMsgId;
 import com.sflib.umenglib.share.ShareConstant;
 import com.umeng.socialize.PlatformConfig;
 
@@ -38,12 +36,12 @@ public class BaseApp extends MultiDexApplication {
                     ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                     NetworkInfo info = connectivityManager
                             .getActiveNetworkInfo();
-                    if (info != null && info.isAvailable()) {
-                        String name = info.getTypeName();
-                        SFBus.send(SFMsgId.NetworkMessage.NETWORK_AVAILABLE, new GlobalEvent.NetworkEvent(true, name));
-                    } else {
-                        SFBus.send(SFMsgId.NetworkMessage.NETWORK_AVAILABLE, new GlobalEvent.NetworkEvent(false, ""));
-                    }
+//                    if (info != null && info.isAvailable()) {
+//                        String name = info.getTypeName();
+//                        SFBus.send(SFMsgId.NetworkMessage.NETWORK_AVAILABLE, new GlobalEvent.NetworkEvent(true, name));
+//                    } else {
+//                        SFBus.send(SFMsgId.NetworkMessage.NETWORK_AVAILABLE, new GlobalEvent.NetworkEvent(false, ""));
+//                    }
                 }
             }
         }

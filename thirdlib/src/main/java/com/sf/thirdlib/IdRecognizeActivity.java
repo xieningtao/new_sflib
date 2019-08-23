@@ -42,9 +42,9 @@ public class IdRecognizeActivity extends Activity {
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
             */
 
-        take = (Button) findViewById(R.id.take);
+        take = findViewById(R.id.take);
 
-        surfaceview = (SurfaceView) findViewById(R.id.surfaceview);
+        surfaceview = findViewById(R.id.surfaceview);
         SurfaceHolder holder = surfaceview.getHolder();
         holder.setFixedSize(176, 155);// 设置分辨率
         holder.setKeepScreenOn(true);

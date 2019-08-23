@@ -24,7 +24,7 @@ public class CacheFile {
     public boolean createCacheFileIfNotExist() {
         if (!SFFileHelp.isFileExisted(mPath)) {
             File file = SFFileHelp.createFileOnSD(mBase, mFileName);
-            return file == null ? false : true;
+            return file != null;
         }
         return true;
     }

@@ -17,15 +17,15 @@ import android.view.ViewConfiguration;
  */
 @TargetApi(Build.VERSION_CODES.ECLAIR)
 public class HeadViewGesture extends GestureDetector.SimpleOnGestureListener {
-	public static enum MOVEDIRECTION {
+	public enum MOVEDIRECTION {
 		IDLE, UP, DOWN, LEFT, RIGHT
 	}
 
-	public static enum MovingMode {
+	public enum MovingMode {
 		IDLE, UPDOWN, LEFTRIGHT
 	}
 
-	public static interface HeadViewGestureListener {
+	public interface HeadViewGestureListener {
 		boolean onScroll(float distanceX, float distanceY, float dy, float dx,
 				MovingMode mode);
 
@@ -35,7 +35,7 @@ public class HeadViewGesture extends GestureDetector.SimpleOnGestureListener {
 
 		boolean onSingleUp(MotionEvent event, MovingMode mode);
 
-		public boolean onDoubleTap(MotionEvent e, MovingMode mode);
+		boolean onDoubleTap(MotionEvent e, MovingMode mode);
 	}
 
 	private final String TAG = HeadViewGesture.class.getName();

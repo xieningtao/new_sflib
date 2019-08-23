@@ -115,11 +115,7 @@ public class NetWorkManagerUtil {
 
     public static boolean isFreeNetwork(Context context) {
         String type = getNetworkType(context);
-        if (NetworkType.NET_2G.equals(type) || NetworkType.NET_3G.equals(type)) {
-            return false;
-        } else {
-            return true;
-        }
+        return !NetworkType.NET_2G.equals(type) && !NetworkType.NET_3G.equals(type);
     }
 
 

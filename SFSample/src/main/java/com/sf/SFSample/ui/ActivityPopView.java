@@ -55,7 +55,7 @@ public class ActivityPopView extends BaseActivity {
             popItemBean.setmPhotoUrl(imageUrl[i % 3]);
             mPopItemBeans.add(popItemBean);
         }
-        mPopViewRl = (RecyclerView) findViewById(R.id.popview_rl);
+        mPopViewRl = findViewById(R.id.popview_rl);
         mPopViewRl.setLayoutManager(new LinearLayoutManager(this));
 //        mPopViewRl.setItemAnimator(new PackageAnimator(new ScaleIn(),new ScaleOut()));
         ViewUtils.init(this);
@@ -87,8 +87,8 @@ public class ActivityPopView extends BaseActivity {
 
         public PopViewHolder(View itemView) {
             super(itemView);
-            mContentTv = (TextView) itemView.findViewById(R.id.comment_tv);
-            mPhotoIv = (ImageView) itemView.findViewById(R.id.photo_iv);
+            mContentTv = itemView.findViewById(R.id.comment_tv);
+            mPhotoIv = itemView.findViewById(R.id.photo_iv);
         }
     }
 

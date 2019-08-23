@@ -233,7 +233,7 @@ public class RoundRecPagerSlidingTabStrip extends HorizontalScrollView {
 
     private void addTipIconTextTab(final int position, String title, int resId, boolean tipShow, int iconLocation) {
         View tab = inflate(getContext(), R.layout.tip_text_tab, null);
-        TextView titleTV = (TextView) tab.findViewById(R.id.title);
+        TextView titleTV = tab.findViewById(R.id.title);
         titleTV.setText(title);
         titleTV.setGravity(Gravity.CENTER);
         switch (iconLocation) {
@@ -304,7 +304,7 @@ public class RoundRecPagerSlidingTabStrip extends HorizontalScrollView {
             if (v instanceof TextView) {
                 tab = (TextView) v;
             } else if (v instanceof RelativeLayout) {
-                tab = (TextView) v.findViewById(R.id.title);
+                tab = v.findViewById(R.id.title);
             } else {
                 continue;
             }
@@ -555,24 +555,24 @@ public class RoundRecPagerSlidingTabStrip extends HorizontalScrollView {
     }
 
     public interface IconTabProvider {
-        public static final int KIcon_Top = 0;
-        public static final int KIcon_Bottom = 1;
-        public static final int KIcon_Left = 2;
-        public static final int KIcon_Right = 3;
+        int KIcon_Top = 0;
+        int KIcon_Bottom = 1;
+        int KIcon_Left = 2;
+        int KIcon_Right = 3;
 
-        public int getPageIconResId(int position);
+        int getPageIconResId(int position);
 
-        public int getPageIconLocation(int position);
+        int getPageIconLocation(int position);
     }
 
     public interface TipIconTabProvider extends IconTabProvider {
-        public boolean isTipShow(int position);
+        boolean isTipShow(int position);
     }
 
     public interface CustomTabProvider {
-        public View getCustomTabView(int position);
+        View getCustomTabView(int position);
 
-        public float getCustomTabWeight(int position);
+        float getCustomTabWeight(int position);
     }
 
     static class SavedState extends BaseSavedState {

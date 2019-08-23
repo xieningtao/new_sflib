@@ -27,7 +27,7 @@ public class HotwordActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotword);
 
-        mHotWordsView = (TagFlowLayout) findViewById(R.id.hotwords);
+        mHotWordsView = findViewById(R.id.hotwords);
 
        beans.add("fsjfksljfklsj");
        beans.add("fsjsfsdffksljfklsj");

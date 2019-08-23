@@ -22,7 +22,7 @@ public class ActivityBlur extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.blur_activity);
-        mBlurIv = (ImageView) findViewById(R.id.blur_iv);
+        mBlurIv = findViewById(R.id.blur_iv);
         init();
         ImageLoader.getInstance().displayImage("http://img1.imgtn.bdimg.com/it/u=3686761795,438589224&fm=23&gp=0.jpg", mBlurIv,mOptions);
     }

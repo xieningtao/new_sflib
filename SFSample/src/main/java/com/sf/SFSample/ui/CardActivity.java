@@ -34,7 +34,7 @@ public class CardActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cardview_activity);
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycle_view);
+        mRecyclerView = findViewById(R.id.recycle_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         mRecyclerView.setLayoutManager(layoutManager);
         RecycleViewAdapter adapter = new RecycleViewAdapter(this);
@@ -87,9 +87,9 @@ public class CardActivity extends BaseActivity {
 
         public RecycleViewHolder(View itemView) {
             super(itemView);
-            mCardView = (CardView) itemView.findViewById(R.id.card_view);
-            mInfoTv = (TextView) itemView.findViewById(R.id.info_text);
-            mPicIv = (ImageView) itemView.findViewById(R.id.pic_iv);
+            mCardView = itemView.findViewById(R.id.card_view);
+            mInfoTv = itemView.findViewById(R.id.info_text);
+            mPicIv = itemView.findViewById(R.id.pic_iv);
         }
     }
 

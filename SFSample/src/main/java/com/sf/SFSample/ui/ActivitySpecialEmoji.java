@@ -28,7 +28,7 @@ public class ActivitySpecialEmoji extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_special_emoji);
 
-        final TextView emojiTv = (TextView) findViewById(R.id.emoji_tv);
+        final TextView emojiTv = findViewById(R.id.emoji_tv);
 
 //        emojiTv.setText("\ud83d\ude03");
         String _emojiStr1 = "\uD83D";
@@ -36,7 +36,7 @@ public class ActivitySpecialEmoji extends BaseActivity {
         String _emojiStr = _emojiStr1 + _emojiStr2;
         emojiTv.setText(_emojiStr);
 
-        final EditText emojiEt = (EditText) findViewById(R.id.emoji_et);
+        final EditText emojiEt = findViewById(R.id.emoji_et);
 
         findViewById(R.id.emoji_convert).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +47,7 @@ public class ActivitySpecialEmoji extends BaseActivity {
             }
         });
 
-        final Button emojiEtRev= (Button) findViewById(R.id.emoji_convert_res);
+        final Button emojiEtRev= findViewById(R.id.emoji_convert_res);
         emojiEtRev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

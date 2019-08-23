@@ -7,7 +7,7 @@ import java.util.List;
  */
 public class FP {
     public static boolean empty(List list) {
-        return list == null || list.size() == 0 ? true : false;
+        return list == null || list.size() == 0;
     }
 
     public static boolean eq(Object a, Object b) {

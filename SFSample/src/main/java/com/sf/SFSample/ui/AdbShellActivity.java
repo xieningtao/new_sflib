@@ -40,7 +40,7 @@ public class AdbShellActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 ShellCmd shellCmd = new ShellCmd();
-                List<String> results = shellCmd.doShcmd("cat /proc/version");
+                List<String> results = ShellCmd.doShcmd("cat /proc/version");
                 L.info(TAG, "results: " + results);
             }
         });

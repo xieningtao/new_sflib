@@ -24,8 +24,8 @@ abstract public class BaseTabActivity extends BaseActivity implements TabHost.On
     }
 
     private void initView() {
-        mTabWidget = (TabWidget) findViewById(android.R.id.tabs);
-        mTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
+        mTabWidget = findViewById(android.R.id.tabs);
+        mTabHost = findViewById(android.R.id.tabhost);
         mTabHost.setup(this,getFragmentManager(),R.id.real_content_container);
 
         mTabHost.setOnTabChangedListener(this);

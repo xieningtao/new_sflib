@@ -29,7 +29,7 @@ abstract public class BaseLevelActivity extends BaseActivity {
         if (activities != null) {
             mActivities = activities;
         }
-        mListView = (ListView) findViewById(R.id.list_view);
+        mListView = findViewById(R.id.list_view);
         String names[] = getItemNames();
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.list_item_view, R.id.txt_tv, names);
         mListView.setAdapter(adapter);

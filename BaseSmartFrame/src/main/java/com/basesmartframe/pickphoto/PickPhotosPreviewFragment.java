@@ -38,7 +38,7 @@ import java.util.ArrayList;
  */
 public class PickPhotosPreviewFragment extends BaseFragment {
 
-    public static interface OnPicSelectedListener{
+    public interface OnPicSelectedListener{
         void onPicSelected(int index);
     }
     protected TextView mImageIndexText;
@@ -93,13 +93,13 @@ public class PickPhotosPreviewFragment extends BaseFragment {
             mChoosedData = getPhotoListFromArg(bundle, CHOOSE_DATA_LIST);
             mCurPhotoIndex = bundle.getInt(INDEX, 0);
         }
-        mImageIndexText = (TextView) view.findViewById(R.id.image_index_tv);
+        mImageIndexText = view.findViewById(R.id.image_index_tv);
         mSelectLayout = view.findViewById(R.id.select_layout);
-        mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
-        mSelectCheckBox = (CheckBox) view.findViewById(R.id.select_checkbox);
+        mViewPager = view.findViewById(R.id.viewpager);
+        mSelectCheckBox = view.findViewById(R.id.select_checkbox);
         mSelectCheckBox.setClickable(false);
         mBottomBar = view.findViewById(R.id.bottom_bar);
-        mComplete = (Button) view.findViewById(R.id.pick_complete);
+        mComplete = view.findViewById(R.id.pick_complete);
         mViewPager.setPageTransformer(true, new XTranslateTransform());
         mViewPager.setPageMargin(UnitHelp.dip2px(getActivity(),5));
         mViewPager.setPageMarginDrawable(R.drawable.black_shape);
@@ -243,13 +243,13 @@ public class PickPhotosPreviewFragment extends BaseFragment {
 
         @Override
         public boolean isViewFromObject(View view, Object object) {
-            return view == ((View) object);
+            return view == object;
         }
 
         @Override
         public Object instantiateItem(View container, int position) {
             View view = mInflater.inflate(R.layout.image_viewer_layout, null);
-            final ImageView imageView = (ImageView) view.findViewById(R.id.photo_view);
+            final ImageView imageView = view.findViewById(R.id.photo_view);
             ImageBean bean = mImageGroupData.get(position);
             if (!TextUtils.isEmpty(bean.getPath()) && bean.getPath().startsWith("http")) {
                 ImageLoader.getInstance().displayImage(bean.getPath(), imageView);

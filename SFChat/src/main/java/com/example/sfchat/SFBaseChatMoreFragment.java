@@ -94,7 +94,7 @@ public class SFBaseChatMoreFragment extends BaseFragment implements AdapterView.
     }
 
     private void init(View view) {
-        mMoreGv = (GridView) view.findViewById(R.id.chat_more_gv);
+        mMoreGv = view.findViewById(R.id.chat_more_gv);
         mMoreGv.setAdapter(new ChatMoreAdapter());
         mMoreGv.setOnItemClickListener(this);
     }
@@ -122,9 +122,9 @@ public class SFBaseChatMoreFragment extends BaseFragment implements AdapterView.
                 convertView = LayoutInflater.from(getActivity()).inflate(R.layout.sf_chat_more_item, null);
             }
             ChatMoreItem chatMoreItem = ChatMoreItem.values()[position];
-            TextView headTv = (TextView) convertView.findViewById(R.id.chat_more_tv);
+            TextView headTv = convertView.findViewById(R.id.chat_more_tv);
             headTv.setText(chatMoreItem.mTextId);
-            ImageView moreIb = (ImageView) convertView.findViewById(R.id.chat_more_ib);
+            ImageView moreIb = convertView.findViewById(R.id.chat_more_ib);
             moreIb.setImageResource(chatMoreItem.mDrawableId);
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -28,13 +28,13 @@ public interface ILogManager {
 	 * 
 	 * @return
 	 */
-	public boolean registerCrashHandler();
+    boolean registerCrashHandler();
 
 	/**
 	 * Unregister crash handler to handle exception.
 	 * 
 	 * @return
 	 */
-	public boolean unregisterCrashHandler();
+    boolean unregisterCrashHandler();
 
 }

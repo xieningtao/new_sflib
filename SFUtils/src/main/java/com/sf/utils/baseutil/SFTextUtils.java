@@ -66,8 +66,6 @@ public class SFTextUtils {
         }
     }
 
-    ;
-
     public static String formatNumber(long value) {
         if (NumberUnit.K.getLeftInterval() > value) {
             return String.valueOf(value);

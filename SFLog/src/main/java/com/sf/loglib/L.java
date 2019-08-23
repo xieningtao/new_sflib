@@ -16,7 +16,7 @@ import java.util.concurrent.Executors;
  * @author xieningtao
  */
 public class L {
-    public static enum LOG_LEVEL {
+    public enum LOG_LEVEL {
         VERBO, DEBUG, INFO, WARNING, ERROR
     }
 
@@ -62,7 +62,7 @@ public class L {
         if (!enable) {
             return;
         }
-        if (logLevel.ordinal() > log_level.INFO.ordinal()) {
+        if (logLevel.ordinal() > LOG_LEVEL.INFO.ordinal()) {
             return;
         }
         String tag = getTag(object);

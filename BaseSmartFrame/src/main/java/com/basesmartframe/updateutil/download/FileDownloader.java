@@ -303,10 +303,7 @@ public class FileDownloader {
                 if (notFinish && listener != null) {
                     listener.onDownloadSize(this.downloadSize);
                 }
-                if (num == threads.length || downloadSize == fileSize)
-                    notFinish = false;
-                else
-                    notFinish = true;
+                notFinish = num != threads.length && downloadSize != fileSize;
             }
 
             // 结束当前线程

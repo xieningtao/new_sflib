@@ -19,7 +19,7 @@ import java.util.List;
  */
 public abstract class BaseViewPager<T extends BaseViewPager.ViewPagerTitle>
 		extends BaseActivity implements ViewPager.OnPageChangeListener {
-	public static interface ViewPagerTitle {
+	public interface ViewPagerTitle {
 		String composeTitle();
 	}
 
@@ -37,8 +37,8 @@ public abstract class BaseViewPager<T extends BaseViewPager.ViewPagerTitle>
 	}
 
 	private void init() {
-		tabStrip = (RoundRecPagerSlidingTabStrip) findViewById(R.id.tabs);
-		mViewPager = (ViewPager) findViewById(R.id.pager);
+		tabStrip = findViewById(R.id.tabs);
+		mViewPager = findViewById(R.id.pager);
 		mAdapter = new VideoShowListAdapter(getFragmentManager());
 		mViewPager.setAdapter(mAdapter);
 	}

@@ -17,7 +17,7 @@ import com.sf.loglib.L;
 public class SlidingLeftViewLayout extends FrameLayout {
     private final String TAG = "SlidingLeftViewLayout";
 
-    public static interface SlidingEvent {
+    public interface SlidingEvent {
         void onFinishSliding(boolean isOpen, SlidingLeftViewLayout viewLayout);
 
         void onStartSliding();
@@ -482,11 +482,7 @@ public class SlidingLeftViewLayout extends FrameLayout {
         int half = width / 2;
         int scrollY = getScrollY();
         boolean isFling = false;
-        if (mMinimumVelocity < Math.abs(initialVelocity)) {
-            isFling = true;
-        } else {
-            isFling = false;
-        }
+        isFling = mMinimumVelocity < Math.abs(initialVelocity);
         if (!isFling) {
             if (scrollX > half / 2) {
                 smoothScrollTo(width, scrollY, initialVelocity);

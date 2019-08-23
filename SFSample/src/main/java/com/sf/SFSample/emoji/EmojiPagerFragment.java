@@ -9,11 +9,10 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.example.sfchat.SFChatMessageId;
-import com.nostra13.universalimageloader.core.ImageLoader;
+import com.example.sfchat.event.SFChatEvent;
+import com.example.sfchat.event.SFChatItemEvent;
 import com.sf.SFSample.R;
 
-import com.sf.loglib.L;
 import com.sf.loglib.file.SFFileHelp;
 import com.sflib.emoji.core.BaseSFEmojiPagerFragment;
 import com.sflib.emoji.core.ConfiguredEmojiGroup;
@@ -21,7 +20,8 @@ import com.sflib.emoji.core.EmojiBean;
 import com.sflib.emoji.core.EmojiFileBean;
 import com.sflib.emoji.core.EmojiGroup;
 import com.sflib.emoji.core.EmojiLoadManager;
-import com.sflib.reflection.core.SFBus;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.io.File;
 import java.util.List;
@@ -65,8 +65,8 @@ public class EmojiPagerFragment extends BaseSFEmojiPagerFragment {
 
     @Override
     protected void onDownLoadEmojiClick(final ViewGroup rootView) {
-        final ProgressBar downloadEmojiPb = (ProgressBar) rootView.findViewById(com.sflib.emoji.R.id.download_emoji_pb);
-        final Button downloadEmojiBt = (Button) rootView.findViewById(com.sflib.emoji.R.id.download_emoji_bt);
+        final ProgressBar downloadEmojiPb = rootView.findViewById(com.sflib.emoji.R.id.download_emoji_pb);
+        final Button downloadEmojiBt = rootView.findViewById(com.sflib.emoji.R.id.download_emoji_bt);
         EmojiFileBean fileBean = EmojiLoadManager.getInstance().getEmojiFileBean(mEmojiKey);
         if (fileBean == null) {
             return;
@@ -94,8 +94,8 @@ public class EmojiPagerFragment extends BaseSFEmojiPagerFragment {
         if (convertView == null) {
             convertView = LayoutInflater.from(getActivity()).inflate(R.layout.emoji_item_view, null);
         }
-        TextView headTv = (TextView) convertView.findViewById(R.id.item_view_tv);
-        ImageView emojiIv = (ImageView) convertView.findViewById(R.id.emoji_iv);
+        TextView headTv = convertView.findViewById(R.id.item_view_tv);
+        ImageView emojiIv = convertView.findViewById(R.id.emoji_iv);
         List<EmojiBean> emojiBeens = mConfiguredEmoji.getmEmojiBeans().get(groupPosition);
         EmojiBean emojiBean = emojiBeens.get(subPosition);
         final String emojiPath = "file://" + mConfiguredEmoji.getGroupPath() + File.separator + emojiBean.getFullName();
@@ -103,7 +103,7 @@ public class EmojiPagerFragment extends BaseSFEmojiPagerFragment {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SFBus.send(SFChatMessageId.ADD_MSG, emojiPath);
+                EventBus.getDefault().post(new SFChatItemEvent(emojiPath));
             }
         });
         return convertView;

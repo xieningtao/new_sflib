@@ -55,8 +55,8 @@ public class ViewEventActivity extends Activity implements CompoundButton.OnChec
     }
 
     private void init() {
-        mMyLinearLayout = (MyLinearLayout) findViewById(R.id.ll);
-        mMyTextView = (MyTextView) findViewById(R.id.tv);
+        mMyLinearLayout = findViewById(R.id.ll);
+        mMyTextView = findViewById(R.id.tv);
 
         mMyTextViewHandler = new ViewEventHandler(mMyTextView);
         mMyLinearLayoutHandler = new ViewGroupEventHandler(mMyLinearLayout);
@@ -67,12 +67,12 @@ public class ViewEventActivity extends Activity implements CompoundButton.OnChec
     }
 
     private void initToggleView() {
-        ToggleButton ll_dispatch_down_tv = (ToggleButton) findViewById(R.id.ll_dispatch_down_tb);
-        ToggleButton ll_dispatch_move_tv = (ToggleButton) findViewById(R.id.ll_dispatch_move_tb);
-        ToggleButton ll_touch_down_tv = (ToggleButton) findViewById(R.id.ll_touch_down_tb);
-        ToggleButton ll_touch_move_tv = (ToggleButton) findViewById(R.id.ll_touch_move_tb);
-        ToggleButton ll_intercept_down_tv = (ToggleButton) findViewById(R.id.ll_intercept_down_tb);
-        ToggleButton ll_intercept_move_tv = (ToggleButton) findViewById(R.id.ll_intercept_move_tb);
+        ToggleButton ll_dispatch_down_tv = findViewById(R.id.ll_dispatch_down_tb);
+        ToggleButton ll_dispatch_move_tv = findViewById(R.id.ll_dispatch_move_tb);
+        ToggleButton ll_touch_down_tv = findViewById(R.id.ll_touch_down_tb);
+        ToggleButton ll_touch_move_tv = findViewById(R.id.ll_touch_move_tb);
+        ToggleButton ll_intercept_down_tv = findViewById(R.id.ll_intercept_down_tb);
+        ToggleButton ll_intercept_move_tv = findViewById(R.id.ll_intercept_move_tb);
 
         ll_dispatch_down_tv.setOnCheckedChangeListener(this);
         ll_dispatch_move_tv.setOnCheckedChangeListener(this);
@@ -82,12 +82,12 @@ public class ViewEventActivity extends Activity implements CompoundButton.OnChec
         ll_intercept_move_tv.setOnCheckedChangeListener(this);
 
 
-        ToggleButton tv_dispatch_down_tv = (ToggleButton) findViewById(R.id.tv_dispatch_down_tb);
-        ToggleButton tv_dispatch_move_tv = (ToggleButton) findViewById(R.id.tv_dispatch_move_tb);
-        ToggleButton tv_touch_down_tv = (ToggleButton) findViewById(R.id.tv_touch_down_tb);
-        ToggleButton tv_touch_move_tv = (ToggleButton) findViewById(R.id.tv_touch_move_tb);
-        ToggleButton tv_touch_listener_down_tv = (ToggleButton) findViewById(R.id.tv_touchlistener_down_tb);
-        ToggleButton tv_touch_listener_move_tv = (ToggleButton) findViewById(R.id.tv_touchlistener_move_tb);
+        ToggleButton tv_dispatch_down_tv = findViewById(R.id.tv_dispatch_down_tb);
+        ToggleButton tv_dispatch_move_tv = findViewById(R.id.tv_dispatch_move_tb);
+        ToggleButton tv_touch_down_tv = findViewById(R.id.tv_touch_down_tb);
+        ToggleButton tv_touch_move_tv = findViewById(R.id.tv_touch_move_tb);
+        ToggleButton tv_touch_listener_down_tv = findViewById(R.id.tv_touchlistener_down_tb);
+        ToggleButton tv_touch_listener_move_tv = findViewById(R.id.tv_touchlistener_move_tb);
 
         tv_dispatch_down_tv.setOnCheckedChangeListener(this);
         tv_dispatch_move_tv.setOnCheckedChangeListener(this);

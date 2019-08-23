@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 
 public class EditTextClearDroidView extends LinearLayout {
 
-	public static interface EditTextClearDroidEvent {
+	public interface EditTextClearDroidEvent {
 		void onEditTextClearEvent(View v);
 	}
 

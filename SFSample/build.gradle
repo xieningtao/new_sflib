@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao'
-def config = rootProject.android;
+def config = rootProject.android
 android {
 
     compileSdkVersion config.compileSdkVersion
@@ -57,10 +57,8 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     api project(':BaseSmartFrame')
     api project(':CustomView')
-    api project(':openGL')
     api project(':Emoji')
     api project(':SFChat')
-    api project(':SFCircle')
     api project(':SFPay')
     api project(':thirdlib')
     api project(':BaiduLib')

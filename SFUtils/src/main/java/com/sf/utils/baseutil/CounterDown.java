@@ -61,7 +61,7 @@ public class CounterDown {
         timer = null;
     }
 
-    public static interface OnTickListener {
+    public interface OnTickListener {
 
         /**
          * @param millisUntilFinished --还剩下多少时间

@@ -118,7 +118,7 @@ public abstract class MultiChoiceAdapterHelperBase implements OnItemLongClickLis
         if (!isActionModeStarted()) {
             startActionMode();
         }
-        checkedItems.add((long) handle);
+        checkedItems.add(handle);
         owner.notifyDataSetChanged();
         onItemSelectedStateChanged();
     }
@@ -283,7 +283,7 @@ public abstract class MultiChoiceAdapterHelperBase implements OnItemLongClickLis
     }
 
     private void initItemCheckbox(int position, ViewGroup view) {
-        CheckBox checkBox = (CheckBox) view.findViewById(android.R.id.checkbox);
+        CheckBox checkBox = view.findViewById(android.R.id.checkbox);
         boolean checked = isChecked(position);
         checkBox.setTag(position);
         checkBox.setChecked(checked);

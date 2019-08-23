@@ -52,14 +52,14 @@ public class SFToast {
         public SFToastBuild(Context context, int rootViewId, int textViewId) {
             LayoutInflater inflater = LayoutInflater.from(context);
             mRootView = inflater.inflate(rootViewId, null);
-            mTextView = (TextView) mRootView.findViewById(textViewId);
+            mTextView = mRootView.findViewById(textViewId);
             this.mContext = context;
         }
 
         public SFToastBuild(Context context, View rootView, int textViewId) {
             this.mContext = context;
             this.mRootView = rootView;
-            mTextView = (TextView) mRootView.findViewById(textViewId);
+            mTextView = mRootView.findViewById(textViewId);
         }
 
         public boolean showToast(String text) {

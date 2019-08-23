@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.sf.loglib.L;
-import com.sflib.reflection.core.SFBus;
 
 public class BaseFragment extends Fragment {
 	protected final String TAG=getClass().getName();
@@ -23,14 +22,12 @@ public class BaseFragment extends Fragment {
 	@Override
 	public void onResume() {
 		super.onResume();
-		SFBus.register(this);
 		L.info(this,getClass().getName()+ " register evenBus onResume");
 	}
 	
 	@Override
 	public void onPause() {
 		super.onPause();
-		SFBus.unregister(this);
 		L.info(this,getClass().getName()+ " unregister evenBus onPause");
 	}
 

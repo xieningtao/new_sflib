@@ -108,7 +108,7 @@ abstract public class SFNoActionMultiChoiceAdapterHelperBase implements
 		if (!isActionModeStarted()) {
 			startActionMode();
 		}
-		checkedItems.add((long) handle);
+		checkedItems.add(handle);
 		owner.notifyDataSetChanged();
 		onItemSelectedStateChanged();
 	}
@@ -286,7 +286,7 @@ abstract public class SFNoActionMultiChoiceAdapterHelperBase implements
 	}
 
 	private void initItemCheckbox(int position, ViewGroup view) {
-		CheckBox checkBox = (CheckBox) view.findViewById(android.R.id.checkbox);
+		CheckBox checkBox = view.findViewById(android.R.id.checkbox);
 		boolean checked = isChecked(position);
 		checkBox.setTag(position);
 		checkBox.setChecked(checked);

@@ -37,8 +37,8 @@ abstract public class BaseSFEmojiPagerFragment extends BaseFragment implements V
 
     private void init(View view) {
         mContainer = (FrameLayout) view.findViewById(R.id.emoji_page_cotainer);
-        mPageIndicator = (PageIndicator) view.findViewById(R.id.emoji_ci);
-        mViewPage = (ViewPager) view.findViewById(R.id.emoji_pager);
+        mPageIndicator = view.findViewById(R.id.emoji_ci);
+        mViewPage = view.findViewById(R.id.emoji_pager);
         mViewPage.setOffscreenPageLimit(getFragmentCount());
         mAdapter = new EmojiPagerAdapter();
         mViewPage.setAdapter(mAdapter);
@@ -82,7 +82,7 @@ abstract public class BaseSFEmojiPagerFragment extends BaseFragment implements V
 
     protected Object instantiateEmojiItem(ViewGroup container, int position) {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.emoji_view, null);
-        GridView gridView = (GridView) view.findViewById(R.id.emoji_gv);
+        GridView gridView = view.findViewById(R.id.emoji_gv);
         gridView.setAdapter(new EmojiAdapter(position));
         container.addView(view);
         return view;

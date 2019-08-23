@@ -14,7 +14,7 @@ public class PaperViewHolder extends UserAndIndicatorViewHolder{
     public final View mContainerView;
     public PaperViewHolder(View rootView) {
         super(rootView);
-        mPaperIv= (ImageView) rootView.findViewById(R.id.gif_tags_image);
+        mPaperIv= rootView.findViewById(R.id.gif_tags_image);
         mContainerView=rootView.findViewById(R.id.paper_container);
     }
 }

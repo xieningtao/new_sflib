@@ -46,13 +46,13 @@ abstract public class BaseHttpView {
     }
 
     boolean isShowing() {
-        boolean isRootViewVisible = mRootView.getVisibility() == View.VISIBLE ? true : false;
+        boolean isRootViewVisible = mRootView.getVisibility() == View.VISIBLE;
         boolean isContentViewAdded = false;
         ViewParent parent = mContentView.getParent();
         if (parent != null && parent == mRootView) {
             isContentViewAdded = true;
         }
-        boolean isContentVisible = mContentView.getVisibility() == View.VISIBLE ? true : false;
+        boolean isContentVisible = mContentView.getVisibility() == View.VISIBLE;
         return isContentViewAdded && isContentVisible && isRootViewVisible;
     }
 

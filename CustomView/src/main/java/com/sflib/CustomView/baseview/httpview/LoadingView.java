@@ -46,8 +46,8 @@ public class LoadingView extends FrameLayout{
 	
 	private void addAndInitView(){
 		LayoutInflater.from(getContext()).inflate(R.layout.commanloadingview_layout, this);
-		mLoadingText=(TextView) findViewById(R.id.loading_text_tv);
-		mLoadingView=(ImageView) findViewById(R.id.loading_logo_iv);
+		mLoadingText= findViewById(R.id.loading_text_tv);
+		mLoadingView= findViewById(R.id.loading_logo_iv);
 		mLoadingView.startAnimation(getLoadingAnimation());
 	}
 	

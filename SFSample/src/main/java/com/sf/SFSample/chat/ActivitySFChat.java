@@ -7,13 +7,13 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.basesmartframe.baseui.BaseActivity;
-import com.example.sfchat.SFChatMessageId;
+import com.example.sfchat.event.SFChatEvent;
 import com.example.sfchat.media.NewAudioRecorderManager;
 import com.sf.SFSample.R;
 import com.sf.SFSample.ui.MessagePullListFragment;
 import com.sf.loglib.L;
-import com.sflib.reflection.core.SFIntegerMessage;
-import com.sflib.reflection.core.ThreadId;
+
+import org.greenrobot.eventbus.Subscribe;
 
 /**
  * Created by NetEase on 2016/8/10 0010.
@@ -27,10 +27,10 @@ public class ActivitySFChat extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sf_chat);
-        mContainer = (FrameLayout) findViewById(R.id.chat_container);
+        mContainer = findViewById(R.id.chat_container);
         mContainer.setVisibility(View.GONE);
         mVoiceView = LayoutInflater.from(this).inflate(R.layout.voice_view, null);
-        mVoiceShowIv = (ImageView) mVoiceView.findViewById(R.id.voice_show_iv);
+        mVoiceShowIv = mVoiceView.findViewById(R.id.voice_show_iv);
         showChatFragment();
     }
 
@@ -83,8 +83,12 @@ public class ActivitySFChat extends BaseActivity {
         }
     }
 
-    @SFIntegerMessage(messageId = SFChatMessageId.VOICE_BUTTON_PRESS, theadId = ThreadId.MainThread)
-    public void onVoiceButtonPress() {
+    @Subscribe
+    public void onVoiceButtonPress(SFChatEvent chatEvent) {
+        int eventTye = chatEvent.eventType;
+        if(SFChatEvent.VOICE_BUTTON_PRESS != eventTye){
+            return;
+        }
         if (mVoiceView.getParent() == null) {
             mContainer.addView(mVoiceView);
         }
@@ -92,8 +96,12 @@ public class ActivitySFChat extends BaseActivity {
         NewAudioRecorderManager.getInstance().setOnRecordListener(mOnRecordListener);
     }
 
-    @SFIntegerMessage(messageId = SFChatMessageId.VOICE_BUTTON_UP, theadId = ThreadId.MainThread)
-    public void onVoiceButtonUp() {
+    @Subscribe
+    public void onVoiceButtonUp(SFChatEvent chatEvent) {
+        int eventType = chatEvent.eventType;
+        if(SFChatEvent.VOICE_BUTTON_UP != eventType){
+            return;
+        }
         mContainer.setVisibility(View.GONE);
         NewAudioRecorderManager.getInstance().setOnRecordListener(null);
     }

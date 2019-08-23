@@ -14,6 +14,6 @@ public class TxtViewHolder extends UserAndIndicatorViewHolder {
 
     public TxtViewHolder(View rootView) {
         super(rootView);
-        mContentTv = (TextView) rootView.findViewById(R.id.content_text);
+        mContentTv = rootView.findViewById(R.id.content_text);
     }
 }

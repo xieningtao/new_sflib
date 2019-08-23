@@ -20,10 +20,10 @@ import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
  */
 public class SFPageHeadView extends HorizontalScrollView implements ViewPager.OnPageChangeListener{
 
-    public static interface SFPageHeadAdapter{
+    public interface SFPageHeadAdapter{
         View getHeadView(LayoutInflater inflater,int position, View parent);
     }
-    public static interface OnHeadItemClick{
+    public interface OnHeadItemClick{
         void onHeadItemClick(int position);
     }
     private LinearLayout mTabLayout;
@@ -63,7 +63,7 @@ public class SFPageHeadView extends HorizontalScrollView implements ViewPager.On
         setHorizontalScrollBarEnabled(false);
         mLayoutInflater=LayoutInflater.from(getContext());
         View rootView =mLayoutInflater.inflate(R.layout.layout_sf_page_head,null);
-        mTabLayout= (LinearLayout) rootView.findViewById(R.id.head_container);
+        mTabLayout= rootView.findViewById(R.id.head_container);
         addView(mTabLayout, new ViewGroup.LayoutParams(WRAP_CONTENT, MATCH_PARENT));
 
     }

@@ -32,13 +32,9 @@ public class ViewUtils {
         return width;
     }
 
-    ;
-
     public static int getScreenHeight() {
         return height;
     }
-
-    ;
 
     /**
      * change dip value to pixel value for certain screen size

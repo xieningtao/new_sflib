@@ -115,7 +115,7 @@ public class EmojiContainerFragment extends BaseSFEmojiContainerFragment {
     @Override
     protected View getTabHeadView(LayoutInflater inflater, int position, View parent) {
         View headView = inflater.inflate(R.layout.emoji_head_view, null);
-        TextView headTv = (TextView) headView.findViewById(R.id.head_tv);
+        TextView headTv = headView.findViewById(R.id.head_tv);
         headTv.setText(position + "");
         return headView;
     }

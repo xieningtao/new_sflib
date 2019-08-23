@@ -63,10 +63,10 @@ dependencies {
     api 'com.nostra13.universalimageloader:universal-image-loader:1.9.4@jar'
     api project(':SFHttp')
     api project(':UMengLib')
-    api project(':PullRefreshLib')
-    api project(":reflection")
     api project(':SFUtils')
     api project(':CustomView')
+    //event bus
+    api 'org.greenrobot:eventbus:3.1.1'
     //recycler view动画
     api 'com.github.wasabeef:recyclerview-animators:3.0.0'
     //green dao
