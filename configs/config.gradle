@@ -55,6 +55,10 @@ ext {
             lifecycle         : "android.arch.lifecycle:extensions:${roomVersion}",
             lifecycleAnno     : "android.arch.lifecycle:compiler: ${roomVersion}",
             //flowlayout,适合搜索标签
-            flowlayout        : 'com.hyman:flowlayout-lib:1.1.2'
+            flowlayout        : 'com.hyman:flowlayout-lib:1.1.2',
+            //友盟
+            umengAnalytics    : 'com.umeng.umsdk:analytics:8.0.0',
+            umengCommon       : 'com.umeng.umsdk:common:2.0.0',
+            umengUtdid        : 'com.umeng.umsdk:utdid:1.1.5.3'
     ]
 }

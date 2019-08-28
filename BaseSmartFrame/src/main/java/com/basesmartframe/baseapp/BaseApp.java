@@ -36,6 +36,7 @@ public class BaseApp extends MultiDexApplication {
                     ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                     NetworkInfo info = connectivityManager
                             .getActiveNetworkInfo();
+                    //TODO 以后改成EventBus
 //                    if (info != null && info.isAvailable()) {
 //                        String name = info.getTypeName();
 //                        SFBus.send(SFMsgId.NetworkMessage.NETWORK_AVAILABLE, new GlobalEvent.NetworkEvent(true, name));
@@ -75,9 +76,9 @@ public class BaseApp extends MultiDexApplication {
     }
 
     private void initUMengShare() {
-        PlatformConfig.setWeixin(ShareConstant.WEIXIN_APPID, ShareConstant.WEIXIN_SECRET_KEY);
-        PlatformConfig.setQQZone(ShareConstant.QQ_APPID, ShareConstant.QQ_SECRET_KEY);
-        PlatformConfig.setSinaWeibo(ShareConstant.SINA_APPID, ShareConstant.SINA_SECRET_KEY);
+//        PlatformConfig.setWeixin(ShareConstant.WEIXIN_APPID, ShareConstant.WEIXIN_SECRET_KEY);
+//        PlatformConfig.setQQZone(ShareConstant.QQ_APPID, ShareConstant.QQ_SECRET_KEY);
+//        PlatformConfig.setSinaWeibo(ShareConstant.SINA_APPID, ShareConstant.SINA_SECRET_KEY);
     }
 
     private void initGlobal() {

@@ -16,6 +16,8 @@ buildscript {
             mavenCentral()
             google()
         }
+        //友盟
+        maven { url 'https://dl.bintray.com/umsdk/release' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
@@ -48,6 +50,7 @@ allprojects {
             mavenCentral()
             google()
         }
+        maven { url 'https://dl.bintray.com/umsdk/release' }
         maven { url 'https://jitpack.io' }
     }
 }

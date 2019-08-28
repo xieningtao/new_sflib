@@ -25,6 +25,8 @@ uploadArchives {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 //    api 'com.umeng:fb:5.4.0'
+    api  lib.umengAnalytics
+    api  lib.umengCommon
     api lib.supportV4
     api project(':SFLog')
 }
