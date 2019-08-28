@@ -116,11 +116,8 @@
         <activity android:name=".ui.RoundBitmapActivity"></activity>
         <activity android:name=".ui.StackViewGroupActivity"></activity>
         <activity android:name=".ui.StackViewActivity"></activity>
-        <activity android:name=".home.ThirdLisLevelActivity"></activity>
 
         <!--idrecognise-->
-        <activity android:name="com.sf.thirdlib.IdRecognizeActivity"/>
-        <activity android:name="com.sf.thirdlib.ResultActivit"/>
         <activity android:name=".ui.AdbShellActivity"/>
         <activity
             android:name=".home.ActivitySelected"

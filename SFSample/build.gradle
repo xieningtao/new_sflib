@@ -60,7 +60,6 @@ dependencies {
     api project(':Emoji')
     api project(':SFChat')
     api project(':SFPay')
-    api project(':thirdlib')
     api project(':BaiduLib')
 
     //lifeCycle viewModel room

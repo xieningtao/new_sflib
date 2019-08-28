@@ -43,7 +43,6 @@ public class HomeLevelActivity extends BaseLevelActivity {
         activities.add( new Pair<String, Class>("ActivityBlur", ActivityBlur.class));
         activities.add( new Pair<String, Class>("IncreaseUpdate", IncreaseUpdateActivity.class));
         activities.add( new Pair<String, Class>("SDKLNewFeatureLevelActivity", SDKLNewFeatureLevelActivity.class));
-        activities.add( new Pair<String, Class>("ThirdLisLevelActivity", ThirdLisLevelActivity.class));
         return activities;
     }
 
