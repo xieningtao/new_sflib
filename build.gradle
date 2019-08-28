@@ -29,7 +29,7 @@ buildscript {
     }
 }
 ext {
-    lib_version = "2.1.0"
+    lib_version = "2.2.0"
     lib_group = "com.github.xieningtao.new_sflib"
     local_mavel = "file:///Users/mac/Downloads/gitMavenLib"
 }
