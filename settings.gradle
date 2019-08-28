@@ -1,4 +1,4 @@
-include ':CustomView', ':BaseSmartFrame', ':Emoji', ':SFChat', ':BaiduLib',  ':SFDBLib',  ':sharelib', ':SFHttp',
+include ':CustomView', ':BaseSmartFrame', ':Emoji', ':SFChat', ':BaiduLib',  ':sharelib', ':SFHttp',
         ':SFUtils',
         ':UMengLib', ":SFHttp",
         ':SFPay',  ":Emoji",  ":SFSample",":SFLog"

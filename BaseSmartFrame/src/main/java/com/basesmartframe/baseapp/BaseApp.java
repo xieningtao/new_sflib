@@ -60,25 +60,8 @@ public class BaseApp extends MultiDexApplication {
         ThreadHelp.initThread(this);
         registerNetworkReceiver();
         initImageLoader(this);
-        initUMengShare();
-        initBaidu();
-        initToast();
 //        CacheIndexManager.getInstance().init(this, mCacheFileName);
         NetWorkManagerUtil.init(this);
-    }
-
-    private void initBaidu() {
-
-    }
-
-    private void initToast() {
-        SFToast.configDefaultToast(this);
-    }
-
-    private void initUMengShare() {
-//        PlatformConfig.setWeixin(ShareConstant.WEIXIN_APPID, ShareConstant.WEIXIN_SECRET_KEY);
-//        PlatformConfig.setQQZone(ShareConstant.QQ_APPID, ShareConstant.QQ_SECRET_KEY);
-//        PlatformConfig.setSinaWeibo(ShareConstant.SINA_APPID, ShareConstant.SINA_SECRET_KEY);
     }
 
     private void initGlobal() {
