@@ -91,7 +91,15 @@ public class XUmengSocialShareAction implements XShareAction {
         public void setOnXShareListener(OnXShareListener onXShareListener) {
             this.mOnXShareListener = onXShareListener;
         }
-        @Override
+
+       @Override
+       public void onStart(SHARE_MEDIA share_media) {
+           if(mOnXShareListener != null){
+               mOnXShareListener.onStart(ShareMedia2ShareType(share_media));
+           }
+       }
+
+       @Override
         public void onResult(SHARE_MEDIA share_media) {
             if (mOnXShareListener != null) {
                 mOnXShareListener.onResult(ShareMedia2ShareType(share_media));

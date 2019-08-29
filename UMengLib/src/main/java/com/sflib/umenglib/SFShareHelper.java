@@ -16,6 +16,11 @@ public class SFShareHelper implements UMShareListener{
     }
 
     @Override
+    public void onStart(SHARE_MEDIA share_media) {
+
+    }
+
+    @Override
     public void onResult(SHARE_MEDIA share_media) {
 
     }

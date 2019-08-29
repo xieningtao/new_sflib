@@ -5,6 +5,7 @@ package com.sflib.umenglib.share.sharecore;
  */
 public interface OnXShareListener {
     void onResult(XShareType shareType);
+    void onStart(XShareType shareType);
     void onError(XShareType shareType,Throwable throwable);
     void onCancel(XShareType shareType);
 }

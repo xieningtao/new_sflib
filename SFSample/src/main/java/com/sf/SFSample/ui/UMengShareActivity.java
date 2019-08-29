@@ -12,6 +12,7 @@ import com.sflib.umenglib.share.XSocialShareView;
 import com.sf.SFSample.R;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.media.UMWeb;
 
 /**
  * Created by NetEase on 2016/6/21 0021.
@@ -29,10 +30,11 @@ public class UMengShareActivity extends BaseActivity {
                 View rootView = View.inflate(UMengShareActivity.this, R.layout.view_umeng_share, null);
                 XSocialShareView shareView = rootView.findViewById(R.id.share);
                 ShareAction shareAction = new ShareAction(UMengShareActivity.this);
-                shareAction.withText("share content test")
-                        .withTitle("share title test")
-                        .withExtra(new UMImage(UMengShareActivity.this, "http://img4.imgtn.bdimg.com/it/u=2989430555,1416378759&fm=21&gp=0.jpg"))
-                        .withTargetUrl("https://github.com/xieningtao/new_sflib");
+                UMWeb web = new UMWeb("https://github.com/xieningtao/new_sflib");
+                web.setTitle("share title test");
+                web.setDescription("share content test");
+                web.setThumb(new UMImage(UMengShareActivity.this, "http://img4.imgtn.bdimg.com/it/u=2989430555,1416378759&fm=21&gp=0.jpg"));
+                shareAction.withMedia(web);
                 shareView.setShareAction(shareAction);
                 shareView.setShareAdapter(new DefaultShareAdapter());
                 final Dialog dialog = DialogFactory.getNoFloatingDimDialog(UMengShareActivity.this, rootView);
