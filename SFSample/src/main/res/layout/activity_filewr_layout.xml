@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical"
+        tools:context=".utils.FileWRActivity">
+
+
+        <EditText
+            android:id="@+id/standard_et"
+            style="@style/filewr_edit_style" />
+
+        <Button
+            android:id="@+id/standard_bt"
+            style="@style/filewr_bt_style"
+            android:onClick="onClick"
+            android:text="标准IO流" />
+
+        <EditText
+            android:id="@+id/buffer_standard_et"
+            style="@style/filewr_edit_style"
+            android:layout_marginTop="10dp"
+            />
+
+        <Button
+            android:id="@+id/buffer_standard_bt"
+            style="@style/filewr_bt_style"
+            android:onClick="onClick"
+            android:text="带缓冲区的标准IO流" />
+
+
+        <EditText
+            android:id="@+id/nio_et"
+            style="@style/filewr_edit_style"
+            android:layout_marginTop="10dp" />
+
+        <Button
+            android:id="@+id/nio_bt"
+            style="@style/filewr_bt_style"
+            android:onClick="onClick"
+            android:text="NIO流" />
+
+        <EditText
+            android:id="@+id/mmap_et"
+            style="@style/filewr_edit_style"
+            android:layout_marginTop="10dp" />
+
+        <Button
+            android:id="@+id/mmap_bt"
+            style="@style/filewr_bt_style"
+            android:onClick="onClick"
+            android:text="内存映射" />
+    </LinearLayout>
+</ScrollView>

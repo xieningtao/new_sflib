@@ -54,7 +54,7 @@ public class SFFileCreationUtil {
             image.delete();
         }
         try {
-            file.createNewFile();
+            image.createNewFile();
         } catch (IOException e) {
             Log.e(TAG, "创建文件失败，reason: " + e.getMessage());
             return null;

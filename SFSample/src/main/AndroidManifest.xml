@@ -203,6 +203,7 @@
         <activity
             android:name=".ui.PaletteActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".utils.FileWRActivity" />
 
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->

@@ -17,6 +17,7 @@ import com.sf.SFSample.ui.CircleTest;
 import com.sf.SFSample.ui.DecencoderActivity;
 import com.sf.SFSample.ui.RoundDrawableActivity;
 import com.sf.SFSample.ui.UMengShareActivity;
+import com.sf.SFSample.utils.FileWRActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +44,7 @@ public class HomeLevelActivity extends BaseLevelActivity {
         activities.add( new Pair<String, Class>("ActivityBlur", ActivityBlur.class));
         activities.add( new Pair<String, Class>("IncreaseUpdate", IncreaseUpdateActivity.class));
         activities.add( new Pair<String, Class>("SDKLNewFeatureLevelActivity", SDKLNewFeatureLevelActivity.class));
+        activities.add( new Pair<String, Class>("FileWRActivity", FileWRActivity.class));
         return activities;
     }
 
