@@ -19,7 +19,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class FileWRActivity extends BaseActivity implements View.OnClickListener {
-    private final String content = "ABC我是";
+    private final String content = "ABC";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,16 +83,15 @@ public class FileWRActivity extends BaseActivity implements View.OnClickListener
                                 "file_mmp", ".txt");
                         try {
                             String filePath = file.getPath();
+//                           String filePath = "/storage/emulated/0/file_mmp/200304180422.txt";
                            long size = FileRWUtils.writeFileByMMap(filePath,content);
                             long duration = System.currentTimeMillis() - startTime;
                             L.info(TAG,String.format("mmap write size: %d,duration: %d",size,duration));
 //                            Thread.sleep(10000);
                             L.info(TAG,"read file");
 //                            String content = FileRWUtils.readFileByMMap(filePath);
-                            String content = FileRWUtils.readFileByNio(filePath);
+//                            String content = FileRWUtils.readFileByNio(filePath);
 
-                            String encodeCode = FileRWUtils.getCharset(filePath);
-                            L.info(TAG,"ecodeCode: "+encodeCode);
                         } catch (IOException e) {
                            L.exception(e);
                         }

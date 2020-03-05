@@ -50,7 +50,7 @@ import java.util.zip.ZipEntry;
 public class FileRWUtils {
     private static final String TAG = "FileRWUtils";
     //    private static int count = 500 * 1024;
-    private static int count = 5;
+    private static int count = 3;
 
     public interface WriteFileAbs {
         void writeToFile(String filePath, String content);
@@ -185,7 +185,7 @@ public class FileRWUtils {
         byte contentByte[] = new byte[1024];
         int curPos = 0;
         while ((curSize = wChannel.read(byteBufferRead)) != -1) {
-            Log.i(TAG,"readFileByNio curSize: "+curSize);
+            Log.i(TAG, "readFileByNio curSize: " + curSize);
             byteBufferRead.flip();//写到读取
             curPos = 0;
             while (byteBufferRead.hasRemaining()) {
@@ -204,7 +204,7 @@ public class FileRWUtils {
             }
             byteBufferRead.compact();
         }
-        Log.i(TAG,"readFileByNio curSize: "+curSize+" finalContent: "+finalContent);
+        Log.i(TAG, "readFileByNio curSize: " + curSize + " finalContent: " + finalContent);
         wChannel.close();
         return finalContent.toString();
     }
@@ -305,17 +305,46 @@ public class FileRWUtils {
 //        FileOutputStream fileOutputStream = new FileOutputStream(new File(filePath), true);
 //        FileChannel wChannel = fileOutputStream.getChannel();
         long startTime = System.currentTimeMillis();
-        long length = 1024*2;//2M
+        long length = file.length() == 0 ? 1024 * 2 : file.length();//2M
+        boolean alreadyHasContent = file.length() != 0;
         MappedByteBuffer buffer = wChannel.map(FileChannel.MapMode.READ_WRITE, 0, length);
         long duration = System.currentTimeMillis() - startTime;
         Log.i(TAG, "mmap time: " + duration);
-        long curSize = 0;
+
+        //先读取目前文件的长度，第一行的四个字节为文字的长度
+        int countPosition = (int) (length - 4);
+        byte lineBreak[] = System.lineSeparator().getBytes("utf-8");
+        int realSize = 0;
+        buffer.position(countPosition);
+        if (alreadyHasContent) {
+            realSize = buffer.getInt();
+            buffer.position(realSize);
+        }else {
+            buffer.putInt(0);
+            buffer.position(0);
+        }
+        Log.i(TAG, "realSize: " + realSize);
+
+        int curSize = realSize;
         for (int i = 0; i < count; i++) {
             byte curContent[] = content.getBytes("utf-8");
-            curSize += curContent.length;
+            curSize = curSize + curContent.length + lineBreak.length;
+            Log.i(TAG, "cur pos:" + buffer.position());
+
+            if(curSize >= countPosition){
+                Log.i(TAG,"it is full curSize: "+curSize);
+                break;
+            }
             buffer.put(curContent);
+            buffer.put(lineBreak);
+            //修改大小
+            buffer.position(countPosition);
+            buffer.putInt(curSize);
+            buffer.position(curSize);
         }
-        ZipEntry entry;
+
+        Log.i(TAG, "final realSize: " + curSize);
+
 //        buffer.force();
         unmap(buffer);
         wChannel.close();
