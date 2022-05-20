@@ -17,7 +17,7 @@
     <properties>
         <yymediacodec-version>1.0.5</yymediacodec-version>
         <yyprotosdk-version>2.95.12</yyprotosdk-version>
-        <goson_version>2.2.4</goson_version>
+        <goson_version>2.8.9</goson_version>
     </properties>
     <dependencies>
         <dependency>
